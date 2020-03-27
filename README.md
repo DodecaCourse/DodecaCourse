@@ -1,4 +1,5 @@
-# fett
+# FETT
+Functional Ear Training Tool
 
 ## Project setup
 ```
