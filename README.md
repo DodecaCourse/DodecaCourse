@@ -8,6 +8,7 @@ git submodule update --init
 npm install
 ```
 
+Die Soundfonts werden über von https://github.com/gleitz/midi-js-soundfonts direkt hinzu geladen
 ### Compiles and hot-reloads for development
 ```
 npm run serve
