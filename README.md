@@ -3,6 +3,8 @@ Functional Ear Training Tool
 
 ## Project setup
 ```
+git clone ...
+git submodule update --init 
 npm install
 ```
 
