@@ -27,7 +27,7 @@
           {
             id: 1,
             title: "Pitch",
-            completed: true
+            completed: false
           },
           {
             id: 2,
