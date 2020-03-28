@@ -5,7 +5,7 @@
       <b class="course-number">
         {{course.id+1}}
       </b>
-      <span>{{course.title}}</span>
+      <a :href="course.path"><span>{{course.title}}</span></a>
       <input type="checkbox" v-on:change="changeCheck"/>
     </p>
   </div>

@@ -3,6 +3,7 @@ import Home from './views/Home.vue'
 import App from './App.vue'
 import About from './views/About.vue'
 import VueRouter from "vue-router";
+import Internalization from "./views/Internalization";
 
 
 Vue.config.productionTip = false;
@@ -14,6 +15,7 @@ const router = new VueRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/about', component: About },
+    { path: '/internalization', component: Internalization}
   ]
 });
 

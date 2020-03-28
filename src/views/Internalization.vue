@@ -1,10 +1,15 @@
 <template>
-    <p>Internalization</p>
+    <div>
+        <h1>Internalization</h1>
+        <InternalizationPlayer></InternalizationPlayer>
+    </div>
 </template>
 
 <script>
+    import InternalizationPlayer from "../components/InternalizationPlayer";
     export default {
-        name: "Internalization"
+        name: "Internalization",
+        components: {InternalizationPlayer}
     }
 </script>
 
