@@ -1,9 +1,3 @@
 [submodule "public/MIDI.js"]
 	path = public/MIDI.js
 	url = https://github.com/mudcube/MIDI.js.git
-[submodule "src/MIDI.js"]
-	path = src/MIDI.js
-	url = https://github.com/mudcube/MIDI.js.git
-[submodule "public/midi-js-soundfonts"]
-	path = public/midi-js-soundfonts
-	url = https://github.com/gleitz/midi-js-soundfonts
