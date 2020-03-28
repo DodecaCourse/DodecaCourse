@@ -26,3 +26,10 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Knowledge base
+Use
+```
+/* global var_name */
+```
+to avoid `no-undef` errors in `eslint` (https://stackoverflow.com/questions/58579425/vue-npm-run-serve-eslint-global-variable-is-not-defined-within-a-component)
