@@ -1,19 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-  <noscript>
+    <title>FETT</title>
+    <!-- polyfill -->
+    <script src="/MIDI.js/inc/shim/Base64.js" type="text/javascript"></script>
+    <script src="/MIDI.js/inc/shim/Base64binary.js" type="text/javascript"></script>
+    <script src="/MIDI.js/inc/shim/WebAudioAPI.js" type="text/javascript"></script>
+    <!-- midi.js package -->
+    <script src="/MIDI.js/js/midi/audioDetect.js" type="text/javascript"></script>
+    <script src="/MIDI.js/js/midi/gm.js" type="text/javascript"></script>
+    <script src="/MIDI.js/js/midi/loader.js" type="text/javascript"></script>
+    <script src="/MIDI.js/js/midi/plugin.audiotag.js" type="text/javascript"></script>
+    <script src="/MIDI.js/js/midi/plugin.webaudio.js" type="text/javascript"></script>
+    <script src="/MIDI.js/js/midi/plugin.webmidi.js" type="text/javascript"></script>
+    <!-- utils -->
+    <script src="/MIDI.js/js/util/dom_request_xhr.js" type="text/javascript"></script>
+    <script src="/MIDI.js/js/util/dom_request_script.js" type="text/javascript"></script>
+    <!-- Google Font: RUBIK, sollen wir die benutzen? -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+</head>
+<body>
+<noscript>
     <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
-      Please enable it to continue.</strong>
-  </noscript>
-  <div id="app">
-  </div>
-  <!-- built files will be auto injected -->
-  </body>
+        Please enable it to continue.</strong>
+</noscript>
+<div id="app"></div>
+<script type="text/javascript">
+
+    window.onload = function () {
+        MIDI.loadPlugin({
+            soundfontUrl: "https://gleitz.github.io/midi-js-soundfonts/FluidR3_GM/",
+            instrument: "acoustic_grand_piano",
+            onprogress: function (state, progress) {
+                console.log(state, progress);
+            },
+            onsuccess: function () {
+                var delay = 0; // play one note every quarter second
+                var note = 66; // the MIDI note
+                var velocity = 127; // how hard the note hits
+                // play the note
+                MIDI.setVolume(0, 127);
+                MIDI.noteOn(0, note, velocity, delay);
+                MIDI.noteOff(0, note, delay + 0.75);
+                MIDI.noteOn(0, note + 7, velocity, delay + 0.75);
+                MIDI.noteOff(0, note + 7, delay + 2 * 0.75);
+            }
+        });
+    };
+
+</script>
+</body>
 </html>

@@ -1,55 +1,30 @@
 <template>
-  <div id="app">
-    <Header/>
-    <Courses v-bind:courses="courses"/>
-  </div>
+    <div id="app">
+        <Header />
+        <router-view/>
+    </div>
 </template>
 
 <script>
-  // Imports
-  import Courses from "./components/Courses";
-  import Header from "./components/Header";
+import Header from "./components/Header";
 
-  export default {
-    name: 'Eartrainer',
+export default {
+    name: "App",
     components: {
-      Courses,
-      Header
-    },
-    data: function () {
-      return {
-        courses: [
-          {
-            id: 0,
-            title: "Chords",
-            completed: false
-          },
-          {
-            id: 1,
-            title: "Pitch",
-            completed: false
-          },
-          {
-            id: 2,
-            title: "Tempo",
-            completed: false
-          }
-
-        ]
-      }
+        Header
     }
-  }
+}
 </script>
 
 <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.4;
-  }
+    body {
+        font-family: 'Rubik', sans-serif;
+        line-height: 1.4;
+    }
 </style>

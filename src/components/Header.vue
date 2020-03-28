@@ -1,8 +1,13 @@
 <template>
     <header class="header">
+        <img src="../assets/fett.png" alt="FETT" width="80px">
         <h1><b>FETT</b></h1>
-        <i><u>F</u>unctional <u>E</u>ar <u>T</u>raining <u>T</u>ool</i>
-        <h2><u>Courses</u></h2>
+        <u>F</u>unctional <u>E</u>ar <u>T</u>raining <u>T</u>ool
+
+        <div id="nav">
+            <router-link to="/">Courses</router-link>  |
+            <router-link to="/about">About</router-link>
+        </div>
     </header>
 </template>
 
@@ -22,6 +27,7 @@
 
     .header a {
         color: #FFFFFF;
-        padding-right: 5px;
+        padding-right: 2px;
+        text-decoration: none;
     }
 </style>
