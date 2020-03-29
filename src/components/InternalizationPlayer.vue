@@ -4,8 +4,8 @@
           <i v-bind:class="{'fas fa-play':!this.playing, 'fas fa-pause': this.playing}"></i> {{progression}}
           <i>Status: {{status}}</i>
         </p>
-        <label>
-            <select v-model="degree">
+        <label v-if="fixedDegree === undefined">
+            <select v-model="chosenDegree">
                 <option v-for="o in degreesAvailable" v-bind:value="o.value" v-bind:key="o.key">
                     {{ o.text }}
                 </option>
@@ -20,6 +20,7 @@
 
     export default {
         name: "InternalizationPlayer",
+        props: ['fixedDegree'],
         data: function() {
             return {
                 playing: false,
@@ -35,12 +36,15 @@
                     {text: 'Second', value: '2M', key: 1},
                     {text: 'Major Third', value: '3M', key: 2},
                 ],
-                degree: "1P",
+                chosenDegree: "1P",
                 played: [],
             };
         },
         computed: {
-            duration: function () { return 60 / this.tempoBPM }
+            duration: function () { return 60 / this.tempoBPM },
+            degree: function () {
+                return this.fixedDegree !== undefined ? this.fixedDegree : this.chosenDegree;
+            }
         },
         watch: {
             playing: function (val) {
@@ -134,7 +138,7 @@
                 try {
                     MIDI.stopAllNotes();
                 } catch (e) {
-                    console.log('MIDI.stopAllNotes failes:', e);
+                    console.log('MIDI.stopAllNotes failed:', e);
                 }
             },
             noteOn: function(channel, note, velocity, delay) {
