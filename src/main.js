@@ -4,6 +4,7 @@ import App from './App.vue'
 import About from './views/About.vue'
 import VueRouter from "vue-router";
 import Internalization from "./views/Internalization";
+import TonicInternalization from "./views/TonicInternalization";
 
 
 Vue.config.productionTip = false;
@@ -15,7 +16,8 @@ const router = new VueRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/about', component: About },
-    { path: '/internalization', component: Internalization}
+    { path: '/internalization', component: Internalization},
+    { path: '/tonicinternalization', component: TonicInternalization}
   ]
 });
 

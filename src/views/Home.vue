@@ -18,15 +18,15 @@
         courses: [
           {
             id: 0,
-            title: "Internalization",
+            title: "1: Recognising the Tonic",
             completed: false,
-            path: "/internalization"
+            path: "/tonicinternalization"
           },
           {
             id: 1,
             title: "Individual notes",
             completed: false,
-            path: "/notes"
+            path: "/internalization"
           },
           {
             id: 2,
