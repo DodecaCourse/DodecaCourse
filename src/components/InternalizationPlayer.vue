@@ -124,14 +124,18 @@
                 if (this.playing) this.playRound();
             },
             stopAllNotes: function () {
-                MIDI.stopAllNotes();
                 for (let i=0; i<this.played.length;i++) {
                     let source = this.played[i];
-                    if (source !== undefined) {
+                    if (source !== undefined && source) {
                         source.stop();
                     }
                 }
                 this.played = [];
+                try {
+                    MIDI.stopAllNotes();
+                } catch (e) {
+                    console.log('MIDI.stopAllNotes failes:', e);
+                }
             },
             noteOn: function(channel, note, velocity, delay) {
                 MIDI.noteOn(channel, note, velocity, delay);
