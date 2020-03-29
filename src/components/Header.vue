@@ -30,4 +30,10 @@
         padding-right: 2px;
         text-decoration: none;
     }
+
+    .header * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 </style>

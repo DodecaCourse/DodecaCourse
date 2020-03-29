@@ -17,16 +17,18 @@ export default {
 </script>
 
 <style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
 
     body {
         font-family: 'Rubik', sans-serif;
         line-height: 1.4;
+        margin: 0;
+        padding: 0;
     }
+
+    div.content {
+        margin: 5%;
+    }
+
     .noselect {
       -webkit-touch-callout: none; /* iOS Safari */
         -webkit-user-select: none; /* Safari */
