@@ -36,6 +36,7 @@
                     {text: 'Major Third', value: '3M', key: 2},
                 ],
                 degree: "1P",
+                played: [],
             };
         },
         computed: {
@@ -46,11 +47,8 @@
                 if (val) {
                     this.playRound();
                 } else {
-                    console.log("muting not working, stops after round completed");
-                    MIDI.Player.stop();
-                    MIDI.stopAllNotes();
-                    MIDI.setVolume(0, 0);
-                    clearTimeout(this.timeoutRef)
+                    clearTimeout(this.timeoutRef);
+                    this.stopAllNotes();
                 }
             }
         },
@@ -70,15 +68,15 @@
                         // play the note
                         MIDI.setVolume(0, 127);
                         if(this.playing){
-                          MIDI.noteOn(0, note, velocity, delay);
-                          MIDI.noteOff(0, note, delay + duration);
+                          this.noteOn(0, note, velocity, delay);
+                          this.played.push(this.noteOff(0, note, delay + duration));
                         }
 
                         if (i === 0) {
                             MIDI.setVolume(0, 127);
                             if(this.playing){
-                              MIDI.noteOn(0, note-12, velocity, delay);
-                              MIDI.noteOff(0, note-12, delay + duration);
+                              this.noteOn(0, note-12, velocity, delay);
+                              this.played.push(this.noteOff(0, note-12, delay + duration));
                             }
                         }
                         if (delay + duration > dur) dur = delay + duration;
@@ -97,16 +95,16 @@
                 var velocity = 127; // how hard the note hits
                 MIDI.setVolume(0, 127);
                 if(this.playing){
-                  MIDI.noteOn(0, note, velocity, delay);
-                  MIDI.noteOff(0, note, delay + this.duration * 4);
+                  this.noteOn(0, note, velocity, delay);
+                  this.played.push(this.noteOff(0, note, delay + this.duration * 4));
                 }
                 if(this.playing){
-                  MIDI.noteOn(0, note-12, velocity, delay);
-                  MIDI.noteOff(0, note-12, delay + this.duration * 4);
+                  this.noteOn(0, note-12, velocity, delay);
+                  this.played.push(this.noteOff(0, note-12, delay + this.duration * 4));
                 }
                 if(this.playing){
-                  MIDI.noteOn(0, note+12, velocity, delay);
-                  MIDI.noteOff(0, note+12, delay + this.duration * 4);
+                  this.noteOn(0, note+12, velocity, delay);
+                  this.played.push(this.noteOff(0, note+12, delay + this.duration * 4));
                 }
                 return delay + this.duration * 4;
             },
@@ -122,8 +120,31 @@
                 this.timeoutRef = setTimeout(this.doRepeat, dur * 1000);
             },
             doRepeat: function() {
+                this.played = [];
                 if (this.playing) this.playRound();
             },
+            stopAllNotes: function () {
+                MIDI.stopAllNotes();
+                for (let i=0; i<this.played.length;i++) {
+                    let source = this.played[i];
+                    if (source !== undefined) {
+                        source.stop();
+                    }
+                }
+                this.played = [];
+            },
+            noteOn: function(channel, note, velocity, delay) {
+                MIDI.noteOn(channel, note, velocity, delay);
+            },
+            noteOff: function (channel, note, delay) {
+                this.played.push(MIDI.noteOff(channel, note, delay));
+            },
+            chordOn: function (channel, chord, velocity, delay) {
+                MIDI.chordOn(channel, chord, velocity, delay);
+            },
+            chordOff: function (channel, chord, delay) {
+                this.played.push(...Object.values(MIDI.chordOff(channel, chord, delay)));
+            }
         },
         created: function initAudio() {
             var self = this;
