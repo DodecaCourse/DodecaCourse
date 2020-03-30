@@ -3,7 +3,6 @@ import Home from './views/Home.vue'
 import App from './App.vue'
 import About from './views/About.vue'
 import VueRouter from "vue-router";
-import Vuetify from "vuetify";
 import Internalization from "./views/Internalization";
 import TonicInternalization from "./views/TonicInternalization";
 import vuetify from './plugins/vuetify';
