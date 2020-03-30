@@ -12,7 +12,7 @@ import vuetify from './plugins/vuetify';
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
-Vue.use(Vuetify);
+Vue.use(vuetify);
 
 const router = new VueRouter({
   mode: 'history',
