@@ -1,14 +1,15 @@
 <template>
-
-  <div class="content">
-    <h1>Internalization</h1>
-    <InternalizationPlayer />
+  <v-layout row wrap align-center justify-center>
+    <v-flex xs8 offset-md4>
+      <h1>Internalization</h1>
+      <InternalizationPlayer />
 
 
     <div v-bind:key="song.id" v-for="song in songs">
       <MidiPlayer v-bind:song="song" />
     </div>
-  </div>
+    </v-flex>
+  </v-layout>
 
 </template>
 

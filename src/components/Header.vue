@@ -18,22 +18,4 @@
 </script>
 
 <style scoped>
-    .header {
-        background: #333333;
-        color: white;
-        text-align: left;
-        padding: 10px;
-    }
-
-    .header a {
-        color: #FFFFFF;
-        padding-right: 2px;
-        text-decoration: none;
-    }
-
-    .header * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
 </style>
