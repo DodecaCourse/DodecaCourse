@@ -1,14 +1,13 @@
 <template>
 
-  <div class="course-item" v-bind:class="{'is-complete':course.completed}">
-    <p>
-      <b class="course-number">
-        {{course.id+1}}
-      </b>
-      <a :href="course.path"><span>{{course.title}}</span></a>
-      <input type="checkbox" v-on:change="changeCheck"/>
-    </p>
-  </div>
+  <v-list-item :to="course.path">
+    <v-list-item-action>
+      <v-icon>{{ course.completed ? "mdi-checkbox-marked-outline" : "mdi-checkbox-blank-outline"}}</v-icon>
+    </v-list-item-action>
+    <v-list-item-content>
+      <v-list-item-title>{{ course.id + 1}}. {{course.title}}</v-list-item-title>
+    </v-list-item-content>
+  </v-list-item>
 
 </template>
 

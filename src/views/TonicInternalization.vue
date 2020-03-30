@@ -2,8 +2,13 @@
     <div class="content m1">
         <h1>1: Recognising the Tonic</h1>
 
-        <h2>Overview</h2>
-
+        <v-tabs
+                fixed-tabs
+        >
+        <v-tab>Overview</v-tab>
+            <v-tab>Method</v-tab>
+            <v-tab>Test</v-tab>
+            <v-tab-item>
         <p>In this module
             we’ll lay the foundation for fast, effective ear training. You’ll:</p>
         <ul>
@@ -14,6 +19,8 @@
             <li>begin training your ears by memorising the sound of the tonic so you
                 are able to identify it in music.</li>
         </ul>
+            </v-tab-item>
+            <v-tab-item>
         <h2>Method</h2>
         <ol>
             <li>
@@ -221,9 +228,10 @@
             difficult to transpose the notes you hear by an octave, you’ll find
             an exercise to work on it in the bonus module “How to Become a More
             Confident Singer”.</p>
-        <p><br/>
+            </v-tab-item>
 
-        </p>
+
+            <v-tab-item>
         <p>
             The tonic internalisation test gives you a way to easily tell when
             you have successfully internalised the sound of the tonic so you can
@@ -311,6 +319,8 @@
             exercise to solidify your ability to recognise the sound of the tonic
             and retry after a few more practice sessions. Make sure you check the
             troubleshooting section if you have any specific problems.</p>
+            </v-tab-item>
+        </v-tabs>
     </div>
 
 </template>
@@ -334,7 +344,7 @@
         padding: 10px;
     }
     .m1 img {
-        width: 100%;
+        max-width: 100%;
     }
 
 </style>
