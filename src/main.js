@@ -9,7 +9,9 @@ import vuetify from './plugins/vuetify';
 
 
 Vue.config.productionTip = false;
+
 Vue.use(VueRouter);
+Vue.use(Vuetify);
 
 const router = new VueRouter({
   mode: 'history',
