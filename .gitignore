@@ -2,6 +2,7 @@
 node_modules
 /dist
 /src/iwa
+/src/plugins
 # local env files
 .env.local
 .env.*.local

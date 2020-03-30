@@ -5,6 +5,7 @@ import About from './views/About.vue'
 import VueRouter from "vue-router";
 import Internalization from "./views/Internalization";
 import TonicInternalization from "./views/TonicInternalization";
+import vuetify from './plugins/vuetify';
 
 
 Vue.config.productionTip = false;
@@ -23,5 +24,6 @@ const router = new VueRouter({
 
 new Vue({
   router,
-  render: h => h(App),
+  vuetify,
+  render: h => h(App)
 }).$mount('#app');

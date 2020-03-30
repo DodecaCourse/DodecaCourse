@@ -8,7 +8,12 @@ git submodule update --init
 npm install
 ```
 
-Die Soundfonts werden über von https://github.com/gleitz/midi-js-soundfonts direkt hinzu geladen
+Installing Vue CLI
+https://cli.vuejs.org/guide/installation.html
+
+Installing Vuetify: https://vuetifyjs.com/en/getting-started/quick-start/
+
+Soundfonts: https://github.com/gleitz/midi-js-soundfonts
 ### Compiles and hot-reloads for development
 ```
 npm run serve
