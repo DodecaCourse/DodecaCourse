@@ -43,7 +43,7 @@
             <p><br/>
 
             </p>
-            <p><img src="/img/m2_c_major.png" alt="C major"/>
+            <p><v-img src="/img/m2_c_major.png" alt="C major" max-height="18ch" contain/>
             </p>
             <p>C Major Scale with
                 Scale Degrees</p>
@@ -52,7 +52,7 @@
                 1, the new tonic would be. You can see scale degrees applied to the F
                 major scale below where F is now scale degree 1 and C has become the
                 fifth scale degree.</p>
-            <p><img src="/img/m2_f_major.png" alt="F major"/>
+            <p><v-img src="/img/m2_f_major.png" alt="F major" max-height="18ch" contain/>
             </p>
             <p>F Major Scale with
                 Scale Degrees</p>
@@ -103,7 +103,7 @@
             <p>You can see the
                 first 10 bars from the internalisation exercise for the second scale
                 degree below.</p>
-            <p><img src="/img/m2_10bars.png" alt="10 Bars"/>
+            <p><v-img src="/img/m2_10bars.png" alt="10 Bars" max-height="18ch" contain/>
             </p>
             <p>
                 The approach to the individual note exercises is the same as it was

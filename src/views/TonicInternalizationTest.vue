@@ -11,7 +11,7 @@
                     internalisation exercise, the tonic internalisation test is made up
                     of a sequence that is repeated throughout the exercise. This time
                     it's an 8 bar sequence:</p>
-                <p><v-img src="/img/m1_test8barsequence.png" alt="Test 8 bar sequence"/>
+                <p><v-img src="/img/m1_test8barsequence.png" alt="Test 8 bar sequence" max-height="18ch" contain/>
                 </p>
                 <p>The first 8 bars
                     of the tonic internalisation test</p>
@@ -38,7 +38,7 @@
                     each time: the fourth scale degree of the old key is the tonic of the
                     new one. The diagram below shows the first 24 bars of the tonic
                     internalisation test:</p>
-                <p><v-img src="/img/m1_test24barsequence.png" alt="Test 24 bar sequence"/>
+                <p><v-img src="/img/m1_test24barsequence.png" alt="Test 24 bar sequence" max-height="54ch" contain/>
                 </p>
                 <p>The first 24 bars
                     of the tonic internalisation test</p>

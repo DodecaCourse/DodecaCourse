@@ -14,7 +14,6 @@
                       single-line
                       style="max-width: 150px;"
                       dense
-
             />
         <v-progress-circular class="my-progress-circular ml-2" :value="progress"
                              :color="loaded ? 'primary': 'red'"/>
