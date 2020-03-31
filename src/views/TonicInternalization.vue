@@ -1,14 +1,14 @@
 <template>
-    <v-layout row wrap align-center justify-center>
-        <v-flex xs8 offset-md4>
+    <v-layout row align-center justify-center >
+        <v-flex xs10>
             <h1>1: Recognising the Tonic</h1>
-
-            <v-tabs
+            <v-tabs grow
             >
                 <v-tab>Overview</v-tab>
                 <v-tab>Method</v-tab>
                 <v-tab>Test</v-tab>
                 <v-tab-item>
+                    <v-card-text>
                     <p>In this module
                         we’ll lay the foundation for fast, effective ear training. You’ll:</p>
                     <ul>
@@ -21,9 +21,13 @@
                             are able to identify it in music.
                         </li>
                     </ul>
+                    </v-card-text>
                 </v-tab-item>
                 <v-tab-item>
-                    <h2>Method</h2>
+                    <v-banner elevation="2" sticky app>
+                        <InternalizationPlayer fixed-degree="1P"/>
+                    </v-banner>
+                    <v-card-text>
                     <ol>
                         <li>
                             Read through the lesson on the tonic to find out what the tonic is
@@ -87,7 +91,7 @@
                         shows this 10 bar sequence, taken from the tonic internalisation
                         exercise.</p>
                     <p>
-                        <img src="/img/m1_10barsequence.png" alt="10 bar sequence"/>
+                        <v-img src="/img/m1_10barsequence.png" alt="10 bar sequence"/>
                     </p>
                     <p>10 Bar Sequence
                         from Tonic Internalisation Exercise</p>
@@ -123,7 +127,7 @@
                         key is outlined, this time F major. Every 10 bars, the key moves up
                         by a perfect 4th (the 4th scale degree of the old key becomes the
                         tonic of the new key.)</p>
-                    <p><img src="/img/m1_30barsequence.png" alt="30 bar sequence"/>
+                    <p><v-img src="/img/m1_30barsequence.png" alt="30 bar sequence"/>
                     </p>
                     <p>First
                         30 Bars of Tonic Internalisation Exercise</p>
@@ -184,8 +188,6 @@
                         </li>
                     </ol>
 
-                    <InternalizationPlayer fixed-degree="1P"/>
-
                     <p><br/>
 
                     <h4>
@@ -230,10 +232,12 @@
                         difficult to transpose the notes you hear by an octave, you’ll find
                         an exercise to work on it in the bonus module “How to Become a More
                         Confident Singer”.</p>
+                    </v-card-text>
                 </v-tab-item>
 
 
                 <v-tab-item>
+                    <v-card-text>
                     <p>
                         The tonic internalisation test gives you a way to easily tell when
                         you have successfully internalised the sound of the tonic so you can
@@ -242,7 +246,7 @@
                         internalisation exercise, the tonic internalisation test is made up
                         of a sequence that is repeated throughout the exercise. This time
                         it's an 8 bar sequence:</p>
-                    <p><img src="/img/m1_test8barsequence.png" alt="Test 8 bar sequence"/>
+                    <p><v-img src="/img/m1_test8barsequence.png" alt="Test 8 bar sequence"/>
                     </p>
                     <p>The first 8 bars
                         of the tonic internalisation test</p>
@@ -269,7 +273,7 @@
                         each time: the fourth scale degree of the old key is the tonic of the
                         new one. The diagram below shows the first 24 bars of the tonic
                         internalisation test:</p>
-                    <p><img src="/img/m1_test24barsequence.png" alt="Test 24 bar sequence"/>
+                    <p><v-img src="/img/m1_test24barsequence.png" alt="Test 24 bar sequence"/>
                     </p>
                     <p>The first 24 bars
                         of the tonic internalisation test</p>
@@ -321,8 +325,24 @@
                         exercise to solidify your ability to recognise the sound of the tonic
                         and retry after a few more practice sessions. Make sure you check the
                         troubleshooting section if you have any specific problems.</p>
+                    </v-card-text>
                 </v-tab-item>
             </v-tabs>
+            <v-fab-transition>
+                <v-btn
+                        v-show="!hidden"
+                        color="primary"
+                        dark
+                        absolute
+                        bottom
+                        right
+                        fab
+                        app
+                        @click="$vuetify.goTo(0)"
+                >
+                    <v-icon>mdi-arrow-up</v-icon>
+                </v-btn>
+            </v-fab-transition>
         </v-flex>
     </v-layout>
 </template>
@@ -341,5 +361,12 @@
 </script>
 
 <style scoped>
-    img { width: 100%}
+    .fixed {
+        position: absolute;
+        top: 1em;
+        bottom: 1em;
+        left: 1em;
+        right: 1em;
+        background: blue;
+    }
 </style>
