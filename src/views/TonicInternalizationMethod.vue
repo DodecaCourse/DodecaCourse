@@ -68,9 +68,7 @@
                 <p>The diagram below
                     shows this 10 bar sequence, taken from the tonic internalisation
                     exercise.</p>
-                <p>
-                    <v-img src="/img/m1_10barsequence.png" alt="10 bar sequence" max-height="18ch" contain/>
-                </p>
+                    <v-img src="/img/m1_10barsequence.png" alt="10 bar sequence" max-height="18ch" max-width="90vw" contain/>
                 <p>10 Bar Sequence
                     from Tonic Internalisation Exercise</p>
                 <p>
@@ -105,8 +103,7 @@
                     key is outlined, this time F major. Every 10 bars, the key moves up
                     by a perfect 4th (the 4th scale degree of the old key becomes the
                     tonic of the new key.)</p>
-                <p><v-img src="/img/m1_30barsequence.png" alt="30 bar sequence" max-height="54ch" contain/>
-                </p>
+                <v-img src="/img/m1_30barsequence.png" alt="30 bar sequence" max-height="54ch" max-width="90vw" contain/>
                 <p>First
                     30 Bars of Tonic Internalisation Exercise</p>
                 <p>

@@ -15,7 +15,7 @@
             <p>You can see the
                 first 8 bars from the internalisation test for the second scale
                 degree below.</p>
-            <p><v-img src="/img/m2_8bars.png" alt="8 bars" max-height="18ch" contain/>
+            <p><v-img src="/img/m2_8bars.png" alt="8 bars" max-height="18ch" max-width="90vw" contain/>
             </p>
             <p>
                 In the internalisation tests in this module we'll add the additional
@@ -131,7 +131,7 @@
                 note in relation to it.</p>
             <p>Below you can see
                 the first 24 bars of a recognition exercise:</p>
-            <p><v-img src="/img/m2_24bars.png" alt="24 bars" max-height="54ch" contain/>
+            <p><v-img src="/img/m2_24bars.png" alt="24 bars" max-height="54ch" max-width="90vw" contain/>
             </p>
             <p><br/>
 

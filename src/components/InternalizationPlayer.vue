@@ -2,7 +2,7 @@
     <v-card
             class="d-inline-flex px-1 align-center justify-center" elevation="5" width="100%"
     >
-        <b class="mr-3">Play I-IV-V-I:</b>
+        <b class="mr-3 hidden-sm-and-down">Play I-IV-V-I:</b>
         <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
             <v-icon>{{ playing ? 'mdi-pause' : 'mdi-play' }}</v-icon>
         </v-btn>
