@@ -14,7 +14,8 @@
                       style="max-width: 150px;"
             />
         <i v-else>{{degreeName}}</i>
-        <v-progress-circular class="my-progress-circular ml-2" :value="progress" color="primary"/>
+        <v-progress-circular class="my-progress-circular ml-2" :value="progress"
+                             :color="loaded ? 'primary': 'red'"/>
     </v-card>
 </template>
 
@@ -200,16 +201,18 @@
                 onprogress: function (state, progress) {
                     self.status = "Loading..." + Math.floor(progress * 100) + "%";
                     console.log(state, progress);
+                    self.progress = progress * 100;
                 },
                 onsuccess: function () {
                     self.status = "Loaded";
+                    self.progress = 0;
                     self.loaded = true;
                 }
             });
         },
         destroyed: function stopAudio() {
             clearTimeout(this.timeoutRef);
-            MIDI.stopAllNotes();
+            this.stopAllNotes();
         }
     };
 
