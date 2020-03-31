@@ -9,6 +9,9 @@ import TonicInternalizationOverview from "./views/TonicInternalizationOverview";
 import TonicInternalizationMethod from "./views/TonicInternalizationMethod";
 import TonicInternalizationTest from "./views/TonicInternalizationTest";
 import NotFound from "./views/NotFound";
+import IndividualNotesOverview from "./views/IndividualNotesOverview";
+import IndividualNotesMethod from "./views/IndividualNotesMethod";
+import IndividualNotesTest from "./views/IndividualNotesTest";
 
 
 Vue.config.productionTip = false;
@@ -23,9 +26,12 @@ const router = new VueRouter({
     { path: '/', component: Home },
     { path: '/about', component: About },
     { path: '/internalization', component: TonicInternalization},
-    { path: '/tonicinternalization/overview', component: TonicInternalizationOverview},
-    { path: '/tonicinternalization/method', component: TonicInternalizationMethod},
-    { path: '/tonicinternalization/test', component: TonicInternalizationTest},
+    { path: '/tonic-internalization/overview', component: TonicInternalizationOverview},
+    { path: '/tonic-internalization/method', component: TonicInternalizationMethod},
+    { path: '/tonic-internalization/test', component: TonicInternalizationTest},
+    { path: '/individual-notes/overview', component: IndividualNotesOverview},
+    { path: '/individual-notes/method', component: IndividualNotesMethod},
+    { path: '/individual-notes/test', component: IndividualNotesTest},
     { path: '/*', component: NotFound}
   ]
 });

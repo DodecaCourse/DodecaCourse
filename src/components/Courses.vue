@@ -24,13 +24,13 @@
                         id: 0,
                         title: "Recognising the Tonic",
                         completed: false,
-                        path: "/tonicinternalization"
+                        path: "/tonic-internalization"
                     },
                     {
                         id: 1,
-                        title: "Individual notes",
+                        title: "Recognising Individual Notes",
                         completed: false,
-                        path: "/internalization"
+                        path: "/individual-notes"
                     },
                     {
                         id: 2,
