@@ -1,17 +1,21 @@
 <template>
-    <div>
-        <p class="play-button noselect" v-on:click="playing = !playing">
-          <i v-bind:class="{'fas fa-play':!this.playing, 'fas fa-pause': this.playing}"></i> {{progression}}
-          <i>Status: {{status}}</i>
-        </p>
-        <label v-if="fixedDegree === undefined">
-            <select v-model="chosenDegree">
-                <option v-for="o in degreesAvailable" v-bind:value="o.value" v-bind:key="o.key">
-                    {{ o.text }}
-                </option>
-            </select>
-        </label>
-    </div>
+    <v-card
+            class="d-inline-flex pa-1 align-center justify-center" elevation="0"
+    >
+        <b class="mr-3">Play I-IV-V-I:</b>
+        <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
+            <v-icon>{{ playing ? 'mdi-pause' : 'mdi-play' }}</v-icon>
+        </v-btn>
+            <v-select class="mx-1" v-if="fixedDegree === undefined"
+                      :items="degreesAvailable"
+                      v-model="chosenDegree"
+                      label="Degree"
+                      single-line
+                      style="max-width: 150px;"
+            />
+        <i v-else>{{degreeName}}</i>
+        <v-progress-circular class="my-progress-circular ml-2" :value="progress" color="primary"/>
+    </v-card>
 </template>
 
 <script>
@@ -25,16 +29,25 @@
             return {
                 playing: false,
                 status: 'Not loaded',
+                loaded: false,
                 tempoBPM: 80,
                 progression: ["CMaj7", "Dm7", "G7", "CMaj7"],
                 key: "",
                 sinceKeyChange: 0,
                 changeKeyEvery: 8,
                 timeoutRef: null,
+                progressRef: null,
+                progress: 0,
+                roundDuration: 0,
+                startTime: 0,
                 degreesAvailable: [
-                    {text: 'Tonic', value: '1P', key: 0},
-                    {text: 'Second', value: '2M', key: 1},
-                    {text: 'Major Third', value: '3M', key: 2},
+                    {text: 'Tonic', value: '1P'},
+                    {text: 'Second', value: '2M'},
+                    {text: 'Major Third', value: '3M'},
+                    {text: 'Fourth', value: '4P'},
+                    {text: 'Fifth', value: '5P'},
+                    {text: 'Major Sixth', value: '6M'},
+                    {text: 'Major Seventh', value: '7M'},
                 ],
                 chosenDegree: "1P",
                 played: [],
@@ -44,6 +57,14 @@
             duration: function () { return 60 / this.tempoBPM },
             degree: function () {
                 return this.fixedDegree !== undefined ? this.fixedDegree : this.chosenDegree;
+            },
+            degreeName: function () {
+                for (let i=0; i<this.degreesAvailable.length;i++) {
+                    if (this.degreesAvailable[i]['value'] === this.degree) {
+                        return this.degreesAvailable[i]['text']
+                    }
+                }
+                return 'None'
             }
         },
         watch: {
@@ -52,6 +73,7 @@
                     this.playRound();
                 } else {
                     clearTimeout(this.timeoutRef);
+
                     this.stopAllNotes();
                 }
             }
@@ -120,12 +142,24 @@
                 }
                 this.progression =  Progression.fromRomanNumerals(this.key, ["I", "IIm7", "V7", "I"]);
                 let posOff = this.playCadence(this.key, this.progression, 0, this.duration);
-                let dur = this.playDegree(this.key, this.degree, true, posOff);
-                this.timeoutRef = setTimeout(this.doRepeat, dur * 1000);
+                this.roundDuration = this.playDegree(this.key, this.degree, true, posOff);
+                this.startTime = new Date().getTime();
+                this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
+                this.updateProgress();
             },
             doRepeat: function() {
                 this.played = [];
                 if (this.playing) this.playRound();
+            },
+            updateProgress: function () {
+                if (this.playing) {
+                    const passed = new Date().getTime() - this.startTime;
+                    this.progress = passed / this.roundDuration / 10;
+                    console.log(this.progress);
+                    this.progressRef = setTimeout(this.updateProgress, 100);
+                } else {
+                    this.progress = 0;
+                }
             },
             stopAllNotes: function () {
                 for (let i=0; i<this.played.length;i++) {
@@ -152,6 +186,10 @@
             },
             chordOff: function (channel, chord, delay) {
                 this.played.push(...Object.values(MIDI.chordOff(channel, chord, delay)));
+            },
+            clearTimeouts: function () {
+                clearTimeout(this.timeoutRef);
+                clearTimeout(this.progressRef);
             }
         },
         created: function initAudio() {
@@ -165,6 +203,7 @@
                 },
                 onsuccess: function () {
                     self.status = "Loaded";
+                    self.loaded = true;
                 }
             });
         },
@@ -176,13 +215,7 @@
 
 </script>
 
-<style scoped>
-  .play-button {
-    background: #f4f4f4;
-    padding: 10px;
-    border-bottom: 1px #ccc dotted;
-    border-top: 1px #ccc dotted;
-    cursor: pointer;
-  }
-
+<style lang="sass">
+    .my-progress-circular .v-progress-circular__overlay
+        transition: all 0.1s ease-in-out
 </style>

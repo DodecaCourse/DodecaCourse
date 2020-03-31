@@ -3,6 +3,9 @@
         <v-flex xs10>
             <h1>2. Recognising Individual Notes</h1>
             <h2>Method</h2>
+            <v-banner id="player" elevation="2" sticky app>
+                <InternalizationPlayer />
+            </v-banner>
             <ol>
                 <li><p>
                     Read the lesson on scale degrees to learn about the system you’ll
@@ -149,8 +152,13 @@
 </template>
 
 <script>
+    import InternalizationPlayer from "../components/InternalizationPlayer";
+
     export default {
-        name: "IndividualNotesMethod"
+        name: "IndividualNotesMethod",
+        components: {
+            InternalizationPlayer
+        }
     }
 </script>
 
