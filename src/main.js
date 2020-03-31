@@ -3,9 +3,12 @@ import Home from './views/Home.vue'
 import App from './App.vue'
 import About from './views/About.vue'
 import VueRouter from "vue-router";
-import Internalization from "./views/Internalization";
 import TonicInternalization from "./views/TonicInternalization";
 import vuetify from './plugins/vuetify';
+import TonicInternalizationOverview from "./views/TonicInternalizationOverview";
+import TonicInternalizationMethod from "./views/TonicInternalizationMethod";
+import TonicInternalizationTest from "./views/TonicInternalizationTest";
+import NotFound from "./views/NotFound";
 
 
 Vue.config.productionTip = false;
@@ -19,8 +22,11 @@ const router = new VueRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/about', component: About },
-    { path: '/internalization', component: Internalization},
-    { path: '/tonicinternalization', component: TonicInternalization}
+    { path: '/internalization', component: TonicInternalization},
+    { path: '/tonicinternalization/overview', component: TonicInternalizationOverview},
+    { path: '/tonicinternalization/method', component: TonicInternalizationMethod},
+    { path: '/tonicinternalization/test', component: TonicInternalizationTest},
+    { path: '/*', component: NotFound}
   ]
 });
 

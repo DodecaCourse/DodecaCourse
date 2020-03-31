@@ -14,7 +14,7 @@
                         <v-list-item-title>Dashboard</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-                <Courses />
+                <Courses :cur-course="curCourse" />
             </v-list>
         </v-navigation-drawer>
 
@@ -47,6 +47,7 @@
         },
         data: () => ({
             drawer: null,
+            curCourse: 1,
         }),
         created () {
         },

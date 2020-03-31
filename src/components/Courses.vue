@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-bind:key="course.id" v-for="course in courses">
-            <CourseItem v-bind:course="course"/>
+            <CourseItem v-bind:course="course" :active="course.id === curCourse"/>
         </div>
     </div>
 </template>
@@ -15,6 +15,7 @@
         components: {
             CourseItem
         },
+        props: ['curCourse'],
 
         data: function () {
             return {

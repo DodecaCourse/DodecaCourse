@@ -1,6 +1,6 @@
 <template>
-  <v-layout row wrap align-center justify-center>
-    <v-flex xs8 offset-md4>
+  <v-layout row wrap align-center justify-center max-height="100px">
+    <v-flex xs10>
       <h1>Internalization</h1>
       <InternalizationPlayer />
 
