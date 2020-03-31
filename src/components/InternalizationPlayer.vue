@@ -1,19 +1,21 @@
 <template>
     <v-card
-            class="d-inline-flex pa-1 align-center justify-center" elevation="0"
+            class="d-inline-flex px-1 align-center justify-center" elevation="5" width="100%"
     >
         <b class="mr-3">Play I-IV-V-I:</b>
         <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
             <v-icon>{{ playing ? 'mdi-pause' : 'mdi-play' }}</v-icon>
         </v-btn>
-            <v-select class="mx-1" v-if="fixedDegree === undefined"
+            <v-select class="mx-1"
+                      :readonly="fixedDegree !== undefined"
                       :items="degreesAvailable"
                       v-model="chosenDegree"
                       label="Degree"
                       single-line
                       style="max-width: 150px;"
+                      dense
+
             />
-        <i v-else>{{degreeName}}</i>
         <v-progress-circular class="my-progress-circular ml-2" :value="progress"
                              :color="loaded ? 'primary': 'red'"/>
     </v-card>
@@ -221,4 +223,8 @@
 <style lang="sass">
     .my-progress-circular .v-progress-circular__overlay
         transition: all 0.1s ease-in-out
+
+    #player .v-banner__wrapper
+        padding-bottom: 0
+        padding-top: 0
 </style>

@@ -3,7 +3,7 @@
         <v-flex xs10>
             <h1>2. Recognising Individual Notes</h1>
             <h2>Method</h2>
-            <v-banner id="player" elevation="2" sticky app>
+            <v-banner id="player" elevation="0" sticky app>
                 <InternalizationPlayer />
             </v-banner>
             <ol>
@@ -161,7 +161,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>

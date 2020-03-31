@@ -3,7 +3,7 @@
         <v-flex xs10>
             <h1>1. Recognising the Tonic</h1>
             <h2>Method</h2>
-            <v-banner id="player" elevation="2" sticky app>
+            <v-banner id="player" elevation="0" sticky app>
                 <InternalizationPlayer fixed-degree="1P"/>
             </v-banner>
                 <ol>
@@ -226,7 +226,4 @@
 </script>
 
 <style>
-    #player .v-banner__text {
-        width: 100%;
-    }
 </style>
