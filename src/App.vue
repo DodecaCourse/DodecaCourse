@@ -53,3 +53,9 @@
         },
     }
 </script>
+
+<style>
+    .article {
+        max-width: 43em!important;
+    }
+</style>

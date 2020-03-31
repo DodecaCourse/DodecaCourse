@@ -1,6 +1,6 @@
 <template>
     <v-layout row align-center justify-center >
-        <v-flex xs10>
+        <v-flex xs10 class="article">
             <h1>1. Recognising the Tonic</h1>
             <h2>Test</h2>
                 <p>
