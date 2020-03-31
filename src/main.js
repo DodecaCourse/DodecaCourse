@@ -12,6 +12,9 @@ import NotFound from "./views/NotFound";
 import IndividualNotesOverview from "./views/IndividualNotesOverview";
 import IndividualNotesMethod from "./views/IndividualNotesMethod";
 import IndividualNotesTest from "./views/IndividualNotesTest";
+import RecognisingMelodiesOverview from "./views/RecognisingMelodiesOverview";
+import RecognisingMelodiesMethod from "./views/RecognisingMelodiesMethod";
+import RecognisingMelodiesTest from "./views/RecognisingMelodiesTest";
 
 
 Vue.config.productionTip = false;
@@ -32,6 +35,9 @@ const router = new VueRouter({
     { path: '/individual-notes/overview', component: IndividualNotesOverview},
     { path: '/individual-notes/method', component: IndividualNotesMethod},
     { path: '/individual-notes/test', component: IndividualNotesTest},
+    { path: '/recognising-melodies/overview', component: RecognisingMelodiesOverview},
+    { path: '/recognising-melodies/method', component: RecognisingMelodiesMethod},
+    { path: '/recognising-melodies/test', component: RecognisingMelodiesTest},
     { path: '/*', component: NotFound}
   ]
 });

@@ -34,9 +34,9 @@
                     },
                     {
                         id: 2,
-                        title: "Melodies",
+                        title: "Recognising Melodies",
                         completed: false,
-                        path: "/melodies"
+                        path: "/recognising-melodies"
                     },
                     {
                         id: 3,
