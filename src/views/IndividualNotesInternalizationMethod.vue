@@ -4,7 +4,7 @@
             <h1>2. Recognising Individual Notes</h1>
             <h2>Method</h2>
             <v-banner app elevation="0" id="player" sticky>
-                <InternalizationPlayer/>
+                <Teacher t-type="internalization"/>
             </v-banner>
             <ol>
                 <li><p>
@@ -157,12 +157,12 @@
 </template>
 
 <script>
-    import InternalizationPlayer from "../components/InternalizationPlayer";
+    import Teacher from "../components/Teacher";
 
     export default {
         name: "IndividualNotesMethod",
         components: {
-            InternalizationPlayer
+            Teacher
         }
     }
 </script>

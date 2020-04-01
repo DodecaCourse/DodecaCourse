@@ -3,7 +3,6 @@ import Home from './views/Home.vue'
 import App from './App.vue'
 import About from './views/About.vue'
 import VueRouter from "vue-router";
-import TonicInternalization from "./views/TonicInternalization";
 import vuetify from './plugins/vuetify';
 import TonicInternalizationOverview from "./views/TonicInternalizationOverview";
 import TonicInternalizationMethod from "./views/TonicInternalizationMethod";
@@ -17,11 +16,11 @@ import IndividualNotesRecognitionTest from "./views/IndividualNotesRecognitionTe
 import RecognisingMelodiesOverview from "./views/RecognisingMelodiesOverview";
 import RecognisingMelodiesMethod from "./views/RecognisingMelodiesMethod";
 import ServerTest from './views/backend/ServerTest'
+import TeacherPlayground from "./views/TeacherPlayground";
 
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
-Vue.use(vuetify);
 
 const router = new VueRouter({
   mode: 'history',
@@ -29,7 +28,7 @@ const router = new VueRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/about', component: About },
-    { path: '/internalization', component: TonicInternalization},
+    { path: '/teacher-playground', component: TeacherPlayground},
     { path: '/tonic-internalization/overview', component: TonicInternalizationOverview},
     { path: '/tonic-internalization/method', component: TonicInternalizationMethod},
     { path: '/tonic-internalization/test', component: TonicInternalizationTest},
