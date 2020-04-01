@@ -22,7 +22,7 @@
 
 <script>
     /* global MIDI */
-    import { Progression, Chord, Note, Midi, Scale } from "@tonaljs/tonal"
+    import { Note, Midi, Scale } from "@tonaljs/tonal"
 
     export default {
         name: "Teacher",
@@ -36,7 +36,7 @@
                 progression: ["CMaj7", "Dm7", "G7", "CMaj7"],
                 key: "",
                 sinceKeyChange: 0,
-                changeKeyEvery: 8,
+                changeKeyEvery: 1,
                 timeoutRef: null,
                 progressRef: null,
                 progress: 0,
@@ -53,6 +53,23 @@
                 ],
                 chosenDegree: "1P",
                 played: [],
+                cadences: {
+                    'major_authentic': [
+                        {
+                            progression: [[-12, 0, 4, 7], [-7, -3, 0, 5], [-5, -1, 2, 7], [-12, 0, 4, 7]],
+                            resting: [-12, 0, 4, 7]
+                        },
+                        {
+                            progression: [[-12, 4, 7, 12], [-7, 0, 5, 9], [-5, 2, 7, 11], [-12, 4, 7, 12]],
+                            resting: [-12, 4, 7, 12]
+                        },
+                        {
+                            progression: [[-12, -5, 0, 4], [-19, -3, 0, 5], [-17, -5, -1, 2], [-12, -5, 0, 4]],
+                            resting: [-12, -5, 0, 4]
+                        },
+                    ]
+                },
+                cadenceType: 'major_authentic',
             };
         },
         computed: {
@@ -81,70 +98,76 @@
             }
         },
         methods: {
-            playCadence: function (key, progr, posOff, duration) {
-                let dur = posOff;
-                for (let chordNum=0; chordNum < progr.length; chordNum++) {
-                    const chord = Chord.get(progr[chordNum]);
-                    const root = chord.tonic + '4';
-                    for (let i=0; i<chord.intervals.length; i++) {
-                        let note =  Midi.toMidi(Note.transpose(root, chord.intervals[i]));
-                        if (i >= 2 && chordNum > 1) {
-                            note -= 12;
-                        }
-                        var delay = posOff + chordNum * duration; // play one note every quarter second
-                        var velocity = 110; // how hard the note hits
-                        // play the note
-                        MIDI.setVolume(0, 127);
-                        if(this.playing){
-                          this.noteOn(0, note, velocity, delay);
-                          this.played.push(this.noteOff(0, note, delay + duration));
-                        }
-
-                        if (i === 0) {
-                            MIDI.setVolume(0, 127);
-                            if(this.playing){
-                              this.noteOn(0, note-12, velocity, delay);
-                              this.played.push(this.noteOff(0, note-12, delay + duration));
-                            }
-                        }
-                        if (delay + duration > dur) dur = delay + duration;
+            playCadence: function (key, cadenceType, posOff, duration) {
+                /* play *cadenceType* in *key* */
+                let dur = posOff; // total duration
+                const cadence = this.cadences[cadenceType][Math.floor(
+                    Math.random()*this.cadences[cadenceType].length)]; // select cadence randomly
+                for (let chordNum=0; chordNum < cadence.progression.length; chordNum++) {
+                    // play transposed cadence
+                    let delay = posOff + chordNum * duration; // play one note every quarter second
+                    const velocity = 110; // how hard the note hits
+                    const notes = this.transposeToKey(cadence.progression[chordNum], key, 4);
+                    // play the notes
+                    MIDI.setVolume(0, 127);
+                    if(this.playing){
+                      this.chordOn(0, notes, velocity, delay);
+                      this.chordOff(0, notes, delay + duration);
                     }
+                    if (delay + duration > dur) dur = delay + duration; // set total duration
                 }
-                return dur;
+                // return duration, cadence for cadence.resting chord
+                return [dur, cadence];
             },
-            playDegree: function (key, degree, withChord, posOff) {
-                const root = key + '4';
-                const note =  Midi.toMidi(Note.transpose(root, degree));
-                if (withChord) {
-                    this.playCadence(key, Progression.fromRomanNumerals(key, ["I"]), posOff,
-                        this.duration * 4)
-                }
-                var delay = posOff; // play one note every quarter second
-                var velocity = 127; // how hard the note hits
+            playResting: function (key, cadence, posOff, duration) {
+                /* Playing the transposed resting chord only */
+                let delay = posOff;
+                const velocity = 110; // how hard the note hits
+                // play the notes
+                const notes = this.transposeToKey(cadence.resting, key, 4);
                 MIDI.setVolume(0, 127);
                 if(this.playing){
-                  this.noteOn(0, note, velocity, delay);
-                  this.played.push(this.noteOff(0, note, delay + this.duration * 4));
+                    this.chordOn(0, notes, velocity, delay);
+                    this.chordOff(0, notes, delay + duration);
                 }
-                if(this.playing){
-                  this.noteOn(0, note-12, velocity, delay);
-                  this.played.push(this.noteOff(0, note-12, delay + this.duration * 4));
+                return delay + duration;
+            },
+            playDegree: function (key, degree, withResting, posOff, cadence) {
+                /* play degree, optionally with resting chord */
+                const root = key + '3';
+                const note =  Midi.toMidi(Note.transpose(root, degree));
+                if (withResting) {
+                    this.playResting(key, cadence, posOff, 4*this.duration);
                 }
-                if(this.playing){
-                  this.noteOn(0, note+12, velocity, delay);
-                  this.played.push(this.noteOff(0, note+12, delay + this.duration * 4));
+                const delay = posOff;
+                const velocity = 127; // how hard the note hits
+                MIDI.setVolume(0, 127);
+                if (this.playing) {
+                    for (let i=0; i<3; i++) {
+                        this.noteOn(0, note + i * 12, velocity, delay);
+                        this.noteOff(0, note + i * 12, delay + this.duration * 4);
+                    }
                 }
                 return delay + this.duration * 4;
             },
+            transposeToKey: function (notes, key, octaves) {
+                const keyOffset = Midi.toMidi(key + '0') + 12 * octaves;
+                let notesMod = notes.slice();
+                for (let i=0; i<notes.length; i++) {
+                    notesMod[i] = notesMod[i] + keyOffset;
+                }
+                return notesMod;
+            },
             playRound: function() {
-                const chrom = Scale.get("C chromatic").notes;
+                const chrom = Scale.get("C chromatic").notes; // get list of all twelve notes
                 if (this.key === "" || (++this.sinceKeyChange % this.changeKeyEvery) === 0) {
+                    // new random key
                     this.sinceKeyChange = 0;
                     this.key = chrom[Math.floor(Math.random()*chrom.length)];
                 }
-                this.progression =  Progression.fromRomanNumerals(this.key, ["I", "IIm7", "V7", "I"]);
-                let posOff = this.playCadence(this.key, this.progression, 0, this.duration);
-                this.roundDuration = this.playDegree(this.key, this.degree, true, posOff);
+                const [posOff, cadence] = this.playCadence(this.key, this.cadenceType, 0, this.duration);
+                this.roundDuration = this.playDegree(this.key, this.degree, true, posOff, cadence);
+
                 this.startTime = new Date().getTime();
                 this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
                 this.updateProgress();
@@ -157,7 +180,6 @@
                 if (this.playing) {
                     const passed = new Date().getTime() - this.startTime;
                     this.progress = passed / this.roundDuration / 10;
-                    console.log(this.progress);
                     this.progressRef = setTimeout(this.updateProgress, 100);
                 } else {
                     this.progress = 0;
