@@ -4,7 +4,7 @@
             <h1>1. Recognising the Tonic</h1>
             <h2>Method</h2>
             <v-banner app elevation="0" id="player" sticky>
-                <InternalizationPlayer fixed-degree="1P"/>
+                <Teacher fixed-degree="1P"/>
             </v-banner>
             <ol>
                 <li>
@@ -213,12 +213,12 @@
 </template>
 
 <script>
-    import InternalizationPlayer from "../components/InternalizationPlayer";
+    import Teacher from "../components/Teacher";
 
     export default {
         name: "TonicInternalizationMethod",
         components: {
-            InternalizationPlayer
+            Teacher
         }
     }
 </script>

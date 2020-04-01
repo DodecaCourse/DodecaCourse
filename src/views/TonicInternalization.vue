@@ -25,7 +25,7 @@
                 </v-tab-item>
                 <v-tab-item>
                     <v-banner elevation="2" sticky app>
-                        <InternalizationPlayer fixed-degree="1P"/>
+                        <Teacher fixed-degree="1P"/>
                     </v-banner>
                     <v-card-text>
                     <ol>
@@ -349,12 +349,12 @@
 
 <script>
 
-    import InternalizationPlayer from '../components/InternalizationPlayer'
+    import Teacher from '../components/Teacher'
 
     export default {
         name: 'TonicInternalization',
         components: {
-            InternalizationPlayer
+            Teacher
         }
     }
 

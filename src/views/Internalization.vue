@@ -2,7 +2,7 @@
   <v-layout row wrap align-center justify-center max-height="100px">
     <v-flex xs10 class="article">
       <h1>Internalization</h1>
-      <InternalizationPlayer />
+      <Teacher />
 
 
     <div v-bind:key="song.id" v-for="song in songs">
@@ -15,7 +15,7 @@
 
 <script>
 
-  import InternalizationPlayer from '../components/InternalizationPlayer'
+  import Teacher from '../components/Teacher'
   import MidiPlayer from '../components/MidiPlayer.vue'
 
   export default {
@@ -41,7 +41,7 @@
       }
     },
     components: {
-      InternalizationPlayer,
+      Teacher,
       MidiPlayer
     }
   }

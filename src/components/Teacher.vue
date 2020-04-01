@@ -25,7 +25,7 @@
     import { Progression, Chord, Note, Midi, Scale } from "@tonaljs/tonal"
 
     export default {
-        name: "InternalizationPlayer",
+        name: "Teacher",
         props: ['fixedDegree'],
         data: function() {
             return {
