@@ -191,7 +191,7 @@
                 else if (this.type === INTERNALIZATION_TEST) {
                     let [posOff, cadence] = this.playCadence(this.key, this.cadenceType, 0, this.duration);
                     posOff = this.playResting(this.key, cadence, posOff, this.duration * 4);
-                    posOff = this.rest(posOff, this.duration * 3);
+                    posOff = this.rest(posOff, this.duration * 3 * 4);
                     posOff = this.playDegree(this.key, this.degree, false, posOff, cadence);
                     this.roundDuration = posOff;
                 }
