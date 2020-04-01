@@ -80,7 +80,7 @@
             };
         },
         computed: {
-            duration: function () { return 60 / this.tempoBPM },
+            quarter: function () { return 60 / this.tempoBPM },
             degree: function () {
                 return this.fixedDegree !== undefined ? this.fixedDegree : this.chosenDegree;
             },
@@ -113,7 +113,7 @@
             }
         },
         methods: {
-            playCadence: function (key, cadenceType, posOff, duration) {
+            playCadence: function (key, cadenceType, posOff) {
                 /* play *cadenceType* in *key* */
                 const cadence = this.cadences[cadenceType][Math.floor(
                     Math.random()*this.cadences[cadenceType].length)]; // select cadence randomly
@@ -125,9 +125,9 @@
                     MIDI.setVolume(0, 127);
                     if(this.playing){
                       this.chordOn(0, notes, velocity, posOff);
-                      this.chordOff(0, notes, posOff + duration * cadence.chordLength[chordNum]);
+                      this.chordOff(0, notes, posOff + this.quarter * cadence.chordLength[chordNum]);
                     }
-                    posOff = posOff + duration * cadence.chordLength[chordNum];
+                    posOff = posOff + this.quarter * cadence.chordLength[chordNum];
                 }
                 // return duration, cadence for cadence.resting chord
                 return [posOff, cadence];
@@ -141,16 +141,16 @@
                 MIDI.setVolume(0, 127);
                 if(this.playing){
                     this.chordOn(0, notes, velocity, delay);
-                    this.chordOff(0, notes, delay + duration);
+                    this.chordOff(0, notes, delay + duration * this.quarter);
                 }
-                return delay + duration;
+                return delay + duration * this.quarter;
             },
             playDegree: function (key, degree, withResting, posOff, cadence) {
                 /* play degree, optionally with resting chord */
                 const root = key + '3';
                 const note =  Midi.toMidi(Note.transpose(root, degree));
                 if (withResting) {
-                    this.playResting(key, cadence, posOff, 4*this.duration);
+                    this.playResting(key, cadence, posOff, 4);
                 }
                 const delay = posOff;
                 const velocity = 127; // how hard the note hits
@@ -158,10 +158,10 @@
                 if (this.playing) {
                     for (let i=0; i<3; i++) {
                         this.noteOn(0, note + i * 12, velocity, delay);
-                        this.noteOff(0, note + i * 12, delay + this.duration * 4);
+                        this.noteOff(0, note + i * 12, delay + this.quarter * 4);
                     }
                 }
-                return delay + this.duration * 4;
+                return delay + this.quarter * 4;
             },
             transposeToKey: function (notes, key, octaves) {
                 const keyOffset = Midi.toMidi(key + '0') + 12 * octaves;
@@ -181,7 +181,7 @@
                     this.key = chrom[Math.floor(Math.random() * chrom.length)];
                 }
                 if (this.type === INTERNALIZATION) {
-                    let [posOff, cadence] = this.playCadence(this.key, this.cadenceType, 0, this.duration);
+                    let [posOff, cadence] = this.playCadence(this.key, this.cadenceType, 0);
                     for (let i=0;i<4;i++) {
                         posOff = this.playDegree(this.key, this.degree, true, posOff, cadence);
                         posOff = this.playDegree(this.key, this.degree, false, posOff, cadence);
@@ -189,9 +189,9 @@
                     this.roundDuration = posOff;
                 }
                 else if (this.type === INTERNALIZATION_TEST) {
-                    let [posOff, cadence] = this.playCadence(this.key, this.cadenceType, 0, this.duration);
-                    posOff = this.playResting(this.key, cadence, posOff, this.duration * 4);
-                    posOff = this.rest(posOff, this.duration * 3 * 4);
+                    let [posOff, cadence] = this.playCadence(this.key, this.cadenceType, 0);
+                    posOff = this.playResting(this.key, cadence, posOff, 4);
+                    posOff = this.rest(posOff, 3 * 4);
                     posOff = this.playDegree(this.key, this.degree, false, posOff, cadence);
                     this.roundDuration = posOff;
                 }
@@ -244,7 +244,7 @@
                 this.played.push(...Object.values(MIDI.chordOff(channel, chord, delay)));
             },
             rest: function (posOff, duration) {
-                return posOff + duration;
+                return posOff + duration * this.quarter;
             },
             clearTimeouts: function () {
                 clearTimeout(this.timeoutRef);
