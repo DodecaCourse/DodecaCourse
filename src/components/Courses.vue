@@ -98,15 +98,9 @@
                             },
                             {
                                 id: 1,
-                                title: 'Method',
+                                title: 'Recognition Exercises',
                                 completed: false,
-                                path: '/method'
-                            },
-                            {
-                                id: 2,
-                                title: 'Test',
-                                completed: false,
-                                path: '/test'
+                                path: '/recognition-exercises'
                             }
                         ]
                     },

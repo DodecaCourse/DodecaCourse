@@ -2,7 +2,7 @@
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
             <h1>3. Recognising Melodies</h1>
-            <h2>Method</h2>
+            <h2>2 Note Melody Recognition Exercises</h2>
             <p>
                 These exercises are just like the internalisation exercise from the
                 first module. The 2 note melody recognition exercises are just like
@@ -37,25 +37,25 @@
                 approach for the individual note recognition exercises from the
                 previous module:</p>
             <ol>
-                <li><p>Listen to the
-                    I - IV - V Progression: Simply listening to the I - IV - V
+                <li><p><b>Listen to the
+                    I - IV - V Progression:</b> Simply listening to the I - IV - V
                     progression will make it clear to your ear which note is the tonic
                     (even if you can't identify which note it is yet). So just sit back
                     and listen.</p></li>
-                <li><p>Listen to the
-                    2 note melody played after the I - IV - V Progression: Listen to the
+                <li><p><b>Listen to the
+                    2 note melody played after the I - IV - V Progression:</b> Listen to the
                     2 notes and listen for the way that they each sound and resonate in
                     relation to the tonic chord/pedal.</p></li>
-                <li><p>[OPTIONAL]Sing
-                    the notes: singing the notes helps to hear the way that they relate
+                <li><p><b>[OPTIONAL] Sing
+                    the notes:</b> singing the notes helps to hear the way that they relate
                     to the tonic and often helps to make them easier to identify. Sing
                     and hold each note for a little longer than you hear them if
                     necessary.</p></li>
-                <li><p>Try to
-                    recognise the note's scale degree: if you think you've identified
+                <li><p><b>Try to
+                    recognise the note's scale degree:</b> if you think you've identified
                     the note's scale degree, say it out loud.</p></li>
-                <li><p>Check that
-                    you've identified it correctly: when the name of the scale degree is
+                <li><p><b>Check that
+                    you've identified it correctly:</b> when the name of the scale degree is
                     said you can check to see that you identified it correctly.</p></li>
             </ol>
             <p>Repeat

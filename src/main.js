@@ -16,7 +16,6 @@ import IndividualNotesRecognitionMethod from "./views/IndividualNotesRecognition
 import IndividualNotesRecognitionTest from "./views/IndividualNotesRecognitionTest";
 import RecognisingMelodiesOverview from "./views/RecognisingMelodiesOverview";
 import RecognisingMelodiesMethod from "./views/RecognisingMelodiesMethod";
-import RecognisingMelodiesTest from "./views/RecognisingMelodiesTest";
 
 
 Vue.config.productionTip = false;
@@ -40,8 +39,7 @@ const router = new VueRouter({
     { path: '/individual-notes/recognition-method', component: IndividualNotesRecognitionMethod},
     { path: '/individual-notes/recognition-test', component: IndividualNotesRecognitionTest},
     { path: '/recognising-melodies/overview', component: RecognisingMelodiesOverview},
-    { path: '/recognising-melodies/method', component: RecognisingMelodiesMethod},
-    { path: '/recognising-melodies/test', component: RecognisingMelodiesTest},
+    { path: '/recognising-melodies/recognition-exercises', component: RecognisingMelodiesMethod},
     { path: '/*', component: NotFound}
   ]
 });
