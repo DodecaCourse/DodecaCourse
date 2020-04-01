@@ -37,7 +37,6 @@
                 status: 'Not loaded',
                 loaded: false,
                 tempoBPM: 150,
-                progression: ["CMaj7", "Dm7", "G7", "CMaj7"],
                 key: "",
                 sinceKeyChange: 0,
                 changeKeyEvery: 1,
