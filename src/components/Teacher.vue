@@ -24,6 +24,10 @@
     /* global MIDI */
     import { Note, Midi, Scale } from "@tonaljs/tonal"
 
+    const ROUND_INTERNALIZATION = 0;
+    const ROUND_RECOGNITION = 1;
+
+
     export default {
         name: "Teacher",
         props: ['fixedDegree','mode'],
@@ -32,14 +36,14 @@
                 playing: false,
                 status: 'Not loaded',
                 loaded: false,
-                tempoBPM: 80,
-                progression: ["CMaj7", "Dm7", "G7", "CMaj7"],
+                tempoBPM: 150,
                 key: "",
                 sinceKeyChange: 0,
                 changeKeyEvery: 1,
                 timeoutRef: null,
                 progressRef: null,
                 progress: 0,
+                roundType: ROUND_INTERNALIZATION,
                 roundDuration: 0,
                 startTime: 0,
                 degreesAvailable: [
@@ -56,15 +60,18 @@
                 cadences: {
                     'major_authentic': [
                         {
-                            progression: [[-12, 0, 4, 7], [-7, -3, 0, 5], [-5, -1, 2, 7], [-12, 0, 4, 7]],
+                            progression: [[-12, 0, 4, 7], [-7, -3, 0, 5], [-5, -1, 2, 7]],
+                            chordLength: [4, 2, 2],
                             resting: [-12, 0, 4, 7]
                         },
                         {
-                            progression: [[-12, 4, 7, 12], [-7, 0, 5, 9], [-5, 2, 7, 11], [-12, 4, 7, 12]],
+                            progression: [[-12, 4, 7, 12], [-7, 0, 5, 9], [-5, 2, 7, 11]],
+                            chordLength: [4, 2, 2],
                             resting: [-12, 4, 7, 12]
                         },
                         {
-                            progression: [[-12, -5, 0, 4], [-19, -3, 0, 5], [-17, -5, -1, 2], [-12, -5, 0, 4]],
+                            progression: [[-12, -5, 0, 4], [-19, -3, 0, 5], [-17, -5, -1, 2]],
+                            chordLength: [4, 2, 2],
                             resting: [-12, -5, 0, 4]
                         },
                     ]
@@ -100,24 +107,22 @@
         methods: {
             playCadence: function (key, cadenceType, posOff, duration) {
                 /* play *cadenceType* in *key* */
-                let dur = posOff; // total duration
                 const cadence = this.cadences[cadenceType][Math.floor(
                     Math.random()*this.cadences[cadenceType].length)]; // select cadence randomly
                 for (let chordNum=0; chordNum < cadence.progression.length; chordNum++) {
                     // play transposed cadence
-                    let delay = posOff + chordNum * duration; // play one note every quarter second
-                    const velocity = 110; // how hard the note hits
+                    const velocity = 127; // how hard the note hits
                     const notes = this.transposeToKey(cadence.progression[chordNum], key, 4);
                     // play the notes
                     MIDI.setVolume(0, 127);
                     if(this.playing){
-                      this.chordOn(0, notes, velocity, delay);
-                      this.chordOff(0, notes, delay + duration);
+                      this.chordOn(0, notes, velocity, posOff);
+                      this.chordOff(0, notes, posOff + duration * cadence.chordLength[chordNum]);
                     }
-                    if (delay + duration > dur) dur = delay + duration; // set total duration
+                    posOff = posOff + duration * cadence.chordLength[chordNum];
                 }
                 // return duration, cadence for cadence.resting chord
-                return [dur, cadence];
+                return [posOff, cadence];
             },
             playResting: function (key, cadence, posOff, duration) {
                 /* Playing the transposed resting chord only */
@@ -168,14 +173,16 @@
                     this.key = chrom[Math.floor(Math.random() * chrom.length)];
                 }
 
-                // establish a tonic
-                const [posOff, cadence] = this.playCadence(this.key, this.cadenceType, 0, this.duration);
-
-                if (this.mode === 'internalize') {
-                    this.roundDuration = this.playDegree(this.key, this.degree, true, posOff, cadence);
-
-                } else if (this.mode === 'test') {
-                    this.roundDuration = this.playDegree(this.key, this.degree, false, posOff, cadence);
+                if (this.roundType === ROUND_INTERNALIZATION) {
+                    let [posOff, cadence] = this.playCadence(this.key, this.cadenceType, 0, this.duration);
+                    for (let i=0;i<4;i++) {
+                        posOff = this.playDegree(this.key, this.degree, true, posOff, cadence);
+                        posOff = this.playDegree(this.key, this.degree, false, posOff, cadence);
+                    }
+                    this.roundDuration = posOff;
+                }
+                else if (this.roundType === ROUND_RECOGNITION) {
+                    console.log("ROUND_RECOGNITION")
                 }
 
 
