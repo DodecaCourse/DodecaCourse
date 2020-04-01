@@ -24,13 +24,14 @@
     /* global MIDI */
     import { Note, Midi, Scale } from "@tonaljs/tonal"
 
-    const ROUND_INTERNALIZATION = 0;
-    const ROUND_RECOGNITION = 1;
+    const INTERNALIZATION = 0;
+    const INTERNALIZATION_TEST = 1;
+    const RECOGNITION = 2;
 
 
     export default {
         name: "Teacher",
-        props: ['fixedDegree'],
+        props: ['fixedDegree', 'tType'],
         data: function() {
             return {
                 playing: false,
@@ -43,7 +44,6 @@
                 timeoutRef: null,
                 progressRef: null,
                 progress: 0,
-                roundType: ROUND_INTERNALIZATION,
                 roundDuration: 0,
                 startTime: 0,
                 degreesAvailable: [
@@ -83,6 +83,14 @@
             duration: function () { return 60 / this.tempoBPM },
             degree: function () {
                 return this.fixedDegree !== undefined ? this.fixedDegree : this.chosenDegree;
+            },
+            type: function () {
+                // defaults to INTERNALIZATION
+                console.log(this.tType);
+                if (this.tType === "internalization") return INTERNALIZATION;
+                else if (this.tType === "internalization-test") return INTERNALIZATION_TEST;
+                else if (this.tType === "recognition") return RECOGNITION;
+                else return INTERNALIZATION;
             },
             degreeName: function () {
                 for (let i=0; i<this.degreesAvailable.length;i++) {
@@ -170,7 +178,7 @@
                     this.sinceKeyChange = 0;
                     this.key = chrom[Math.floor(Math.random()*chrom.length)];
                 }
-                if (this.roundType === ROUND_INTERNALIZATION) {
+                if (this.type === INTERNALIZATION) {
                     let [posOff, cadence] = this.playCadence(this.key, this.cadenceType, 0, this.duration);
                     for (let i=0;i<4;i++) {
                         posOff = this.playDegree(this.key, this.degree, true, posOff, cadence);
@@ -178,8 +186,15 @@
                     }
                     this.roundDuration = posOff;
                 }
-                else if (this.roundType === ROUND_RECOGNITION) {
-                    console.log("ROUND_RECOGNITION")
+                else if (this.type === INTERNALIZATION_TEST) {
+                    let [posOff, cadence] = this.playCadence(this.key, this.cadenceType, 0, this.duration);
+                    posOff = this.playResting(this.key, cadence, posOff, this.duration * 4);
+                    posOff = this.rest(posOff, this.duration * 3);
+                    posOff = this.playDegree(this.key, this.degree, false, posOff, cadence);
+                    this.roundDuration = posOff;
+                }
+                else if (this.type === RECOGNITION) {
+                    console.log("RECOGNITION")
                 }
 
                 this.startTime = new Date().getTime();
@@ -224,6 +239,9 @@
             },
             chordOff: function (channel, chord, delay) {
                 this.played.push(...Object.values(MIDI.chordOff(channel, chord, delay)));
+            },
+            rest: function (posOff, duration) {
+                return posOff + duration;
             },
             clearTimeouts: function () {
                 clearTimeout(this.timeoutRef);
