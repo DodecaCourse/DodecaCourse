@@ -21,7 +21,6 @@ import RecognisingMelodiesMethod from "./views/RecognisingMelodiesMethod";
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
-Vue.use(vuetify);
 
 const router = new VueRouter({
   mode: 'history',
