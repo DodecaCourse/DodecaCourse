@@ -4,7 +4,7 @@
     >
         <b class="mr-3 hidden-sm-and-down">Play I-IV-V-I:</b>
         <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
-            <v-icon>{{ playing ? 'mdi-pause' : 'mdi-play' }}</v-icon>
+            <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
         </v-btn>
             <v-select class="mx-1"
                       :readonly="fixedDegree !== undefined"
@@ -91,8 +91,8 @@
                 if (val) {
                     this.playRound();
                 } else {
-                    clearTimeout(this.timeoutRef);
-
+                    this.clearTimeouts();
+                    this.progress = 0;
                     this.stopAllNotes();
                 }
             }
@@ -234,7 +234,7 @@
             });
         },
         destroyed: function stopAudio() {
-            clearTimeout(this.timeoutRef);
+            this.clearTimeouts();
             this.stopAllNotes();
         }
     };
