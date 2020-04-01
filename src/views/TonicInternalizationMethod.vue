@@ -4,7 +4,7 @@
             <h1>1. Recognising the Tonic</h1>
             <h2>Method</h2>
             <v-banner app elevation="0" id="player" sticky>
-                <Teacher fixed-degree="1P"/>
+                <Teacher fixed-degree="1P" mode="internalize"/>
             </v-banner>
             <ol>
                 <li>

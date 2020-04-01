@@ -26,7 +26,7 @@
 
     export default {
         name: "Teacher",
-        props: ['fixedDegree'],
+        props: ['fixedDegree','mode'],
         data: function() {
             return {
                 playing: false,
@@ -137,14 +137,23 @@
                 return delay + this.duration * 4;
             },
             playRound: function() {
+                // update key
                 const chrom = Scale.get("C chromatic").notes;
                 if (this.key === "" || (++this.sinceKeyChange % this.changeKeyEvery) === 0) {
                     this.sinceKeyChange = 0;
-                    this.key = chrom[Math.floor(Math.random()*chrom.length)];
+                    this.key = chrom[Math.floor(Math.random() * chrom.length)];
                 }
-                this.progression =  Progression.fromRomanNumerals(this.key, ["I", "IIm7", "V7", "I"]);
+                // establish a tonic
+                this.progression = Progression.fromRomanNumerals(this.key, ["I", "IIm7", "V7", "I"]);
                 let posOff = this.playCadence(this.key, this.progression, 0, this.duration);
-                this.roundDuration = this.playDegree(this.key, this.degree, true, posOff);
+
+                if (this.mode === 'internalize') {
+                    this.roundDuration = this.playDegree(this.key, this.degree, true, posOff);
+
+
+                } else if (this.mode === 'test') {
+                    this.roundDuration = this.playDegree(this.key, this.degree, false, posOff);
+                }
                 this.startTime = new Date().getTime();
                 this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
                 this.updateProgress();
