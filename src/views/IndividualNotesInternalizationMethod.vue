@@ -4,7 +4,7 @@
             <h1>2. Recognising Individual Notes</h1>
             <h2>Method</h2>
             <v-banner app elevation="0" id="player" sticky>
-                <Teacher/>
+                <Teacher t-type="internalization"/>
             </v-banner>
             <ol>
                 <li><p>
