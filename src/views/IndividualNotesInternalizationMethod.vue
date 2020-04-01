@@ -1,10 +1,10 @@
 <template>
-    <v-layout row align-center justify-center>
-        <v-flex xs10 class="article">
+    <v-layout align-center justify-center row>
+        <v-flex class="article" xs10>
             <h1>2. Recognising Individual Notes</h1>
             <h2>Method</h2>
-            <v-banner id="player" elevation="0" sticky app>
-                <InternalizationPlayer />
+            <v-banner app elevation="0" id="player" sticky>
+                <InternalizationPlayer/>
             </v-banner>
             <ol>
                 <li><p>
@@ -30,6 +30,7 @@
                     on the major scale recognition exercises until you reach the target
                     for the module.</p></li>
             </ol>
+            <h3>Scale Degrees</h3>
             <p>
                 Now that you can recognise the sound of the tonic, the next step is
                 to learn to recognise other notes in relation to the tonic.</p>
@@ -43,19 +44,19 @@
             <p><br/>
 
             </p>
-            <p><v-img src="/img/m2_c_major.png" alt="C major" max-height="18ch" max-width="90vw" contain/>
+            <p>
+                <v-img contain max-height="18ch" max-width="90vw" src="/img/m2_c_major.png"
+                title="C Major Scale with Scale Degrees"/>
             </p>
-            <p>C Major Scale with
-                Scale Degrees</p>
             <p>If we were to
                 write out a different major scale C would no longer be scale degree
                 1, the new tonic would be. You can see scale degrees applied to the F
                 major scale below where F is now scale degree 1 and C has become the
                 fifth scale degree.</p>
-            <p><v-img src="/img/m2_f_major.png" alt="F major" max-height="18ch" max-width="90vw" contain/>
+            <p>
+                <v-img contain max-height="18ch" max-width="90vw" src="/img/m2_f_major.png"
+                title="F Major Scale with Scale Degrees"/>
             </p>
-            <p>F Major Scale with
-                Scale Degrees</p>
             <p>Scale degrees are
                 incredibly useful because each scale degree has a unique and
                 identifiable sound. Now that we can identify the tonic by ear, we can
@@ -91,6 +92,7 @@
             <p><br/>
 
             </p>
+            <h3>Individual Note Internalisation Exercises</h3>
             <p>
                 In this module there is an internalisation exercise for each scale
                 degree. The scale degree that an internalisation exercise focuses on
@@ -103,8 +105,11 @@
             <p>You can see the
                 first 10 bars from the internalisation exercise for the second scale
                 degree below.</p>
-            <p><v-img src="/img/m2_10bars.png" alt="10 Bars" max-height="18ch" max-width="90vw" contain/>
+            <p>
+                <v-img contain max-height="18ch" max-width="90vw" src="/img/m2_10bars.png"
+                title="First 10 bars from the internalisation exercise for the second scale degree"/>
             </p>
+            <h3>How to use the individual note internalisation exercises</h3>
             <p>
                 The approach to the individual note exercises is the same as it was
                 in the previous module with one addition: when you sing the scale
@@ -117,27 +122,27 @@
             <p>So the complete
                 process is:</p>
             <ol>
-                <li><p>Listen to the
-                    I - IV - V Progression: Simply listening to the I - IV - V
+                <li><p><b>Listen to the
+                    I - IV - V Progression:</b> Simply listening to the I - IV - V
                     progression will make it clear to your ear which note is the tonic
                     (even if you can't identify which note it is yet). So just sit back
                     and listen.</p></li>
-                <li><p>Focus your
-                    attention on the target scale degree: for the following 8 bars,
+                <li><p><b>Focus your
+                    attention on the target scale degree:</b> for the following 8 bars,
                     listen closely to the target scale degree. Listen to the way that it
                     sounds in relation to the tonic chord.</p></li>
-                <li><p>Sing the
-                    target scale degree: alongside listening to the sound of the target
+                <li><p><b>Sing the
+                    target scale degree:</b> alongside listening to the sound of the target
                     scale degree, singing it will help you to really hear and
                     internalise it's stable sound.</p></li>
-                <li><p>Sing the
-                    tonic: after you sing the target scale degree for a couple of
+                <li><p><b>Sing the
+                    tonic:</b> after you sing the target scale degree for a couple of
                     seconds, sing the tonic to ensure you can recognise it accurately.</p></li>
-                <li><p>Sing the
-                    target scale degree again: return to the target scale degree and
+                <li><p><b>Sing the
+                    target scale degree again:</b> return to the target scale degree and
                     continue listening to the way that it sounds next to the tonic
                     chord.</p></li>
-                <li><p>Repeat: when
+                <li><p><b>Repeat:</b> when
                     the I - IV - V progression is played in a new key, listen to the
                     progression as you did the first time. This will establish a new
                     note as the tonic and then you can repeat listening to/singing the

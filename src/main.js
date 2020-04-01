@@ -10,8 +10,10 @@ import TonicInternalizationMethod from "./views/TonicInternalizationMethod";
 import TonicInternalizationTest from "./views/TonicInternalizationTest";
 import NotFound from "./views/NotFound";
 import IndividualNotesOverview from "./views/IndividualNotesOverview";
-import IndividualNotesMethod from "./views/IndividualNotesMethod";
-import IndividualNotesTest from "./views/IndividualNotesTest";
+import IndividualNotesInternalizationMethod from "./views/IndividualNotesInternalizationMethod";
+import IndividualNotesInternalizationTest from "./views/IndividualNotesInternalizationTest";
+import IndividualNotesRecognitionMethod from "./views/IndividualNotesRecognitionMethod";
+import IndividualNotesRecognitionTest from "./views/IndividualNotesRecognitionTest";
 import RecognisingMelodiesOverview from "./views/RecognisingMelodiesOverview";
 import RecognisingMelodiesMethod from "./views/RecognisingMelodiesMethod";
 import RecognisingMelodiesTest from "./views/RecognisingMelodiesTest";
@@ -33,8 +35,10 @@ const router = new VueRouter({
     { path: '/tonic-internalization/method', component: TonicInternalizationMethod},
     { path: '/tonic-internalization/test', component: TonicInternalizationTest},
     { path: '/individual-notes/overview', component: IndividualNotesOverview},
-    { path: '/individual-notes/method', component: IndividualNotesMethod},
-    { path: '/individual-notes/test', component: IndividualNotesTest},
+    { path: '/individual-notes/internalisation-method', component: IndividualNotesInternalizationMethod},
+    { path: '/individual-notes/internalisation-test', component: IndividualNotesInternalizationTest},
+    { path: '/individual-notes/recognition-method', component: IndividualNotesRecognitionMethod},
+    { path: '/individual-notes/recognition-test', component: IndividualNotesRecognitionTest},
     { path: '/recognising-melodies/overview', component: RecognisingMelodiesOverview},
     { path: '/recognising-melodies/method', component: RecognisingMelodiesMethod},
     { path: '/recognising-melodies/test', component: RecognisingMelodiesTest},

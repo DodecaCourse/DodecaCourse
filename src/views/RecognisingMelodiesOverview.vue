@@ -1,6 +1,6 @@
 <template>
-    <v-layout row align-center justify-center >
-        <v-flex xs10 class="article">
+    <v-layout align-center justify-center row>
+        <v-flex class="article" xs10>
             <h1>3. Recognising Melodies</h1>
             <h2>Overview</h2>
             <p>In the first two

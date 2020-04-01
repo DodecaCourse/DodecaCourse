@@ -11,16 +11,9 @@
       <v-list-item-title>{{ course.id + 1}}. {{course.title}}</v-list-item-title>
     </v-list-item-content>
     </template>
-    <v-list-item :to="course.path + '/overview'" @click="$vuetify.goTo(0)">
-      <v-list-item-title>Overview</v-list-item-title>
-      <v-icon>{{ course.completed ? "mdi-checkbox-marked-circle-outline" : "mdi-checkbox-blank-circle-outline"}}</v-icon>
-    </v-list-item>
-    <v-list-item :to="course.path + '/method'" @click="$vuetify.goTo(0)">
-      <v-list-item-title>Method</v-list-item-title><v-icon>{{ course.completed ? "mdi-checkbox-marked-circle-outline" : "mdi-checkbox-blank-circle-outline"}}</v-icon>
-    </v-list-item>
-    <v-list-item :to="course.path + '/test'" @click="$vuetify.goTo(0)">
-      <v-list-item-title>Test</v-list-item-title>
-      <v-icon>{{ course.completed ? "mdi-checkbox-marked-circle-outline" : "mdi-checkbox-blank-circle-outline"}}</v-icon>
+    <v-list-item :key="chapter.id" v-for="chapter in course.chapters" :to="course.path + chapter.path" @click="$vuetify.goTo(0)">
+      <v-list-item-title>{{ chapter.title }}</v-list-item-title>
+      <v-icon>{{ chapter.completed ? "mdi-checkbox-marked-circle-outline" : "mdi-checkbox-blank-circle-outline"}}</v-icon>
     </v-list-item>
   </v-list-group>
 

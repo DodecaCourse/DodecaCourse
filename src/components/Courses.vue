@@ -24,25 +24,117 @@
                         id: 0,
                         title: "Recognising the Tonic",
                         completed: false,
-                        path: "/tonic-internalization"
+                        path: "/tonic-internalization",
+                        chapters: [
+                            {
+                                id: 0,
+                                title: 'Overview',
+                                completed: true,
+                                path: '/overview'
+                            },
+                            {
+                                id: 1,
+                                title: 'Method',
+                                completed: false,
+                                path: '/method'
+                            },
+                            {
+                                id: 2,
+                                title: 'Test',
+                                completed: false,
+                                path: '/test'
+                            }
+                        ]
                     },
                     {
                         id: 1,
                         title: "Recognising Individual Notes",
                         completed: false,
-                        path: "/individual-notes"
+                        path: "/individual-notes",
+                        chapters: [
+                            {
+                                id: 0,
+                                title: 'Overview',
+                                completed: false,
+                                path: '/overview'
+                            },
+                            {
+                                id: 1,
+                                title: 'Internalisation Method',
+                                completed: false,
+                                path: '/internalisation-method'
+                            },
+                            {
+                                id: 2,
+                                title: 'Internalisation Test',
+                                completed: false,
+                                path: '/internalisation-test'
+                            },
+                            {
+                                id: 3,
+                                title: 'Recognition Method',
+                                completed: false,
+                                path: '/recognition-method'
+                            },
+                            {
+                                id: 4,
+                                title: 'Recognition Test',
+                                completed: false,
+                                path: '/recognition-test'
+                            }
+                        ]
                     },
                     {
                         id: 2,
                         title: "Recognising Melodies",
                         completed: false,
-                        path: "/recognising-melodies"
+                        path: "/recognising-melodies",
+                        chapters: [
+                            {
+                                id: 0,
+                                title: 'Overview',
+                                completed: false,
+                                path: '/overview'
+                            },
+                            {
+                                id: 1,
+                                title: 'Method',
+                                completed: false,
+                                path: '/method'
+                            },
+                            {
+                                id: 2,
+                                title: 'Test',
+                                completed: false,
+                                path: '/test'
+                            }
+                        ]
                     },
                     {
                         id: 3,
                         title: "Chords",
                         completed: false,
-                        path: "/chords"
+                        path: "/chords",
+                        chapters: [
+                            {
+                                id: 0,
+                                title: 'Overview',
+                                completed: false,
+                                path: '/overview'
+                            },
+                            {
+                                id: 1,
+                                title: 'Method',
+                                completed: false,
+                                path: '/method'
+                            },
+                            {
+                                id: 2,
+                                title: 'Test',
+                                completed: false,
+                                path: '/test'
+                            }
+                        ]
                     }
 
                 ]
