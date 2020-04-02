@@ -41,7 +41,7 @@
         </v-content>
 
         <v-footer app>
-            <span>&copy; 2019</span>
+            <span>&copy; 2020, Structure & Content based on <a href="https://eartraininghq.com/">Ear Training HQ</a></span>
         </v-footer>
     </v-app>
 </template>
