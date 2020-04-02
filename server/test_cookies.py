@@ -1,7 +1,6 @@
 from flask import *
 from flask_cors import CORS
 
-
 # configuration
 DEBUG = True
 
@@ -25,14 +24,15 @@ def ping_pong():
         resp.set_cookie('userID', user)
         print("#---- Set cookie on userID", user)
         print(request.url)
-        redirect(request.url)
-        return("cookie['userId']:", user)
+        redirect("http://localhost:8080/dev/servertest")
+        return jsonify("cookie['userID']:" +str(user))
     return("no cookie set")
 
 @app.route('/getcookie', methods=['GET'])
 def getcookie():
    name = request.cookies.get('userID')
-   return jsonify(name)
+   print(name)
+   return jsonify(str(name))
 
 if __name__ == '__main__':
     app.run()
