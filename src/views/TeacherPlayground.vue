@@ -9,6 +9,8 @@
             <Teacher t-type="internalization"/>
             <p>Individual Note Internalisation Test</p>
             <Teacher t-type="internalization-test"/>
+            <p>Spiral Test</p>
+            <AASpiral></AASpiral>
         </v-flex>
     </v-layout>
 </template>
@@ -16,9 +18,10 @@
 
 <script>
     import Teacher from "../components/Teacher";
+    import AASpiral from "./AASpiral";
     export default {
         name: "TeacherPlayground",
-        components: {Teacher}
+        components: {AASpiral, Teacher}
     }
 </script>
 
