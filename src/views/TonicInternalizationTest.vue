@@ -37,10 +37,8 @@
                 octaves, so that it will match your register, regardless of your
                 range.</p>
             <p><b>Sequence Repeats:</b>
-                The 8 bar sequence is repeated in a new key. Like in the
-                internalisation exercises, the key centre moves up by a perfect 4th
-                each time: the fourth scale degree of the old key is the tonic of the
-                new one. The diagram below shows the first 24 bars of the tonic
+                The 8 bar sequence is repeated in a new randomly chosen key.
+                The diagram below shows an example of the first 24 bars of the tonic
                 internalisation test:</p>
             <p>
                 <v-img contain
@@ -51,8 +49,7 @@
             </p>
             <h3>How to use the tonic internalisation test</h3>
             <p>
-                Download and listen to listen to the tonic internalisation test
-                while you read the instructions.</p>
+                Start the player to listen to the internalisation test while you read the instructions.</p>
 
             <ol>
                 <li><p><b>Listen to the
@@ -77,22 +74,19 @@
                     singing.</p>
                 </li>
                 <li><p><b>Repeat:</b> The
-                    tonic internalisation exercise moves through all 12 keys, so repeat
-                    this process in each of them to see how well you've internalised the
-                    sound of the tonic.</p>
+                    tonic internalisation exercise moves randomly through the keys.</p>
                 </li>
             </ol>
-            <p>Try the entire
-                test, and see how you go.</p>
+            <p>Restart the test, do 12 cadences and see how you go.</p>
             <p>If you sang the
-                tonic correctly in 10, 11 or all 12 keys congratulations, you've
-                passed the first module of 80/20 Ear Training! You've taken an
+                tonic correctly in 10, 11 or all 12 keys, congratulations, you've
+                passed the first module! You've taken an
                 incredibly important step on the road to relative pitch and more
                 creativity and confidence with music.</p>
             <p>If you didn't,
-                there's no need to worry. It takes most of our students at least a
-                few attempts to pass this test. Simply go back to the internalisation
-                exercise to solidify your ability to recognise the sound of the tonic
+                there's no need to worry. It takes most students at least a
+                few attempts to pass this test. Simply go back to the <router-link to="/tonic-internalization/method">internalisation
+                    exercise</router-link> to solidify your ability to recognise the sound of the tonic
                 and retry after a few more practice sessions. Make sure you check the
                 troubleshooting section if you have any specific problems.</p>
         </v-flex>
