@@ -40,7 +40,15 @@ const router = new VueRouter({
     { path: '/recognising-melodies/overview', component: RecognisingMelodiesOverview},
     { path: '/recognising-melodies/recognition-exercises', component: RecognisingMelodiesMethod},
     { path: '/*', component: NotFound}
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    }
+    else {
+      return {x: 0, y: 0};
+    }
+  }
 });
 
 new Vue({
