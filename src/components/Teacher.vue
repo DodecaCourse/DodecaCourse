@@ -44,7 +44,10 @@
 
     export default {
         name: "Teacher",
-        props: ['fixedDegrees', 'tType'],
+        props: {
+            fixedDegrees: Array,
+            tType: String,
+        },
         data: function() {
             return {
                 playing: false,
