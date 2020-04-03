@@ -4,7 +4,7 @@
             <h1>1. Recognising the Tonic</h1>
             <h2>Test</h2>
             <v-banner app elevation="0" id="player" sticky>
-                <Teacher fixed-degree="1P" t-type="internalization-test"/>
+                <Teacher :fixed-degrees="['1P']" t-type="internalization-test"/>
             </v-banner>
             <p>
                 The tonic internalisation test gives you a way to easily tell when

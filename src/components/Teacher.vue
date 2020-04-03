@@ -6,14 +6,25 @@
         <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
             <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
         </v-btn>
-            <v-select class="mx-1"
-                      :readonly="fixedDegree !== undefined"
+            <v-select v-if="multiple" class="mx-1"
+                      :readonly="fixedDegrees !== undefined"
                       :items="degreesAvailable"
-                      v-model="chosenDegree"
+                      v-model="chosenDegrees"
                       label="Degree"
                       single-line
                       style="max-width: 150px;"
                       dense
+                      multiple
+            />
+
+            <v-select v-else class="mx-1"
+                  :readonly="fixedDegrees !== undefined"
+                  :items="degreesAvailable"
+                  v-model="chosenDegrees[0]"
+                  label="Degree"
+                  single-line
+                  style="max-width: 150px;"
+                  dense
             />
         <v-progress-circular class="my-progress-circular ml-2" :value="progress"
                              :color="loaded ? 'primary': 'red'"/>
@@ -28,10 +39,12 @@
     const INTERNALIZATION_TEST = 1;
     const RECOGNITION = 2;
 
+    const CADENCE_MAJOR_I_IV_V = 'major_i_iv_v';
+    const CADENCE_MAJOR_I_IV_V_I = 'major_i_iv_v_i';
 
     export default {
         name: "Teacher",
-        props: ['fixedDegree', 'tType'],
+        props: ['fixedDegrees', 'tType'],
         data: function() {
             return {
                 playing: false,
@@ -55,10 +68,10 @@
                     {text: 'Major Sixth', value: '6M'},
                     {text: 'Major Seventh', value: '7M'},
                 ],
-                chosenDegree: "1P",
+                chosenDegrees: ["1P"],
                 played: [],
                 cadences: {
-                    'major_authentic': [
+                    'major_i_iv_v': [
                         {
                             progression: [[-12, 0, 4, 7], [-7, -3, 0, 5], [-5, -1, 2, 7]],
                             chordLength: [4, 2, 2],
@@ -74,32 +87,56 @@
                             chordLength: [4, 2, 2],
                             resting: [-12, -5, 0, 4]
                         },
+                    ],
+                    'major_i_iv_v_i': [
+                        {
+                            progression: [[-12, 0, 4, 7], [-7, -3, 0, 5], [-5, -1, 2, 7],[-12, 0, 4, 7]],
+                            chordLength: [4, 2, 2, 4],
+                            resting: [-12, 0, 4, 7]
+                        },
+                        {
+                            progression: [[-12, 4, 7, 12], [-7, 0, 5, 9], [-5, 2, 7, 11],[-12, 4, 7, 12]],
+                            chordLength: [4, 2, 2, 4],
+                            resting: [-12, 4, 7, 12]
+                        },
+                        {
+                            progression: [[-12, -5, 0, 4], [-19, -3, 0, 5], [-17, -5, -1, 2],[-12, -5, 0, 4]],
+                            chordLength: [4, 2, 2, 4],
+                            resting: [-12, -5, 0, 4]
+                        },
                     ]
                 },
-                cadenceType: 'major_authentic',
+                cadenceType: CADENCE_MAJOR_I_IV_V,
+
+                // tType specific
+                // Recognition
+                useInput: false,
+                solution: null,
             };
         },
         computed: {
             quarter: function () { return 60 / this.tempoBPM },
-            degree: function () {
-                return this.fixedDegree !== undefined ? this.fixedDegree : this.chosenDegree;
+            degrees: function () {
+                let ret = this.fixedDegrees !== undefined ? this.fixedDegrees : this.chosenDegrees;
+                if (ret.length === 0) {
+                    ret = ['1P'];
+                }
+                return ret;
             },
             type: function () {
                 // defaults to INTERNALIZATION
-                console.log(this.tType);
                 if (this.tType === "internalization") return INTERNALIZATION;
                 else if (this.tType === "internalization-test") return INTERNALIZATION_TEST;
                 else if (this.tType === "recognition") return RECOGNITION;
                 else return INTERNALIZATION;
             },
-            degreeName: function () {
-                for (let i=0; i<this.degreesAvailable.length;i++) {
-                    if (this.degreesAvailable[i]['value'] === this.degree) {
-                        return this.degreesAvailable[i]['text']
-                    }
-                }
-                return 'None'
-            }
+            multiple: function() {
+                if (this.type === INTERNALIZATION) return false;
+                else if (this.type === INTERNALIZATION_TEST) return false;
+                else if (this.type === RECOGNITION) return true;
+                else return false;
+            },
+
         },
         watch: {
             playing: function (val) {
@@ -172,7 +209,6 @@
                 return notesMod;
             },
             playRound: function() {
-
                 // update key
                 const chrom = Scale.get("C chromatic").notes; // get list of all twelve notes
                 if (this.key === "" || (++this.sinceKeyChange % this.changeKeyEvery) === 0) {
@@ -181,28 +217,50 @@
                     this.key = chrom[Math.floor(Math.random() * chrom.length)];
                 }
                 if (this.type === INTERNALIZATION) {
-                    let [posOff, cadence] = this.playCadence(this.key, this.cadenceType, 0);
+                    let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
                     for (let i=0;i<4;i++) {
-                        posOff = this.playDegree(this.key, this.degree, true, posOff, cadence);
-                        posOff = this.playDegree(this.key, this.degree, false, posOff, cadence);
+                        posOff = this.playDegree(this.key, this.degrees[0], true, posOff, cadence);
+                        posOff = this.playDegree(this.key, this.degrees[0], false, posOff, cadence);
                     }
                     this.roundDuration = posOff;
+                    this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
                 }
                 else if (this.type === INTERNALIZATION_TEST) {
-                    let [posOff, cadence] = this.playCadence(this.key, this.cadenceType, 0);
+                    let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
                     posOff = this.playResting(this.key, cadence, posOff, 4);
                     posOff = this.rest(posOff, 3 * 4);
-                    posOff = this.playDegree(this.key, this.degree, false, posOff, cadence);
+                    posOff = this.playDegree(this.key, this.degrees[0], false, posOff, cadence);
                     this.roundDuration = posOff;
+                    this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
                 }
                 else if (this.type === RECOGNITION) {
-                    console.log("RECOGNITION")
+                    const degree = this.degrees[Math.floor(Math.random()*this.degrees.length)];     // choose randomly
+                    let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
+                    posOff = this.playDegree(this.key, degree, false, posOff, cadence);
+
+                    this.solution = degree;
+                    if (this.useInput) {
+                        console.log("USE_INPUT");
+                    } else {
+                        posOff = this.rest(posOff, 2 * 4);
+                        this.roundDuration = posOff;
+                        this.timeoutRef = setTimeout(this.solutionNoInput, this.roundDuration * 1000);
+                    }
                 }
 
 
                 this.startTime = new Date().getTime();
-                this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
                 this.updateProgress();
+            },
+            solutionNoInput: function() {
+                console.log("SOLUTION_NO_INPUT: ",this.solution);
+                let posOff = this.rest(0,  4);
+                this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
+            },
+            solutionInput: function(input) {        // TODO
+                console.log("SOLUTION_INPUT: ",input,this.solution,this.solution === input);
+                let posOff = this.rest(0, 4);
+                this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
             },
             doRepeat: function() {
                 this.played = [];
@@ -267,6 +325,11 @@
                     self.loaded = true;
                 }
             });
+        },
+        mounted: function () {
+            if (this.fixedDegrees !== undefined) {
+                this.chosenDegrees = this.fixedDegrees;
+            }
         },
         destroyed: function stopAudio() {
             this.clearTimeouts();

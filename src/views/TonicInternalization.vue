@@ -25,7 +25,7 @@
                 </v-tab-item>
                 <v-tab-item>
                     <v-banner elevation="2" sticky app>
-                        <Teacher fixed-degree="1P"/>
+                        <Teacher :fixed-degrees="['1P']"/>
                     </v-banner>
                     <v-card-text>
                     <ol>
