@@ -7,7 +7,7 @@
             <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
         </v-btn>
             <v-select v-if="multiple" class="mx-1"
-                      :readonly="fixedDegrees !== undefined"
+                      :readonly="fixed"
                       :items="degreesAvailable"
                       v-model="chosenDegrees"
                       label="Degree"
@@ -15,10 +15,11 @@
                       style="max-width: 150px;"
                       dense
                       multiple
+                      chips
             />
 
             <v-select v-else class="mx-1"
-                  :readonly="fixedDegrees !== undefined"
+                  :readonly="fixed"
                   :items="degreesAvailable"
                   v-model="chosenDegrees[0]"
                   label="Degree"
@@ -45,7 +46,8 @@
     export default {
         name: "Teacher",
         props: {
-            fixedDegrees: Array,
+            preselect: Array, // which degrees to select on load || <Teacher ... :preselect="['1P', '5P']"/>
+            fixed: Boolean, // fix values of preselect || <Teacher .. :preselect="['1P', '5P']" fixed/>
             tType: String,
         },
         data: function() {
@@ -53,7 +55,7 @@
                 playing: false,
                 status: 'Not loaded',
                 loaded: false,
-                tempoBPM: 150,
+                tempoBPM: 135,
                 key: "",
                 sinceKeyChange: 0,
                 changeKeyEvery: 1,
@@ -64,14 +66,14 @@
                 startTime: 0,
                 degreesAvailable: [
                     {text: 'Tonic', value: '1P'},
-                    {text: 'Second', value: '2M'},
-                    {text: 'Major Third', value: '3M'},
-                    {text: 'Fourth', value: '4P'},
-                    {text: 'Fifth', value: '5P'},
-                    {text: 'Major Sixth', value: '6M'},
-                    {text: 'Major Seventh', value: '7M'},
+                    {text: '2nd', value: '2M'},
+                    {text: 'Maj 3rd', value: '3M'},
+                    {text: '4th', value: '4P'},
+                    {text: '5th', value: '5P'},
+                    {text: 'Maj 6th', value: '6M'},
+                    {text: 'Maj 7th', value: '7M'},
                 ],
-                chosenDegrees: ["1P"],
+                chosenDegrees: ["1P", "2M", "3M", "4P", "5P", "6M", "7M"],
                 played: [],
                 cadences: {
                     'major_i_iv_v': [
@@ -120,11 +122,10 @@
         computed: {
             quarter: function () { return 60 / this.tempoBPM },
             degrees: function () {
-                let ret = this.fixedDegrees !== undefined ? this.fixedDegrees : this.chosenDegrees;
-                if (ret.length === 0) {
-                    ret = ['1P'];
+                if (this.chosenDegrees.length === 0) {
+                    return ['1P'];
                 }
-                return ret;
+                return this.chosenDegrees;
             },
             type: function () {
                 // defaults to INTERNALIZATION
@@ -330,8 +331,8 @@
             });
         },
         mounted: function () {
-            if (this.fixedDegrees !== undefined) {
-                this.chosenDegrees = this.fixedDegrees;
+            if (this.preselect !== undefined) {
+                this.chosenDegrees = this.preselect;
             }
         },
         destroyed: function stopAudio() {
