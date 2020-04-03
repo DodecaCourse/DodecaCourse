@@ -25,6 +25,9 @@ yarn-error.log*
 # related
 # stuff
 
+# Backups
+*backup/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

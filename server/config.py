@@ -20,3 +20,6 @@ class Config:
     # Flask-Session
     SESSION_TYPE = os.getenv('SESSION_TYPE')
     SESSION_REDIS = redis.from_url(os.getenv('SESSION_REDIS'))
+
+    # User
+    USER_KEYWORD_LENGTH = 6
