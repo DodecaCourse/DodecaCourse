@@ -25,7 +25,7 @@
           elevation="5"
           width="100%"
         >
-          <div v-for="degree in this.degrees" v-bind:key="degree">
+          <div v-for="degree in this.numberOfButtons" v-bind:key="degree">
             <v-btn
               color="blue"
               small
@@ -53,16 +53,36 @@ export default {
       octave: 0,
 
       modes: [
-        { name: "Major/Ionian", numeral: "I" },
-        { name: "Dorian", numeral: "II" },
-        { name: "Phrygian", numeral: "III" },
-        { name: "Lydian", numeral: "IV" },
-        { name: "Mixolydian", numeral: "V" },
-        { name: "Minor/Aeolian", numeral: "VI" },
-        { name: "Locrian", numeral: "VII" }
+        {
+          name: "Major/Ionian",
+          numeral: "I",
+          halfsteps: { first: 3, second: 7 }
+        },
+        { name: "Dorian", numeral: "II", halfsteps: { first: 2, second: 6 } },
+        {
+          name: "Phrygian",
+          numeral: "III",
+          halfsteps: { first: 1, second: 5 }
+        },
+        { name: "Lydian", numeral: "IV", halfsteps: { first: 4, second: 7 } },
+        {
+          name: "Mixolydian",
+          numeral: "V",
+          halfsteps: { first: 3, second: 6 }
+        },
+        {
+          name: "Minor/Aeolian",
+          numeral: "VI",
+          halfsteps: { first: 2, second: 5 }
+        },
+        { name: "Locrian", numeral: "VII", halfsteps: { first: 1, second: 4 } }
       ],
 
-      degrees: [1, 2, 3, 4, 5, 6, 7]
+      numberOfButtons: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+
+      notes: ["C", "D", "E", "F", "G", "A", "B"],
+
+      enabled: [true, false, true, false, true, true, false, true, false, true, false, true]
     };
   },
 
@@ -80,6 +100,14 @@ export default {
 
     changeMode: function(mode) {
       this.scale = mode.name;
+    },
+
+    flattenNote: function (note) {
+      return note + "b";
+    },
+
+    sharpenNote: function (note) {
+      return note + "#";
     }
   }
 };
