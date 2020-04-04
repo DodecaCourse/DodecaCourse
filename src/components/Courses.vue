@@ -29,7 +29,7 @@
                             {
                                 id: 0,
                                 title: 'Overview',
-                                completed: true,
+                                completed: false,
                                 path: '/overview'
                             },
                             {

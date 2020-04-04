@@ -4,7 +4,7 @@
             <h1>2. Recognising Individual Notes</h1>
             <h2>Individual Note Recognition Exercises</h2>
             <v-banner app elevation="0" id="player" sticky>
-                <Teacher/>
+                <Teacher t-type="recognition" :preselect="['1P', '5P']" fixed/>
             </v-banner>
             <h3></h3>
             <p>

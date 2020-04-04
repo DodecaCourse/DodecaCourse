@@ -7,7 +7,7 @@
                 we’ll lay the foundation for fast, effective ear training. You’ll:</p>
             <ul>
                 <li>discover the
-                    note that acts as the focal point of Ear Training HQ’s entire
+                    note that acts as the focal point of this entire
                     approach to ear training (and the focal point of all effective ear
                     training approaches) - called the tonic.
                 </li>
