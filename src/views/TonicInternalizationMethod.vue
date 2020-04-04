@@ -60,7 +60,7 @@
                 will quickly start to remember the sound of the tonic.</p>
             <p>The exercise is
                 made up of a 10 bar sequence, which is repeated throughout the
-                exercise. Hit play below to listen to this 10 bar sequence.</p>
+                exercise. Hit play above to listen to this 10 bar sequence.</p>
             <p>
             </p>
             <p>The diagram below
