@@ -29,12 +29,14 @@
             />
         <v-progress-circular class="my-progress-circular ml-2" :value="progress"
                              :color="loaded ? 'primary': 'red'"/>
+        <BasicInput v-show="useInput" :submit-solution="solutionInput" :answer="answer"/>
     </v-card>
 </template>
 
 <script>
     /* global MIDI */
     import { Note, Midi, Scale } from "@tonaljs/tonal"
+    import BasicInput from "./BasicInput";
 
     const INTERNALIZATION = 0;
     const INTERNALIZATION_TEST = 1;
@@ -45,6 +47,7 @@
 
     export default {
         name: "Teacher",
+        components: {BasicInput},
         props: {
             preselect: Array, // which degrees to select on load || <Teacher ... :preselect="['1P', '5P']"/>
             fixed: Boolean, // fix values of preselect || <Teacher .. :preselect="['1P', '5P']" fixed/>
@@ -115,8 +118,9 @@
 
                 // tType specific
                 // Recognition
-                useInput: false,
+                inputDisabled: false,
                 solution: null,
+                answer: "",
             };
         },
         computed: {
@@ -140,7 +144,14 @@
                 else if (this.type === RECOGNITION) return true;
                 else return false;
             },
+            useInput: function() {
+                if (this.inputDisabled) return false;
 
+                if (this.type === INTERNALIZATION) return false;
+                else if (this.type === INTERNALIZATION_TEST) return false;
+                else if (this.type === RECOGNITION) return true;
+                else return false;
+            }
         },
         watch: {
             playing: function (val) {
@@ -245,6 +256,7 @@
                     this.solution = degree;
                     if (this.useInput) {
                         console.log("USE_INPUT");
+                        this.roundDuration = posOff;
                     } else {
                         posOff = this.rest(posOff, 2 * 4);
                         this.roundDuration = posOff;
@@ -261,12 +273,22 @@
                 let posOff = this.rest(0,  4);
                 this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
             },
-            solutionInput: function(input) {        // TODO
+            solutionInput: function(input) {
+                if (this.solution === null) {
+                    return;
+                }
                 console.log("SOLUTION_INPUT: ",input,this.solution,this.solution === input);
+                if (this.solution === input) {
+                    this.answer = "Correct: " + this.solution;
+                } else {
+                    this.answer = "Wrong! It was " + this.solution;
+                }
                 let posOff = this.rest(0, 4);
                 this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
             },
             doRepeat: function() {
+                this.stopAllNotes();
+                this.clearTimeouts();
                 this.played = [];
                 if (this.playing) this.playRound();
             },
@@ -274,7 +296,9 @@
                 if (this.playing) {
                     const passed = new Date().getTime() - this.startTime;
                     this.progress = passed / this.roundDuration / 10;
-                    this.progressRef = setTimeout(this.updateProgress, 100);
+                    if (this.progress < 100) {
+                        this.progressRef = setTimeout(this.updateProgress, 100);
+                    }
                 } else {
                     this.progress = 0;
                 }
