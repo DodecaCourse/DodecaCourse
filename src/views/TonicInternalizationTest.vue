@@ -77,7 +77,7 @@
                     tonic internalisation exercise moves randomly through the keys.</p>
                 </li>
             </ol>
-            <p>Restart the test, do 12 cadences and see how you go.</p>
+            <p>Restart the test, do 12 keys and see how you go.</p>
             <p>If you sang the
                 tonic correctly in 10, 11 or all 12 keys, congratulations, you've
                 passed the first module! You've taken an

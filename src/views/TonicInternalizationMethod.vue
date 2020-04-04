@@ -11,9 +11,7 @@
                     Read through the lesson on the tonic to find out what the tonic is
                     and why it’s at the centre of an effective ear training approach.
                 </li>
-                <li><p>Read the
-                    exercise explanations for internalisation exercises and
-                    internalisation tests.</p>
+                <li><p>Read the exercise explanations for internalisation exercises</p>
                 </li>
                 <li><p>Start with
                     the tonic internalisation exercise.</p>
@@ -24,9 +22,7 @@
                 <li><p>Attempt the
                     tonic internalisation test.</p>
                 </li>
-                <li><p>If
-                    you reach the target for the module (shown to the right of the
-                    exercises) continue on to module 2. If you do not, refer to the
+                <li><p>If you pass the test, continue on to module 2. If you do not, refer to the
                     troubleshooting section</p>
                 </li>
             </ol>
