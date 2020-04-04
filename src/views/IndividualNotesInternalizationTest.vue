@@ -99,10 +99,16 @@
             </ol>
             <p>Once you can pass
                 an internalisation test (sing the target scale degree correctly 10
-                out of 12 times), move onto the next internalisation exercise. Repeat
+                out of 12 times), move onto the next internalisation exercise.
+            </p>
+            <v-btn style="float: right" color="secondary" class="ma-2" to="/individual-notes/internalisation-method">Continue internalising</v-btn>
+            <p><br />
+                <p>
+                Repeat
                 this until you've passed the first 4 internalisation tests. Then
                 you're read to add the recognition exercises to your practice
                 routine.</p>
+            <v-btn style="float: right" color="secondary" class="ma-2" to="/individual-notes/recognition-method">Start recognition</v-btn>
         </v-flex>
     </v-layout>
 </template>

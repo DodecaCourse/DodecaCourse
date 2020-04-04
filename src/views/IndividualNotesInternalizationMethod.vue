@@ -152,6 +152,7 @@
                 with this exercise until you start to feel confident that you are
                 internalising the sound of the target scale degree. Then try the
                 internalisation test for the target scale degree.</p>
+            <v-btn style="float: right" color="secondary" class="ma-2" to="/individual-notes/internalisation-test">Try the test</v-btn>
         </v-flex>
     </v-layout>
 </template>

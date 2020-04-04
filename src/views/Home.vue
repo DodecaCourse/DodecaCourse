@@ -97,6 +97,7 @@
         where you’ll learn to recognise the tonic (so you have your reference point for all future ear
         training).
       </p>
+      <v-btn style="float: right" color="secondary" class="ma-2" to="/tonic-internalization/overview">Start module 1</v-btn>
     </v-flex>
   </v-layout>
 </template>

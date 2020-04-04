@@ -158,7 +158,8 @@
                     no extra benefit.</p>
                 </li>
             </ol>
-
+            <p><b>Finished?</b></p>
+            <v-btn style="float: right" color="secondary" class="ma-2" to="/tonic-internalization/test">Try the test</v-btn>
             <p><br/>
 
             <h4>
