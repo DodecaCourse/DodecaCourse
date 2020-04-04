@@ -41,7 +41,7 @@
         </v-content>
 
         <v-footer app>
-            <span><router-link to="/impressum.html" class="pr-1">Impressum</router-link></span>
+            <span><router-link to="/impressum.html" class="pr-1">Impressum & Datenschutz</router-link></span>
             <span>&copy; 2020, Structure & Content based on <a href="https://eartraininghq.com/">Ear Training HQ</a></span>
         </v-footer>
     </v-app>
