@@ -27,8 +27,8 @@
                   style="max-width: 150px;"
                   dense
             />
-        <v-progress-circular class="my-progress-circular ml-2" :value="progress"
-                             :color="loaded ? 'primary': 'red'"/>
+        <v-progress-circular class="my-progress-circular ml-2 text-center" :value="progress"
+                             :color="loaded ? 'primary': 'red'">{{roundSincePlay}}</v-progress-circular>
         <BasicInput v-show="useInput" :submit-solution="solutionInput" :answer="answer"/>
     </v-card>
 </template>
@@ -67,6 +67,7 @@
                 progress: 0,
                 roundDuration: 0,
                 startTime: 0,
+                roundSincePlay: 0,
                 degreesAvailable: [
                     {text: 'Tonic', value: '1P'},
                     {text: '2nd', value: '2M'},
@@ -156,6 +157,7 @@
         watch: {
             playing: function (val) {
                 if (val) {
+                    this.roundSincePlay = 0;
                     this.playRound();
                 } else {
                     this.clearTimeouts();
@@ -224,6 +226,7 @@
                 return notesMod;
             },
             playRound: function() {
+                this.roundSincePlay++;
                 // update key
                 const chrom = Scale.get("C chromatic").notes; // get list of all twelve notes
                 if (this.key === "" || (++this.sinceKeyChange % this.changeKeyEvery) === 0) {
