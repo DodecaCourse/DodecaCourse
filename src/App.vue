@@ -56,7 +56,7 @@
         },
         data: () => ({
             drawer: null,
-            curCourse: 1,
+            curCourse: 0,
         }),
         created () {
         },
