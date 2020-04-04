@@ -16,6 +16,7 @@ import IndividualNotesRecognitionTest from "./views/IndividualNotesRecognitionTe
 import RecognisingMelodiesOverview from "./views/RecognisingMelodiesOverview";
 import RecognisingMelodiesMethod from "./views/RecognisingMelodiesMethod";
 import ServerTest from './views/backend/ServerTest'
+import Settings from './views/Settings'
 import TeacherPlayground from "./views/TeacherPlayground";
 
 Vue.config.productionTip = false;
@@ -40,6 +41,7 @@ const router = new VueRouter({
     { path: '/recognising-melodies/overview', component: RecognisingMelodiesOverview},
     { path: '/recognising-melodies/recognition-exercises', component: RecognisingMelodiesMethod},
     { path: '/dev/servertest', component: ServerTest},
+    { path: '/settings', component: Settings},
     { path: '/*', component: NotFound}
   ]
 });

@@ -124,20 +124,7 @@ export default {
               path: '/test'
             }
           ]
-        },
-        {
-          id: 4,
-          title: "backend-testing",
-          completed: true,
-          path: "/dev",
-          chapters: [{
-            id: 0,
-            title: 'Tests',
-            completed: true,
-            path: '/servertest'
-          }]
         }
-
       ]
     }
   }
