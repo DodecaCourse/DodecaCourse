@@ -14,6 +14,7 @@
                         <v-list-item-title>Introduction</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
+                <Courses :cur-course="curCourse" />
                 <v-list-item to="/teacher-playground" link>
                     <v-list-item-action>
                         <v-icon>mdi-animation-play</v-icon>
@@ -30,7 +31,6 @@
                         <v-list-item-title>Backend</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-                <Courses :cur-course="curCourse" />
             </v-list>
         </v-navigation-drawer>
 
@@ -63,7 +63,7 @@
         </v-content>
 
         <v-footer app>
-            <span>&copy; 2020, Structure & Content based on <a href="https://eartraininghq.com/">Ear Training HQ</a></span>
+            <span><router-link to="/impressum.html" class="pr-1">Impressum & Datenschutz</router-link>, &copy; 2020, Structure & Content based on <a href="https://eartraininghq.com/">Ear Training HQ</a></span>
         </v-footer>
     </v-app>
 </template>
@@ -77,7 +77,7 @@
         },
         data: () => ({
             drawer: null,
-            curCourse: 1,
+            curCourse: 0,
             user: "2Tfv6"
         }),
         created () {

@@ -27,8 +27,7 @@
                 <li><p>If
                     you reach the target for the module (shown to the right of the
                     exercises) continue on to module 2. If you do not, refer to the
-                    troubleshooting section or ask either myself or the Ear Training HQ
-                    community for help!</p>
+                    troubleshooting section</p>
                 </li>
             </ol>
             <h2>The tonic</h2>
@@ -49,8 +48,7 @@
                 But we’ll get to that in the next module.</p>
             <p>First we need to
                 be able to confidently identify which note is the tonic. And that’s
-                precisely the goal of this first module of the Ear Training HQ
-                method.</p>
+                precisely the goal of this first module.</p>
             <p>We’ll
                 do that with an exercise called an internalisation exercise.</p>
             <h2>Tonic Internalisation Exercise</h2>
@@ -62,7 +60,7 @@
                 will quickly start to remember the sound of the tonic.</p>
             <p>The exercise is
                 made up of a 10 bar sequence, which is repeated throughout the
-                exercise. Hit play below to listen to this 10 bar sequence.</p>
+                exercise. Hit play above to listen to this 10 bar sequence.</p>
             <p>
             </p>
             <p>The diagram below
@@ -83,7 +81,7 @@
                 IV - V progression). This chord progression clearly establishes a
                 single note as the tonic. It's impossible to internalise the sound of
                 the tonic if it isn't clearly present, so you'll become very familiar
-                with it as your progress through 80/20 Ear Training as it's used at
+                with it as you progress through the modules as it's used at
                 the beginning of a lot of exercises!</p>
             <h4>
                 <b>Bars
@@ -97,18 +95,15 @@
                     Sequence Repeats</b></h4>
             <p>
                 After
-                the 10 bar sequence, the entire sequence is repeated in a new key.
+                the 10 bar sequence, the entire sequence is repeated in a new randomly chosen key.
                 The diagram below shows the first 30 bars of the tonic
                 internalisation exercise, and in it you can see that in bar 11, a new
-                key is outlined, this time F major. Every 10 bars, the key moves up
-                by a perfect 4th (the 4th scale degree of the old key becomes the
-                tonic of the new key.)</p>
+                key is outlined, this time F major.</p>
             <v-img contain max-height="54ch"
-                   max-width="90vw" src="/img/m1_30barsequence.png" title="First 30 Bars of Tonic Internalisation Exercise"/>
-            <p>First
-                30 Bars of Tonic Internalisation Exercise</p>
+                   max-width="90vw" src="/img/m1_30barsequence.png"
+                   title="First 30 Bars of Tonic Internalisation Exercise"/>
             <p>
-                It can be helpful to download and listen to the exercise while you
+                It can be helpful to already start the player and listen to the exercise while you
                 read the instructions. The exercise is repetitive (by design!) so
                 take your time to listen to it and read the instructions to make sure
                 you have a clear understanding of how to use the exercise.</p>
@@ -163,7 +158,8 @@
                     no extra benefit.</p>
                 </li>
             </ol>
-
+            <p><b>Finished?</b></p>
+            <v-btn style="float: right" color="secondary" class="ma-2" to="/tonic-internalization/test">Try the test</v-btn>
             <p><br/>
 
             <h4>
@@ -176,8 +172,13 @@
                 have you covered!</p>
             <p>While many people
                 believe that you can’t fix bad pitch, we know that you can and
-                we’ll prove it to you
+                we’ll prove it to you:
             </p>
+            <p>
+                Just go and check out <a href="https://www.successfulsinging.com/singing-guides/singing-in-tune/">
+                this introduction to singing in tune</a>.
+            </p>
+            <!--
             <p>So navigate to the
                 bonus module “How to Sing in Tune” where you’ll find a simple
                 exercise that you can use to improve your pitching within 1-2 weeks.
@@ -195,6 +196,7 @@
                 That exercise will make it easy for you to know when you’re singing
                 the correct note in the internalisation exercise and when you’re
                 singing a different note from the chord.</p>
+                -->
             <p><b>“Sometimes the
                 tonic is too high/low for my voice”</b></p>
             <p>If the tonic is
@@ -204,10 +206,12 @@
                 an octave gives you all the benefits of singing it in the octave that
                 you hear it in, with the added benefit of improving your ability to
                 identify high/low passages in music.</p>
+            <!--
             <p>If you find it
                 difficult to transpose the notes you hear by an octave, you’ll find
                 an exercise to work on it in the bonus module “How to Become a More
                 Confident Singer”.</p>
+                -->
         </v-flex>
     </v-layout>
 </template>

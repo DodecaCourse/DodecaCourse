@@ -1,9 +1,9 @@
 <template>
-<div>
-  <div v-bind:key="course.id" v-for="course in courses">
-    <CourseItem v-bind:course="course" :active="course.id === curCourse" />
-  </div>
-</div>
+    <div>
+        <div v-bind:key="course.id" v-for="course in courses">
+            <CourseItem v-bind:course="course" :active="$route.path.startsWith(course.path)"/>
+        </div>
+    </div>
 </template>
 
 

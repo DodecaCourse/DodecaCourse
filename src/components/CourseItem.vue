@@ -11,7 +11,7 @@
       <v-list-item-title>{{ course.id + 1}}. {{course.title}}</v-list-item-title>
     </v-list-item-content>
     </template>
-    <v-list-item :key="chapter.id" v-for="chapter in course.chapters" :to="course.path + chapter.path" @click="$vuetify.goTo(0)">
+    <v-list-item :key="chapter.id" v-for="chapter in course.chapters" :to="course.path + chapter.path">
       <v-list-item-title>{{ chapter.title }}</v-list-item-title>
       <v-icon>{{ chapter.completed ? "mdi-checkbox-marked-circle-outline" : "mdi-checkbox-blank-circle-outline"}}</v-icon>
     </v-list-item>

@@ -17,6 +17,7 @@
                     recognise each one when you hear it
                 </li>
             </ul>
+            <v-btn style="float: right" color="secondary" class="ma-2" to="/individual-notes/internalisation-method">Start internalising</v-btn>
         </v-flex>
     </v-layout>
 </template>

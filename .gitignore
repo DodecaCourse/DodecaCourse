@@ -3,6 +3,7 @@ node_modules
 /dist
 /src/iwa
 /public/robots.txt
+public/impressum.html
 # local env files
 # .env.local
 # .env.*.local
