@@ -17,7 +17,7 @@ import config
 db = TinyDB("db/db.json")
 # db.purge() # Datenbank clearen
 # DATENBANKSTRUKTUR
-# User(user_id, user_keyword)
+# User(user_id, user_keyword, settings...)
 users = db.table('users')
 # Takes(↑user_id, ↑section_id, time_spend)
 takes = db.table('takes')
@@ -156,6 +156,34 @@ def get_user_by_key(user_key):
         'user_id': found[0].eid,
         'user_keyword': found[0]['user_keyword']
     })
+
+
+@app.route('/getsettings/<user_id>')
+def get_user_settings(user_id):
+    # TODO: Same wie oben, vllt in Methode packen
+    if not bool(re.match("-?\\d+", user_id)):
+        app.logger.warning('QUERY: Found invalid user_id \''
+                           + str(user_id) + '\'. Input integers! ')
+        return jsonify('Found invalid user_id')
+    user_id = int(user_id)
+    if not users.contains(eids=[user_id]):
+        app.logger.warning("QUERY: Found invalid user_id " + str(user_id)
+                           + " found. User does not exist.")
+        return jsonify("Found invalid user id " + str(user_id) + " found."
+                       "User does not exist.")
+    # user_id valid
+    usr = users.get(eid=user_id)
+    setting_names = [*config.Config.DEFAULT_SETTINGS.keys()]
+    print(setting_names)
+    N = len(setting_names)
+    returned_settings = {}
+    for i in range(N):
+        if setting_names[i] in usr.keys():
+            returned_settings[setting_names[i]] = usr[setting_names[i]]
+        else:
+            returned_settings[setting_names[i]] = \
+                config.Config.DEFAULT_SETTINGS[setting_names[i]]
+    return jsonify(returned_settings)
 
 
 @app.route('/random')

@@ -42,7 +42,7 @@
                 dense
         >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-            <v-toolbar-title>FETT</v-toolbar-title>
+            <v-toolbar-title><b>FETT</b></v-toolbar-title>
             <v-spacer></v-spacer>
             <pre>Logged in as: </pre><b>{{user}}</b>
             <v-btn icon>

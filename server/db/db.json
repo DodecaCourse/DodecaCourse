@@ -1,7 +1,10 @@
 {
   "users": {
     "1": {
-      "user_keyword": "obama"
+      "user_keyword": "obama",
+      "input_type": 1,
+      "language": 1,
+      "theme": 1
     },
     "2": {
       "user_keyword": "prayforid"
