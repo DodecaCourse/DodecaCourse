@@ -4,7 +4,7 @@
             <h1>2. Recognising Individual Notes</h1>
             <h2>Method</h2>
             <v-banner app elevation="0" id="player" sticky>
-                <Teacher t-type="internalization"/>
+                <Teacher ref="teacher" t-type="internalization" fixed/>
             </v-banner>
             <ol>
                 <li><p>
@@ -170,19 +170,67 @@
             <p>Practice
                 with this exercise until you start to feel confident that you are
                 internalising the sound of the target scale degree. Then try the
-                internalisation test for the target scale degree.</p>
-            <v-btn style="float: right" color="secondary" class="ma-2" to="/individual-notes/internalisation-test">Try the test</v-btn>
+                internalisation test for the target scale degree.
+            </p>
+            <p>
+                Start with the scale degrees of the pentatonic scale. You already learned the sound
+                of »Do«, now continue with »Re«, »Mi«, »So« and »La«.
+            </p>
+            <p>
+                <InlineConfigurator t-type="internalization"
+                :config="{degree: '2M'}">
+                    »Re« Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator t-type="internalization"
+                                    :config="{degree: '3M'}">
+                    »Mi« Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator t-type="internalization"
+                                    :config="{degree: '5P'}">
+                    »So« Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator t-type="internalization"
+                                    :config="{degree: '6M'}">
+                    »La« Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                Having internalised the pentatonic scale, you can already play many
+                pop songs by ear. You can already continue to the pentatonic recognition
+                exercises, while also doing the internalisation exercises of the two missing
+                scale degrees, »Fa« and »Ti«
+            </p>
+            <p>
+                <InlineConfigurator t-type="internalization"
+                                    :config="{degree: '4P'}">
+                    »Fa« Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator t-type="internalization"
+                                    :config="{degree: '7M'}">
+                    »Ti« Internalisation
+                </InlineConfigurator>
+            </p>
         </v-flex>
     </v-layout>
 </template>
 
 <script>
     import Teacher from "../components/Teacher";
+    import InlineConfigurator from "../components/InlineConfigurator";
 
     export default {
         name: "IndividualNotesMethod",
         components: {
+            InlineConfigurator,
             Teacher
-        }
+        },
     }
 </script>

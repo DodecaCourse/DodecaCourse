@@ -116,7 +116,7 @@
                     ]
                 },
                 cadenceType: CADENCE_MAJOR_I_IV_V,
-
+                type: INTERNALIZATION,
                 // tType specific
                 // Recognition
                 inputDisabled: false,
@@ -131,13 +131,6 @@
                     return ['1P'];
                 }
                 return this.chosenDegrees;
-            },
-            type: function () {
-                // defaults to INTERNALIZATION
-                if (this.tType === "internalization") return INTERNALIZATION;
-                else if (this.tType === "internalization-test") return INTERNALIZATION_TEST;
-                else if (this.tType === "recognition") return RECOGNITION;
-                else return INTERNALIZATION;
             },
             multiple: function() {
                 if (this.type === INTERNALIZATION) return false;
@@ -157,12 +150,9 @@
         watch: {
             playing: function (val) {
                 if (val) {
-                    this.roundSincePlay = 0;
-                    this.playRound();
+                    this.doStart();
                 } else {
-                    this.clearTimeouts();
-                    this.progress = 0;
-                    this.stopAllNotes();
+                    this.doStop();
                 }
             }
         },
@@ -293,8 +283,28 @@
             doRepeat: function() {
                 this.stopAllNotes();
                 this.clearTimeouts();
-                this.played = [];
                 if (this.playing) this.playRound();
+            },
+            // setup functions for different practice/test scenarios
+            setupInternalization: function(degree) {
+                console.log("setupInternalization", degree);
+                this.chosenDegrees = [degree];
+                this.type = INTERNALIZATION;
+                if (this.playing) {
+                    this.restart();
+                } else {
+                    this.playing = true;
+                }
+            },
+            setupInternalizationTest: function(degree) {
+                console.log("setupInternalizationTest", degree);
+                this.chosenDegrees = [degree];
+                this.type = INTERNALIZATION_TEST;
+                if (this.playing) {
+                    this.restart();
+                } else {
+                    this.playing = true;
+                }
             },
             updateProgress: function () {
                 if (this.playing) {
@@ -306,6 +316,19 @@
                 } else {
                     this.progress = 0;
                 }
+            },
+            restart: function () {
+                this.doStop();
+                this.doStart();
+            },
+            doStart: function () {
+                this.roundSincePlay = 0;
+                this.playRound();
+            },
+            doStop: function () {
+                this.clearTimeouts();
+                this.progress = 0;
+                this.stopAllNotes();
             },
             stopAllNotes: function () {
                 for (let i=0; i<this.played.length;i++) {
@@ -362,6 +385,9 @@
             if (this.preselect !== undefined) {
                 this.chosenDegrees = this.preselect;
             }
+            if (this.tType === "internalization") this.type = INTERNALIZATION;
+            else if (this.tType === "internalization-test") this.type = INTERNALIZATION_TEST;
+            else if (this.tType === "recognition") this.type = RECOGNITION;
         },
         destroyed: function stopAudio() {
             this.clearTimeouts();
