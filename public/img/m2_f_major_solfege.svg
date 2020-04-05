@@ -9,9 +9,9 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.2"
-   width="110.94598mm"
-   height="26.034082mm"
-   viewBox="0 0 48.564914 11.396021"
+   width="112.94598mm"
+   height="30.034082mm"
+   viewBox="0 0 49.440383 13.146959"
    id="svg230"
    sodipodi:docname="m2_f_major_solfege.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
@@ -42,13 +42,13 @@
      inkscape:window-height="1023"
      id="namedview232"
      showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
+     fit-margin-top="2"
+     fit-margin-left="1"
+     fit-margin-right="1"
+     fit-margin-bottom="2"
      inkscape:zoom="1.1893044"
-     inkscape:cx="223.93611"
-     inkscape:cy="57.89722"
+     inkscape:cx="279.76986"
+     inkscape:cy="-40.107295"
      inkscape:window-x="0"
      inkscape:window-y="31"
      inkscape:window-maximized="1"
@@ -58,601 +58,584 @@
      font-size="2.2002"
      id="text4"
      style="font-size:2.20020008px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
-     x="-6.565496"
-     y="-0.99217844">
+     x="-6.1277614"
+     y="-0.11670901">
     <tspan
        id="tspan2" />
   </text>
-  <g
-     id="g346"
-     transform="translate(-10.942796,-3.1808785)">
-    <line
-       id="line6"
-       y2="0"
-       x2="48.521301"
-       y1="0"
-       x1="0.042399999"
-       transform="translate(10.9434,10.5009)"
-       style="stroke:currentColor;stroke-width:0.0848;stroke-linecap:round;stroke-linejoin:round" />
-    <line
-       id="line8"
-       y2="0"
-       x2="48.521301"
-       y1="0"
-       x1="0.042399999"
-       transform="translate(10.9434,9.5009)"
-       style="stroke:currentColor;stroke-width:0.0848;stroke-linecap:round;stroke-linejoin:round" />
-    <line
-       id="line10"
-       y2="0"
-       x2="48.521301"
-       y1="0"
-       x1="0.042399999"
-       transform="translate(10.9434,8.5009)"
-       style="stroke:currentColor;stroke-width:0.0848;stroke-linecap:round;stroke-linejoin:round" />
-    <line
-       id="line12"
-       y2="0"
-       x2="48.521301"
-       y1="0"
-       x1="0.042399999"
-       transform="translate(10.9434,7.5009)"
-       style="stroke:currentColor;stroke-width:0.0848;stroke-linecap:round;stroke-linejoin:round" />
-    <line
-       id="line14"
-       y2="0"
-       x2="48.521301"
-       y1="0"
-       x1="0.042399999"
-       transform="translate(10.9434,6.5009)"
-       style="stroke:currentColor;stroke-width:0.0848;stroke-linecap:round;stroke-linejoin:round" />
-    <rect
-       id="rect16"
-       ry="0.0000"
-       height="4"
-       width="0.1612"
-       y="-2"
-       x="0"
-       transform="translate(39.6506,8.5009)"
-       style="fill:currentColor" />
-    <rect
-       id="rect18"
-       ry="0.0000"
-       height="4"
-       width="0.1612"
-       y="-2"
-       x="0"
-       transform="translate(59.3459,8.5009)"
-       style="fill:currentColor" />
-    <a
-       id="a24"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:51:52"
-       style="color:inherit">
-      <text
-         id="text22"
-         font-size="2.4695"
-         transform="translate(54.6168,14.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan20">F</tspan>
-      </text>
-    </a>
-    <a
-       id="a34"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:63:64"
-       style="color:inherit">
-      <circle
-         id="circle26"
-         r="0.5424"
-         transform="translate(50.7593,7.0009)"
-         cx="0"
-         cy="0"
-         style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-      <g
-         id="g32"
-         style="color:#ffffff">
-        <text
-           id="text30"
-           font-size="0.8733"
-           font-weight="bold"
-           transform="translate(50.4572,7.3292)"
-           style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-          <tspan
-             id="tspan28">7</tspan>
-        </text>
-      </g>
-    </a>
-    <a
-       id="a40"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:49:50"
-       style="color:inherit">
-      <text
-         id="text38"
-         font-size="2.4695"
-         transform="translate(49.8663,14.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan36">E</tspan>
-      </text>
-    </a>
-    <a
-       id="a46"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:26:27"
-       style="color:inherit">
-      <text
-         id="text44"
-         font-size="2.4695"
-         transform="translate(49.5117,5.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan42">Ti</tspan>
-      </text>
-    </a>
-    <rect
-       id="rect48"
-       ry="0.0308"
-       height="3.3694999"
-       width="0.1103"
-       y="-1.3695"
-       x="-0.055100001"
-       transform="translate(50.272,8.5009)"
-       style="fill:currentColor" />
-    <a
-       id="a58"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:65:66"
-       style="color:inherit">
-      <circle
-         id="circle50"
-         r="0.5424"
-         transform="translate(55.4441,6.5009)"
-         cx="0"
-         cy="0"
-         style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-      <g
-         id="g56"
-         style="color:#ffffff">
-        <text
-           id="text54"
-           font-size="0.8733"
-           font-weight="bold"
-           transform="translate(55.1421,6.8292)"
-           style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-          <tspan
-             id="tspan52">1</tspan>
-        </text>
-      </g>
-    </a>
-    <rect
-       id="rect60"
-       ry="0.0308"
-       height="3.3694999"
-       width="0.1103"
-       y="-0.86949998"
-       x="-0.055100001"
-       transform="translate(45.5872,8.5009)"
-       style="fill:currentColor" />
-    <a
-       id="a66"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:23:24"
-       style="color:inherit">
-      <text
-         id="text64"
-         font-size="2.4695"
-         transform="translate(44.5643,5.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan62">La</tspan>
-      </text>
-    </a>
-    <a
-       id="a72"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:47:48"
-       style="color:inherit">
-      <text
-         id="text70"
-         font-size="2.4695"
-         transform="translate(45.1158,14.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan68">D</tspan>
-      </text>
-    </a>
-    <a
-       id="a82"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:61:62"
-       style="color:inherit">
-      <circle
-         id="circle74"
-         r="0.5424"
-         transform="translate(46.0744,7.5009)"
-         cx="0"
-         cy="0"
-         style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-      <g
-         id="g80"
-         style="color:#ffffff">
-        <text
-           id="text78"
-           font-size="0.8733"
-           font-weight="bold"
-           transform="translate(45.7724,7.8292)"
-           style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-          <tspan
-             id="tspan76">6</tspan>
-        </text>
-      </g>
-    </a>
-    <a
-       id="a88"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:29:30"
-       style="color:inherit">
-      <text
-         id="text86"
-         font-size="2.4695"
-         transform="translate(53.8683,5.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan84">Do</tspan>
-      </text>
-    </a>
-    <rect
-       id="rect90"
-       ry="0.0308"
-       height="3.3694999"
-       width="0.1103"
-       y="-1.8695"
-       x="-0.055100001"
-       transform="translate(54.9568,8.5009)"
-       style="fill:currentColor" />
-    <a
-       id="a96"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:11:12"
-       style="color:inherit">
-      <text
-         id="text94"
-         font-size="2.4695"
-         transform="translate(24.7146,5.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan92">Re</tspan>
-      </text>
-    </a>
-    <a
-       id="a102"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:10:11"
-       style="color:inherit">
-      <text
-         id="text100"
-         font-size="2.4695"
-         transform="translate(25.2793,14.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan98">G</tspan>
-      </text>
-    </a>
-    <a
-       id="a112"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:51:52"
-       style="color:inherit">
-      <circle
-         id="circle104"
-         r="0.5424"
-         transform="translate(26.2379,9.5009)"
-         cx="0"
-         cy="0"
-         style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-      <g
-         id="g110"
-         style="color:#ffffff">
-        <text
-           id="text108"
-           font-size="0.8733"
-           font-weight="bold"
-           transform="translate(25.9359,9.8292)"
-           style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-          <tspan
-             id="tspan106">2</tspan>
-        </text>
-      </g>
-    </a>
-    <rect
-       id="rect114"
-       ry="0.0308"
-       height="3.3694999"
-       width="0.1103"
-       y="-2.5"
-       x="-0.055100001"
-       transform="translate(26.7252,8.5009)"
-       style="fill:currentColor" />
-    <rect
-       id="rect116"
-       ry="0.0308"
-       height="3.3694999"
-       width="0.1103"
-       y="-2"
-       x="-0.055100001"
-       transform="translate(22.0404,8.5009)"
-       style="fill:currentColor" />
-    <a
-       id="a122"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:8:9"
-       style="color:inherit">
-      <text
-         id="text120"
-         font-size="2.4695"
-         transform="translate(19.9772,5.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan118">Do</tspan>
-      </text>
-    </a>
-    <a
-       id="a128"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:8:9"
-       style="color:inherit">
-      <text
-         id="text126"
-         font-size="2.4695"
-         transform="translate(20.7258,14.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan124">F</tspan>
-      </text>
-    </a>
-    <path
-       id="path130"
-       d="m 360,25 c -51,0 -76,43 -76,77 0,39 28,78 74,78 6,0 13,0 18,-1 -29,37 -76,60 -126,60 -106,0 -113,-73 -113,-185 0,-17 1,-35 1,-54 0,-19 -1,-37 -1,-54 0,-112 7,-185 113,-185 82,0 145,68 164,151 1,6 6,9 10,9 6,0 11,-4 11,-11 0,-94 -107,-171 -185,-171 -68,0 -137,20 -184,69 C 17,-141 0,-70 0,0 c 0,70 17,141 66,192 47,49 116,69 184,69 88,0 163,-62 178,-148 1,-5 2,-9 2,-14 0,-40 -32,-74 -70,-74 z"
-       transform="matrix(0.004,0,0,-0.004,17.2971,8.5009)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-    <a
-       id="a134"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:22:23"
-       style="color:inherit">
-      <path
-         id="path132"
-         d="m 25,44 -1,-69 c 0,-4 -1,-7 -1,-11 0,-22 2,-44 4,-66 46,38 96,80 96,139 0,34 -14,69 -44,69 C 48,106 26,77 25,44 Z m -50,419 c 8,4 16,7 25,7 9,0 17,-3 25,-7 L 19,114 c 26,19 56,30 88,30 53,0 93,-46 93,-100 0,-82 -90,-118 -153,-169 -14,-11 -22,-32 -40,-32 -12,0 -21,9 -21,21 z"
-         transform="matrix(0.004,0,0,-0.004,15.3471,8.5009)"
-         inkscape:connector-curvature="0"
-         style="fill:currentColor" />
-    </a>
-    <path
-       id="path136"
-       d="m 374,260 c 5,0 10,1 15,1 154,0 254,-127 254,-259 0,-76 -33,-153 -107,-208 -22,-17 -47,-29 -73,-37 3,-36 5,-72 5,-108 0,-19 0,-37 -1,-56 -7,-120 -88,-226 -206,-226 -108,0 -195,87 -195,195 0,58 53,104 112,104 54,0 95,-48 95,-104 0,-52 -43,-95 -95,-95 -12,0 -24,4 -35,9 26,-41 70,-70 121,-70 1,0 2,1 3,1 93,2 154,93 160,192 1,18 2,35 2,53 0,32 -2,64 -5,96 -29,-5 -58,-8 -89,-8 -188,0 -333,171 -333,372 0,178 133,306 251,440 -18,63 -35,126 -42,191 -6,51 -7,102 -7,154 0,116 55,226 150,295 5,4 11,4 16,0 70,-84 132,-246 132,-359 0,-144 -87,-256 -183,-365 20,-69 39,-138 55,-208 z m 85,-465 c 69,24 117,96 117,166 0,92 -69,184 -179,193 25,-117 48,-235 62,-359 z M 71,31 c 0,-136 131,-251 267,-251 28,0 55,2 82,6 C 405,-86 382,33 356,153 277,144 231,91 231,32 c 0,-44 26,-92 82,-124 4,-4 7,-9 7,-14 0,-11 -9,-21 -20,-21 -3,0 -6,1 -9,2 -80,43 -116,114 -116,184 0,88 57,173 158,196 -14,60 -30,119 -46,178 C 179,312 71,191 71,31 Z M 411,1050 C 312,1000 250,899 250,788 c 0,-76 15,-137 33,-200 82,97 149,198 149,325 0,58 -4,84 -21,137 z"
-       transform="matrix(0.004,0,0,-0.004,11.7434,9.5009)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-    <a
-       id="a146"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:49:50"
-       style="color:inherit">
-      <circle
-         id="circle138"
-         r="0.5424"
-         transform="translate(21.5531,10.0009)"
-         cx="0"
-         cy="0"
-         style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-      <g
-         id="g144"
-         style="color:#ffffff">
-        <text
-           id="text142"
-           font-size="0.8733"
-           font-weight="bold"
-           transform="translate(21.251,10.3292)"
-           style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-          <tspan
-             id="tspan140">1</tspan>
-        </text>
-      </g>
-    </a>
-    <a
-       id="a154"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:14:15"
-       style="color:inherit">
-      <text
-         id="text150"
-         font-size="2.4695"
-         transform="translate(34.3428,14.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan148">B</tspan>
-      </text>
-      <path
-         id="path152"
-         d="m 26,43 -1,-68 v -11 c 0,-22 0,-44 3,-66 46,38 95,80 95,139 0,34 -14,68 -44,68 C 48,105 27,76 26,43 Z m -40,-180 -12,598 c 8,5 17,6 26,6 9,0 18,-1 26,-6 L 19,113 c 25,20 57,32 90,32 52,0 91,-47 91,-101 0,-81 -88,-118 -150,-169 -15,-12 -22,-35 -42,-35 -12,0 -22,10 -22,23 z"
-         transform="matrix(0.0036,0,0,-0.0036,36.228,14.0009)"
-         inkscape:connector-curvature="0"
-         style="fill:currentColor" />
-    </a>
-    <rect
-       id="rect156"
-       ry="0.0308"
-       height="3.3694999"
-       width="0.1103"
-       y="-0.36950001"
-       x="-0.055100001"
-       transform="translate(40.9023,8.5009)"
-       style="fill:currentColor" />
-    <a
-       id="a162"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:20:21"
-       style="color:inherit">
-      <text
-         id="text160"
-         font-size="2.4695"
-         transform="translate(39.9976,5.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan158">So</tspan>
-      </text>
-    </a>
-    <a
-       id="a168"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:45:46"
-       style="color:inherit">
-      <text
-         id="text166"
-         font-size="2.4695"
-         transform="translate(40.4966,14.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan164">C</tspan>
-      </text>
-    </a>
-    <a
-       id="a178"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:59:60"
-       style="color:inherit">
-      <circle
-         id="circle170"
-         r="0.5424"
-         transform="translate(41.3896,8.0009)"
-         cx="0"
-         cy="0"
-         style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-      <g
-         id="g176"
-         style="color:#ffffff">
-        <text
-           id="text174"
-           font-size="0.8733"
-           font-weight="bold"
-           transform="translate(41.0876,8.3292)"
-           style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-          <tspan
-             id="tspan172">5</tspan>
-        </text>
-      </g>
-    </a>
-    <rect
-       id="rect180"
-       ry="0.0308"
-       height="3.2028"
-       width="0.1103"
-       y="0.1305"
-       x="-0.055100001"
-       transform="translate(35.1545,8.5009)"
-       style="fill:currentColor" />
-    <a
-       id="a186"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:17:18"
-       style="color:inherit">
-      <text
-         id="text184"
-         font-size="2.4695"
-         transform="translate(34.1709,5.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan182">Fa</tspan>
-      </text>
-    </a>
-    <a
-       id="a196"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:55:56"
-       style="color:inherit">
-      <circle
-         id="circle188"
-         r="0.5424"
-         transform="translate(35.6417,8.5009)"
-         cx="0"
-         cy="0"
-         style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-      <g
-         id="g194"
-         style="color:#ffffff">
-        <text
-           id="text192"
-           font-size="0.8733"
-           font-weight="bold"
-           transform="translate(35.3397,8.8292)"
-           style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-          <tspan
-             id="tspan190">4</tspan>
-        </text>
-      </g>
-    </a>
-    <rect
-       id="rect198"
-       ry="0.0308"
-       height="3.3694999"
-       width="0.1103"
-       y="-3"
-       x="-0.055100001"
-       transform="translate(31.41,8.5009)"
-       style="fill:currentColor" />
-    <a
-       id="a204"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:14:15"
-       style="color:inherit">
-      <text
-         id="text202"
-         font-size="2.4695"
-         transform="translate(29.36,5.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan200">Mi</tspan>
-      </text>
-    </a>
-    <a
-       id="a214"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:53:54"
-       style="color:inherit">
-      <circle
-         id="circle206"
-         r="0.5424"
-         transform="translate(30.9228,9.0009)"
-         cx="0"
-         cy="0"
-         style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-      <g
-         id="g212"
-         style="color:#ffffff">
-        <text
-           id="text210"
-           font-size="0.8733"
-           font-weight="bold"
-           transform="translate(30.6207,9.3292)"
-           style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-          <tspan
-             id="tspan208">3</tspan>
-        </text>
-      </g>
-    </a>
-    <a
-       id="a220"
-       xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:12:13"
-       style="color:inherit">
-      <text
-         id="text218"
-         font-size="2.4695"
-         transform="translate(30.0298,14.0009)"
-         style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-        <tspan
-           id="tspan216">A</tspan>
-      </text>
-    </a>
-  </g>
+  <line
+     x1="0.48073861"
+     y1="8.1954908"
+     x2="48.959637"
+     y2="8.1954908"
+     id="line6"
+     style="stroke:currentColor;stroke-width:0.0848;stroke-linecap:round;stroke-linejoin:round" />
+  <line
+     x1="0.48073861"
+     y1="7.1954908"
+     x2="48.959637"
+     y2="7.1954908"
+     id="line8"
+     style="stroke:currentColor;stroke-width:0.0848;stroke-linecap:round;stroke-linejoin:round" />
+  <line
+     x1="0.48073861"
+     y1="6.1954908"
+     x2="48.959637"
+     y2="6.1954908"
+     id="line10"
+     style="stroke:currentColor;stroke-width:0.0848;stroke-linecap:round;stroke-linejoin:round" />
+  <line
+     x1="0.48073861"
+     y1="5.1954908"
+     x2="48.959637"
+     y2="5.1954908"
+     id="line12"
+     style="stroke:currentColor;stroke-width:0.0848;stroke-linecap:round;stroke-linejoin:round" />
+  <line
+     x1="0.48073861"
+     y1="4.1954908"
+     x2="48.959637"
+     y2="4.1954908"
+     id="line14"
+     style="stroke:currentColor;stroke-width:0.0848;stroke-linecap:round;stroke-linejoin:round" />
+  <rect
+     x="29.145538"
+     y="4.1954908"
+     width="0.1612"
+     height="4"
+     ry="0.0000"
+     id="rect16"
+     style="fill:currentColor" />
+  <rect
+     x="48.840836"
+     y="4.1954908"
+     width="0.1612"
+     height="4"
+     ry="0.0000"
+     id="rect18"
+     style="fill:currentColor" />
   <a
-     transform="translate(6.9956039,123.72712)"
-     xlink:href="http://lilypond.org/"
-     id="a224">
-    <rect
-       x="0"
-       y="-0.47279999"
-       width="56.0476"
-       height="2.1011"
-       id="rect222"
-       style="fill:none;stroke:none;stroke-width:0" />
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:51:52"
+     id="a24"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(54.6168,14.0009)"
+       font-size="2.4695"
+       id="text22"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan20">F</tspan>
+    </text>
   </a>
-  <text
-     font-size="2.2002"
-     id="text228"
-     style="font-size:2.20020008px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
-     x="6.995604"
-     y="123.72712">
-    <tspan
-       id="tspan226">Music engraving by LilyPond 2.18.2—www.lilypond.org</tspan>
-  </text>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:63:64"
+     id="a34"
+     transform="translate(-10.505062,-2.305409)">
+    <circle
+       transform="translate(50.7593,7.0009)"
+       r="0.5424"
+       id="circle26"
+       cx="0"
+       cy="0"
+       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+    <g
+       id="g32"
+       style="color:#ffffff">
+      <text
+         transform="translate(50.4572,7.3292)"
+         font-weight="bold"
+         font-size="0.8733"
+         id="text30"
+         style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
+        <tspan
+           id="tspan28">7</tspan>
+      </text>
+    </g>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:49:50"
+     id="a40"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(49.8663,14.0009)"
+       font-size="2.4695"
+       id="text38"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan36">E</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:26:27"
+     id="a46"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(49.5117,5.0009)"
+       font-size="2.4695"
+       id="text44"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan42">Ti</tspan>
+    </text>
+  </a>
+  <rect
+     x="39.711838"
+     y="4.8259912"
+     width="0.1103"
+     height="3.3694999"
+     ry="0.0308"
+     id="rect48"
+     style="fill:currentColor" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:65:66"
+     id="a58"
+     transform="translate(-10.505062,-2.305409)">
+    <circle
+       transform="translate(55.4441,6.5009)"
+       r="0.5424"
+       id="circle50"
+       cx="0"
+       cy="0"
+       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+    <g
+       id="g56"
+       style="color:#ffffff">
+      <text
+         transform="translate(55.1421,6.8292)"
+         font-weight="bold"
+         font-size="0.8733"
+         id="text54"
+         style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
+        <tspan
+           id="tspan52">1</tspan>
+      </text>
+    </g>
+  </a>
+  <rect
+     x="35.027039"
+     y="5.3259912"
+     width="0.1103"
+     height="3.3694999"
+     ry="0.0308"
+     id="rect60"
+     style="fill:currentColor" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:23:24"
+     id="a66"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(44.5643,5.0009)"
+       font-size="2.4695"
+       id="text64"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan62">La</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:47:48"
+     id="a72"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(45.1158,14.0009)"
+       font-size="2.4695"
+       id="text70"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan68">D</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:61:62"
+     id="a82"
+     transform="translate(-10.505062,-2.305409)">
+    <circle
+       transform="translate(46.0744,7.5009)"
+       r="0.5424"
+       id="circle74"
+       cx="0"
+       cy="0"
+       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+    <g
+       id="g80"
+       style="color:#ffffff">
+      <text
+         transform="translate(45.7724,7.8292)"
+         font-weight="bold"
+         font-size="0.8733"
+         id="text78"
+         style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
+        <tspan
+           id="tspan76">6</tspan>
+      </text>
+    </g>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:29:30"
+     id="a88"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(53.8683,5.0009)"
+       font-size="2.4695"
+       id="text86"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan84">Do</tspan>
+    </text>
+  </a>
+  <rect
+     x="44.396637"
+     y="4.3259912"
+     width="0.1103"
+     height="3.3694999"
+     ry="0.0308"
+     id="rect90"
+     style="fill:currentColor" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:11:12"
+     id="a96"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(24.7146,5.0009)"
+       font-size="2.4695"
+       id="text94"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan92">Re</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:10:11"
+     id="a102"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(25.2793,14.0009)"
+       font-size="2.4695"
+       id="text100"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan98">G</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:51:52"
+     id="a112"
+     transform="translate(-10.505062,-2.305409)">
+    <circle
+       transform="translate(26.2379,9.5009)"
+       r="0.5424"
+       id="circle104"
+       cx="0"
+       cy="0"
+       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+    <g
+       id="g110"
+       style="color:#ffffff">
+      <text
+         transform="translate(25.9359,9.8292)"
+         font-weight="bold"
+         font-size="0.8733"
+         id="text108"
+         style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
+        <tspan
+           id="tspan106">2</tspan>
+      </text>
+    </g>
+  </a>
+  <rect
+     x="16.165039"
+     y="3.6954911"
+     width="0.1103"
+     height="3.3694999"
+     ry="0.0308"
+     id="rect114"
+     style="fill:currentColor" />
+  <rect
+     x="11.48024"
+     y="4.1954908"
+     width="0.1103"
+     height="3.3694999"
+     ry="0.0308"
+     id="rect116"
+     style="fill:currentColor" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:8:9"
+     id="a122"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(19.9772,5.0009)"
+       font-size="2.4695"
+       id="text120"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan118">Do</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:8:9"
+     id="a128"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(20.7258,14.0009)"
+       font-size="2.4695"
+       id="text126"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan124">F</tspan>
+    </text>
+  </a>
+  <path
+     d="m 8.2320386,6.095491 c -0.204,0 -0.304,-0.172 -0.304,-0.308 0,-0.156 0.112,-0.312 0.296,-0.312 0.024,0 0.052,0 0.072,0.004 -0.116,-0.148 -0.304,-0.24 -0.504,-0.24 -0.424,0 -0.452,0.292 -0.452,0.74 0,0.068 0.004,0.14 0.004,0.216 0,0.076 -0.004,0.148 -0.004,0.216 0,0.448 0.028,0.74 0.452,0.74 0.328,0 0.58,-0.272 0.656,-0.604 0.004,-0.024 0.024,-0.036 0.04,-0.036 0.024,0 0.044,0.016 0.044,0.044 0,0.376 -0.428,0.684 -0.74,0.684 -0.272,0 -0.548,-0.08 -0.736,-0.276 -0.196,-0.204 -0.264,-0.488 -0.264,-0.768 0,-0.28 0.068,-0.564 0.264,-0.768 0.188,-0.196 0.464,-0.276 0.736,-0.276 0.352,0 0.652,0.248 0.712,0.592 0.004,0.02 0.008,0.036 0.008,0.056 0,0.16 -0.128,0.296 -0.28,0.296 z"
+     id="path130"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:22:23"
+     id="a134"
+     transform="translate(-10.505062,-2.305409)">
+    <path
+       transform="matrix(0.004,0,0,-0.004,15.3471,8.5009)"
+       d="m 25,44 -1,-69 c 0,-4 -1,-7 -1,-11 0,-22 2,-44 4,-66 46,38 96,80 96,139 0,34 -14,69 -44,69 C 48,106 26,77 25,44 Z m -50,419 c 8,4 16,7 25,7 9,0 17,-3 25,-7 L 19,114 c 26,19 56,30 88,30 53,0 93,-46 93,-100 0,-82 -90,-118 -153,-169 -14,-11 -22,-32 -40,-32 -12,0 -21,9 -21,21 z"
+       id="path132"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
+  </a>
+  <path
+     d="m 2.7343386,6.155491 c 0.02,0 0.04,-0.004 0.06,-0.004 0.616,0 1.016,0.508 1.016,1.036 0,0.304 -0.132,0.612 -0.428,0.832 -0.088,0.068 -0.188,0.116 -0.292,0.148 0.012,0.144 0.02,0.288 0.02,0.432 0,0.076 0,0.148 -0.004,0.224 -0.028,0.48 -0.352,0.904 -0.824,0.904 -0.432,0 -0.78,-0.348 -0.78,-0.78 0,-0.232 0.212,-0.416 0.448,-0.416 0.216,0 0.38,0.192 0.38,0.416 0,0.208 -0.172,0.38 -0.38,0.38 -0.048,0 -0.096,-0.016 -0.14,-0.036 0.104,0.164 0.28,0.28 0.484,0.28 0.004,0 0.008,-0.004 0.012,-0.004 0.372,-0.008 0.616,-0.372 0.64,-0.768 0.004,-0.072 0.008,-0.14 0.008,-0.212 0,-0.128 -0.008,-0.256 -0.02,-0.384 -0.116,0.02 -0.232,0.032 -0.356,0.032 -0.752,0 -1.332,-0.684 -1.332,-1.488 0,-0.712 0.532,-1.224 1.004,-1.76 -0.072,-0.252 -0.14,-0.504 -0.168,-0.764 -0.024,-0.204 -0.028,-0.408 -0.028,-0.616 0,-0.464 0.22,-0.904 0.6,-1.18 0.02,-0.016 0.044,-0.016 0.064,0 0.28,0.336 0.528,0.984 0.528,1.436 0,0.576 -0.348,1.024 -0.732,1.46 0.08,0.276 0.156,0.552 0.22,0.832 z m 0.34,1.86 c 0.276,-0.096 0.468,-0.384 0.468,-0.664 0,-0.368 -0.276,-0.736 -0.716,-0.772 0.1,0.468 0.192,0.94 0.248,1.436 z m -1.552,-0.944 c 0,0.544 0.524,1.004 1.068,1.004 0.112,0 0.22,-0.008 0.328,-0.024 -0.06,-0.512 -0.152,-0.988 -0.256,-1.468 -0.316,0.036 -0.5,0.248 -0.5,0.484 0,0.176 0.104,0.368 0.328,0.496 0.016,0.016 0.028,0.036 0.028,0.056 0,0.044 -0.036,0.084 -0.08,0.084 -0.012,0 -0.024,-0.004 -0.036,-0.008 -0.32,-0.172 -0.464,-0.456 -0.464,-0.736 0,-0.352 0.228,-0.692 0.632,-0.784 -0.056,-0.24 -0.12,-0.476 -0.184,-0.712 -0.432,0.484 -0.864,0.968 -0.864,1.608 z m 1.36,-4.076 c -0.396,0.2 -0.644,0.604 -0.644,1.048 0,0.304 0.06,0.548 0.132,0.8 0.328,-0.388 0.596,-0.792 0.596,-1.3 0,-0.232 -0.016,-0.336 -0.084,-0.548 z"
+     id="path136"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:49:50"
+     id="a146"
+     transform="translate(-10.505062,-2.305409)">
+    <circle
+       transform="translate(21.5531,10.0009)"
+       r="0.5424"
+       id="circle138"
+       cx="0"
+       cy="0"
+       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+    <g
+       id="g144"
+       style="color:#ffffff">
+      <text
+         transform="translate(21.251,10.3292)"
+         font-weight="bold"
+         font-size="0.8733"
+         id="text142"
+         style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
+        <tspan
+           id="tspan140">1</tspan>
+      </text>
+    </g>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:14:15"
+     id="a154"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(34.3428,14.0009)"
+       font-size="2.4695"
+       id="text150"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan148">B</tspan>
+    </text>
+    <path
+       transform="matrix(0.0036,0,0,-0.0036,36.228,14.0009)"
+       d="m 26,43 -1,-68 v -11 c 0,-22 0,-44 3,-66 46,38 95,80 95,139 0,34 -14,68 -44,68 C 48,105 27,76 26,43 Z m -40,-180 -12,598 c 8,5 17,6 26,6 9,0 18,-1 26,-6 L 19,113 c 25,20 57,32 90,32 52,0 91,-47 91,-101 0,-81 -88,-118 -150,-169 -15,-12 -22,-35 -42,-35 -12,0 -22,10 -22,23 z"
+       id="path152"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
+  </a>
+  <rect
+     x="30.342138"
+     y="5.8259912"
+     width="0.1103"
+     height="3.3694999"
+     ry="0.0308"
+     id="rect156"
+     style="fill:currentColor" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:20:21"
+     id="a162"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(39.9976,5.0009)"
+       font-size="2.4695"
+       id="text160"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan158">So</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:45:46"
+     id="a168"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(40.4966,14.0009)"
+       font-size="2.4695"
+       id="text166"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan164">C</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:59:60"
+     id="a178"
+     transform="translate(-10.505062,-2.305409)">
+    <circle
+       transform="translate(41.3896,8.0009)"
+       r="0.5424"
+       id="circle170"
+       cx="0"
+       cy="0"
+       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+    <g
+       id="g176"
+       style="color:#ffffff">
+      <text
+         transform="translate(41.0876,8.3292)"
+         font-weight="bold"
+         font-size="0.8733"
+         id="text174"
+         style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
+        <tspan
+           id="tspan172">5</tspan>
+      </text>
+    </g>
+  </a>
+  <rect
+     x="24.594339"
+     y="6.3259912"
+     width="0.1103"
+     height="3.2028"
+     ry="0.0308"
+     id="rect180"
+     style="fill:currentColor" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:17:18"
+     id="a186"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(34.1709,5.0009)"
+       font-size="2.4695"
+       id="text184"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan182">Fa</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:55:56"
+     id="a196"
+     transform="translate(-10.505062,-2.305409)">
+    <circle
+       transform="translate(35.6417,8.5009)"
+       r="0.5424"
+       id="circle188"
+       cx="0"
+       cy="0"
+       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+    <g
+       id="g194"
+       style="color:#ffffff">
+      <text
+         transform="translate(35.3397,8.8292)"
+         font-weight="bold"
+         font-size="0.8733"
+         id="text192"
+         style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
+        <tspan
+           id="tspan190">4</tspan>
+      </text>
+    </g>
+  </a>
+  <rect
+     x="20.849838"
+     y="3.1954911"
+     width="0.1103"
+     height="3.3694999"
+     ry="0.0308"
+     id="rect198"
+     style="fill:currentColor" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:32:14:15"
+     id="a204"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(29.36,5.0009)"
+       font-size="2.4695"
+       id="text202"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan200">Mi</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:22:53:54"
+     id="a214"
+     transform="translate(-10.505062,-2.305409)">
+    <circle
+       transform="translate(30.9228,9.0009)"
+       r="0.5424"
+       id="circle206"
+       cx="0"
+       cy="0"
+       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+    <g
+       id="g212"
+       style="color:#ffffff">
+      <text
+         transform="translate(30.6207,9.3292)"
+         font-weight="bold"
+         font-size="0.8733"
+         id="text210"
+         style="font-weight:bold;font-size:0.87330002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
+        <tspan
+           id="tspan208">3</tspan>
+      </text>
+    </g>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_f_major_solfege.ly:27:12:13"
+     id="a220"
+     transform="translate(-10.505062,-2.305409)">
+    <text
+       transform="translate(30.0298,14.0009)"
+       font-size="2.4695"
+       id="text218"
+       style="font-size:2.46950006px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan216">A</tspan>
+    </text>
+  </a>
 </svg>

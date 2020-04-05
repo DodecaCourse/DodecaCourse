@@ -9,25 +9,26 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.2"
-   width="192.81451mm"
-   height="73.753212mm"
-   viewBox="0 0 109.72211 41.96965"
-   id="svg764"
+   width="196.81451mm"
+   height="75.753212mm"
+   viewBox="0 0 111.99833 43.107761"
+   id="svg1780"
    sodipodi:docname="m1_tonic_intern_test_24bars.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <metadata
-     id="metadata770">
+     id="metadata1786">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs768" />
+     id="defs1784" />
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -37,2101 +38,2105 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="640"
-     inkscape:window-height="480"
-     id="namedview766"
+     inkscape:window-width="1920"
+     inkscape:window-height="1023"
+     id="namedview1782"
      showgrid="false"
+     fit-margin-top="1"
+     fit-margin-left="2"
+     fit-margin-right="2"
+     fit-margin-bottom="1"
      inkscape:zoom="0.2102413"
-     inkscape:cx="369.68753"
-     inkscape:cy="-257.01881"
+     inkscape:cx="386.75946"
+     inkscape:cy="-253.23928"
      inkscape:window-x="0"
      inkscape:window-y="31"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="svg764" />
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1780" />
   <!-- Page: 1/1 -->
   <text
      font-size="2.2001"
-     id="text4"
+     id="text1020"
      style="font-size:2.20009995px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
-     x="1.60089"
-     y="-0.99234885">
+     x="2.7390006"
+     y="-0.42329359">
     <tspan
-       id="tspan2" />
+       id="tspan1018" />
   </text>
   <rect
-     x="24.809891"
-     y="5.1672511"
+     x="25.948"
+     y="5.7363062"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect6"
+     id="rect1022"
      style="fill:currentColor" />
   <rect
-     x="109.53129"
-     y="5.1672511"
+     x="110.6694"
+     y="5.7363062"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect8"
+     id="rect1024"
      style="fill:currentColor" />
   <rect
-     x="109.04129"
-     y="5.1672511"
+     x="110.1794"
+     y="5.7363062"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect10"
+     id="rect1026"
      style="fill:currentColor" />
   <rect
-     x="40.668591"
-     y="5.1672511"
+     x="41.806702"
+     y="5.7363062"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect12"
+     id="rect1028"
      style="fill:currentColor" />
   <rect
-     x="56.527191"
-     y="5.1672511"
+     x="57.665302"
+     y="5.7363062"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect14"
+     id="rect1030"
      style="fill:currentColor" />
   <rect
-     x="87.459686"
-     y="5.1672511"
+     x="88.597801"
+     y="5.7363062"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect16"
+     id="rect1032"
      style="fill:currentColor" />
   <rect
-     x="77.148788"
-     y="5.1672511"
+     x="78.286903"
+     y="5.7363062"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect18"
+     id="rect1034"
      style="fill:currentColor" />
   <rect
-     x="66.83799"
-     y="5.1672511"
+     x="67.976097"
+     y="5.7363062"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect20"
+     id="rect1036"
      style="fill:currentColor" />
   <rect
-     x="98.250488"
-     y="5.1672511"
+     x="99.388603"
+     y="5.7363062"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect22"
+     id="rect1038"
      style="fill:currentColor" />
   <line
-     x1="1.65089"
-     y1="9.1672516"
-     x2="109.67139"
-     y2="9.1672516"
-     id="line24"
+     x1="2.7890005"
+     y1="9.7363062"
+     x2="110.8095"
+     y2="9.7363062"
+     id="line1040"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="1.65089"
-     y1="8.1672516"
-     x2="109.67139"
-     y2="8.1672516"
-     id="line26"
+     x1="2.7890005"
+     y1="8.7363062"
+     x2="110.8095"
+     y2="8.7363062"
+     id="line1042"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="1.65089"
-     y1="7.1672511"
-     x2="109.67139"
-     y2="7.1672511"
-     id="line28"
+     x1="2.7890005"
+     y1="7.7363062"
+     x2="110.8095"
+     y2="7.7363062"
+     id="line1044"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="1.65089"
-     y1="6.1672511"
-     x2="109.67139"
-     y2="6.1672511"
-     id="line30"
+     x1="2.7890005"
+     y1="6.7363062"
+     x2="110.8095"
+     y2="6.7363062"
+     id="line1046"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="1.65089"
-     y1="5.1672511"
-     x2="109.67139"
-     y2="5.1672511"
-     id="line32"
+     x1="2.7890005"
+     y1="5.7363062"
+     x2="110.8095"
+     y2="5.7363062"
+     id="line1048"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <rect
-     x="89.314194"
-     y="10.067251"
+     x="90.452301"
+     y="10.636307"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect34"
+     id="rect1050"
      style="fill:currentColor" />
   <rect
-     x="89.314194"
-     y="4.0672512"
+     x="90.452301"
+     y="4.6363063"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect36"
+     id="rect1052"
      style="fill:currentColor" />
   <rect
-     x="89.314194"
-     y="3.0672512"
+     x="90.452301"
+     y="3.6363063"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect38"
+     id="rect1054"
      style="fill:currentColor" />
   <rect
-     x="100.10499"
-     y="10.067251"
+     x="101.2431"
+     y="10.636307"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect40"
+     id="rect1056"
      style="fill:currentColor" />
   <rect
-     x="100.10499"
-     y="4.0672512"
+     x="101.2431"
+     y="4.6363063"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect42"
+     id="rect1058"
      style="fill:currentColor" />
   <rect
-     x="100.10499"
-     y="3.0672512"
+     x="101.2431"
+     y="3.6363063"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect44"
+     id="rect1060"
      style="fill:currentColor" />
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:53:54"
-     id="a48"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1064"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,83.588,10.0049)"
        d="M 365,-156 H 10 c -6,0 -10,4 -10,10 V -10 C 0,-4 4,0 10,0 h 355 c 6,0 10,-4 10,-10 v -136 c 0,-6 -4,-10 -10,-10 z"
-       id="path46"
+       id="path1062"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:37:38"
-     id="a52"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1068"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(56.9896,12.0049)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path50"
+       id="path1066"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:47:48"
-     id="a56"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1072"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,62.9664,10.0049)"
        d="M 365,-156 H 10 c -6,0 -10,4 -10,10 V -10 C 0,-4 4,0 10,0 h 355 c 6,0 10,-4 10,-10 v -136 c 0,-6 -4,-10 -10,-10 z"
-       id="path54"
+       id="path1070"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:50:51"
-     id="a60"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1076"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,73.2772,10.0049)"
        d="M 365,-156 H 10 c -6,0 -10,4 -10,10 V -10 C 0,-4 4,0 10,0 h 355 c 6,0 10,-4 10,-10 v -136 c 0,-6 -4,-10 -10,-10 z"
-       id="path58"
+       id="path1074"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:23:24"
-     id="a62"
-     transform="translate(-4.08971,-3.8376488)" />
+     id="a1078"
+     transform="translate(-2.9515995,-3.2685936)" />
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:65:66"
-     id="a66"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1082"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(93.8989,11.0049)"
        d="m 1.190004,-4.75 c 1.2525994,-0.9441661 9.138236,-0.9441661 10.390836,0 -1.2526,-0.8241661 -9.1382366,-0.8241661 -10.390836,0 z"
-       id="path64"
+       id="path1080"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:65:66"
-     id="a70"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1086"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(93.8989,11.0049)"
        d="M 2.180008,-1 C 3.3313223,-1.9177146 9.4395215,-1.9177146 10.590836,-1 9.4395215,-1.7977146 3.3313223,-1.7977146 2.180008,-1 Z"
-       id="path68"
+       id="path1084"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:65:66"
-     id="a74"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1090"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(93.8989,11.0049)"
        d="m 1.190004,3.75 c 1.2525994,0.9441661 9.138236,0.9441661 10.390836,0 -1.2526,0.8241661 -9.1382366,0.8241661 -10.390836,0 z"
-       id="path72"
+       id="path1088"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:57:58"
-     id="a78"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1094"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,93.8989,14.0049)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path76"
+       id="path1092"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:59:60"
-     id="a82"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1098"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,93.8989,10.5049)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path80"
+       id="path1096"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:62:63"
-     id="a86"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1102"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,93.8989,7.0049)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path84"
+       id="path1100"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:42:26:27"
-     id="a92"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1108"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(93.8989,17.3952)"
        font-size="2.4696"
-       id="text90"
+       id="text1106"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan88">1</tspan>
+         id="tspan1104">1</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:69:70"
-     id="a96"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1112"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,104.6897,14.0049)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path94"
+       id="path1110"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:71:72"
-     id="a100"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1116"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,104.6897,10.5049)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path98"
+       id="path1114"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:74:75"
-     id="a104"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1120"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,104.6897,7.0049)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path102"
+       id="path1118"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:42:37:38"
-     id="a110"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1126"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(104.6897,17.3952)"
        font-size="2.4696"
-       id="text108"
+       id="text1124"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan106">1</tspan>
+         id="tspan1122">1</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:37:38"
-     id="a114"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1130"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(18.0178,12.0049)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path112"
+       id="path1128"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:37:38"
-     id="a118"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1134"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(21.6451,12.0049)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path116"
+       id="path1132"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:37:38"
-     id="a122"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1138"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(25.2724,12.0049)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path120"
+       id="path1136"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:25:22:23"
-     id="a140"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1156"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(30.2492,8.4207)"
        font-size="2.6163"
-       id="text126"
+       id="text1142"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan124">F</tspan>
+         id="tspan1140">F</tspan>
     </text>
     <text
        transform="translate(31.7515,8.4207)"
        font-size="2.6163"
-       id="text130"
+       id="text1146"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan128" />
+         id="tspan1144" />
     </text>
     <text
        transform="translate(31.7515,8.4207)"
        font-size="2.6163"
-       id="text134"
+       id="text1150"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan132" />
+         id="tspan1148" />
     </text>
     <text
        transform="translate(31.7515,6.9207)"
        font-size="1.8500"
-       id="text138"
+       id="text1154"
        style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan136" />
+         id="tspan1152" />
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:30:9:10"
-     id="a146"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1162"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(30.2492,5.6207)"
        font-size="2.4696"
-       id="text144"
+       id="text1160"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan142">IV</tspan>
+         id="tspan1158">IV</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:37:38"
-     id="a150"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1166"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(30.2492,12.0049)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path148"
+       id="path1164"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:37:38"
-     id="a154"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1170"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(53.3623,12.0049)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path152"
+       id="path1168"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <path
-     d="m 3.46489,10.707251 h -0.024 c -0.432,0 -0.78,-0.352 -0.78,-0.7879998 0,-0.232 0.212,-0.412 0.448,-0.412 0.216,0 0.38,0.188 0.38,0.412 0,0.2079998 -0.172,0.3799998 -0.38,0.3799998 -0.044,0 -0.084,-0.008 -0.124,-0.024 0.104,0.156 0.272,0.26 0.468,0.26 h 0.016 z m 0.78,-1.7279998 c 0.272,-0.096 0.452,-0.38 0.452,-0.656 0,-0.36 -0.264,-0.716 -0.692,-0.76 0.096,0.464 0.184,0.924 0.24,1.416 z m -1.548,-0.924 c 0,0.54 0.516,0.988 1.056,0.988 0.112,0 0.22,-0.008 0.328,-0.024 -0.056,-0.508 -0.148,-0.98 -0.252,-1.456 -0.316,0.032 -0.496,0.244 -0.496,0.476 0,0.176 0.1,0.364 0.324,0.492 0.02,0.02 0.028,0.04 0.028,0.06 0,0.044 -0.04,0.088 -0.088,0.088 -0.012,0 -0.024,-0.004 -0.036,-0.008 -0.32,-0.172 -0.468,-0.46 -0.468,-0.74 0,-0.352 0.232,-0.696 0.64,-0.788 -0.056,-0.232 -0.116,-0.468 -0.184,-0.7 -0.428,0.484 -0.852,0.972 -0.852,1.612 z m 1.044,1.16 c -0.752,0 -1.332,-0.688 -1.332,-1.496 0,-0.708 0.524,-1.224 0.992,-1.764 -0.076,-0.248 -0.148,-0.5 -0.18,-0.76 -0.024,-0.208 -0.028,-0.416 -0.028,-0.624 0,-0.46 0.22,-0.896 0.596,-1.168 0.024,-0.02 0.056,-0.02 0.08,0 0.284,0.336 0.532,0.98 0.532,1.432 0,0.572 -0.344,1.02 -0.72,1.456 0.084,0.272 0.156,0.552 0.224,0.828 0.016,0 0.036,-0.004 0.052,-0.004 0.62,0 1.024,0.512 1.024,1.044 0,0.304 -0.132,0.616 -0.428,0.84 -0.088,0.068 -0.188,0.112 -0.292,0.144 0.012,0.14 0.02,0.28 0.02,0.42 0,0.076 -0.004,0.156 -0.008,0.232 -0.028,0.4759998 -0.352,0.8999998 -0.808,0.9119998 l 0.004,-0.172 c 0.372,-0.008 0.612,-0.368 0.636,-0.7639998 0.004,-0.072 0.008,-0.148 0.008,-0.22 0,-0.124 -0.004,-0.244 -0.016,-0.368 -0.116,0.02 -0.232,0.032 -0.356,0.032 z m 0.372,-4.712 c 0,-0.22 -0.016,-0.316 -0.08,-0.516 -0.396,0.192 -0.648,0.596 -0.648,1.036 0,0.296 0.072,0.532 0.144,0.776 0.32,-0.388 0.584,-0.792 0.584,-1.296 z"
-     id="path156"
+     d="m 4.6030005,11.276306 h -0.024 c -0.432,0 -0.78,-0.352 -0.78,-0.788 0,-0.232 0.212,-0.412 0.448,-0.412 0.216,0 0.38,0.188 0.38,0.412 0,0.208 -0.172,0.38 -0.38,0.38 -0.044,0 -0.084,-0.008 -0.124,-0.024 0.104,0.156 0.272,0.26 0.468,0.26 h 0.016 z m 0.78,-1.7279996 c 0.272,-0.096 0.452,-0.38 0.452,-0.656 0,-0.36 -0.264,-0.716 -0.692,-0.76 0.096,0.464 0.184,0.924 0.24,1.416 z m -1.548,-0.924 c 0,0.54 0.516,0.988 1.056,0.988 0.112,0 0.22,-0.008 0.328,-0.024 -0.056,-0.508 -0.148,-0.98 -0.252,-1.456 -0.316,0.032 -0.496,0.244 -0.496,0.476 0,0.176 0.1,0.364 0.324,0.492 0.02,0.02 0.028,0.04 0.028,0.06 0,0.044 -0.04,0.088 -0.088,0.088 -0.012,0 -0.024,-0.004 -0.036,-0.008 -0.32,-0.172 -0.468,-0.46 -0.468,-0.74 0,-0.352 0.232,-0.696 0.64,-0.788 -0.056,-0.232 -0.116,-0.468 -0.184,-0.7 -0.428,0.484 -0.852,0.972 -0.852,1.612 z m 1.044,1.16 c -0.752,0 -1.332,-0.688 -1.332,-1.496 0,-0.708 0.524,-1.224 0.992,-1.764 -0.076,-0.248 -0.148,-0.5 -0.18,-0.76 -0.024,-0.208 -0.028,-0.416 -0.028,-0.624 0,-0.46 0.22,-0.896 0.596,-1.168 0.024,-0.02 0.056,-0.02 0.08,0 0.284,0.336 0.532,0.98 0.532,1.432 0,0.572 -0.344,1.02 -0.72,1.456 0.084,0.272 0.156,0.552 0.224,0.828 0.016,0 0.036,-0.004 0.052,-0.004 0.62,0 1.024,0.512 1.024,1.044 0,0.304 -0.132,0.616 -0.428,0.84 -0.088,0.068 -0.188,0.112 -0.292,0.144 0.012,0.14 0.02,0.28 0.02,0.4199996 0,0.076 -0.004,0.156 -0.008,0.232 -0.028,0.476 -0.352,0.9 -0.808,0.912 l 0.004,-0.172 c 0.372,-0.008 0.612,-0.368 0.636,-0.764 0.004,-0.072 0.008,-0.148 0.008,-0.22 0,-0.1239996 -0.004,-0.2439996 -0.016,-0.3679996 -0.116,0.02 -0.232,0.032 -0.356,0.032 z m 0.372,-4.712 c 0,-0.22 -0.016,-0.316 -0.08,-0.516 -0.396,0.192 -0.648,0.596 -0.648,1.036 0,0.296 0.072,0.532 0.144,0.776 0.32,-0.388 0.584,-0.792 0.584,-1.296 z"
+     id="path1172"
      inkscape:connector-curvature="0"
      style="fill:currentColor;stroke-width:0.004" />
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:25:19:20"
-     id="a174"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1190"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(14.3905,8.4207)"
        font-size="2.6163"
-       id="text160"
+       id="text1176"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan158">C</tspan>
+         id="tspan1174">C</tspan>
     </text>
     <text
        transform="translate(16.2343,8.4207)"
        font-size="2.6163"
-       id="text164"
+       id="text1180"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan162" />
+         id="tspan1178" />
     </text>
     <text
        transform="translate(16.2343,8.4207)"
        font-size="2.6163"
-       id="text168"
+       id="text1184"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan166" />
+         id="tspan1182" />
     </text>
     <text
        transform="translate(16.2343,6.9207)"
        font-size="1.8500"
-       id="text172"
+       id="text1188"
        style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan170" />
+         id="tspan1186" />
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:30:6:7"
-     id="a180"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1196"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(14.3905,5.6207)"
        font-size="2.4696"
-       id="text178"
+       id="text1194"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan176">I</tspan>
+         id="tspan1192">I</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:37:38"
-     id="a184"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1200"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(14.3905,12.0049)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path182"
+       id="path1198"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:23:24"
-     id="a186"
-     transform="translate(-4.08971,-3.8376488)" />
+     id="a1202"
+     transform="translate(-2.9515995,-3.2685936)" />
   <path
-     d="m 8.03689,7.0592512 c -0.196,0 -0.3,-0.168 -0.3,-0.3 0,-0.152 0.108,-0.308 0.288,-0.308 0.016,0 0.036,0 0.056,0.004 -0.112,-0.148 -0.288,-0.236 -0.48,-0.236 -0.424,0 -0.452,0.292 -0.452,0.744 v 0.204 0.204 c 0,0.452 0.028,0.748 0.452,0.748 0.32,0 0.556,-0.28 0.632,-0.604 0.008,-0.028 0.028,-0.04 0.048,-0.04 0.024,0 0.052,0.016 0.052,0.048 0,0.376 -0.42,0.696 -0.732,0.696 -0.272,0 -0.548,-0.084 -0.736,-0.28 -0.196,-0.204 -0.264,-0.488 -0.264,-0.772 0,-0.284 0.068,-0.568 0.264,-0.772 0.188,-0.196 0.464,-0.276 0.736,-0.276 0.348,0 0.64,0.252 0.7,0.596 0.004,0.02 0.004,0.04 0.004,0.056 0,0.16 -0.12,0.288 -0.268,0.288 z"
-     id="path188"
+     d="m 9.1750005,7.6283064 c -0.196,0 -0.3,-0.168 -0.3,-0.3 0,-0.152 0.108,-0.308 0.288,-0.308 0.016,0 0.036,0 0.056,0.004 -0.112,-0.148 -0.288,-0.236 -0.48,-0.236 -0.424,0 -0.452,0.292 -0.452,0.744 v 0.204 0.204 c 0,0.452 0.028,0.748 0.452,0.748 0.32,0 0.556,-0.28 0.632,-0.604 0.008,-0.028 0.028,-0.04 0.048,-0.04 0.024,0 0.052,0.016 0.052,0.048 0,0.376 -0.42,0.696 -0.732,0.696 -0.272,0 -0.548,-0.084 -0.736,-0.28 -0.196,-0.204 -0.264,-0.488 -0.264,-0.772 0,-0.284 0.068,-0.568 0.264,-0.772 0.188,-0.196 0.464,-0.276 0.736,-0.276 0.348,0 0.64,0.252 0.7,0.596 0.004,0.02 0.004,0.04 0.004,0.056 0,0.16 -0.12,0.288 -0.268,0.288 z"
+     id="path1204"
      inkscape:connector-curvature="0"
      style="fill:currentColor;stroke-width:0.004" />
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:37:38"
-     id="a192"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1208"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(41.131,12.0049)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path190"
+       id="path1206"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:25:69:70"
-     id="a210"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1226"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(46.1078,8.4207)"
        font-size="2.6163"
-       id="text196"
+       id="text1212"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan194">C</tspan>
+         id="tspan1210">C</tspan>
     </text>
     <text
        transform="translate(47.9515,8.4207)"
        font-size="2.6163"
-       id="text200"
+       id="text1216"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan198" />
+         id="tspan1214" />
     </text>
     <text
        transform="translate(47.9515,8.4207)"
        font-size="2.6163"
-       id="text204"
+       id="text1220"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan202" />
+         id="tspan1218" />
     </text>
     <text
        transform="translate(47.9515,6.9207)"
        font-size="1.8500"
-       id="text208"
+       id="text1224"
        style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan206" />
+         id="tspan1222" />
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:30:15:16"
-     id="a216"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1232"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(46.1078,5.6207)"
        font-size="2.4696"
-       id="text214"
+       id="text1230"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan212">I</tspan>
+         id="tspan1228">I</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:37:38"
-     id="a220"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1236"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(46.1078,12.0049)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path218"
+       id="path1234"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:37:38"
-     id="a224"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1240"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(33.8764,12.0049)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path222"
+       id="path1238"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:37:38"
-     id="a228"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1244"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(49.735,12.0049)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path226"
+       id="path1242"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:25:25:26"
-     id="a246"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1262"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(37.5037,8.4207)"
        font-size="2.6163"
-       id="text232"
+       id="text1248"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan230">G</tspan>
+         id="tspan1246">G</tspan>
     </text>
     <text
        transform="translate(39.5182,8.4207)"
        font-size="2.6163"
-       id="text236"
+       id="text1252"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan234" />
+         id="tspan1250" />
     </text>
     <text
        transform="translate(39.5182,8.4207)"
        font-size="2.6163"
-       id="text240"
+       id="text1256"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan238" />
+         id="tspan1254" />
     </text>
     <text
        transform="translate(39.5182,6.9207)"
        font-size="1.8500"
-       id="text244"
+       id="text1260"
        style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan242" />
+         id="tspan1258" />
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:30:13:14"
-     id="a252"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1268"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(37.5037,5.6207)"
        font-size="2.4696"
-       id="text250"
+       id="text1266"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan248">V</tspan>
+         id="tspan1264">V</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:36:37:38"
-     id="a256"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1272"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(37.5037,12.0049)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path254"
+       id="path1270"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <rect
-     x="22.357389"
-     y="20.018751"
+     x="23.495501"
+     y="20.587807"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect258"
+     id="rect1274"
      style="fill:currentColor" />
   <rect
-     x="65.639389"
-     y="20.018751"
+     x="66.777504"
+     y="20.587807"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect260"
+     id="rect1276"
      style="fill:currentColor" />
   <rect
-     x="97.95079"
-     y="20.018751"
+     x="99.088898"
+     y="20.587807"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect262"
+     id="rect1278"
      style="fill:currentColor" />
   <rect
-     x="38.693192"
-     y="20.018751"
+     x="39.831299"
+     y="20.587807"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect264"
+     id="rect1280"
      style="fill:currentColor" />
   <rect
-     x="109.53129"
-     y="20.018751"
+     x="110.6694"
+     y="20.587807"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect266"
+     id="rect1282"
      style="fill:currentColor" />
   <rect
-     x="109.04129"
-     y="20.018751"
+     x="110.1794"
+     y="20.587807"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect268"
+     id="rect1284"
      style="fill:currentColor" />
   <rect
-     x="55.028992"
-     y="20.018751"
+     x="56.167099"
+     y="20.587807"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect270"
+     id="rect1286"
      style="fill:currentColor" />
   <rect
-     x="76.249893"
-     y="20.018751"
+     x="77.388"
+     y="20.587807"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect272"
+     id="rect1288"
      style="fill:currentColor" />
   <rect
-     x="86.86039"
-     y="20.018751"
+     x="87.998497"
+     y="20.587807"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect274"
+     id="rect1290"
      style="fill:currentColor" />
   <line
-     x1="1.65089"
-     y1="24.018751"
-     x2="109.67139"
-     y2="24.018751"
-     id="line276"
+     x1="2.7890005"
+     y1="24.587807"
+     x2="110.8095"
+     y2="24.587807"
+     id="line1292"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="1.65089"
-     y1="23.018751"
-     x2="109.67139"
-     y2="23.018751"
-     id="line278"
+     x1="2.7890005"
+     y1="23.587807"
+     x2="110.8095"
+     y2="23.587807"
+     id="line1294"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="1.65089"
-     y1="22.018751"
-     x2="109.67139"
-     y2="22.018751"
-     id="line280"
+     x1="2.7890005"
+     y1="22.587807"
+     x2="110.8095"
+     y2="22.587807"
+     id="line1296"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="1.65089"
-     y1="21.018751"
-     x2="109.67139"
-     y2="21.018751"
-     id="line282"
+     x1="2.7890005"
+     y1="21.587807"
+     x2="110.8095"
+     y2="21.587807"
+     id="line1298"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="1.65089"
-     y1="20.018751"
-     x2="109.67139"
-     y2="20.018751"
-     id="line284"
+     x1="2.7890005"
+     y1="20.587807"
+     x2="110.8095"
+     y2="20.587807"
+     id="line1300"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <rect
-     x="89.06459"
-     y="24.918751"
+     x="90.202698"
+     y="25.487806"
      width="2.6500001"
      height="0.2"
      ry="0.1"
-     id="rect286"
+     id="rect1302"
      style="fill:currentColor" />
   <rect
-     x="89.06459"
-     y="18.918751"
+     x="90.202698"
+     y="19.487806"
      width="2.6500001"
      height="0.2"
      ry="0.1"
-     id="rect288"
+     id="rect1304"
      style="fill:currentColor" />
   <rect
-     x="99.834991"
-     y="24.918751"
+     x="100.9731"
+     y="25.487806"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect290"
+     id="rect1306"
      style="fill:currentColor" />
   <rect
-     x="99.834991"
-     y="18.918751"
+     x="100.9731"
+     y="19.487806"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect292"
+     id="rect1308"
      style="fill:currentColor" />
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:61:62"
-     id="a296"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1312"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,93.3292,25.8564)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path294"
+       id="path1310"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:53:54"
-     id="a300"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1316"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,82.7188,24.8564)"
        d="M 365,-156 H 10 c -6,0 -10,4 -10,10 V -10 C 0,-4 4,0 10,0 h 355 c 6,0 10,-4 10,-10 v -136 c 0,-6 -4,-10 -10,-10 z"
-       id="path298"
+       id="path1314"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:57:58"
-     id="a304"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1320"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,93.3292,29.3564)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path302"
+       id="path1318"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:37:38"
-     id="a308"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1324"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(55.3795,26.8564)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path306"
+       id="path1322"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:47:48"
-     id="a312"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1328"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,61.4978,24.8564)"
        d="M 365,-156 H 10 c -6,0 -10,4 -10,10 V -10 C 0,-4 4,0 10,0 h 355 c 6,0 10,-4 10,-10 v -136 c 0,-6 -4,-10 -10,-10 z"
-       id="path310"
+       id="path1326"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:50:51"
-     id="a316"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1332"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,72.1083,24.8564)"
        d="M 365,-156 H 10 c -6,0 -10,4 -10,10 V -10 C 0,-4 4,0 10,0 h 355 c 6,0 10,-4 10,-10 v -136 c 0,-6 -4,-10 -10,-10 z"
-       id="path314"
+       id="path1330"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:23:24"
-     id="a318"
-     transform="translate(-4.08971,-3.8376488)" />
+     id="a1334"
+     transform="translate(-2.9515995,-3.2685936)" />
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:71:72"
-     id="a322"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1338"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(93.3292,25.8564)"
        d="M 2.180008,-4 C 3.3483776,-4.9224558 9.7221089,-4.9224558 10.890479,-4 9.7221089,-4.8024558 3.3483776,-4.8024558 2.180008,-4 Z"
-       id="path320"
+       id="path1336"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:71:72"
-     id="a326"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1342"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(93.3292,25.8564)"
        d="m 1.190004,0.64875983 c 1.2658586,0.94734457 9.42462,0.94734457 10.690479,0 -1.265859,0.82734457 -9.4246204,0.82734457 -10.690479,0 z"
-       id="path324"
+       id="path1340"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:71:72"
-     id="a330"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1346"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(93.3292,25.8564)"
        d="M 2.180008,4 C 3.3483776,4.9224558 9.7221089,4.9224558 10.890479,4 9.7221089,4.8024558 3.3483776,4.8024558 2.180008,4 Z"
-       id="path328"
+       id="path1344"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:43:26:27"
-     id="a336"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1352"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(93.3292,32.1477)"
        font-size="2.4696"
-       id="text334"
+       id="text1350"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan332">1</tspan>
+         id="tspan1348">1</tspan>
     </text>
   </a>
   <path
-     d="m 88.19749,25.354751 -0.004,0.264 v 0.044 c 0,0.088 0.004,0.176 0.016,0.264 0.18,-0.152 0.372,-0.32 0.372,-0.556 0,-0.132 -0.056,-0.268 -0.172,-0.268 -0.124,0 -0.208,0.12 -0.212,0.252 z m -0.168,0.716 -0.048,-2.38 c 0.032,-0.02 0.072,-0.032 0.108,-0.032 0.036,0 0.076,0.012 0.108,0.032 l -0.028,1.38 c 0.1,-0.084 0.232,-0.136 0.364,-0.136 0.208,0 0.356,0.192 0.356,0.408 0,0.32 -0.344,0.468 -0.588,0.676 -0.06,0.052 -0.096,0.152 -0.18,0.152 -0.052,0 -0.092,-0.044 -0.092,-0.1 z"
-     id="path338"
+     d="m 89.3356,25.923806 -0.004,0.264 v 0.044 c 0,0.088 0.004,0.176 0.016,0.264 0.18,-0.152 0.372,-0.32 0.372,-0.556 0,-0.132 -0.056,-0.268 -0.172,-0.268 -0.124,0 -0.208,0.12 -0.212,0.252 z m -0.168,0.716 -0.048,-2.38 c 0.032,-0.02 0.072,-0.032 0.108,-0.032 0.036,0 0.076,0.012 0.108,0.032 l -0.028,1.38 c 0.1,-0.084 0.232,-0.136 0.364,-0.136 0.208,0 0.356,0.192 0.356,0.408 0,0.32 -0.344,0.468 -0.588,0.676 -0.06,0.052 -0.096,0.152 -0.18,0.152 -0.052,0 -0.092,-0.044 -0.092,-0.1 z"
+     id="path1354"
      inkscape:connector-curvature="0"
      style="fill:currentColor;stroke-width:0.004" />
   <path
-     d="m 88.19749,21.854751 -0.004,0.264 v 0.044 c 0,0.088 0.004,0.176 0.016,0.264 0.18,-0.152 0.372,-0.32 0.372,-0.556 0,-0.132 -0.056,-0.268 -0.172,-0.268 -0.124,0 -0.208,0.12 -0.212,0.252 z m -0.168,0.716 -0.048,-2.38 c 0.032,-0.02 0.072,-0.032 0.108,-0.032 0.036,0 0.076,0.012 0.108,0.032 l -0.028,1.38 c 0.1,-0.084 0.232,-0.136 0.364,-0.136 0.208,0 0.356,0.192 0.356,0.408 0,0.32 -0.344,0.468 -0.588,0.676 -0.06,0.052 -0.096,0.152 -0.18,0.152 -0.052,0 -0.092,-0.044 -0.092,-0.1 z"
-     id="path340"
+     d="m 89.3356,22.423806 -0.004,0.264 v 0.044 c 0,0.088 0.004,0.176 0.016,0.264 0.18,-0.152 0.372,-0.32 0.372,-0.556 0,-0.132 -0.056,-0.268 -0.172,-0.268 -0.124,0 -0.208,0.12 -0.212,0.252 z m -0.168,0.716 -0.048,-2.38 c 0.032,-0.02 0.072,-0.032 0.108,-0.032 0.036,0 0.076,0.012 0.108,0.032 l -0.028,1.38 c 0.1,-0.084 0.232,-0.136 0.364,-0.136 0.208,0 0.356,0.192 0.356,0.408 0,0.32 -0.344,0.468 -0.588,0.676 -0.06,0.052 -0.096,0.152 -0.18,0.152 -0.052,0 -0.092,-0.044 -0.092,-0.1 z"
+     id="path1356"
      inkscape:connector-curvature="0"
      style="fill:currentColor;stroke-width:0.004" />
   <path
-     d="m 88.19749,18.354751 -0.004,0.264 v 0.044 c 0,0.088 0.004,0.176 0.016,0.264 0.18,-0.152 0.372,-0.32 0.372,-0.556 0,-0.132 -0.056,-0.268 -0.172,-0.268 -0.124,0 -0.208,0.12 -0.212,0.252 z m -0.168,0.716 -0.048,-2.38 c 0.032,-0.02 0.072,-0.032 0.108,-0.032 0.036,0 0.076,0.012 0.108,0.032 l -0.028,1.38 c 0.1,-0.084 0.232,-0.136 0.364,-0.136 0.208,0 0.356,0.192 0.356,0.408 0,0.32 -0.344,0.468 -0.588,0.676 -0.06,0.052 -0.096,0.152 -0.18,0.152 -0.052,0 -0.092,-0.044 -0.092,-0.1 z"
-     id="path342"
+     d="m 89.3356,18.923806 -0.004,0.264 v 0.044 c 0,0.088 0.004,0.176 0.016,0.264 0.18,-0.152 0.372,-0.32 0.372,-0.556 0,-0.132 -0.056,-0.268 -0.172,-0.268 -0.124,0 -0.208,0.12 -0.212,0.252 z m -0.168,0.716 -0.048,-2.38 c 0.032,-0.02 0.072,-0.032 0.108,-0.032 0.036,0 0.076,0.012 0.108,0.032 l -0.028,1.38 c 0.1,-0.084 0.232,-0.136 0.364,-0.136 0.208,0 0.356,0.192 0.356,0.408 0,0.32 -0.344,0.468 -0.588,0.676 -0.06,0.052 -0.096,0.152 -0.18,0.152 -0.052,0 -0.092,-0.044 -0.092,-0.1 z"
+     id="path1358"
      inkscape:connector-curvature="0"
      style="fill:currentColor;stroke-width:0.004" />
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:66:67"
-     id="a346"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1362"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,93.3292,22.3564)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path344"
+       id="path1360"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:75:76"
-     id="a350"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1366"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,104.4197,29.3564)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path348"
+       id="path1364"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:79:80"
-     id="a354"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1370"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,104.4197,25.8564)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path352"
+       id="path1368"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:84:85"
-     id="a358"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1374"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,104.4197,22.3564)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path356"
+       id="path1372"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:43:37:38"
-     id="a364"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1380"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(104.4197,32.1477)"
        font-size="2.4696"
-       id="text362"
+       id="text1378"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan360">1</tspan>
+         id="tspan1376">1</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:37:38"
-     id="a368"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1384"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(15.2297,26.8564)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path366"
+       id="path1382"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:37:38"
-     id="a372"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1388"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(18.9688,26.8564)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path370"
+       id="path1386"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:37:38"
-     id="a376"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1392"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(22.708,26.8564)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path374"
+       id="path1390"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:26:24:25"
-     id="a392"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1408"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(27.8263,22.9707)"
        font-size="2.6163"
-       id="text380"
+       id="text1396"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan378">E</tspan>
+         id="tspan1394">E</tspan>
     </text>
     <path
        transform="matrix(0.0042,0,0,-0.0042,29.6871,22.6707)"
        d="m 27,41 -1,-66 v -11 c 0,-22 1,-44 4,-66 45,38 93,80 93,139 0,33 -14,67 -43,67 C 49,104 28,74 27,41 Z m -42,-179 -12,595 c 8,5 18,8 27,8 9,0 19,-3 27,-8 L 20,112 c 25,21 58,34 91,34 52,0 89,-48 89,-102 0,-80 -86,-117 -147,-169 -15,-13 -24,-38 -45,-38 -13,0 -23,11 -23,25 z"
-       id="path382"
+       id="path1398"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
     <text
        transform="translate(30.5346,22.9707)"
        font-size="2.6163"
-       id="text386"
+       id="text1402"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan384" />
+         id="tspan1400" />
     </text>
     <text
        transform="translate(30.5346,21.4707)"
        font-size="1.8500"
-       id="text390"
+       id="text1406"
        style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan388" />
+         id="tspan1404" />
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:31:9:10"
-     id="a398"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1414"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(27.8263,20.1707)"
        font-size="2.4696"
-       id="text396"
+       id="text1412"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan394">IV</tspan>
+         id="tspan1410">IV</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:37:38"
-     id="a402"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1418"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(27.8263,26.8564)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path400"
+       id="path1416"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:23:24"
-     id="a404"
-     transform="translate(-4.08971,-3.8376488)" />
+     id="a1420"
+     transform="translate(-2.9515995,-3.2685936)" />
   <text
      font-size="1.7461"
-     id="text408"
+     id="text1424"
      style="font-size:1.74609995px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
-     x="0.64478999"
-     y="18.934551">
+     x="1.7829005"
+     y="19.503607">
     <tspan
-       id="tspan406">9</tspan>
+       id="tspan1422">9</tspan>
   </text>
   <path
-     d="m 3.46489,25.558751 h -0.024 c -0.432,0 -0.78,-0.352 -0.78,-0.788 0,-0.232 0.212,-0.412 0.448,-0.412 0.216,0 0.38,0.188 0.38,0.412 0,0.208 -0.172,0.38 -0.38,0.38 -0.044,0 -0.084,-0.008 -0.124,-0.024 0.104,0.156 0.272,0.26 0.468,0.26 h 0.016 z m 0.78,-1.728 c 0.272,-0.096 0.452,-0.38 0.452,-0.656 0,-0.36 -0.264,-0.716 -0.692,-0.76 0.096,0.464 0.184,0.924 0.24,1.416 z m -1.548,-0.924 c 0,0.54 0.516,0.988 1.056,0.988 0.112,0 0.22,-0.008 0.328,-0.024 -0.056,-0.508 -0.148,-0.98 -0.252,-1.456 -0.316,0.032 -0.496,0.244 -0.496,0.476 0,0.176 0.1,0.364 0.324,0.492 0.02,0.02 0.028,0.04 0.028,0.06 0,0.044 -0.04,0.088 -0.088,0.088 -0.012,0 -0.024,-0.004 -0.036,-0.008 -0.32,-0.172 -0.468,-0.46 -0.468,-0.74 0,-0.352 0.232,-0.696 0.64,-0.788 -0.056,-0.232 -0.116,-0.468 -0.184,-0.7 -0.428,0.484 -0.852,0.972 -0.852,1.612 z m 1.044,1.16 c -0.752,0 -1.332,-0.688 -1.332,-1.496 0,-0.708 0.524,-1.224 0.992,-1.764 -0.076,-0.248 -0.148,-0.5 -0.18,-0.76 -0.024,-0.208 -0.028,-0.416 -0.028,-0.624 0,-0.46 0.22,-0.896 0.596,-1.168 0.024,-0.02 0.056,-0.02 0.08,0 0.284,0.336 0.532,0.98 0.532,1.432 0,0.572 -0.344,1.02 -0.72,1.456 0.084,0.272 0.156,0.552 0.224,0.828 0.016,0 0.036,-0.004 0.052,-0.004 0.62,0 1.024,0.512 1.024,1.044 0,0.304 -0.132,0.616 -0.428,0.84 -0.088,0.068 -0.188,0.112 -0.292,0.144 0.012,0.14 0.02,0.28 0.02,0.42 0,0.076 -0.004,0.156 -0.008,0.232 -0.028,0.476 -0.352,0.9 -0.808,0.912 l 0.004,-0.172 c 0.372,-0.008 0.612,-0.368 0.636,-0.764 0.004,-0.072 0.008,-0.148 0.008,-0.22 0,-0.124 -0.004,-0.244 -0.016,-0.368 -0.116,0.02 -0.232,0.032 -0.356,0.032 z m 0.372,-4.712 c 0,-0.22 -0.016,-0.316 -0.08,-0.516 -0.396,0.192 -0.648,0.596 -0.648,1.036 0,0.296 0.072,0.532 0.144,0.776 0.32,-0.388 0.584,-0.792 0.584,-1.296 z"
-     id="path410"
+     d="m 4.6030005,26.127806 h -0.024 c -0.432,0 -0.78,-0.352 -0.78,-0.788 0,-0.232 0.212,-0.412 0.448,-0.412 0.216,0 0.38,0.188 0.38,0.412 0,0.208 -0.172,0.38 -0.38,0.38 -0.044,0 -0.084,-0.008 -0.124,-0.024 0.104,0.156 0.272,0.26 0.468,0.26 h 0.016 z m 0.78,-1.728 c 0.272,-0.096 0.452,-0.38 0.452,-0.656 0,-0.36 -0.264,-0.716 -0.692,-0.76 0.096,0.464 0.184,0.924 0.24,1.416 z m -1.548,-0.924 c 0,0.54 0.516,0.988 1.056,0.988 0.112,0 0.22,-0.008 0.328,-0.024 -0.056,-0.508 -0.148,-0.98 -0.252,-1.456 -0.316,0.032 -0.496,0.244 -0.496,0.476 0,0.176 0.1,0.364 0.324,0.492 0.02,0.02 0.028,0.04 0.028,0.06 0,0.044 -0.04,0.088 -0.088,0.088 -0.012,0 -0.024,-0.004 -0.036,-0.008 -0.32,-0.172 -0.468,-0.46 -0.468,-0.74 0,-0.352 0.232,-0.696 0.64,-0.788 -0.056,-0.232 -0.116,-0.468 -0.184,-0.7 -0.428,0.484 -0.852,0.972 -0.852,1.612 z m 1.044,1.16 c -0.752,0 -1.332,-0.688 -1.332,-1.496 0,-0.708 0.524,-1.224 0.992,-1.764 -0.076,-0.248 -0.148,-0.5 -0.18,-0.76 -0.024,-0.208 -0.028,-0.416 -0.028,-0.624 0,-0.46 0.22,-0.896 0.596,-1.168 0.024,-0.02 0.056,-0.02 0.08,0 0.284,0.336 0.532,0.98 0.532,1.432 0,0.572 -0.344,1.02 -0.72,1.456 0.084,0.272 0.156,0.552 0.224,0.828 0.016,0 0.036,-0.004 0.052,-0.004 0.62,0 1.024,0.512 1.024,1.044 0,0.304 -0.132,0.616 -0.428,0.84 -0.088,0.068 -0.188,0.112 -0.292,0.144 0.012,0.14 0.02,0.28 0.02,0.42 0,0.076 -0.004,0.156 -0.008,0.232 -0.028,0.476 -0.352,0.9 -0.808,0.912 l 0.004,-0.172 c 0.372,-0.008 0.612,-0.368 0.636,-0.764 0.004,-0.072 0.008,-0.148 0.008,-0.22 0,-0.124 -0.004,-0.244 -0.016,-0.368 -0.116,0.02 -0.232,0.032 -0.356,0.032 z m 0.372,-4.712 c 0,-0.22 -0.016,-0.316 -0.08,-0.516 -0.396,0.192 -0.648,0.596 -0.648,1.036 0,0.296 0.072,0.532 0.144,0.776 0.32,-0.388 0.584,-0.792 0.584,-1.296 z"
+     id="path1426"
      inkscape:connector-curvature="0"
      style="fill:currentColor;stroke-width:0.004" />
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:26:19:20"
-     id="a426"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1442"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(11.4906,22.9707)"
        font-size="2.6163"
-       id="text414"
+       id="text1430"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan412">B</tspan>
+         id="tspan1428">B</tspan>
     </text>
     <path
        transform="matrix(0.0042,0,0,-0.0042,13.522,22.6707)"
        d="m 27,41 -1,-66 v -11 c 0,-22 1,-44 4,-66 45,38 93,80 93,139 0,33 -14,67 -43,67 C 49,104 28,74 27,41 Z m -42,-179 -12,595 c 8,5 18,8 27,8 9,0 19,-3 27,-8 L 20,112 c 25,21 58,34 91,34 52,0 89,-48 89,-102 0,-80 -86,-117 -147,-169 -15,-13 -24,-38 -45,-38 -13,0 -23,11 -23,25 z"
-       id="path416"
+       id="path1432"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
     <text
        transform="translate(14.3696,22.9707)"
        font-size="2.6163"
-       id="text420"
+       id="text1436"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan418" />
+         id="tspan1434" />
     </text>
     <text
        transform="translate(14.3696,21.4707)"
        font-size="1.8500"
-       id="text424"
+       id="text1440"
        style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan422" />
+         id="tspan1438" />
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:31:6:7"
-     id="a432"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1448"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(11.4906,20.1707)"
        font-size="2.4696"
-       id="text430"
+       id="text1446"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan428">I</tspan>
+         id="tspan1444">I</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:37:38"
-     id="a436"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1452"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(11.4906,26.8564)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path434"
+       id="path1450"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:37:38"
-     id="a440"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1456"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(44.1621,26.8564)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path438"
+       id="path1454"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:37:38"
-     id="a444"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1460"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(47.9012,26.8564)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path442"
+       id="path1458"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:37:38"
-     id="a448"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1464"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(39.0438,26.8564)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path446"
+       id="path1462"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:26:73:74"
-     id="a464"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1480"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(44.1621,22.9707)"
        font-size="2.6163"
-       id="text452"
+       id="text1468"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan450">B</tspan>
+         id="tspan1466">B</tspan>
     </text>
     <path
        transform="matrix(0.0042,0,0,-0.0042,46.1935,22.6707)"
        d="m 27,41 -1,-66 v -11 c 0,-22 1,-44 4,-66 45,38 93,80 93,139 0,33 -14,67 -43,67 C 49,104 28,74 27,41 Z m -42,-179 -12,595 c 8,5 18,8 27,8 9,0 19,-3 27,-8 L 20,112 c 25,21 58,34 91,34 52,0 89,-48 89,-102 0,-80 -86,-117 -147,-169 -15,-13 -24,-38 -45,-38 -13,0 -23,11 -23,25 z"
-       id="path454"
+       id="path1470"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
     <text
        transform="translate(47.0411,22.9707)"
        font-size="2.6163"
-       id="text458"
+       id="text1474"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan456" />
+         id="tspan1472" />
     </text>
     <text
        transform="translate(47.0411,21.4707)"
        font-size="1.8500"
-       id="text462"
+       id="text1478"
        style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan460" />
+         id="tspan1476" />
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:31:15:16"
-     id="a470"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1486"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(44.1621,20.1707)"
        font-size="2.4696"
-       id="text468"
+       id="text1484"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan466">I</tspan>
+         id="tspan1482">I</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:31:13:14"
-     id="a476"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1492"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(35.3046,20.1707)"
        font-size="2.4696"
-       id="text474"
+       id="text1490"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan472">V</tspan>
+         id="tspan1488">V</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:37:38"
-     id="a480"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1496"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(31.5655,26.8564)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path478"
+       id="path1494"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:37:38"
-     id="a484"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1500"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(51.6404,26.8564)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path482"
+       id="path1498"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:26:29:30"
-     id="a502"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1518"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(35.3046,22.9707)"
        font-size="2.6163"
-       id="text488"
+       id="text1504"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan486">F</tspan>
+         id="tspan1502">F</tspan>
     </text>
     <text
        transform="translate(36.8069,22.9707)"
        font-size="2.6163"
-       id="text492"
+       id="text1508"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan490" />
+         id="tspan1506" />
     </text>
     <text
        transform="translate(36.8069,22.9707)"
        font-size="2.6163"
-       id="text496"
+       id="text1512"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan494" />
+         id="tspan1510" />
     </text>
     <text
        transform="translate(36.8069,21.4707)"
        font-size="1.8500"
-       id="text500"
+       id="text1516"
        style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan498" />
+         id="tspan1514" />
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:37:37:38"
-     id="a506"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1522"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(35.3046,26.8564)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path504"
+       id="path1520"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <rect
-     x="22.357389"
-     y="34.46965"
+     x="23.495501"
+     y="35.038708"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect508"
+     id="rect1524"
      style="fill:currentColor" />
   <rect
-     x="88.744591"
-     y="33.369652"
+     x="89.882698"
+     y="33.938705"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect510"
+     id="rect1526"
      style="fill:currentColor" />
   <rect
-     x="88.744591"
-     y="32.369652"
+     x="89.882698"
+     y="32.938705"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect512"
+     id="rect1528"
      style="fill:currentColor" />
   <rect
-     x="99.834991"
-     y="33.369652"
+     x="100.9731"
+     y="33.938705"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect514"
+     id="rect1530"
      style="fill:currentColor" />
   <rect
-     x="99.834991"
-     y="32.369652"
+     x="100.9731"
+     y="32.938705"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect516"
+     id="rect1532"
      style="fill:currentColor" />
   <line
-     x1="1.65089"
-     y1="38.46965"
-     x2="109.67139"
-     y2="38.46965"
-     id="line518"
+     x1="2.7890005"
+     y1="39.038708"
+     x2="110.8095"
+     y2="39.038708"
+     id="line1534"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="1.65089"
-     y1="37.46965"
-     x2="109.67139"
-     y2="37.46965"
-     id="line520"
+     x1="2.7890005"
+     y1="38.038708"
+     x2="110.8095"
+     y2="38.038708"
+     id="line1536"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="1.65089"
-     y1="36.46965"
-     x2="109.67139"
-     y2="36.46965"
-     id="line522"
+     x1="2.7890005"
+     y1="37.038708"
+     x2="110.8095"
+     y2="37.038708"
+     id="line1538"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="1.65089"
-     y1="35.46965"
-     x2="109.67139"
-     y2="35.46965"
-     id="line524"
+     x1="2.7890005"
+     y1="36.038708"
+     x2="110.8095"
+     y2="36.038708"
+     id="line1540"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="1.65089"
-     y1="34.46965"
-     x2="109.67139"
-     y2="34.46965"
-     id="line526"
+     x1="2.7890005"
+     y1="35.038708"
+     x2="110.8095"
+     y2="35.038708"
+     id="line1542"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <rect
-     x="109.53129"
-     y="34.46965"
+     x="110.6694"
+     y="35.038708"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect528"
+     id="rect1544"
      style="fill:currentColor" />
   <rect
-     x="109.04129"
-     y="34.46965"
+     x="110.1794"
+     y="35.038708"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect530"
+     id="rect1546"
      style="fill:currentColor" />
   <rect
-     x="86.86039"
-     y="34.46965"
+     x="87.998497"
+     y="35.038708"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect532"
+     id="rect1548"
      style="fill:currentColor" />
   <rect
-     x="76.249893"
-     y="34.46965"
+     x="77.388"
+     y="35.038708"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect534"
+     id="rect1550"
      style="fill:currentColor" />
   <rect
-     x="38.693192"
-     y="34.46965"
+     x="39.831299"
+     y="35.038708"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect536"
+     id="rect1552"
      style="fill:currentColor" />
   <rect
-     x="55.028992"
-     y="34.46965"
+     x="56.167099"
+     y="35.038708"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect538"
+     id="rect1554"
      style="fill:currentColor" />
   <rect
-     x="97.95079"
-     y="34.46965"
+     x="99.088898"
+     y="35.038708"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect540"
+     id="rect1556"
      style="fill:currentColor" />
   <rect
-     x="65.639389"
-     y="34.46965"
+     x="66.777504"
+     y="35.038708"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect542"
+     id="rect1558"
      style="fill:currentColor" />
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:53:54"
-     id="a546"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1562"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,82.7188,39.3073)"
        d="M 365,-156 H 10 c -6,0 -10,4 -10,10 V -10 C 0,-4 4,0 10,0 h 355 c 6,0 10,-4 10,-10 v -136 c 0,-6 -4,-10 -10,-10 z"
-       id="path544"
+       id="path1560"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:37:38"
-     id="a550"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1566"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(51.6404,41.3073)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path548"
+       id="path1564"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:37:38"
-     id="a554"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1570"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(55.3795,41.3073)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path552"
+       id="path1568"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:47:48"
-     id="a558"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1574"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,61.4978,39.3073)"
        d="M 365,-156 H 10 c -6,0 -10,4 -10,10 V -10 C 0,-4 4,0 10,0 h 355 c 6,0 10,-4 10,-10 v -136 c 0,-6 -4,-10 -10,-10 z"
-       id="path556"
+       id="path1572"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:50:51"
-     id="a562"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1578"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,72.1083,39.3073)"
        d="M 365,-156 H 10 c -6,0 -10,4 -10,10 V -10 C 0,-4 4,0 10,0 h 355 c 6,0 10,-4 10,-10 v -136 c 0,-6 -4,-10 -10,-10 z"
-       id="path560"
+       id="path1576"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:65:66"
-     id="a566"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1582"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(93.3292,40.3073)"
        d="M 2.180008,-5 C 3.3483776,-5.9224558 9.7221089,-5.9224558 10.890479,-5 9.7221089,-5.8024558 3.3483776,-5.8024558 2.180008,-5 Z"
-       id="path564"
+       id="path1580"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:65:66"
-     id="a570"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1586"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(93.3292,40.3073)"
        d="m 1.190004,-1.6487598 c 1.2658586,-0.9473446 9.42462,-0.9473446 10.690479,0 -1.265859,-0.8273446 -9.4246204,-0.8273446 -10.690479,0 z"
-       id="path568"
+       id="path1584"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:65:66"
-     id="a574"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1590"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(93.3292,40.3073)"
        d="M 2.180008,3 C 3.3483776,3.9224558 9.7221089,3.9224558 10.890479,3 9.7221089,3.8024558 3.3483776,3.8024558 2.180008,3 Z"
-       id="path572"
+       id="path1588"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:57:58"
-     id="a578"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1594"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,93.3292,42.8073)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path576"
+       id="path1592"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:59:60"
-     id="a582"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1598"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,93.3292,39.3073)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path580"
+       id="path1596"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:62:63"
-     id="a586"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1602"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,93.3292,35.8073)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path584"
+       id="path1600"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:44:26:27"
-     id="a592"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1608"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(93.3292,45.8073)"
        font-size="2.4696"
-       id="text590"
+       id="text1606"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan588">1</tspan>
+         id="tspan1604">1</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:69:70"
-     id="a596"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1612"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,104.4197,42.8073)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path594"
+       id="path1610"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:71:72"
-     id="a600"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1616"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,104.4197,39.3073)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path598"
+       id="path1614"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:74:75"
-     id="a604"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1620"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="matrix(0.004,0,0,-0.004,104.4197,35.8073)"
        d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path602"
+       id="path1618"
        inkscape:connector-curvature="0"
        style="fill:currentColor" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:44:37:38"
-     id="a610"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1626"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(104.4197,45.8073)"
        font-size="2.4696"
-       id="text608"
+       id="text1624"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan606">1</tspan>
+         id="tspan1622">1</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:37:38"
-     id="a614"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1630"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(15.2297,41.3073)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path612"
+       id="path1628"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:37:38"
-     id="a618"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1634"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(18.9688,41.3073)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path616"
+       id="path1632"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:37:38"
-     id="a622"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1638"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(22.708,41.3073)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path620"
+       id="path1636"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:27:22:23"
-     id="a640"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1656"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(27.8263,37.7231)"
        font-size="2.6163"
-       id="text626"
+       id="text1642"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan624">G</tspan>
+         id="tspan1640">G</tspan>
     </text>
     <text
        transform="translate(29.8408,37.7231)"
        font-size="2.6163"
-       id="text630"
+       id="text1646"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan628" />
+         id="tspan1644" />
     </text>
     <text
        transform="translate(29.8408,37.7231)"
        font-size="2.6163"
-       id="text634"
+       id="text1650"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan632" />
+         id="tspan1648" />
     </text>
     <text
        transform="translate(29.8408,36.2231)"
        font-size="1.8500"
-       id="text638"
+       id="text1654"
        style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan636" />
+         id="tspan1652" />
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:32:9:10"
-     id="a646"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1662"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(27.8263,34.9231)"
        font-size="2.4696"
-       id="text644"
+       id="text1660"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan642">IV</tspan>
+         id="tspan1658">IV</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:37:38"
-     id="a650"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1666"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(27.8263,41.3073)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path648"
+       id="path1664"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:23:24"
-     id="a652"
-     transform="translate(-4.08971,-3.8376488)" />
+     id="a1668"
+     transform="translate(-2.9515995,-3.2685936)" />
   <text
      font-size="1.7461"
-     id="text656"
+     id="text1672"
      style="font-size:1.74609995px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
-     x="-0.17460999"
-     y="33.385452">
+     x="0.96350044"
+     y="33.954506">
     <tspan
-       id="tspan654">17</tspan>
+       id="tspan1670">17</tspan>
   </text>
   <path
-     d="m 3.46489,40.009651 h -0.024 c -0.432,0 -0.78,-0.352 -0.78,-0.788 0,-0.232 0.212,-0.412 0.448,-0.412 0.216,0 0.38,0.188 0.38,0.412 0,0.208 -0.172,0.38 -0.38,0.38 -0.044,0 -0.084,-0.008 -0.124,-0.024 0.104,0.156 0.272,0.26 0.468,0.26 h 0.016 z m 0.78,-1.728 c 0.272,-0.096 0.452,-0.38 0.452,-0.656 0,-0.36 -0.264,-0.716 -0.692,-0.76 0.096,0.464 0.184,0.924 0.24,1.416 z m -1.548,-0.924 c 0,0.54 0.516,0.988 1.056,0.988 0.112,0 0.22,-0.008 0.328,-0.024 -0.056,-0.508 -0.148,-0.98 -0.252,-1.456 -0.316,0.032 -0.496,0.244 -0.496,0.476 0,0.176 0.1,0.364 0.324,0.492 0.02,0.02 0.028,0.04 0.028,0.06 0,0.044 -0.04,0.088 -0.088,0.088 -0.012,0 -0.024,-0.004 -0.036,-0.008 -0.32,-0.172 -0.468,-0.46 -0.468,-0.74 0,-0.352 0.232,-0.696 0.64,-0.788 -0.056,-0.232 -0.116,-0.468 -0.184,-0.7 -0.428,0.484 -0.852,0.972 -0.852,1.612 z m 1.044,1.16 c -0.752,0 -1.332,-0.688 -1.332,-1.496 0,-0.708 0.524,-1.224 0.992,-1.764 -0.076,-0.248 -0.148,-0.5 -0.18,-0.76 -0.024,-0.208 -0.028,-0.416 -0.028,-0.624 0,-0.46 0.22,-0.896 0.596,-1.168 0.024,-0.02 0.056,-0.02 0.08,0 0.284,0.336 0.532,0.98 0.532,1.432 0,0.572 -0.344,1.02 -0.72,1.456 0.084,0.272 0.156,0.552 0.224,0.828 0.016,0 0.036,-0.004 0.052,-0.004 0.62,0 1.024,0.512 1.024,1.044 0,0.304 -0.132,0.616 -0.428,0.84 -0.088,0.068 -0.188,0.112 -0.292,0.144 0.012,0.14 0.02,0.28 0.02,0.42 0,0.076 -0.004,0.156 -0.008,0.232 -0.028,0.476 -0.352,0.9 -0.808,0.912 l 0.004,-0.172 c 0.372,-0.008 0.612,-0.368 0.636,-0.764 0.004,-0.072 0.008,-0.148 0.008,-0.22 0,-0.124 -0.004,-0.244 -0.016,-0.368 -0.116,0.02 -0.232,0.032 -0.356,0.032 z m 0.372,-4.712 c 0,-0.22 -0.016,-0.316 -0.08,-0.516 -0.396,0.192 -0.648,0.596 -0.648,1.036 0,0.296 0.072,0.532 0.144,0.776 0.32,-0.388 0.584,-0.792 0.584,-1.296 z"
-     id="path658"
+     d="m 4.6030005,40.578706 h -0.024 c -0.432,0 -0.78,-0.352 -0.78,-0.788 0,-0.232 0.212,-0.412 0.448,-0.412 0.216,0 0.38,0.188 0.38,0.412 0,0.208 -0.172,0.38 -0.38,0.38 -0.044,0 -0.084,-0.008 -0.124,-0.024 0.104,0.156 0.272,0.26 0.468,0.26 h 0.016 z m 0.78,-1.728 c 0.272,-0.096 0.452,-0.38 0.452,-0.656 0,-0.36 -0.264,-0.716 -0.692,-0.76 0.096,0.464 0.184,0.924 0.24,1.416 z m -1.548,-0.924 c 0,0.54 0.516,0.988 1.056,0.988 0.112,0 0.22,-0.008 0.328,-0.024 -0.056,-0.508 -0.148,-0.98 -0.252,-1.456 -0.316,0.032 -0.496,0.244 -0.496,0.476 0,0.176 0.1,0.364 0.324,0.492 0.02,0.02 0.028,0.04 0.028,0.06 0,0.044 -0.04,0.088 -0.088,0.088 -0.012,0 -0.024,-0.004 -0.036,-0.008 -0.32,-0.172 -0.468,-0.46 -0.468,-0.74 0,-0.352 0.232,-0.696 0.64,-0.788 -0.056,-0.232 -0.116,-0.468 -0.184,-0.7 -0.428,0.484 -0.852,0.972 -0.852,1.612 z m 1.044,1.16 c -0.752,0 -1.332,-0.688 -1.332,-1.496 0,-0.708 0.524,-1.224 0.992,-1.764 -0.076,-0.248 -0.148,-0.5 -0.18,-0.76 -0.024,-0.208 -0.028,-0.416 -0.028,-0.624 0,-0.46 0.22,-0.896 0.596,-1.168 0.024,-0.02 0.056,-0.02 0.08,0 0.284,0.336 0.532,0.98 0.532,1.432 0,0.572 -0.344,1.02 -0.72,1.456 0.084,0.272 0.156,0.552 0.224,0.828 0.016,0 0.036,-0.004 0.052,-0.004 0.62,0 1.024,0.512 1.024,1.044 0,0.304 -0.132,0.616 -0.428,0.84 -0.088,0.068 -0.188,0.112 -0.292,0.144 0.012,0.14 0.02,0.28 0.02,0.42 0,0.076 -0.004,0.156 -0.008,0.232 -0.028,0.476 -0.352,0.9 -0.808,0.912 l 0.004,-0.172 c 0.372,-0.008 0.612,-0.368 0.636,-0.764 0.004,-0.072 0.008,-0.148 0.008,-0.22 0,-0.124 -0.004,-0.244 -0.016,-0.368 -0.116,0.02 -0.232,0.032 -0.356,0.032 z m 0.372,-4.712 c 0,-0.22 -0.016,-0.316 -0.08,-0.516 -0.396,0.192 -0.648,0.596 -0.648,1.036 0,0.296 0.072,0.532 0.144,0.776 0.32,-0.388 0.584,-0.792 0.584,-1.296 z"
+     id="path1674"
      inkscape:connector-curvature="0"
      style="fill:currentColor;stroke-width:0.004" />
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:27:19:20"
-     id="a676"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1692"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(11.4906,37.7231)"
        font-size="2.6163"
-       id="text662"
+       id="text1678"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan660">D</tspan>
+         id="tspan1676">D</tspan>
     </text>
     <text
        transform="translate(13.505,37.7231)"
        font-size="2.6163"
-       id="text666"
+       id="text1682"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan664" />
+         id="tspan1680" />
     </text>
     <text
        transform="translate(13.505,37.7231)"
        font-size="2.6163"
-       id="text670"
+       id="text1686"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan668" />
+         id="tspan1684" />
     </text>
     <text
        transform="translate(13.505,36.2231)"
        font-size="1.8500"
-       id="text674"
+       id="text1690"
        style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan672" />
+         id="tspan1688" />
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:32:6:7"
-     id="a682"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1698"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(11.4906,34.9231)"
        font-size="2.4696"
-       id="text680"
+       id="text1696"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan678">I</tspan>
+         id="tspan1694">I</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:37:38"
-     id="a686"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1702"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(11.4906,41.3073)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path684"
+       id="path1700"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:37:38"
-     id="a690"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1706"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(39.0438,41.3073)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path688"
+       id="path1704"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:27:69:70"
-     id="a708"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1724"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(44.1621,37.7231)"
        font-size="2.6163"
-       id="text694"
+       id="text1710"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan692">D</tspan>
+         id="tspan1708">D</tspan>
     </text>
     <text
        transform="translate(46.1765,37.7231)"
        font-size="2.6163"
-       id="text698"
+       id="text1714"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan696" />
+         id="tspan1712" />
     </text>
     <text
        transform="translate(46.1765,37.7231)"
        font-size="2.6163"
-       id="text702"
+       id="text1718"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan700" />
+         id="tspan1716" />
     </text>
     <text
        transform="translate(46.1765,36.2231)"
        font-size="1.8500"
-       id="text706"
+       id="text1722"
        style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan704" />
+         id="tspan1720" />
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:32:15:16"
-     id="a714"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1730"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(44.1621,34.9231)"
        font-size="2.4696"
-       id="text712"
+       id="text1728"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan710">I</tspan>
+         id="tspan1726">I</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:37:38"
-     id="a718"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1734"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(44.1621,41.3073)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path716"
+       id="path1732"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:37:38"
-     id="a722"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1738"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(47.9012,41.3073)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path720"
+       id="path1736"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:27:25:26"
-     id="a740"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1756"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(35.3046,37.7231)"
        font-size="2.6163"
-       id="text726"
+       id="text1742"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan724">A</tspan>
+         id="tspan1740">A</tspan>
     </text>
     <text
        transform="translate(37.0801,37.7231)"
        font-size="2.6163"
-       id="text730"
+       id="text1746"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan728" />
+         id="tspan1744" />
     </text>
     <text
        transform="translate(37.0801,37.7231)"
        font-size="2.6163"
-       id="text734"
+       id="text1750"
        style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan732" />
+         id="tspan1748" />
     </text>
     <text
        transform="translate(37.0801,36.2231)"
        font-size="1.8500"
-       id="text738"
+       id="text1754"
        style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan736" />
+         id="tspan1752" />
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:32:13:14"
-     id="a746"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1762"
+     transform="translate(-2.9515995,-3.2685936)">
     <text
        transform="translate(35.3046,34.9231)"
        font-size="2.4696"
-       id="text744"
+       id="text1760"
        style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
       <tspan
-         id="tspan742">V</tspan>
+         id="tspan1758">V</tspan>
     </text>
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:37:38"
-     id="a750"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1766"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(35.3046,41.3073)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path748"
+       id="path1764"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
      style="color:inherit"
      xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_tonic_intern_test_24bars.ly:38:37:38"
-     id="a754"
-     transform="translate(-4.08971,-3.8376488)">
+     id="a1770"
+     transform="translate(-2.9515995,-3.2685936)">
     <path
        transform="translate(31.5655,41.3073)"
        d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path752"
+       id="path1768"
        inkscape:connector-curvature="0"
        style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
   </a>

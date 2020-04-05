@@ -5,29 +5,29 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.2"
-   width="145.3956mm"
-   height="23.581984mm"
-   viewBox="0 0 82.738127 13.419451"
-   id="svg258"
+   width="147.3956mm"
+   height="27.581984mm"
+   viewBox="0 0 83.876238 15.695672"
+   id="svg2946"
    sodipodi:docname="m1_c_major_tonic_intern_test.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <metadata
-     id="metadata264">
+     id="metadata2952">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs262" />
+     id="defs2950" />
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -37,705 +37,503 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="640"
-     inkscape:window-height="480"
-     id="namedview260"
+     inkscape:window-width="1920"
+     inkscape:window-height="1023"
+     id="namedview2948"
      showgrid="false"
-     inkscape:zoom="0.2102413"
-     inkscape:cx="311.87969"
-     inkscape:cy="60.186325"
+     fit-margin-top="2"
+     fit-margin-left="1"
+     fit-margin-right="1"
+     fit-margin-bottom="2"
+     inkscape:zoom="0.4204826"
+     inkscape:cx="317.41432"
+     inkscape:cy="-124.97293"
      inkscape:window-x="0"
      inkscape:window-y="31"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="svg258" />
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2946" />
   <!-- Page: 1/1 -->
   <text
      font-size="2.2001"
-     id="text4"
+     id="text2760"
      style="font-size:2.20009995px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
-     x="-8.5350876"
-     y="-0.99234885">
+     x="-7.9660325"
+     y="0.14576164">
     <tspan
-       id="tspan2" />
+       id="tspan2758" />
   </text>
   <rect
-     x="73.889412"
-     y="5.1672511"
+     x="74.458466"
+     y="6.3053617"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect6"
+     id="rect2762"
      style="fill:currentColor" />
   <rect
-     x="65.721313"
-     y="5.1672511"
+     x="66.290367"
+     y="6.3053617"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect8"
+     id="rect2764"
      style="fill:currentColor" />
   <rect
-     x="82.547409"
-     y="5.1672511"
+     x="83.11647"
+     y="6.3053617"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect10"
+     id="rect2766"
      style="fill:currentColor" />
   <rect
-     x="82.057411"
-     y="5.1672511"
+     x="82.626465"
+     y="6.3053617"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect12"
+     id="rect2768"
      style="fill:currentColor" />
   <rect
-     x="30.975012"
-     y="5.1672511"
+     x="31.544067"
+     y="6.3053617"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect14"
+     id="rect2770"
      style="fill:currentColor" />
   <rect
-     x="42.657211"
-     y="5.1672511"
+     x="43.226269"
+     y="6.3053617"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect16"
+     id="rect2772"
      style="fill:currentColor" />
   <rect
-     x="50.345211"
-     y="5.1672511"
+     x="50.914268"
+     y="6.3053617"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect18"
+     id="rect2774"
      style="fill:currentColor" />
   <rect
-     x="58.033314"
-     y="5.1672511"
+     x="58.602367"
+     y="6.3053617"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect20"
+     id="rect2776"
      style="fill:currentColor" />
   <line
-     x1="0.050712124"
-     y1="9.1672516"
-     x2="82.687408"
-     y2="9.1672516"
-     id="line22"
+     x1="0.61976737"
+     y1="10.305362"
+     x2="83.25647"
+     y2="10.305362"
+     id="line2778"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="0.050712124"
-     y1="8.1672516"
-     x2="82.687408"
-     y2="8.1672516"
-     id="line24"
+     x1="0.61976737"
+     y1="9.3053617"
+     x2="83.25647"
+     y2="9.3053617"
+     id="line2780"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="0.050712124"
-     y1="7.1672511"
-     x2="82.687408"
-     y2="7.1672511"
-     id="line26"
+     x1="0.61976737"
+     y1="8.3053617"
+     x2="83.25647"
+     y2="8.3053617"
+     id="line2782"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="0.050712124"
-     y1="6.1672511"
-     x2="82.687408"
-     y2="6.1672511"
-     id="line28"
+     x1="0.61976737"
+     y1="7.3053617"
+     x2="83.25647"
+     y2="7.3053617"
+     id="line2784"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <line
-     x1="0.050712124"
-     y1="5.1672511"
-     x2="82.687408"
-     y2="5.1672511"
-     id="line30"
+     x1="0.61976737"
+     y1="6.3053617"
+     x2="83.25647"
+     y2="6.3053617"
+     id="line2786"
      style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <rect
-     x="67.316315"
-     y="10.067251"
+     x="67.885368"
+     y="11.205361"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect32"
+     id="rect2788"
      style="fill:currentColor" />
   <rect
-     x="67.316315"
-     y="4.0672512"
+     x="67.885368"
+     y="5.2053618"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect34"
+     id="rect2790"
      style="fill:currentColor" />
   <rect
-     x="67.316315"
-     y="3.0672512"
+     x="67.885368"
+     y="4.2053618"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect36"
+     id="rect2792"
      style="fill:currentColor" />
   <rect
-     x="75.484413"
-     y="10.067251"
+     x="76.053467"
+     y="11.205361"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect38"
+     id="rect2794"
      style="fill:currentColor" />
   <rect
-     x="75.484413"
-     y="4.0672512"
+     x="76.053467"
+     y="5.2053618"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect40"
+     id="rect2796"
      style="fill:currentColor" />
   <rect
-     x="75.484413"
-     y="3.0672512"
+     x="76.053467"
+     y="4.2053618"
      width="2.97"
      height="0.2"
      ry="0.1"
-     id="rect42"
+     id="rect2798"
      style="fill:currentColor" />
   <rect
-     x="19.292812"
-     y="5.1672511"
+     x="19.861868"
+     y="6.3053617"
      width="0.19"
      height="4"
      ry="0.0000"
-     id="rect44"
+     id="rect2800"
      style="fill:currentColor" />
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:50:51"
-     id="a48"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="matrix(0.004,0,0,-0.004,66.6609,10.0049)"
-       d="M 365,-156 H 10 c -6,0 -10,4 -10,10 V -10 C 0,-4 4,0 10,0 h 355 c 6,0 10,-4 10,-10 v -136 c 0,-6 -4,-10 -10,-10 z"
-       id="path46"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:53:54"
-     id="a52"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="matrix(0.004,0,0,-0.004,74.349,10.0049)"
-       d="M 365,-156 H 10 c -6,0 -10,4 -10,10 V -10 C 0,-4 4,0 10,0 h 355 c 6,0 10,-4 10,-10 v -136 c 0,-6 -4,-10 -10,-10 z"
-       id="path50"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:47:48"
-     id="a56"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="matrix(0.004,0,0,-0.004,58.9729,10.0049)"
-       d="M 365,-156 H 10 c -6,0 -10,4 -10,10 V -10 C 0,-4 4,0 10,0 h 355 c 6,0 10,-4 10,-10 v -136 c 0,-6 -4,-10 -10,-10 z"
-       id="path54"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:37:38"
-     id="a60"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="translate(51.5868,12.0049)"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path58"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:37:38"
-     id="a64"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="translate(54.2348,12.0049)"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path62"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:65:66"
-     id="a68"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="translate(82.037,11.0049)"
-       d="m 1.190004,-4.75 c 1.11226,-0.9063765 6.655793,-0.9063765 7.768053,0 -1.11226,-0.7863765 -6.655793,-0.7863765 -7.768053,0 z"
-       id="path66"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:65:66"
-     id="a72"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="translate(82.037,11.0049)"
-       d="m 1.190004,-1.225 c 1.11226,-0.9063765 6.655793,-0.9063765 7.768053,0 -1.11226,-0.7863765 -6.655793,-0.7863765 -7.768053,0 z"
-       id="path70"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:65:66"
-     id="a76"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="translate(82.037,11.0049)"
-       d="m 1.190004,3.75 c 1.11226,0.9063765 6.655793,0.9063765 7.768053,0 -1.11226,0.7863765 -6.655793,0.7863765 -7.768053,0 z"
-       id="path74"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:57:58"
-     id="a80"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="matrix(0.004,0,0,-0.004,82.037,14.0049)"
-       d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path78"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:59:60"
-     id="a84"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="matrix(0.004,0,0,-0.004,82.037,10.5049)"
-       d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path82"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:62:63"
-     id="a88"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="matrix(0.004,0,0,-0.004,82.037,7.0049)"
-       d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path86"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:32:26:27"
-     id="a94"
-     transform="translate(-14.225688,-3.8376488)">
-    <text
-       transform="translate(82.037,17.2571)"
-       font-size="2.4696"
-       id="text92"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan90">1</tspan>
-    </text>
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:69:70"
-     id="a98"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="matrix(0.004,0,0,-0.004,90.2051,14.0049)"
-       d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path96"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:71:72"
-     id="a102"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="matrix(0.004,0,0,-0.004,90.2051,10.5049)"
-       d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path100"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:74:75"
-     id="a106"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="matrix(0.004,0,0,-0.004,90.2051,7.0049)"
-       d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       id="path104"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:37:38"
-     id="a110"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="translate(28.2225,12.0049)"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path108"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:37:38"
-     id="a114"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="translate(30.8705,12.0049)"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path112"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:37:38"
-     id="a118"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="translate(25.5744,12.0049)"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path116"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:21:22:23"
-     id="a136"
-     transform="translate(-14.225688,-3.8376488)">
-    <text
-       transform="translate(34.6085,8.4207)"
-       font-size="2.6163"
-       id="text122"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan120">F</tspan>
-    </text>
-    <text
-       transform="translate(36.1108,8.4207)"
-       font-size="2.6163"
-       id="text126"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan124" />
-    </text>
-    <text
-       transform="translate(36.1108,8.4207)"
-       font-size="2.6163"
-       id="text130"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan128" />
-    </text>
-    <text
-       transform="translate(36.1108,6.9207)"
-       font-size="1.8500"
-       id="text134"
-       style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan132" />
-    </text>
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:24:9:10"
-     id="a142"
-     transform="translate(-14.225688,-3.8376488)">
-    <text
-       transform="translate(34.6085,5.6207)"
-       font-size="2.4696"
-       id="text140"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan138">IV</tspan>
-    </text>
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:37:38"
-     id="a146"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="translate(34.6085,12.0049)"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path144"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:23:24"
-     id="a148"
-     transform="translate(-14.225688,-3.8376488)" />
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:21:19:20"
-     id="a166"
-     transform="translate(-14.225688,-3.8376488)">
-    <text
-       transform="translate(22.9264,8.4207)"
-       font-size="2.6163"
-       id="text152"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan150">C</tspan>
-    </text>
-    <text
-       transform="translate(24.7701,8.4207)"
-       font-size="2.6163"
-       id="text156"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan154" />
-    </text>
-    <text
-       transform="translate(24.7701,8.4207)"
-       font-size="2.6163"
-       id="text160"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan158" />
-    </text>
-    <text
-       transform="translate(24.7701,6.9207)"
-       font-size="1.8500"
-       id="text164"
-       style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan162" />
-    </text>
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:24:6:7"
-     id="a172"
-     transform="translate(-14.225688,-3.8376488)">
-    <text
-       transform="translate(22.9264,5.6207)"
-       font-size="2.4696"
-       id="text170"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan168">I</tspan>
-    </text>
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:37:38"
-     id="a176"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="translate(22.9264,12.0049)"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path174"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-  </a>
   <path
-     d="m 1.8647121,10.707251 h -0.024 c -0.432,0 -0.78,-0.352 -0.78,-0.7879998 0,-0.232 0.212,-0.412 0.448,-0.412 0.216,0 0.38,0.188 0.38,0.412 0,0.2079998 -0.172,0.3799998 -0.38,0.3799998 -0.044,0 -0.084,-0.008 -0.124,-0.024 0.104,0.156 0.272,0.26 0.468,0.26 h 0.016 z m 0.78,-1.7279998 c 0.272,-0.096 0.452,-0.38 0.452,-0.656 0,-0.36 -0.264,-0.716 -0.692,-0.76 0.096,0.464 0.184,0.924 0.24,1.416 z m -1.548,-0.924 c 0,0.54 0.516,0.988 1.056,0.988 0.112,0 0.22,-0.008 0.328,-0.024 -0.056,-0.508 -0.148,-0.98 -0.252,-1.456 -0.316,0.032 -0.496,0.244 -0.496,0.476 0,0.176 0.1,0.364 0.324,0.492 0.02,0.02 0.028,0.04 0.028,0.06 0,0.044 -0.04,0.088 -0.088,0.088 -0.012,0 -0.024,-0.004 -0.036,-0.008 -0.32,-0.172 -0.468,-0.46 -0.468,-0.74 0,-0.352 0.232,-0.696 0.64,-0.788 -0.056,-0.232 -0.116,-0.468 -0.184,-0.7 -0.428,0.484 -0.852,0.972 -0.852,1.612 z m 1.044,1.16 c -0.752,0 -1.33199998,-0.688 -1.33199998,-1.496 0,-0.708 0.52399998,-1.224 0.99199998,-1.764 -0.076,-0.248 -0.148,-0.5 -0.18,-0.76 -0.024,-0.208 -0.028,-0.416 -0.028,-0.624 0,-0.46 0.22,-0.896 0.596,-1.168 0.024,-0.02 0.056,-0.02 0.08,0 0.284,0.336 0.532,0.98 0.532,1.432 0,0.572 -0.344,1.02 -0.72,1.456 0.084,0.272 0.156,0.552 0.224,0.828 0.016,0 0.036,-0.004 0.052,-0.004 0.62,0 1.024,0.512 1.024,1.044 0,0.304 -0.132,0.616 -0.428,0.84 -0.088,0.068 -0.188,0.112 -0.292,0.144 0.012,0.14 0.02,0.28 0.02,0.42 0,0.076 -0.004,0.156 -0.008,0.232 -0.028,0.4759998 -0.352,0.8999998 -0.808,0.9119998 l 0.004,-0.172 c 0.372,-0.008 0.612,-0.368 0.636,-0.7639998 0.004,-0.072 0.008,-0.148 0.008,-0.22 0,-0.124 -0.004,-0.244 -0.016,-0.368 -0.116,0.02 -0.232,0.032 -0.356,0.032 z m 0.372,-4.712 c 0,-0.22 -0.016,-0.316 -0.08,-0.516 -0.396,0.192 -0.648,0.596 -0.648,1.036 0,0.296 0.072,0.532 0.144,0.776 0.32,-0.388 0.584,-0.792 0.584,-1.296 z"
-     id="path178"
+     d="m 54.464267,7.9293616 h -1.42 c -0.024,0 -0.04,-0.016 -0.04,-0.04 v -0.544 c 0,-0.024 0.016,-0.04 0.04,-0.04 h 1.42 c 0.024,0 0.04,0.016 0.04,0.04 v 0.544 c 0,0.024 -0.016,0.04 -0.04,0.04 z"
+     id="path2802"
      inkscape:connector-curvature="0"
      style="fill:currentColor;stroke-width:0.004" />
   <path
-     d="m 6.4367121,7.0592512 c -0.196,0 -0.3,-0.168 -0.3,-0.3 0,-0.152 0.108,-0.308 0.288,-0.308 0.016,0 0.036,0 0.056,0.004 -0.112,-0.148 -0.288,-0.236 -0.48,-0.236 -0.424,0 -0.452,0.292 -0.452,0.744 v 0.204 0.204 c 0,0.452 0.028,0.748 0.452,0.748 0.32,0 0.556,-0.28 0.632,-0.604 0.008,-0.028 0.028,-0.04 0.048,-0.04 0.024,0 0.052,0.016 0.052,0.048 0,0.376 -0.42,0.696 -0.732,0.696 -0.272,0 -0.548,-0.084 -0.736,-0.28 -0.196,-0.204 -0.264,-0.488 -0.264,-0.772 0,-0.284 0.068,-0.568 0.264,-0.772 0.188,-0.196 0.464,-0.276 0.736,-0.276 0.348,0 0.64,0.252 0.7,0.596 0.004,0.02 0.004,0.04 0.004,0.056 0,0.16 -0.12,0.288 -0.268,0.288 z"
-     id="path180"
+     d="m 62.152367,7.9293616 h -1.42 c -0.024,0 -0.04,-0.016 -0.04,-0.04 v -0.544 c 0,-0.024 0.016,-0.04 0.04,-0.04 h 1.42 c 0.024,0 0.04,0.016 0.04,0.04 v 0.544 c 0,0.024 -0.016,0.04 -0.04,0.04 z"
+     id="path2804"
      inkscape:connector-curvature="0"
      style="fill:currentColor;stroke-width:0.004" />
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:37:38"
-     id="a184"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="translate(42.5527,12.0049)"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path182"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:21:28:29"
-     id="a202"
-     transform="translate(-14.225688,-3.8376488)">
-    <text
-       transform="translate(46.2907,8.4207)"
-       font-size="2.6163"
-       id="text188"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan186">C</tspan>
-    </text>
-    <text
-       transform="translate(48.1344,8.4207)"
-       font-size="2.6163"
-       id="text192"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan190" />
-    </text>
-    <text
-       transform="translate(48.1344,8.4207)"
-       font-size="2.6163"
-       id="text196"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan194" />
-    </text>
-    <text
-       transform="translate(48.1344,6.9207)"
-       font-size="1.8500"
-       id="text200"
-       style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan198" />
-    </text>
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:24:15:16"
-     id="a208"
-     transform="translate(-14.225688,-3.8376488)">
-    <text
-       transform="translate(46.2907,5.6207)"
-       font-size="2.4696"
-       id="text206"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan204">I</tspan>
-    </text>
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:37:38"
-     id="a212"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="translate(46.2907,12.0049)"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path210"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:37:38"
-     id="a216"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="translate(48.9387,12.0049)"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path214"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:37:38"
-     id="a220"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="translate(37.2566,12.0049)"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path218"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:21:25:26"
-     id="a238"
-     transform="translate(-14.225688,-3.8376488)">
-    <text
-       transform="translate(39.9046,8.4207)"
-       font-size="2.6163"
-       id="text224"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan222">G</tspan>
-    </text>
-    <text
-       transform="translate(41.9191,8.4207)"
-       font-size="2.6163"
-       id="text228"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan226" />
-    </text>
-    <text
-       transform="translate(41.9191,8.4207)"
-       font-size="2.6163"
-       id="text232"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan230" />
-    </text>
-    <text
-       transform="translate(41.9191,6.9207)"
-       font-size="1.8500"
-       id="text236"
-       style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan234" />
-    </text>
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:24:13:14"
-     id="a244"
-     transform="translate(-14.225688,-3.8376488)">
-    <text
-       transform="translate(39.9046,5.6207)"
-       font-size="2.4696"
-       id="text242"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan240">V</tspan>
-    </text>
-  </a>
-  <a
-     style="color:inherit"
-     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m1_c_major_tonic_intern_test.ly:28:37:38"
-     id="a248"
-     transform="translate(-14.225688,-3.8376488)">
-    <path
-       transform="translate(39.9046,12.0049)"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       id="path246"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-  </a>
+  <path
+     d="m 46.776267,7.9293616 h -1.42 c -0.024,0 -0.04,-0.016 -0.04,-0.04 v -0.544 c 0,-0.024 0.016,-0.04 0.04,-0.04 h 1.42 c 0.024,0 0.04,0.016 0.04,0.04 v 0.544 c 0,0.024 -0.016,0.04 -0.04,0.04 z"
+     id="path2806"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <path
+     d="m 37.930167,9.3053616 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path2808"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="m 40.578167,9.3053616 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path2810"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="m 69.570371,3.5553616 c 1.11226,-0.9063765 6.655793,-0.9063765 7.768053,0 -1.11226,-0.7863765 -6.655793,-0.7863765 -7.768053,0 z"
+     id="path2812"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="m 69.570371,7.0803616 c 1.11226,-0.9063765 6.655793,-0.9063765 7.768053,0 -1.11226,-0.7863765 -6.655793,-0.7863765 -7.768053,0 z"
+     id="path2814"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="m 69.570371,12.055362 c 1.11226,0.906376 6.655793,0.906376 7.768053,0 -1.11226,0.786376 -6.655793,0.786376 -7.768053,0 z"
+     id="path2816"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="m 69.240367,10.857362 c -0.2,0 -0.276,0.172 -0.276,0.352 0,0.308 0.228,0.544 0.536,0.544 0.2,0 0.276,-0.172 0.276,-0.352 0,-0.308 -0.228,-0.544 -0.536,-0.544 z m 1.12,0.448 c 0,0.172 -0.14,0.304 -0.292,0.388 -0.212,0.12 -0.452,0.164 -0.696,0.164 -0.244,0 -0.488,-0.044 -0.7,-0.164 -0.152,-0.084 -0.292,-0.216 -0.292,-0.388 0,-0.172 0.14,-0.304 0.292,-0.388 0.212,-0.12 0.456,-0.164 0.7,-0.164 0.244,0 0.484,0.044 0.696,0.164 0.152,0.084 0.292,0.216 0.292,0.388 z"
+     id="path2818"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <path
+     d="m 69.240367,7.3573616 c -0.2,0 -0.276,0.172 -0.276,0.352 0,0.308 0.228,0.544 0.536,0.544 0.2,0 0.276,-0.172 0.276,-0.352 0,-0.308 -0.228,-0.544 -0.536,-0.544 z m 1.12,0.448 c 0,0.172 -0.14,0.304 -0.292,0.388 -0.212,0.12 -0.452,0.164 -0.696,0.164 -0.244,0 -0.488,-0.044 -0.7,-0.164 -0.152,-0.084 -0.292,-0.216 -0.292,-0.388 0,-0.172 0.14,-0.304 0.292,-0.388 0.212,-0.12 0.456,-0.164 0.7,-0.164 0.244,0 0.484,0.044 0.696,0.164 0.152,0.084 0.292,0.216 0.292,0.388 z"
+     id="path2820"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <path
+     d="m 69.240367,3.8573616 c -0.2,0 -0.276,0.172 -0.276,0.352 0,0.308 0.228,0.544 0.536,0.544 0.2,0 0.276,-0.172 0.276,-0.352 0,-0.308 -0.228,-0.544 -0.536,-0.544 z m 1.12,0.448 c 0,0.172 -0.14,0.304 -0.292,0.388 -0.212,0.12 -0.452,0.164 -0.696,0.164 -0.244,0 -0.488,-0.044 -0.7,-0.164 -0.152,-0.084 -0.292,-0.216 -0.292,-0.388 0,-0.172 0.14,-0.304 0.292,-0.388 0.212,-0.12 0.456,-0.164 0.7,-0.164 0.244,0 0.484,0.044 0.696,0.164 0.152,0.084 0.292,0.216 0.292,0.388 z"
+     id="path2822"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <text
+     font-size="2.4696"
+     id="text2826"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="68.380371"
+     y="14.557562">
+    <tspan
+       id="tspan2824">1</tspan>
+  </text>
+  <path
+     d="m 77.408467,10.857362 c -0.2,0 -0.276,0.172 -0.276,0.352 0,0.308 0.228,0.544 0.536,0.544 0.2,0 0.276,-0.172 0.276,-0.352 0,-0.308 -0.228,-0.544 -0.536,-0.544 z m 1.12,0.448 c 0,0.172 -0.14,0.304 -0.292,0.388 -0.212,0.12 -0.452,0.164 -0.696,0.164 -0.244,0 -0.488,-0.044 -0.7,-0.164 -0.152,-0.084 -0.292,-0.216 -0.292,-0.388 0,-0.172 0.14,-0.304 0.292,-0.388 0.212,-0.12 0.456,-0.164 0.7,-0.164 0.244,0 0.484,0.044 0.696,0.164 0.152,0.084 0.292,0.216 0.292,0.388 z"
+     id="path2828"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <path
+     d="m 77.408467,7.3573616 c -0.2,0 -0.276,0.172 -0.276,0.352 0,0.308 0.228,0.544 0.536,0.544 0.2,0 0.276,-0.172 0.276,-0.352 0,-0.308 -0.228,-0.544 -0.536,-0.544 z m 1.12,0.448 c 0,0.172 -0.14,0.304 -0.292,0.388 -0.212,0.12 -0.452,0.164 -0.696,0.164 -0.244,0 -0.488,-0.044 -0.7,-0.164 -0.152,-0.084 -0.292,-0.216 -0.292,-0.388 0,-0.172 0.14,-0.304 0.292,-0.388 0.212,-0.12 0.456,-0.164 0.7,-0.164 0.244,0 0.484,0.044 0.696,0.164 0.152,0.084 0.292,0.216 0.292,0.388 z"
+     id="path2830"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <path
+     d="m 77.408467,3.8573616 c -0.2,0 -0.276,0.172 -0.276,0.352 0,0.308 0.228,0.544 0.536,0.544 0.2,0 0.276,-0.172 0.276,-0.352 0,-0.308 -0.228,-0.544 -0.536,-0.544 z m 1.12,0.448 c 0,0.172 -0.14,0.304 -0.292,0.388 -0.212,0.12 -0.452,0.164 -0.696,0.164 -0.244,0 -0.488,-0.044 -0.7,-0.164 -0.152,-0.084 -0.292,-0.216 -0.292,-0.388 0,-0.172 0.14,-0.304 0.292,-0.388 0.212,-0.12 0.456,-0.164 0.7,-0.164 0.244,0 0.484,0.044 0.696,0.164 0.152,0.084 0.292,0.216 0.292,0.388 z"
+     id="path2832"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <path
+     d="m 14.565867,9.3053616 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path2834"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="m 17.213867,9.3053616 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path2836"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="m 11.917767,9.3053616 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path2838"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <text
+     font-size="2.6163"
+     id="text2842"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="20.951868"
+     y="5.7211618">
+    <tspan
+       id="tspan2840">F</tspan>
+  </text>
+  <text
+     font-size="2.6163"
+     id="text2846"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="22.454166"
+     y="5.7211618">
+    <tspan
+       id="tspan2844" />
+  </text>
+  <text
+     font-size="2.6163"
+     id="text2850"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="22.454166"
+     y="5.7211618">
+    <tspan
+       id="tspan2848" />
+  </text>
+  <text
+     font-size="1.8500"
+     id="text2854"
+     style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="22.454166"
+     y="4.2211618">
+    <tspan
+       id="tspan2852" />
+  </text>
+  <text
+     font-size="2.4696"
+     id="text2858"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="20.951868"
+     y="2.9211617">
+    <tspan
+       id="tspan2856">IV</tspan>
+  </text>
+  <path
+     d="m 20.951867,9.3053616 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path2860"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <text
+     font-size="2.6163"
+     id="text2864"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="9.2697678"
+     y="5.7211618">
+    <tspan
+       id="tspan2862">C</tspan>
+  </text>
+  <text
+     font-size="2.6163"
+     id="text2868"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="11.113467"
+     y="5.7211618">
+    <tspan
+       id="tspan2866" />
+  </text>
+  <text
+     font-size="2.6163"
+     id="text2872"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="11.113467"
+     y="5.7211618">
+    <tspan
+       id="tspan2870" />
+  </text>
+  <text
+     font-size="1.8500"
+     id="text2876"
+     style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="11.113467"
+     y="4.2211618">
+    <tspan
+       id="tspan2874" />
+  </text>
+  <text
+     font-size="2.4696"
+     id="text2880"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="9.2697678"
+     y="2.9211617">
+    <tspan
+       id="tspan2878">I</tspan>
+  </text>
+  <path
+     d="m 9.2697674,9.3053616 h 0.556887 l 1.1764706,-2 h -0.556887 z"
+     id="path2882"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="m 2.4337674,11.845362 h -0.024 c -0.432,0 -0.78,-0.352 -0.78,-0.788 0,-0.232 0.212,-0.412 0.448,-0.412 0.216,0 0.38,0.188 0.38,0.412 0,0.208 -0.172,0.38 -0.38,0.38 -0.044,0 -0.084,-0.008 -0.124,-0.024 0.104,0.156 0.272,0.26 0.468,0.26 h 0.016 z m 0.78,-1.728 c 0.272,-0.096 0.452,-0.3800004 0.452,-0.6560004 0,-0.36 -0.264,-0.716 -0.692,-0.76 0.096,0.464 0.184,0.924 0.24,1.4160004 z m -1.548,-0.9240004 c 0,0.54 0.516,0.9880004 1.056,0.9880004 0.112,0 0.22,-0.008 0.328,-0.024 -0.056,-0.5080004 -0.148,-0.9800004 -0.252,-1.4560004 -0.316,0.032 -0.496,0.244 -0.496,0.476 0,0.176 0.1,0.364 0.324,0.492 0.02,0.02 0.028,0.04 0.028,0.06 0,0.044 -0.04,0.088 -0.088,0.088 -0.012,0 -0.024,-0.004 -0.036,-0.008 -0.32,-0.172 -0.468,-0.46 -0.468,-0.74 0,-0.352 0.232,-0.696 0.64,-0.788 -0.056,-0.232 -0.116,-0.468 -0.184,-0.7 -0.428,0.484 -0.852,0.972 -0.852,1.612 z m 1.044,1.1600004 c -0.752,0 -1.332,-0.6880004 -1.332,-1.4960004 0,-0.708 0.524,-1.224 0.992,-1.764 -0.076,-0.248 -0.148,-0.5 -0.18,-0.76 -0.024,-0.208 -0.028,-0.416 -0.028,-0.624 0,-0.46 0.22,-0.896 0.596,-1.168 0.024,-0.02 0.056,-0.02 0.08,0 0.284,0.336 0.532,0.98 0.532,1.432 0,0.572 -0.344,1.02 -0.72,1.456 0.084,0.272 0.156,0.552 0.224,0.828 0.016,0 0.036,-0.004 0.052,-0.004 0.62,0 1.024,0.512 1.024,1.044 0,0.304 -0.132,0.616 -0.428,0.8400004 -0.088,0.068 -0.188,0.112 -0.292,0.144 0.012,0.14 0.02,0.28 0.02,0.42 0,0.076 -0.004,0.156 -0.008,0.232 -0.028,0.476 -0.352,0.9 -0.808,0.912 l 0.004,-0.172 c 0.372,-0.008 0.612,-0.368 0.636,-0.764 0.004,-0.072 0.008,-0.148 0.008,-0.22 0,-0.124 -0.004,-0.244 -0.016,-0.368 -0.116,0.02 -0.232,0.032 -0.356,0.032 z m 0.372,-4.7120004 c 0,-0.22 -0.016,-0.316 -0.08,-0.516 -0.396,0.192 -0.648,0.596 -0.648,1.036 0,0.296 0.072,0.532 0.144,0.776 0.32,-0.388 0.584,-0.792 0.584,-1.296 z"
+     id="path2884"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <path
+     d="m 7.0057674,8.1973616 c -0.196,0 -0.3,-0.168 -0.3,-0.3 0,-0.152 0.108,-0.308 0.288,-0.308 0.016,0 0.036,0 0.056,0.004 -0.112,-0.148 -0.288,-0.236 -0.48,-0.236 -0.424,0 -0.452,0.292 -0.452,0.744 v 0.204 0.204 c 0,0.452 0.028,0.748 0.452,0.748 0.32,0 0.556,-0.28 0.632,-0.604 0.008,-0.028 0.028,-0.04 0.048,-0.04 0.024,0 0.052,0.016 0.052,0.048 0,0.376 -0.42,0.696 -0.732,0.696 -0.272,0 -0.548,-0.084 -0.736,-0.28 -0.196,-0.204 -0.264,-0.488 -0.264,-0.772 0,-0.284 0.068,-0.568 0.264,-0.772 0.188,-0.196 0.464,-0.276 0.736,-0.276 0.348,0 0.64,0.252 0.7,0.596 0.004,0.02 0.004,0.04 0.004,0.056 0,0.16 -0.12,0.288 -0.268,0.288 z"
+     id="path2886"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <path
+     d="m 28.896067,9.3053616 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path2888"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <text
+     font-size="2.6163"
+     id="text2892"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="32.634068"
+     y="5.7211618">
+    <tspan
+       id="tspan2890">C</tspan>
+  </text>
+  <text
+     font-size="2.6163"
+     id="text2896"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="34.477768"
+     y="5.7211618">
+    <tspan
+       id="tspan2894" />
+  </text>
+  <text
+     font-size="2.6163"
+     id="text2900"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="34.477768"
+     y="5.7211618">
+    <tspan
+       id="tspan2898" />
+  </text>
+  <text
+     font-size="1.8500"
+     id="text2904"
+     style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="34.477768"
+     y="4.2211618">
+    <tspan
+       id="tspan2902" />
+  </text>
+  <text
+     font-size="2.4696"
+     id="text2908"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="32.634068"
+     y="2.9211617">
+    <tspan
+       id="tspan2906">I</tspan>
+  </text>
+  <path
+     d="m 32.634067,9.3053616 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path2910"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="m 35.282067,9.3053616 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path2912"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="m 23.599967,9.3053616 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path2914"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <text
+     font-size="2.6163"
+     id="text2918"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="26.247967"
+     y="5.7211618">
+    <tspan
+       id="tspan2916">G</tspan>
+  </text>
+  <text
+     font-size="2.6163"
+     id="text2922"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="28.262466"
+     y="5.7211618">
+    <tspan
+       id="tspan2920" />
+  </text>
+  <text
+     font-size="2.6163"
+     id="text2926"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="28.262466"
+     y="5.7211618">
+    <tspan
+       id="tspan2924" />
+  </text>
+  <text
+     font-size="1.8500"
+     id="text2930"
+     style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="28.262466"
+     y="4.2211618">
+    <tspan
+       id="tspan2928" />
+  </text>
+  <text
+     font-size="2.4696"
+     id="text2934"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="26.247967"
+     y="2.9211617">
+    <tspan
+       id="tspan2932">V</tspan>
+  </text>
+  <path
+     d="m 26.247967,9.3053616 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path2936"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
 </svg>
