@@ -248,7 +248,7 @@
                     posOff = this.playResting(this.key, cadence, posOff, 4);
                     posOff = this.rest(posOff, 3 * 4);
                     posOff = this.playDegree(this.key, this.degrees[0], false, posOff, 8, cadence);
-                    posOff = this.rest(posOff, 2);
+                    posOff = this.rest(posOff, 4);
                     this.roundDuration = posOff;
                     this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
                 }
