@@ -2,7 +2,24 @@
 
   <div class="article">
     <h1>Hello World</h1>
-    <h2>Welcome to Testing Area 51</h2>
+    <v-chip
+      v-if="connection"
+      class="ma-2"
+      text-color="white"
+      color="green"
+    >
+      Connected
+      <v-icon right>mdi-server-network</v-icon>
+    </v-chip>
+    <v-chip
+      v-if="!connection"
+      class="ma-2"
+      text-color="white"
+      color="red"
+    >
+      Disconnected
+      <v-icon right>mdi-server-network-off</v-icon>
+    </v-chip>
     <v-form method="post" action="http://localhost:5000/adduser">
       <v-text-field name="nm" label="userId" solo></v-text-field>
       <v-btn type="submit" rounded color="primary" dark>Add User</v-btn>
@@ -15,14 +32,17 @@
     <p><b>allusers:</b> {{allusers}} </p>
     <p><b>allchapters:</b> {{allchapters}} </p>
     <p><b>allsections:</b> {{allsections}} </p>
+    <p><b>alltakes:</b> {{alltakes}} </p>
     <p><b>sections1:</b> {{sections1}} </p>
     <p><b>settings1:</b> {{settings1}} </p>
     <p><b>random:</b> {{random}} </p>
     <v-text-field name="search" v-model="search" label="search.." @input="updateSearch" solo></v-text-field>
     <p><b>founduser:</b> {{founduser}} </p>
-    <p v-for="user in allusers" :key="user">
+    <p><b>foundsettings:</b> {{foundsettings}} </p>
+    <p><b>foundsections:</b> {{foundsections}} </p>
+    <!-- <p v-for="user in allusers" :key="user">
       <b>{{user.user_keyword}}</b>
-    </p>
+    </p> -->
   </div>
 
 </template>
@@ -37,11 +57,15 @@
       return {
         debug: true,
         flask_server: 'http://localhost:5000/',
+        connection: true,
         allusers: 'no users found',
         allchapters: 'no chapters found',
         allsections: 'no sections found',
+        alltakes: 'no takes found',
         sections1: 'no sections found',
         founduser: 'not found',
+        foundsettings: 'no settings found',
+        foundsections: 'no sections found',
         settings1: 'no settings found',
         search: '',
         random: 0,
@@ -60,7 +84,10 @@
           .then(res => {
             return res.data;
           })
-          .catch(err => console.log(err))
+          .catch(err => {
+            console.log(err)
+            this.connection = false;
+          });
       },
       getUserID(user_keyword) {
         return this.fetch('getuser_bykey/' + user_keyword);
@@ -74,17 +101,35 @@
       getAllSections() {
         return this.fetch('getallsections');
       },
+      getAllTakes() {
+        return this.fetch('getalltakes');
+      },
       getRandom() {
         return this.fetch('random');
       },
       getSectionsOfChapter(chapter_id) {
         return this.fetch('getsections_bychapter_id/' + chapter_id);
       },
+      getSections(user_id){
+        return this.fetch('getsections_byuser_id/' + user_id);
+      },
       updateSearch() {
         if (this.search.trim().length > 2) {
           this.getUserID(this.search.trim())
-            .then(data => (this.founduser = data));
+            .then(data => {
+              this.founduser = data;
+              if (!(this.founduser.user_id == null)) {
+                this.getSettings(this.founduser.user_id)
+                  .then(data => (this.foundsettings = data));
+                this.getSections(this.founduser.user_id)
+                  .then(data => (this.foundsections = data));
+              } else {
+                this.foundsettings = "";
+                this.foundsections = "";
+              }
+            });
         }
+
       },
       getSettings(user_id){
         return this.fetch('getsettings/' + user_id);
@@ -106,6 +151,9 @@
       // Testing allSections
       this.getAllSections()
         .then(data => (this.allsections = data))
+      // Testing allSections
+      this.getAllTakes()
+        .then(data => (this.alltakes = data))
       // Testing getSectionsofChapter for chapter_id 1
       this.getSectionsOfChapter('1')
         .then(data => (this.sections1 = data))
