@@ -35,26 +35,45 @@
                 Now that you can recognise the sound of the tonic, the next step is
                 to learn to recognise other notes in relation to the tonic.</p>
             <p>Scale degrees are
-                the tool that we use here at Ear Training HQ to do this.</p>
+                the tool that we use to do this.</p>
             <p>Scale degrees
                 number each note in a scale based on its position in that scale. The
                 tonic is labelled as scale degree one, the second note is labelled as
                 scale degree two and so on. Take a look at the diagram below to see
                 the C major scale with scale degrees shown below it:</p>
-            <p><br/>
-
-            </p>
             <p>
-                <v-img contain max-height="18ch" max-width="90vw" src="/img/m2_c_major.png"
+                <v-img contain max-height="10ch" max-width="83.5vw" src="/img/m2_c_major.svg"
                 title="C Major Scale with Scale Degrees"/>
             </p>
-            <p>If we were to
-                write out a different major scale C would no longer be scale degree
-                1, the new tonic would be. You can see scale degrees applied to the F
-                major scale below where F is now scale degree 1 and C has become the
-                fifth scale degree.</p>
+
+            <p>In the tradition of music education, scale degrees have always been a tool
+                to remember musical ideas independent from the notes of a specific key.
+                As singing plays a major role in internalising music, a more singable
+                alternative to name the scale degrees was developed, the
+                <a href="https://en.wikipedia.org/wiki/Solf%C3%A8ge#Movable_do_solf%C3%A8ge">movable do solfège</a>
+                system.
+            </p>
+
+            <p>Instead of one, two, three, ... the scale degrees of the major scale become
+                "Do", "Re", "Mi", "Fa", "So", "La" and "Ti". The picture below shows the
+                C major scale with both systems applied.
+            </p>
             <p>
-                <v-img contain max-height="18ch" max-width="90vw" src="/img/m2_f_major.png"
+                <v-img contain max-height="10ch" max-width="83.5vw" src="/img/m2_c_major_solfege.svg"
+                       title="C Major Scale with Scale Degrees and Solfege"/>
+            </p>
+            <p>
+                These syllables are really useful when it comes to naming the scale degrees while
+                singing. This opens up the possibility of an even deeper connection of sound and
+                name and will therefore be used in this course.
+            </p>
+            <p>If we were to
+                write out a different major scale C would no longer be Do,
+                the new tonic would be. You can see scale degrees applied to the F
+                major scale below where F is now Do (scale degree 1) and C has become So (the
+                fifth scale degree).</p>
+            <p>
+                <v-img contain max-height="10ch" max-width="83.5vw" src="/img/m2_f_major_solfege.svg"
                 title="F Major Scale with Scale Degrees"/>
             </p>
             <p>Scale degrees are
@@ -68,7 +87,7 @@
                 complicated chromatic music. A minor third can be labelled as b3 or a
                 raised fourth scale degree can labelled as #4 for example.</p>
             <p>However, we must
-                walk before we can run so in the Ear Training HQ method we focus
+                walk before we can run so in this course we focus
                 specifically on the scale degrees of the major and minor scales (the
                 minor scale is introduced in Module 5). These two scales form the
                 backbone of so many styles of music so they’re the perfect place to
@@ -82,7 +101,7 @@
                 next scale degree.</p>
             <p>Once you've passed
                 the internalisation test for all the scale degrees of the pentatonic
-                scale (scale degrees 1, 2, 3, 5 and 6) we'll also introduce a new
+                scale (scale degrees Do, Re, Mi, So and La) we'll also introduce a new
                 exercise, called a recognition exercise which gives you an easy way
                 to revise and consolidate everything you've learned up until now.</p>
             <p>There is an extra
@@ -104,9 +123,9 @@
                 target scale degree is played in each bar instead of the tonic.</p>
             <p>You can see the
                 first 10 bars from the internalisation exercise for the second scale
-                degree below.</p>
+                degree "Re" below. In the key of C major, this is the note D.</p>
             <p>
-                <v-img contain max-height="18ch" max-width="90vw" src="/img/m2_10bars.png"
+                <v-img contain max-height="11.2ch" max-width="83.5vw" src="/img/m2_c_major_intern_solfege.svg"
                 title="First 10 bars from the internalisation exercise for the second scale degree"/>
             </p>
             <h3>How to use the individual note internalisation exercises</h3>
@@ -152,6 +171,7 @@
                 with this exercise until you start to feel confident that you are
                 internalising the sound of the target scale degree. Then try the
                 internalisation test for the target scale degree.</p>
+            <v-btn style="float: right" color="secondary" class="ma-2" to="/individual-notes/internalisation-test">Try the test</v-btn>
         </v-flex>
     </v-layout>
 </template>

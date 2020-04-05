@@ -16,8 +16,9 @@
                 it's an 8 bar sequence:</p>
             <p>
                 <v-img contain
-                       max-height="18ch"
-                       max-width="90vw" src="/img/m1_test8barsequence.png" title="The first 8 bars of the tonic internalisation test"/>
+                       max-height="10.5ch"
+                       max-width="83.5vw" src="/img/m1_c_major_tonic_intern_test.svg"
+                       title="The first 8 bars of the tonic internalisation test"/>
             </p>
             <p>The tonic
                 internalisation test can be broken down into 3 sections:</p>
@@ -42,10 +43,9 @@
                 internalisation test:</p>
             <p>
                 <v-img contain
-                       max-height="54ch"
-                       max-width="90vw" src="/img/m1_test24barsequence.png" title="The first 24 bars of the tonic internalisation test"/>
-            </p>
-            <p><br/>
+                       max-height="55ch"
+                       max-width="83.5vw" src="/img/m1_tonic_intern_test_24bars.svg"
+                       title="The first 24 bars of the tonic internalisation test"/>
             </p>
             <h3>How to use the tonic internalisation test</h3>
             <p>
@@ -77,12 +77,14 @@
                     tonic internalisation exercise moves randomly through the keys.</p>
                 </li>
             </ol>
-            <p>Restart the test, do 12 cadences and see how you go.</p>
+            <p>Restart the test, do 12 keys and see how you go.</p>
             <p>If you sang the
                 tonic correctly in 10, 11 or all 12 keys, congratulations, you've
                 passed the first module! You've taken an
                 incredibly important step on the road to relative pitch and more
-                creativity and confidence with music.</p>
+                creativity and confidence with music. Continue to the next module:</p>
+            <v-btn style="float: right" color="secondary" class="mx-3" to="/individual-notes/overview">To Module 2</v-btn>
+            <p><br/>
             <p>If you didn't,
                 there's no need to worry. It takes most students at least a
                 few attempts to pass this test. Simply go back to the <router-link to="/tonic-internalization/method">internalisation

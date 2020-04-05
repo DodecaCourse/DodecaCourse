@@ -7,8 +7,11 @@
                 you the tools you need to identify any given note. You’ll:</p>
             <ul>
                 <li>discover the
-                    system that we use at Ear Training HQ - called scale degrees - to
+                    system that we use in this course - called scale degrees - to
                     identify any note we hear
+                </li>
+                <li>
+                    be introduced to a singable naming system for those scale degrees - Solfège
                 </li>
                 <li>internalise the
                     unique sound of the remaining six notes of the major scale
@@ -17,6 +20,7 @@
                     recognise each one when you hear it
                 </li>
             </ul>
+            <v-btn style="float: right" color="secondary" class="ma-2" to="/individual-notes/internalisation-method">Start internalising</v-btn>
         </v-flex>
     </v-layout>
 </template>

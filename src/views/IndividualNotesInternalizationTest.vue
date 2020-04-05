@@ -19,7 +19,7 @@
                 first 8 bars from the internalisation test for the second scale
                 degree below.</p>
             <p>
-                <v-img contain max-height="18ch" max-width="90vw" src="/img/m2_8bars.png"
+                <v-img contain max-height="10.8ch" max-width="83.5vw" src="/img/m2_c_major_re_intern_test.svg"
                 title="First 8 bars from the internalisation test for the second scale degree"/>
             </p>
             <h3>How to use the individual note internalisation tests</h3>
@@ -99,10 +99,16 @@
             </ol>
             <p>Once you can pass
                 an internalisation test (sing the target scale degree correctly 10
-                out of 12 times), move onto the next internalisation exercise. Repeat
+                out of 12 times), move onto the next internalisation exercise.
+            </p>
+            <v-btn style="float: right" color="secondary" class="ma-2" to="/individual-notes/internalisation-method">Continue internalising</v-btn>
+            <p><br />
+                <p>
+                Repeat
                 this until you've passed the first 4 internalisation tests. Then
                 you're read to add the recognition exercises to your practice
                 routine.</p>
+            <v-btn style="float: right" color="secondary" class="ma-2" to="/individual-notes/recognition-method">Start recognition</v-btn>
         </v-flex>
     </v-layout>
 </template>

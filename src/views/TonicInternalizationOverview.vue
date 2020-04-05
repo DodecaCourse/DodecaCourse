@@ -15,6 +15,7 @@
                     are able to identify it in music.
                 </li>
             </ul>
+            <v-btn style="float: right" color="secondary" class="ma-2" to="/tonic-internalization/method">Start training</v-btn>
         </v-flex>
     </v-layout>
 </template>

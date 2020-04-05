@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.2"
+   width="88.810593mm"
+   height="23.628046mm"
+   viewBox="0 0 50.538133 13.445663"
+   id="svg1010"
+   sodipodi:docname="m2_c_major.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata1016">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs1014" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1023"
+     id="namedview1012"
+     showgrid="false"
+     fit-margin-top="2"
+     fit-margin-left="1"
+     fit-margin-right="1"
+     fit-margin-bottom="2"
+     inkscape:zoom="0.2102413"
+     inkscape:cx="315.65921"
+     inkscape:cy="-453.73206"
+     inkscape:window-x="0"
+     inkscape:window-y="31"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1010" />
+  <!-- Page: 1/1 -->
+  <text
+     font-size="2.2001"
+     id="text836"
+     style="font-size:2.20009995px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="-7.9660325"
+     y="0.10130883">
+    <tspan
+       id="tspan834" />
+  </text>
+  <line
+     x1="0.61976737"
+     y1="8.4109087"
+     x2="49.918365"
+     y2="8.4109087"
+     id="line838"
+     style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
+  <line
+     x1="0.61976737"
+     y1="7.4109087"
+     x2="49.918365"
+     y2="7.4109087"
+     id="line840"
+     style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
+  <line
+     x1="0.61976737"
+     y1="6.4109087"
+     x2="49.918365"
+     y2="6.4109087"
+     id="line842"
+     style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
+  <line
+     x1="0.61976737"
+     y1="5.4109087"
+     x2="49.918365"
+     y2="5.4109087"
+     id="line844"
+     style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
+  <line
+     x1="0.61976737"
+     y1="4.4109087"
+     x2="49.918365"
+     y2="4.4109087"
+     id="line846"
+     style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
+  <rect
+     x="8.9407663"
+     y="9.3109093"
+     width="1.9743"
+     height="0.2"
+     ry="0.1"
+     id="rect848"
+     style="fill:currentColor" />
+  <rect
+     x="29.171068"
+     y="4.4109087"
+     width="0.19"
+     height="4"
+     ry="0.0000"
+     id="rect850"
+     style="fill:currentColor" />
+  <rect
+     x="49.778366"
+     y="4.4109087"
+     width="0.19"
+     height="4"
+     ry="0.0000"
+     id="rect852"
+     style="fill:currentColor" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:11:85:86"
+     id="a858"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(58.6592,5.6207)"
+       font-size="2.4696"
+       id="text856"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan854">1</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:6:34:35"
+     id="a862"
+     transform="translate(-13.656633,-2.7439912)">
+    <path
+       transform="matrix(0.004,0,0,-0.004,53.7678,9.1549)"
+       d="m 220,138 c 56,0 109,-29 109,-91 0,-72 -56,-121 -103,-149 -36,-21 -76,-36 -117,-36 -56,0 -109,29 -109,91 0,72 56,121 103,149 36,21 76,36 117,36 z"
+       id="path860"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:11:74:75"
+     id="a868"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(53.743,5.6207)"
+       font-size="2.4696"
+       id="text866"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan864">7</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:16:20:21"
+     id="a874"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(53.5382,15.0145)"
+       font-size="2.4696"
+       id="text872"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan870">B</tspan>
+    </text>
+  </a>
+  <rect
+     x="40.111168"
+     y="6.5987086"
+     width="0.13"
+     height="3.1454999"
+     ry="0.039999999"
+     id="rect876"
+     style="fill:currentColor" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:6:36:37"
+     id="a880"
+     transform="translate(-13.656633,-2.7439912)">
+    <path
+       transform="matrix(0.004,0,0,-0.004,58.684,8.6549)"
+       d="m 220,138 c 56,0 109,-29 109,-91 0,-72 -56,-121 -103,-149 -36,-21 -76,-36 -117,-36 -56,0 -109,29 -109,91 0,72 56,121 103,149 36,21 76,36 117,36 z"
+       id="path878"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
+  </a>
+  <rect
+     x="36.363369"
+     y="3.4109089"
+     width="0.13"
+     height="3.3122001"
+     ry="0.039999999"
+     id="rect882"
+     style="fill:currentColor" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:16:18:19"
+     id="a888"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(48.6042,15.0145)"
+       font-size="2.4696"
+       id="text886"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan884">A</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:11:63:64"
+     id="a894"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(48.8091,5.6207)"
+       font-size="2.4696"
+       id="text892"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan890">6</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:6:32:33"
+     id="a898"
+     transform="translate(-13.656633,-2.7439912)">
+    <path
+       transform="matrix(0.004,0,0,-0.004,48.8338,9.6549)"
+       d="m 220,138 c 56,0 109,-29 109,-91 0,-72 -56,-121 -103,-149 -36,-21 -76,-36 -117,-36 -56,0 -109,29 -109,91 0,72 56,121 103,149 36,21 76,36 117,36 z"
+       id="path896"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:16:22:23"
+     id="a904"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(58.4543,15.0145)"
+       font-size="2.4696"
+       id="text902"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan900">C</tspan>
+    </text>
+  </a>
+  <rect
+     x="45.027367"
+     y="6.0987086"
+     width="0.13"
+     height="3.3122001"
+     ry="0.039999999"
+     id="rect906"
+     style="fill:currentColor" />
+  <rect
+     x="15.372067"
+     y="5.4109087"
+     width="0.13"
+     height="3.3122001"
+     ry="0.039999999"
+     id="rect908"
+     style="fill:currentColor" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:16:10:11"
+     id="a914"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(27.5446,15.0145)"
+       font-size="2.4696"
+       id="text912"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan910">D</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:11:19:20"
+     id="a920"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(27.8178,5.6207)"
+       font-size="2.4696"
+       id="text918"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan916">2</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:6:24:25"
+     id="a924"
+     transform="translate(-13.656633,-2.7439912)">
+    <path
+       transform="matrix(0.004,0,0,-0.004,27.8425,11.6549)"
+       d="m 220,138 c 56,0 109,-29 109,-91 0,-72 -56,-121 -103,-149 -36,-21 -76,-36 -117,-36 -56,0 -109,29 -109,91 0,72 56,121 103,149 36,21 76,36 117,36 z"
+       id="path922"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
+  </a>
+  <rect
+     x="10.455868"
+     y="5.9109087"
+     width="0.13"
+     height="3.3122001"
+     ry="0.039999999"
+     id="rect926"
+     style="fill:currentColor" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:16:8:9"
+     id="a932"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(22.6967,15.0145)"
+       font-size="2.4696"
+       id="text930"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan928">C</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:11:8:9"
+     id="a938"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(22.9016,5.6207)"
+       font-size="2.4696"
+       id="text936"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan934">1</tspan>
+    </text>
+  </a>
+  <path
+     d="m 7.0057674,6.3029088 c -0.196,0 -0.3,-0.168 -0.3,-0.3 0,-0.152 0.108,-0.308 0.288,-0.308 0.016,0 0.036,0 0.056,0.004 -0.112,-0.148 -0.288,-0.236 -0.48,-0.236 -0.424,0 -0.452,0.292 -0.452,0.744 v 0.204 0.204 c 0,0.452 0.028,0.748 0.452,0.748 0.32,0 0.556,-0.28 0.632,-0.604 0.008,-0.028 0.028,-0.04 0.048,-0.04 0.024,0 0.052,0.016 0.052,0.048 0,0.376 -0.42,0.696 -0.732,0.696 -0.272,0 -0.548,-0.084 -0.736,-0.28 -0.196,-0.204 -0.264,-0.488 -0.264,-0.772 0,-0.284 0.068,-0.568 0.264,-0.772 0.188,-0.196 0.464,-0.276 0.736,-0.276 0.348,0 0.64,0.252 0.7,0.596 0.004,0.02 0.004,0.04 0.004,0.056 0,0.16 -0.12,0.288 -0.268,0.288 z"
+     id="path940"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <path
+     d="m 2.4337674,9.9509088 h -0.024 c -0.432,0 -0.78,-0.352 -0.78,-0.788 0,-0.232 0.212,-0.412 0.448,-0.412 0.216,0 0.38,0.188 0.38,0.412 0,0.208 -0.172,0.38 -0.38,0.38 -0.044,0 -0.084,-0.008 -0.124,-0.024 0.104,0.156 0.272,0.26 0.468,0.26 h 0.016 z m 0.78,-1.728 c 0.272,-0.096 0.452,-0.38 0.452,-0.656 0,-0.36 -0.264,-0.716 -0.692,-0.76 0.096,0.464 0.184,0.924 0.24,1.416 z m -1.548,-0.924 c 0,0.54 0.516,0.988 1.056,0.988 0.112,0 0.22,-0.008 0.328,-0.024 -0.056,-0.508 -0.148,-0.98 -0.252,-1.456 -0.316,0.032 -0.496,0.244 -0.496,0.476 0,0.176 0.1,0.364 0.324,0.492 0.02,0.02 0.028,0.04 0.028,0.06 0,0.044 -0.04,0.088 -0.088,0.088 -0.012,0 -0.024,-0.004 -0.036,-0.008 -0.32,-0.172 -0.468,-0.46 -0.468,-0.74 0,-0.352 0.232,-0.696 0.64,-0.788 -0.056,-0.232 -0.116,-0.468 -0.184,-0.7 -0.428,0.484 -0.852,0.972 -0.852,1.612 z m 1.044,1.16 c -0.752,0 -1.332,-0.688 -1.332,-1.496 0,-0.708 0.524,-1.224 0.992,-1.764 -0.076,-0.248 -0.148,-0.5 -0.18,-0.76 -0.024,-0.208 -0.028,-0.416 -0.028,-0.624 0,-0.46 0.22,-0.896 0.596,-1.168 0.024,-0.02 0.056,-0.02 0.08,0 0.284,0.336 0.532,0.98 0.532,1.432 0,0.572 -0.344,1.02 -0.72,1.456 0.084,0.272 0.156,0.552 0.224,0.828 0.016,0 0.036,-0.004 0.052,-0.004 0.62,0 1.024,0.512 1.024,1.044 0,0.304 -0.132,0.616 -0.428,0.84 -0.088,0.068 -0.188,0.112 -0.292,0.144 0.012,0.14 0.02,0.28 0.02,0.42 0,0.076 -0.004,0.156 -0.008,0.232 -0.028,0.476 -0.352,0.9 -0.808,0.912 l 0.004,-0.172 c 0.372,-0.008 0.612,-0.368 0.636,-0.764 0.004,-0.072 0.008,-0.148 0.008,-0.22 0,-0.124 -0.004,-0.244 -0.016,-0.368 -0.116,0.02 -0.232,0.032 -0.356,0.032 z m 0.372,-4.712 c 0,-0.22 -0.016,-0.316 -0.08,-0.516 -0.396,0.192 -0.648,0.596 -0.648,1.036 0,0.296 0.072,0.532 0.144,0.776 0.32,-0.388 0.584,-0.792 0.584,-1.296 z"
+     id="path942"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:6:22:23"
+     id="a946"
+     transform="translate(-13.656633,-2.7439912)">
+    <path
+       transform="matrix(0.004,0,0,-0.004,22.9264,12.1549)"
+       d="m 220,138 c 56,0 109,-29 109,-91 0,-72 -56,-121 -103,-149 -36,-21 -76,-36 -117,-36 -56,0 -109,29 -109,91 0,72 56,121 103,149 36,21 76,36 117,36 z"
+       id="path944"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:11:41:42"
+     id="a952"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(37.6501,5.6207)"
+       font-size="2.4696"
+       id="text950"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan948">4</tspan>
+    </text>
+  </a>
+  <rect
+     x="31.447166"
+     y="3.9109089"
+     width="0.13"
+     height="3.3122001"
+     ry="0.039999999"
+     id="rect954"
+     style="fill:currentColor" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:16:16:17"
+     id="a960"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(43.6197,15.0145)"
+       font-size="2.4696"
+       id="text958"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan956">G</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:11:52:53"
+     id="a966"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(43.8929,5.6207)"
+       font-size="2.4696"
+       id="text964"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan962">5</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:6:30:31"
+     id="a970"
+     transform="translate(-13.656633,-2.7439912)">
+    <path
+       transform="matrix(0.004,0,0,-0.004,43.9177,10.1549)"
+       d="m 220,138 c 56,0 109,-29 109,-91 0,-72 -56,-121 -103,-149 -36,-21 -76,-36 -117,-36 -56,0 -109,29 -109,91 0,72 56,121 103,149 36,21 76,36 117,36 z"
+       id="path968"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
+  </a>
+  <rect
+     x="25.204468"
+     y="4.4109087"
+     width="0.13"
+     height="3.3122001"
+     ry="0.039999999"
+     id="rect972"
+     style="fill:currentColor" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:16:14:15"
+     id="a978"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(37.5136,15.0145)"
+       font-size="2.4696"
+       id="text976"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan974">F</tspan>
+    </text>
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:6:28:29"
+     id="a982"
+     transform="translate(-13.656633,-2.7439912)">
+    <path
+       transform="matrix(0.004,0,0,-0.004,37.6749,10.6549)"
+       d="m 220,138 c 56,0 109,-29 109,-91 0,-72 -56,-121 -103,-149 -36,-21 -76,-36 -117,-36 -56,0 -109,29 -109,91 0,72 56,121 103,149 36,21 76,36 117,36 z"
+       id="path980"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:6:26:27"
+     id="a986"
+     transform="translate(-13.656633,-2.7439912)">
+    <path
+       transform="matrix(0.004,0,0,-0.004,32.7587,11.1549)"
+       d="m 220,138 c 56,0 109,-29 109,-91 0,-72 -56,-121 -103,-149 -36,-21 -76,-36 -117,-36 -56,0 -109,29 -109,91 0,72 56,121 103,149 36,21 76,36 117,36 z"
+       id="path984"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
+  </a>
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:11:30:31"
+     id="a992"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(32.734,5.6207)"
+       font-size="2.4696"
+       id="text990"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan988">3</tspan>
+    </text>
+  </a>
+  <rect
+     x="20.288267"
+     y="4.9109087"
+     width="0.13"
+     height="3.3122001"
+     ry="0.039999999"
+     id="rect994"
+     style="fill:currentColor" />
+  <a
+     style="color:inherit"
+     xlink:href="textedit:///home/valentin/Programming/WebstormProjects/fett/lilypond/m2_c_major.ly:16:12:13"
+     id="a1000"
+     transform="translate(-13.656633,-2.7439912)">
+    <text
+       transform="translate(32.5291,15.0145)"
+       font-size="2.4696"
+       id="text998"
+       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
+      <tspan
+         id="tspan996">E</tspan>
+    </text>
+  </a>
+</svg>
