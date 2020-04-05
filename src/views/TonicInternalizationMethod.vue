@@ -8,8 +8,8 @@
             </v-banner>
             <ol>
                 <li>
-                    Read through the lesson on the tonic to find out what the tonic is
-                    and why it’s at the centre of an effective ear training approach.
+                    <p>Read through the lesson on the tonic to find out what the tonic is
+                        and why it’s at the centre of an effective ear training approach.</p>
                 </li>
                 <li><p>Read the exercise explanations for internalisation exercises</p>
                 </li>
@@ -62,9 +62,10 @@
             <p>The diagram below
                 shows this 10 bar sequence, taken from the tonic internalisation
                 exercise.</p>
-            <v-img contain max-height="18ch"
+            <v-img contain max-height="9.5ch"
                    max-width="90vw"
-                   src="/img/m1_10barsequence.png" title="10 Bar Sequence from Tonic Internalisation Exercise" v-on="on"/>
+                   src="/img/m1_c_major_tonic_intern_10bars.svg"
+                   title="10 Bar Sequence from Tonic Internalisation Exercise"/>
             <p>
                 The
                 sequence is split up into two sections, as follows:</p>
@@ -94,9 +95,9 @@
                 the 10 bar sequence, the entire sequence is repeated in a new randomly chosen key.
                 The diagram below shows the first 30 bars of the tonic
                 internalisation exercise, and in it you can see that in bar 11, a new
-                key is outlined, this time F major.</p>
-            <v-img contain max-height="54ch"
-                   max-width="90vw" src="/img/m1_30barsequence.png"
+                key is outlined, this time A major.</p>
+            <v-img contain max-height="25ch"
+                   max-width="90vw" src="/img/m1_tonic_intern_30bars.svg"
                    title="First 30 Bars of Tonic Internalisation Exercise"/>
             <p>
                 It can be helpful to already start the player and listen to the exercise while you

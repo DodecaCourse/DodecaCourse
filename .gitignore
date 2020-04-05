@@ -4,6 +4,7 @@ node_modules
 /src/iwa
 /public/robots.txt
 public/impressum.html
+lilypond/*.svg
 # local env files
 .env.local
 .env.*.local
