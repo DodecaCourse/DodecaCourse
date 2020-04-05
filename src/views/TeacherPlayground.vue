@@ -20,7 +20,7 @@
 
 <script>
     import Teacher from "../components/Teacher";
-    import AASpiral from "./AASpiral";
+    import AASpiral from "../components/AASpiral";
     export default {
         name: "TeacherPlayground",
         components: {AASpiral, Teacher}
