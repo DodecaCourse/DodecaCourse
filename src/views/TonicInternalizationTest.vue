@@ -16,7 +16,7 @@
                 it's an 8 bar sequence:</p>
             <p>
                 <v-img contain
-                       max-height="9.5ch"
+                       max-height="10.5ch"
                        max-width="90vw" src="/img/m1_c_major_tonic_intern_test.svg"
                        title="The first 8 bars of the tonic internalisation test"/>
             </p>
@@ -43,11 +43,9 @@
                 internalisation test:</p>
             <p>
                 <v-img contain
-                       max-height="54ch"
+                       max-height="55ch"
                        max-width="90vw" src="/img/m1_tonic_intern_test_24bars.svg"
                        title="The first 24 bars of the tonic internalisation test"/>
-            </p>
-            <p><br/>
             </p>
             <h3>How to use the tonic internalisation test</h3>
             <p>

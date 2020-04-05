@@ -62,7 +62,7 @@
             <p>The diagram below
                 shows this 10 bar sequence, taken from the tonic internalisation
                 exercise.</p>
-            <v-img contain max-height="9.5ch"
+            <v-img contain max-height="10.5ch"
                    max-width="90vw"
                    src="/img/m1_c_major_tonic_intern_10bars.svg"
                    title="10 Bar Sequence from Tonic Internalisation Exercise"/>
@@ -96,7 +96,7 @@
                 The diagram below shows the first 30 bars of the tonic
                 internalisation exercise, and in it you can see that in bar 11, a new
                 key is outlined, this time A major.</p>
-            <v-img contain max-height="25ch"
+            <v-img contain max-height="27ch"
                    max-width="90vw" src="/img/m1_tonic_intern_30bars.svg"
                    title="First 30 Bars of Tonic Internalisation Exercise"/>
             <p>

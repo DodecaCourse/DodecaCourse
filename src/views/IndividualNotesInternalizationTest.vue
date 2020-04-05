@@ -19,7 +19,7 @@
                 first 8 bars from the internalisation test for the second scale
                 degree below.</p>
             <p>
-                <v-img contain max-height="9.5ch" max-width="90vw" src="/img/m2_c_major_re_intern_test.svg"
+                <v-img contain max-height="10.8ch" max-width="90vw" src="/img/m2_c_major_re_intern_test.svg"
                 title="First 8 bars from the internalisation test for the second scale degree"/>
             </p>
             <h3>How to use the individual note internalisation tests</h3>
