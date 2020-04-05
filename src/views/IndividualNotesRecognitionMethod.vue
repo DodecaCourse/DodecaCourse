@@ -33,7 +33,7 @@
             <p>Below you can see
                 the first 24 bars of a recognition exercise:</p>
             <p>
-                <v-img contain max-height="54ch" max-width="90vw" src="/img/m2_24bars.png"
+                <v-img contain max-height="54ch" max-width="83.5vw" src="/img/m2_24bars.png"
                        title="first 24 bars of a recognition exercise"/>
             </p>
             <p><br/>

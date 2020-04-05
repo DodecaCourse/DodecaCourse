@@ -17,7 +17,7 @@
             <p>
                 <v-img contain
                        max-height="10.5ch"
-                       max-width="90vw" src="/img/m1_c_major_tonic_intern_test.svg"
+                       max-width="83.5vw" src="/img/m1_c_major_tonic_intern_test.svg"
                        title="The first 8 bars of the tonic internalisation test"/>
             </p>
             <p>The tonic
@@ -44,7 +44,7 @@
             <p>
                 <v-img contain
                        max-height="55ch"
-                       max-width="90vw" src="/img/m1_tonic_intern_test_24bars.svg"
+                       max-width="83.5vw" src="/img/m1_tonic_intern_test_24bars.svg"
                        title="The first 24 bars of the tonic internalisation test"/>
             </p>
             <h3>How to use the tonic internalisation test</h3>

@@ -42,7 +42,7 @@
                 scale degree two and so on. Take a look at the diagram below to see
                 the C major scale with scale degrees shown below it:</p>
             <p>
-                <v-img contain max-height="10ch" max-width="90vw" src="/img/m2_c_major.svg"
+                <v-img contain max-height="10ch" max-width="83.5vw" src="/img/m2_c_major.svg"
                 title="C Major Scale with Scale Degrees"/>
             </p>
 
@@ -59,7 +59,7 @@
                 C major scale with both systems applied.
             </p>
             <p>
-                <v-img contain max-height="10ch" max-width="90vw" src="/img/m2_c_major_solfege.svg"
+                <v-img contain max-height="10ch" max-width="83.5vw" src="/img/m2_c_major_solfege.svg"
                        title="C Major Scale with Scale Degrees and Solfege"/>
             </p>
             <p>
@@ -73,7 +73,7 @@
                 major scale below where F is now Do (scale degree 1) and C has become So (the
                 fifth scale degree).</p>
             <p>
-                <v-img contain max-height="10ch" max-width="90vw" src="/img/m2_f_major_solfege.svg"
+                <v-img contain max-height="10ch" max-width="83.5vw" src="/img/m2_f_major_solfege.svg"
                 title="F Major Scale with Scale Degrees"/>
             </p>
             <p>Scale degrees are
@@ -125,7 +125,7 @@
                 first 10 bars from the internalisation exercise for the second scale
                 degree "Re" below. In the key of C major, this is the note D.</p>
             <p>
-                <v-img contain max-height="11.2ch" max-width="90vw" src="/img/m2_c_major_intern_solfege.svg"
+                <v-img contain max-height="11.2ch" max-width="83.5vw" src="/img/m2_c_major_intern_solfege.svg"
                 title="First 10 bars from the internalisation exercise for the second scale degree"/>
             </p>
             <h3>How to use the individual note internalisation exercises</h3>
