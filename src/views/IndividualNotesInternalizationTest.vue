@@ -3,9 +3,6 @@
         <v-flex class="article" xs10>
             <h1>2. Recognising Individual Notes</h1>
             <h2>Tests</h2>
-            <v-banner app elevation="0" id="player" sticky>
-                <Teacher t-type="internalization-test"/>
-            </v-banner>
             <p>
                 Each scale degree has an internalisation test that goes alongside
                 it's internalisation exercise.</p>
@@ -114,10 +111,8 @@
 </template>
 
 <script>
-    import Teacher from "../components/Teacher";
     export default {
         name: "IndividualNotesTest",
-        components: {Teacher}
     }
 </script>
 

@@ -36,20 +36,26 @@
 
         <v-content>
             <v-container fluid>
-            <router-view></router-view>
+                <v-banner app elevation="0" id="player_banner">
+                    <Teacher ref="teacher"/>
+                </v-banner>
+            <router-view>
+            </router-view>
             </v-container>
         </v-content>
 
         <v-footer app>
-            <span><router-link to="/impressum.html" class="pr-1">Impressum & Datenschutz</router-link>&copy; 2020, Structure & Content based on <a href="https://eartraininghq.com/">Ear Training HQ</a></span>
+            <span><router-link to="/impressum.html" class="pr-1">Impressum & Datenschutz</router-link>
+                &copy; 2020, Structure & Content based on <a href="https://eartraininghq.com/">Ear Training HQ</a></span>
         </v-footer>
     </v-app>
 </template>
 
 <script>
     import Courses from "./components/Courses";
+    import Teacher from "./components/Teacher";
     export default {
-        components: {Courses},
+        components: {Teacher, Courses},
         props: {
             source: String,
         },
@@ -57,13 +63,18 @@
             drawer: null,
             curCourse: 0,
         }),
-        created () {
-        },
     }
 </script>
 
 <style>
     .article {
         max-width: 43em!important;
+    }
+    #player_banner .v-banner__text {
+        width: 100%
+    }
+    #player_banner .v-banner__wrapper {
+        padding-bottom: 0;
+        padding-top: 0;
     }
 </style>

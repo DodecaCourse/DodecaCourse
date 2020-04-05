@@ -3,9 +3,6 @@
         <v-flex class="article" xs10>
             <h1>2. Recognising Individual Notes</h1>
             <h2>Individual Note Recognition Exercises</h2>
-            <v-banner app elevation="0" id="player" sticky>
-                <Teacher t-type="recognition" :preselect="['1P', '5P']" fixed/>
-            </v-banner>
             <h3></h3>
             <p>
                 You'll find recognition exercises in every module of 80/20 Ear
@@ -81,12 +78,7 @@
 </template>
 
 <script>
-    import Teacher from "../components/Teacher";
-
     export default {
         name: "IndividualNotesMethod",
-        components: {
-            Teacher
-        }
     }
 </script>

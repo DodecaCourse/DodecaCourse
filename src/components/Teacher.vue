@@ -2,7 +2,7 @@
     <v-card
             class="d-inline-flex px-1 align-center justify-center" elevation="5" width="100%"
     >
-        <b class="mr-3 hidden-sm-and-down">Play I-IV-V-I:</b>
+        <b class="mr-3 hidden-sm-and-down">{{ description }}</b>
         <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
             <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
         </v-btn>
@@ -37,6 +37,7 @@
     /* global MIDI */
     import { Note, Midi, Scale } from "@tonaljs/tonal"
     import BasicInput from "./BasicInput";
+    import Vue from "vue";
 
     const INTERNALIZATION = 0;
     const INTERNALIZATION_TEST = 1;
@@ -48,11 +49,6 @@
     export default {
         name: "Teacher",
         components: {BasicInput},
-        props: {
-            preselect: Array, // which degrees to select on load || <Teacher ... :preselect="['1P', '5P']"/>
-            fixed: Boolean, // fix values of preselect || <Teacher .. :preselect="['1P', '5P']" fixed/>
-            tType: String,
-        },
         data: function() {
             return {
                 playing: false,
@@ -117,6 +113,8 @@
                 },
                 cadenceType: CADENCE_MAJOR_I_IV_V,
                 type: INTERNALIZATION,
+                description: "Internalisation",
+                fixed: true,
                 // tType specific
                 // Recognition
                 inputDisabled: false,
@@ -286,24 +284,28 @@
                 if (this.playing) this.playRound();
             },
             // setup functions for different practice/test scenarios
-            setupInternalization: function(degree) {
+            setupInternalization: function(degree, autoplay) {
                 console.log("setupInternalization", degree);
                 this.chosenDegrees = [degree];
                 this.type = INTERNALIZATION;
-                if (this.playing) {
-                    this.restart();
-                } else {
-                    this.playing = true;
+                if (autoplay || this.playing) {
+                    if (this.playing) {
+                        this.restart();
+                    } else {
+                        this.playing = true;
+                    }
                 }
             },
-            setupInternalizationTest: function(degree) {
+            setupInternalizationTest: function(degree, autoplay) {
                 console.log("setupInternalizationTest", degree);
                 this.chosenDegrees = [degree];
                 this.type = INTERNALIZATION_TEST;
-                if (this.playing) {
-                    this.restart();
-                } else {
-                    this.playing = true;
+                if (autoplay || this.playing) {
+                    if (this.playing) {
+                        this.restart();
+                    } else {
+                        this.playing = true;
+                    }
                 }
             },
             updateProgress: function () {
@@ -365,6 +367,10 @@
             }
         },
         created: function initAudio() {
+            if (this.$teacher !== undefined) {
+                this.$teacher.playing = false;
+            }
+            Vue.prototype.$teacher = this;
             var self = this;
             MIDI.loadPlugin({
                 soundfontUrl: "https://gleitz.github.io/midi-js-soundfonts/FluidR3_GM/",
@@ -381,14 +387,6 @@
                 }
             });
         },
-        mounted: function () {
-            if (this.preselect !== undefined) {
-                this.chosenDegrees = this.preselect;
-            }
-            if (this.tType === "internalization") this.type = INTERNALIZATION;
-            else if (this.tType === "internalization-test") this.type = INTERNALIZATION_TEST;
-            else if (this.tType === "recognition") this.type = RECOGNITION;
-        },
         destroyed: function stopAudio() {
             this.clearTimeouts();
             this.stopAllNotes();
@@ -400,8 +398,4 @@
 <style lang="sass">
     .my-progress-circular .v-progress-circular__overlay
         transition: all 0.1s ease-in-out
-
-    #player .v-banner__wrapper
-        padding-bottom: 0
-        padding-top: 0
 </style>

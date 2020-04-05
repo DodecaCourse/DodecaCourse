@@ -2,30 +2,6 @@
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
             <h1>1. Recognising the Tonic</h1>
-            <h2>Method</h2>
-            <v-banner app elevation="0" id="player" sticky>
-                <Teacher t-type="internalization" :preselect="['1P']" fixed/>
-            </v-banner>
-            <ol>
-                <li>
-                    <p>Read through the lesson on the tonic to find out what the tonic is
-                        and why it’s at the centre of an effective ear training approach.</p>
-                </li>
-                <li><p>Read the exercise explanations for internalisation exercises</p>
-                </li>
-                <li><p>Start with
-                    the tonic internalisation exercise.</p>
-                </li>
-                <li><p>Repeat until
-                    you feel ready to attempt the tonic internalisation test.</p>
-                </li>
-                <li><p>Attempt the
-                    tonic internalisation test.</p>
-                </li>
-                <li><p>If you pass the test, continue on to module 2. If you do not, refer to the
-                    troubleshooting section</p>
-                </li>
-            </ol>
             <h2>The tonic</h2>
             <p>
                 The tonic is the central note of a piece of music. It sounds the most
@@ -214,12 +190,12 @@
 </template>
 
 <script>
-    import Teacher from "../components/Teacher";
-
     export default {
         name: "TonicInternalizationMethod",
-        components: {
-            Teacher
+        mounted: function () {
+            if (!this.$teacher.playing) {
+                this.$teacher.setupInternalization("1P", false)
+            }
         }
     }
 </script>

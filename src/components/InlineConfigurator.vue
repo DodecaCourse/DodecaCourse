@@ -40,12 +40,13 @@
         methods: {
             onPractice: function () {
                 if (this.type === INTERNALIZATION) {
-                    this.$parent.$refs.teacher.setupInternalization(this.config.degree);
+                    console.log(this.$teacher);
+                    this.$teacher.setupInternalization(this.config.degree, true);
                 }
             },
             onTest: function () {
                 if (this.type === INTERNALIZATION) {
-                    this.$parent.$refs.teacher.setupInternalizationTest(this.config.degree);
+                    this.$teacher.setupInternalizationTest(this.config.degree, true);
                 }
             }
         }

@@ -3,9 +3,6 @@
         <v-flex class="article" xs10>
             <h1>2. Recognising Individual Notes</h1>
             <h2>Method</h2>
-            <v-banner app elevation="0" id="player" sticky>
-                <Teacher ref="teacher" t-type="internalization" fixed/>
-            </v-banner>
             <ol>
                 <li><p>
                     Read the lesson on scale degrees to learn about the system you’ll
@@ -223,14 +220,12 @@
 </template>
 
 <script>
-    import Teacher from "../components/Teacher";
     import InlineConfigurator from "../components/InlineConfigurator";
 
     export default {
         name: "IndividualNotesMethod",
         components: {
             InlineConfigurator,
-            Teacher
         },
     }
 </script>

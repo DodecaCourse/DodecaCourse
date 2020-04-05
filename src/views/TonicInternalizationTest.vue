@@ -3,9 +3,6 @@
         <v-flex class="article" xs10>
             <h1>1. Recognising the Tonic</h1>
             <h2>Test</h2>
-            <v-banner app elevation="0" id="player" sticky>
-                <Teacher t-type="internalization-test" :preselect="['1P']" fixed/>
-            </v-banner>
             <p>
                 The tonic internalisation test gives you a way to easily tell when
                 you have successfully internalised the sound of the tonic so you can
@@ -96,10 +93,13 @@
 </template>
 
 <script>
-    import Teacher from "../components/Teacher";
     export default {
         name: "TonicInternalizationTest",
-        components: {Teacher}
+        mounted: function () {
+            if (!this.$teacher.playing) {
+                this.$teacher.setupInternalization("1P", false)
+            }
+        }
     }
 </script>
 
