@@ -5,17 +5,18 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.2"
-   width="170.45819mm"
-   height="22.260143mm"
-   viewBox="0 0 97.000126 12.667251"
-   id="svg254"
+   width="172.45818mm"
+   height="26.260143mm"
+   viewBox="0 0 98.138228 14.943472"
+   id="svg3206"
    sodipodi:docname="m1_c_major_tonic_intern_10bars.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <metadata
-     id="metadata260">
+     id="metadata3212">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -27,7 +28,7 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs258" />
+     id="defs3210" />
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -39,643 +40,648 @@
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
      inkscape:window-height="1023"
-     id="namedview256"
+     id="namedview3208"
      showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
-     inkscape:zoom="0.2102413"
-     inkscape:cx="311.87969"
-     inkscape:cy="-451.63828"
+     fit-margin-top="2"
+     fit-margin-left="1"
+     fit-margin-right="1"
+     fit-margin-bottom="2"
+     inkscape:zoom="1.1893044"
+     inkscape:cx="535.01437"
+     inkscape:cy="-74.021476"
      inkscape:window-x="0"
      inkscape:window-y="31"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg254" />
+     inkscape:current-layer="svg3206" />
   <!-- Page: 1/1 -->
   <text
      font-size="2.2001"
-     id="text4"
+     id="text2956"
      style="font-size:2.20009995px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
-     x="-8.5350876"
-     y="-0.99234885">
+     x="-7.9660325"
+     y="0.14576168">
     <tspan
-       id="tspan2" />
+       id="tspan2954" />
+  </text>
+  <rect
+     x="31.544067"
+     y="6.3053617"
+     width="0.19"
+     height="4"
+     ry="0.0000"
+     id="rect2958"
+     style="fill:currentColor" />
+  <rect
+     x="64.21627"
+     y="6.3053617"
+     width="0.19"
+     height="4"
+     ry="0.0000"
+     id="rect2960"
+     style="fill:currentColor" />
+  <rect
+     x="97.378464"
+     y="6.3053617"
+     width="0.19"
+     height="4"
+     ry="0.0000"
+     id="rect2962"
+     style="fill:currentColor" />
+  <rect
+     x="96.888466"
+     y="6.3053617"
+     width="0.19"
+     height="4"
+     ry="0.0000"
+     id="rect2964"
+     style="fill:currentColor" />
+  <rect
+     x="80.552368"
+     y="6.3053617"
+     width="0.19"
+     height="4"
+     ry="0.0000"
+     id="rect2966"
+     style="fill:currentColor" />
+  <rect
+     x="56.048267"
+     y="6.3053617"
+     width="0.19"
+     height="4"
+     ry="0.0000"
+     id="rect2968"
+     style="fill:currentColor" />
+  <rect
+     x="47.880165"
+     y="6.3053617"
+     width="0.19"
+     height="4"
+     ry="0.0000"
+     id="rect2970"
+     style="fill:currentColor" />
+  <rect
+     x="39.712166"
+     y="6.3053617"
+     width="0.19"
+     height="4"
+     ry="0.0000"
+     id="rect2972"
+     style="fill:currentColor" />
+  <rect
+     x="19.861868"
+     y="6.3053617"
+     width="0.19"
+     height="4"
+     ry="0.0000"
+     id="rect2974"
+     style="fill:currentColor" />
+  <rect
+     x="88.720467"
+     y="6.3053617"
+     width="0.19"
+     height="4"
+     ry="0.0000"
+     id="rect2976"
+     style="fill:currentColor" />
+  <line
+     x1="0.61976737"
+     y1="10.305362"
+     x2="97.518463"
+     y2="10.305362"
+     id="line2978"
+     style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
+  <line
+     x1="0.61976737"
+     y1="9.3053617"
+     x2="97.518463"
+     y2="9.3053617"
+     id="line2980"
+     style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
+  <line
+     x1="0.61976737"
+     y1="8.3053617"
+     x2="97.518463"
+     y2="8.3053617"
+     id="line2982"
+     style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
+  <line
+     x1="0.61976737"
+     y1="7.3053617"
+     x2="97.518463"
+     y2="7.3053617"
+     id="line2984"
+     style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
+  <line
+     x1="0.61976737"
+     y1="6.3053617"
+     x2="97.518463"
+     y2="6.3053617"
+     id="line2986"
+     style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
+  <rect
+     x="72.384369"
+     y="6.3053617"
+     width="0.19"
+     height="4"
+     ry="0.0000"
+     id="rect2988"
+     style="fill:currentColor" />
+  <text
+     font-size="2.4696"
+     id="text2992"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="66.306267"
+     y="13.805362">
+    <tspan
+       id="tspan2990">1</tspan>
+  </text>
+  <path
+     d="m 67.166267,7.3573617 c -0.2,0 -0.276,0.172 -0.276,0.352 0,0.308 0.228,0.544 0.536,0.544 0.2,0 0.276,-0.172 0.276,-0.352 0,-0.308 -0.228,-0.544 -0.536,-0.544 z m 1.12,0.448 c 0,0.172 -0.14,0.304 -0.292,0.388 -0.212,0.12 -0.452,0.164 -0.696,0.164 -0.244,0 -0.488,-0.044 -0.7,-0.164 -0.152,-0.084 -0.292,-0.216 -0.292,-0.388 0,-0.172 0.14,-0.304 0.292,-0.388 0.212,-0.12 0.456,-0.164 0.7,-0.164 0.244,0 0.484,0.044 0.696,0.164 0.152,0.084 0.292,0.216 0.292,0.388 z"
+     id="path2994"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <text
+     font-size="2.4696"
+     id="text2998"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="66.306267"
+     y="2.9211617">
+    <tspan
+       id="tspan2996">I</tspan>
   </text>
   <text
      font-size="2.6163"
-     id="text54"
+     id="text3002"
      style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="67.581009"
-     y="4.5830512">
+     x="66.306267"
+     y="5.7211618">
     <tspan
-       id="tspan52" />
+       id="tspan3000">C</tspan>
   </text>
   <text
      font-size="2.6163"
-     id="text58"
+     id="text3006"
      style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="67.581009"
-     y="4.5830512">
+     x="68.150063"
+     y="5.7211618">
     <tspan
-       id="tspan56" />
+       id="tspan3004" />
+  </text>
+  <text
+     font-size="2.6163"
+     id="text3010"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="68.150063"
+     y="5.7211618">
+    <tspan
+       id="tspan3008" />
   </text>
   <text
      font-size="1.8500"
-     id="text62"
+     id="text3014"
      style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="67.581009"
-     y="3.0830512">
+     x="68.150063"
+     y="4.2211618">
     <tspan
-       id="tspan60" />
+       id="tspan3012" />
+  </text>
+  <path
+     d="m 75.334367,7.3573617 c -0.2,0 -0.276,0.172 -0.276,0.352 0,0.308 0.228,0.544 0.536,0.544 0.2,0 0.276,-0.172 0.276,-0.352 0,-0.308 -0.228,-0.544 -0.536,-0.544 z m 1.12,0.448 c 0,0.172 -0.14,0.304 -0.292,0.388 -0.212,0.12 -0.452,0.164 -0.696,0.164 -0.244,0 -0.488,-0.044 -0.7,-0.164 -0.152,-0.084 -0.292,-0.216 -0.292,-0.388 0,-0.172 0.14,-0.304 0.292,-0.388 0.212,-0.12 0.456,-0.164 0.7,-0.164 0.244,0 0.484,0.044 0.696,0.164 0.152,0.084 0.292,0.216 0.292,0.388 z"
+     id="path3016"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <text
+     font-size="2.4696"
+     id="text3020"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="74.474365"
+     y="13.805362">
+    <tspan
+       id="tspan3018">1</tspan>
   </text>
   <text
      font-size="2.6163"
-     id="text76"
+     id="text3024"
      style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="51.244812"
-     y="4.5830512">
+     x="49.970165"
+     y="5.7211618">
     <tspan
-       id="tspan74" />
+       id="tspan3022">C</tspan>
   </text>
   <text
      font-size="2.6163"
-     id="text80"
+     id="text3028"
      style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="51.244812"
-     y="4.5830512">
+     x="51.813866"
+     y="5.7211618">
     <tspan
-       id="tspan78" />
+       id="tspan3026" />
+  </text>
+  <text
+     font-size="2.6163"
+     id="text3032"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="51.813866"
+     y="5.7211618">
+    <tspan
+       id="tspan3030" />
   </text>
   <text
      font-size="1.8500"
-     id="text84"
+     id="text3036"
      style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="51.244812"
-     y="3.0830512">
+     x="51.813866"
+     y="4.2211618">
     <tspan
-       id="tspan82" />
+       id="tspan3034" />
+  </text>
+  <text
+     font-size="2.4696"
+     id="text3040"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="49.970165"
+     y="2.9211617">
+    <tspan
+       id="tspan3038">I</tspan>
+  </text>
+  <text
+     font-size="2.4696"
+     id="text3044"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="49.970165"
+     y="13.805362">
+    <tspan
+       id="tspan3042">1</tspan>
+  </text>
+  <path
+     d="m 58.998267,7.3573617 c -0.2,0 -0.276,0.172 -0.276,0.352 0,0.308 0.228,0.544 0.536,0.544 0.2,0 0.276,-0.172 0.276,-0.352 0,-0.308 -0.228,-0.544 -0.536,-0.544 z m 1.12,0.448 c 0,0.172 -0.14,0.304 -0.292,0.388 -0.212,0.12 -0.452,0.164 -0.696,0.164 -0.244,0 -0.488,-0.044 -0.7,-0.164 -0.152,-0.084 -0.292,-0.216 -0.292,-0.388 0,-0.172 0.14,-0.304 0.292,-0.388 0.212,-0.12 0.456,-0.164 0.7,-0.164 0.244,0 0.484,0.044 0.696,0.164 0.152,0.084 0.292,0.216 0.292,0.388 z"
+     id="path3046"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <text
+     font-size="2.4696"
+     id="text3050"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="58.138268"
+     y="13.805362">
+    <tspan
+       id="tspan3048">1</tspan>
+  </text>
+  <path
+     d="m 50.830167,7.3573617 c -0.2,0 -0.276,0.172 -0.276,0.352 0,0.308 0.228,0.544 0.536,0.544 0.2,0 0.276,-0.172 0.276,-0.352 0,-0.308 -0.228,-0.544 -0.536,-0.544 z m 1.12,0.448 c 0,0.172 -0.14,0.304 -0.292,0.388 -0.212,0.12 -0.452,0.164 -0.696,0.164 -0.244,0 -0.488,-0.044 -0.7,-0.164 -0.152,-0.084 -0.292,-0.216 -0.292,-0.388 0,-0.172 0.14,-0.304 0.292,-0.388 0.212,-0.12 0.456,-0.164 0.7,-0.164 0.244,0 0.484,0.044 0.696,0.164 0.152,0.084 0.292,0.216 0.292,0.388 z"
+     id="path3052"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <text
+     font-size="2.6163"
+     id="text3056"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="82.642365"
+     y="5.7211618">
+    <tspan
+       id="tspan3054">C</tspan>
   </text>
   <text
      font-size="2.6163"
-     id="text108"
+     id="text3060"
      style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="83.917114"
-     y="4.5830512">
+     x="84.486168"
+     y="5.7211618">
     <tspan
-       id="tspan106" />
+       id="tspan3058" />
   </text>
   <text
      font-size="2.6163"
-     id="text112"
+     id="text3064"
      style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="83.917114"
-     y="4.5830512">
+     x="84.486168"
+     y="5.7211618">
     <tspan
-       id="tspan110" />
+       id="tspan3062" />
   </text>
   <text
      font-size="1.8500"
-     id="text116"
+     id="text3068"
      style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="83.917114"
-     y="3.0830512">
+     x="84.486168"
+     y="4.2211618">
     <tspan
-       id="tspan114" />
+       id="tspan3066" />
+  </text>
+  <text
+     font-size="2.4696"
+     id="text3072"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="82.642365"
+     y="2.9211617">
+    <tspan
+       id="tspan3070">I</tspan>
+  </text>
+  <path
+     d="m 83.502367,7.3573617 c -0.2,0 -0.276,0.172 -0.276,0.352 0,0.308 0.228,0.544 0.536,0.544 0.2,0 0.276,-0.172 0.276,-0.352 0,-0.308 -0.228,-0.544 -0.536,-0.544 z m 1.12,0.448 c 0,0.172 -0.14,0.304 -0.292,0.388 -0.212,0.12 -0.452,0.164 -0.696,0.164 -0.244,0 -0.488,-0.044 -0.7,-0.164 -0.152,-0.084 -0.292,-0.216 -0.292,-0.388 0,-0.172 0.14,-0.304 0.292,-0.388 0.212,-0.12 0.456,-0.164 0.7,-0.164 0.244,0 0.484,0.044 0.696,0.164 0.152,0.084 0.292,0.216 0.292,0.388 z"
+     id="path3074"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <text
+     font-size="2.4696"
+     id="text3078"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="82.642365"
+     y="13.805362">
+    <tspan
+       id="tspan3076">1</tspan>
+  </text>
+  <path
+     d="m 91.670467,7.3573617 c -0.2,0 -0.276,0.172 -0.276,0.352 0,0.308 0.228,0.544 0.536,0.544 0.2,0 0.276,-0.172 0.276,-0.352 0,-0.308 -0.228,-0.544 -0.536,-0.544 z m 1.12,0.448 c 0,0.172 -0.14,0.304 -0.292,0.388 -0.212,0.12 -0.452,0.164 -0.696,0.164 -0.244,0 -0.488,-0.044 -0.7,-0.164 -0.152,-0.084 -0.292,-0.216 -0.292,-0.388 0,-0.172 0.14,-0.304 0.292,-0.388 0.212,-0.12 0.456,-0.164 0.7,-0.164 0.244,0 0.484,0.044 0.696,0.164 0.152,0.084 0.292,0.216 0.292,0.388 z"
+     id="path3080"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <text
+     font-size="2.4696"
+     id="text3084"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="90.810463"
+     y="13.805362">
+    <tspan
+       id="tspan3082">1</tspan>
+  </text>
+  <path
+     d="m 14.565867,9.3053617 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path3086"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="m 17.213867,9.3053617 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path3088"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <text
+     font-size="2.6163"
+     id="text3092"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="20.951868"
+     y="5.7211618">
+    <tspan
+       id="tspan3090">F</tspan>
   </text>
   <text
      font-size="2.6163"
-     id="text144"
+     id="text3096"
      style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="21.885113"
-     y="4.5830512">
+     x="22.454168"
+     y="5.7211618">
     <tspan
-       id="tspan142" />
+       id="tspan3094" />
   </text>
   <text
      font-size="2.6163"
-     id="text148"
+     id="text3100"
      style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="21.885113"
-     y="4.5830512">
+     x="22.454168"
+     y="5.7211618">
     <tspan
-       id="tspan146" />
+       id="tspan3098" />
   </text>
   <text
      font-size="1.8500"
-     id="text152"
+     id="text3104"
      style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="21.885113"
-     y="3.0830512">
+     x="22.454168"
+     y="4.2211618">
     <tspan
-       id="tspan150" />
+       id="tspan3102" />
+  </text>
+  <text
+     font-size="2.4696"
+     id="text3108"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="20.951868"
+     y="2.9211617">
+    <tspan
+       id="tspan3106">IV</tspan>
+  </text>
+  <path
+     d="m 20.951867,9.3053617 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path3110"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="m 23.599967,9.3053617 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path3112"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <text
+     font-size="2.6163"
+     id="text3116"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="9.2697678"
+     y="5.7211618">
+    <tspan
+       id="tspan3114">C</tspan>
   </text>
   <text
      font-size="2.6163"
-     id="text168"
+     id="text3120"
      style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="10.544412"
-     y="4.5830512">
+     x="11.113467"
+     y="5.7211618">
     <tspan
-       id="tspan166" />
+       id="tspan3118" />
   </text>
   <text
      font-size="2.6163"
-     id="text172"
+     id="text3124"
      style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="10.544412"
-     y="4.5830512">
+     x="11.113467"
+     y="5.7211618">
     <tspan
-       id="tspan170" />
+       id="tspan3122" />
   </text>
   <text
      font-size="1.8500"
-     id="text176"
+     id="text3128"
      style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="10.544412"
-     y="3.0830512">
+     x="11.113467"
+     y="4.2211618">
     <tspan
-       id="tspan174" />
+       id="tspan3126" />
+  </text>
+  <text
+     font-size="2.4696"
+     id="text3132"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="9.2697678"
+     y="2.9211617">
+    <tspan
+       id="tspan3130">I</tspan>
+  </text>
+  <path
+     d="m 9.2697673,9.3053617 h 0.5568871 l 1.1764706,-2 h -0.556887 z"
+     id="path3134"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="m 2.4337673,11.845362 h -0.024 c -0.432,0 -0.78,-0.352 -0.78,-0.788 0,-0.232 0.212,-0.412 0.448,-0.412 0.216,0 0.38,0.188 0.38,0.412 0,0.208 -0.172,0.38 -0.38,0.38 -0.044,0 -0.084,-0.008 -0.124,-0.024 0.104,0.156 0.272,0.26 0.468,0.26 h 0.016 z m 0.78,-1.728 c 0.272,-0.096 0.452,-0.3800003 0.452,-0.6560003 0,-0.36 -0.264,-0.716 -0.692,-0.76 0.096,0.464 0.184,0.924 0.24,1.4160003 z m -1.548,-0.9240003 c 0,0.54 0.516,0.9880003 1.056,0.9880003 0.112,0 0.22,-0.008 0.328,-0.024 -0.056,-0.5080003 -0.148,-0.9800003 -0.252,-1.4560003 -0.316,0.032 -0.496,0.244 -0.496,0.476 0,0.176 0.1,0.364 0.324,0.492 0.02,0.02 0.028,0.04 0.028,0.06 0,0.044 -0.04,0.088 -0.088,0.088 -0.012,0 -0.024,-0.004 -0.036,-0.008 -0.32,-0.172 -0.468,-0.46 -0.468,-0.74 0,-0.352 0.232,-0.696 0.64,-0.788 -0.056,-0.232 -0.116,-0.468 -0.184,-0.7 -0.428,0.484 -0.852,0.972 -0.852,1.612 z m 1.044,1.1600003 c -0.752,0 -1.3319999,-0.6880003 -1.3319999,-1.4960003 0,-0.708 0.5239999,-1.224 0.9919999,-1.764 -0.076,-0.248 -0.148,-0.5 -0.18,-0.76 -0.024,-0.208 -0.028,-0.416 -0.028,-0.624 0,-0.46 0.22,-0.896 0.596,-1.168 0.024,-0.02 0.056,-0.02 0.08,0 0.284,0.336 0.532,0.98 0.532,1.432 0,0.572 -0.344,1.02 -0.72,1.456 0.084,0.272 0.156,0.552 0.224,0.828 0.016,0 0.036,-0.004 0.052,-0.004 0.62,0 1.024,0.512 1.024,1.044 0,0.304 -0.132,0.616 -0.428,0.8400003 -0.088,0.068 -0.188,0.112 -0.292,0.144 0.012,0.14 0.02,0.28 0.02,0.42 0,0.076 -0.004,0.156 -0.008,0.232 -0.028,0.476 -0.352,0.9 -0.808,0.912 l 0.004,-0.172 c 0.372,-0.008 0.612,-0.368 0.636,-0.764 0.004,-0.072 0.008,-0.148 0.008,-0.22 0,-0.124 -0.004,-0.244 -0.016,-0.368 -0.116,0.02 -0.232,0.032 -0.356,0.032 z m 0.372,-4.7120003 c 0,-0.22 -0.016,-0.316 -0.08,-0.516 -0.396,0.192 -0.648,0.596 -0.648,1.036 0,0.296 0.072,0.532 0.144,0.776 0.32,-0.388 0.584,-0.792 0.584,-1.296 z"
+     id="path3136"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <path
+     d="m 7.0057673,8.1973617 c -0.196,0 -0.3,-0.168 -0.3,-0.3 0,-0.152 0.108,-0.308 0.288,-0.308 0.016,0 0.036,0 0.056,0.004 -0.112,-0.148 -0.288,-0.236 -0.48,-0.236 -0.424,0 -0.452,0.292 -0.452,0.744 v 0.204 0.204 c 0,0.452 0.028,0.748 0.452,0.748 0.32,0 0.556,-0.28 0.632,-0.604 0.008,-0.028 0.028,-0.04 0.048,-0.04 0.024,0 0.052,0.016 0.052,0.048 0,0.376 -0.42,0.696 -0.732,0.696 -0.272,0 -0.548,-0.084 -0.736,-0.28 -0.196,-0.204 -0.264,-0.488 -0.264,-0.772 0,-0.284 0.068,-0.568 0.264,-0.772 0.188,-0.196 0.464,-0.276 0.736,-0.276 0.348,0 0.64,0.252 0.7,0.596 0.004,0.02 0.004,0.04 0.004,0.056 0,0.16 -0.12,0.288 -0.268,0.288 z"
+     id="path3138"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <path
+     d="m 11.917767,9.3053617 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path3140"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="m 42.662167,7.3573617 c -0.2,0 -0.276,0.172 -0.276,0.352 0,0.308 0.228,0.544 0.536,0.544 0.2,0 0.276,-0.172 0.276,-0.352 0,-0.308 -0.228,-0.544 -0.536,-0.544 z m 1.12,0.448 c 0,0.172 -0.14,0.304 -0.292,0.388 -0.212,0.12 -0.452,0.164 -0.696,0.164 -0.244,0 -0.488,-0.044 -0.7,-0.164 -0.152,-0.084 -0.292,-0.216 -0.292,-0.388 0,-0.172 0.14,-0.304 0.292,-0.388 0.212,-0.12 0.456,-0.164 0.7,-0.164 0.244,0 0.484,0.044 0.696,0.164 0.152,0.084 0.292,0.216 0.292,0.388 z"
+     id="path3142"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <path
+     d="m 34.494067,7.3573617 c -0.2,0 -0.276,0.172 -0.276,0.352 0,0.308 0.228,0.544 0.536,0.544 0.2,0 0.276,-0.172 0.276,-0.352 0,-0.308 -0.228,-0.544 -0.536,-0.544 z m 1.12,0.448 c 0,0.172 -0.14,0.304 -0.292,0.388 -0.212,0.12 -0.452,0.164 -0.696,0.164 -0.244,0 -0.488,-0.044 -0.7,-0.164 -0.152,-0.084 -0.292,-0.216 -0.292,-0.388 0,-0.172 0.14,-0.304 0.292,-0.388 0.212,-0.12 0.456,-0.164 0.7,-0.164 0.244,0 0.484,0.044 0.696,0.164 0.152,0.084 0.292,0.216 0.292,0.388 z"
+     id="path3144"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke-width:0.004" />
+  <text
+     font-size="2.4696"
+     id="text3148"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="33.634068"
+     y="13.805362">
+    <tspan
+       id="tspan3146">1</tspan>
+  </text>
+  <text
+     font-size="2.4696"
+     id="text3152"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="41.802166"
+     y="13.805362">
+    <tspan
+       id="tspan3150">1</tspan>
+  </text>
+  <path
+     d="m 28.896067,9.3053617 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path3154"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <text
+     font-size="2.4696"
+     id="text3158"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="26.247967"
+     y="2.9211617">
+    <tspan
+       id="tspan3156">V</tspan>
+  </text>
+  <path
+     d="m 26.247967,9.3053617 h 0.556887 l 1.176471,-2 h -0.556887 z"
+     id="path3160"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
+  <text
+     font-size="2.6163"
+     id="text3164"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="26.247967"
+     y="5.7211618">
+    <tspan
+       id="tspan3162">G</tspan>
   </text>
   <text
      font-size="2.6163"
-     id="text216"
+     id="text3168"
      style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="27.693413"
-     y="4.5830512">
+     x="28.262468"
+     y="5.7211618">
     <tspan
-       id="tspan214" />
+       id="tspan3166" />
   </text>
   <text
      font-size="2.6163"
-     id="text220"
+     id="text3172"
      style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="27.693413"
-     y="4.5830512">
+     x="28.262468"
+     y="5.7211618">
     <tspan
-       id="tspan218" />
+       id="tspan3170" />
   </text>
   <text
      font-size="1.8500"
-     id="text224"
+     id="text3176"
      style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="27.693413"
-     y="3.0830512">
+     x="28.262468"
+     y="4.2211618">
     <tspan
-       id="tspan222" />
+       id="tspan3174" />
   </text>
   <text
      font-size="2.6163"
-     id="text232"
+     id="text3180"
      style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="34.90871"
-     y="4.5830512">
+     x="33.634068"
+     y="5.7211618">
     <tspan
-       id="tspan230" />
+       id="tspan3178">C</tspan>
   </text>
   <text
      font-size="2.6163"
-     id="text236"
+     id="text3184"
      style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="34.90871"
-     y="4.5830512">
+     x="35.477764"
+     y="5.7211618">
     <tspan
-       id="tspan234" />
+       id="tspan3182" />
+  </text>
+  <text
+     font-size="2.6163"
+     id="text3188"
+     style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor"
+     x="35.477764"
+     y="5.7211618">
+    <tspan
+       id="tspan3186" />
   </text>
   <text
      font-size="1.8500"
-     id="text240"
+     id="text3192"
      style="font-size:1.85000002px;font-family:sans-serif;text-anchor:start;fill:currentColor"
-     x="34.90871"
-     y="3.0830512">
+     x="35.477764"
+     y="4.2211618">
     <tspan
-       id="tspan238" />
+       id="tspan3190" />
   </text>
-  <g
-     id="g340"
-     transform="translate(-14.225688,-3.8376488)">
+  <text
+     font-size="2.4696"
+     id="text3196"
+     style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="33.634068"
+     y="2.9211617">
+    <tspan
+       id="tspan3194">I</tspan>
+  </text>
+  <a
+     transform="translate(18.028367,162.41746)"
+     xlink:href="http://lilypond.org/"
+     id="a3200">
     <rect
-       id="rect6"
-       ry="0.0000"
-       height="4"
-       width="0.19"
-       y="-2"
        x="0"
-       transform="translate(45.2007,11.0049)"
-       style="fill:currentColor" />
-    <rect
-       id="rect8"
-       ry="0.0000"
-       height="4"
-       width="0.19"
-       y="-2"
-       x="0"
-       transform="translate(77.8729,11.0049)"
-       style="fill:currentColor" />
-    <rect
-       id="rect10"
-       ry="0.0000"
-       height="4"
-       width="0.19"
-       y="-2"
-       x="0"
-       transform="translate(111.0351,11.0049)"
-       style="fill:currentColor" />
-    <rect
-       id="rect12"
-       ry="0.0000"
-       height="4"
-       width="0.19"
-       y="-2"
-       x="0"
-       transform="translate(110.5451,11.0049)"
-       style="fill:currentColor" />
-    <rect
-       id="rect14"
-       ry="0.0000"
-       height="4"
-       width="0.19"
-       y="-2"
-       x="0"
-       transform="translate(94.209,11.0049)"
-       style="fill:currentColor" />
-    <rect
-       id="rect16"
-       ry="0.0000"
-       height="4"
-       width="0.19"
-       y="-2"
-       x="0"
-       transform="translate(69.7049,11.0049)"
-       style="fill:currentColor" />
-    <rect
-       id="rect18"
-       ry="0.0000"
-       height="4"
-       width="0.19"
-       y="-2"
-       x="0"
-       transform="translate(61.5368,11.0049)"
-       style="fill:currentColor" />
-    <rect
-       id="rect20"
-       ry="0.0000"
-       height="4"
-       width="0.19"
-       y="-2"
-       x="0"
-       transform="translate(53.3688,11.0049)"
-       style="fill:currentColor" />
-    <rect
-       id="rect22"
-       ry="0.0000"
-       height="4"
-       width="0.19"
-       y="-2"
-       x="0"
-       transform="translate(33.5185,11.0049)"
-       style="fill:currentColor" />
-    <rect
-       id="rect24"
-       ry="0.0000"
-       height="4"
-       width="0.19"
-       y="-2"
-       x="0"
-       transform="translate(102.3771,11.0049)"
-       style="fill:currentColor" />
-    <line
-       id="line26"
-       y2="0"
-       x2="96.9487"
-       y1="0"
-       x1="0.050000001"
-       transform="translate(14.2264,13.0049)"
-       style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
-    <line
-       id="line28"
-       y2="0"
-       x2="96.9487"
-       y1="0"
-       x1="0.050000001"
-       transform="translate(14.2264,12.0049)"
-       style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
-    <line
-       id="line30"
-       y2="0"
-       x2="96.9487"
-       y1="0"
-       x1="0.050000001"
-       transform="translate(14.2264,11.0049)"
-       style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
-    <line
-       id="line32"
-       y2="0"
-       x2="96.9487"
-       y1="0"
-       x1="0.050000001"
-       transform="translate(14.2264,10.0049)"
-       style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
-    <line
-       id="line34"
-       y2="0"
-       x2="96.9487"
-       y1="0"
-       x1="0.050000001"
-       transform="translate(14.2264,9.0049)"
-       style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
-    <rect
-       id="rect36"
-       ry="0.0000"
-       height="4"
-       width="0.19"
-       y="-2"
-       x="0"
-       transform="translate(86.041,11.0049)"
-       style="fill:currentColor" />
-    <text
-       id="text40"
-       font-size="2.4696"
-       transform="translate(79.9629,16.5049)"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan38">1</tspan>
-    </text>
-    <path
-       id="path42"
-       d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       transform="matrix(0.004,0,0,-0.004,79.9629,10.5049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-    <text
-       id="text46"
-       font-size="2.4696"
-       transform="translate(79.9629,5.6207)"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan44">I</tspan>
-    </text>
-    <text
-       id="text50"
-       font-size="2.6163"
-       transform="translate(79.9629,8.4207)"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan48">C</tspan>
-    </text>
-    <path
-       id="path64"
-       d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       transform="matrix(0.004,0,0,-0.004,88.131,10.5049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-    <text
-       id="text68"
-       font-size="2.4696"
-       transform="translate(88.131,16.5049)"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan66">1</tspan>
-    </text>
-    <text
-       id="text72"
-       font-size="2.6163"
-       transform="translate(63.6268,8.4207)"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan70">C</tspan>
-    </text>
-    <text
-       id="text88"
-       font-size="2.4696"
-       transform="translate(63.6268,5.6207)"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan86">I</tspan>
-    </text>
-    <text
-       id="text92"
-       font-size="2.4696"
-       transform="translate(63.6268,16.5049)"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan90">1</tspan>
-    </text>
-    <path
-       id="path94"
-       d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       transform="matrix(0.004,0,0,-0.004,71.7949,10.5049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-    <text
-       id="text98"
-       font-size="2.4696"
-       transform="translate(71.7949,16.5049)"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan96">1</tspan>
-    </text>
-    <path
-       id="path100"
-       d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       transform="matrix(0.004,0,0,-0.004,63.6268,10.5049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-    <text
-       id="text104"
-       font-size="2.6163"
-       transform="translate(96.299,8.4207)"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan102">C</tspan>
-    </text>
-    <text
-       id="text120"
-       font-size="2.4696"
-       transform="translate(96.299,5.6207)"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan118">I</tspan>
-    </text>
-    <path
-       id="path122"
-       d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       transform="matrix(0.004,0,0,-0.004,96.299,10.5049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-    <text
-       id="text126"
-       font-size="2.4696"
-       transform="translate(96.299,16.5049)"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan124">1</tspan>
-    </text>
-    <path
-       id="path128"
-       d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       transform="matrix(0.004,0,0,-0.004,104.4671,10.5049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-    <text
-       id="text132"
-       font-size="2.4696"
-       transform="translate(104.4671,16.5049)"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan130">1</tspan>
-    </text>
-    <path
-       id="path134"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       transform="translate(28.2225,12.0049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-    <path
-       id="path136"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       transform="translate(30.8705,12.0049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-    <text
-       id="text140"
-       font-size="2.6163"
-       transform="translate(34.6085,8.4207)"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan138">F</tspan>
-    </text>
-    <text
-       id="text156"
-       font-size="2.4696"
-       transform="translate(34.6085,5.6207)"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan154">IV</tspan>
-    </text>
-    <path
-       id="path158"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       transform="translate(34.6085,12.0049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-    <path
-       id="path160"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       transform="translate(37.2566,12.0049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-    <text
-       id="text164"
-       font-size="2.6163"
-       transform="translate(22.9264,8.4207)"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan162">C</tspan>
-    </text>
-    <text
-       id="text180"
-       font-size="2.4696"
-       transform="translate(22.9264,5.6207)"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan178">I</tspan>
-    </text>
-    <path
-       id="path182"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       transform="translate(22.9264,12.0049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-    <path
-       id="path184"
-       d="m 266,-635 h -6 c -108,0 -195,88 -195,197 0,58 53,103 112,103 54,0 95,-47 95,-103 0,-52 -43,-95 -95,-95 -11,0 -21,2 -31,6 26,-39 68,-65 117,-65 h 4 z m 195,432 c 68,24 113,95 113,164 0,90 -66,179 -173,190 24,-116 46,-231 60,-354 z M 74,28 c 0,-135 129,-247 264,-247 28,0 55,2 82,6 C 406,-86 383,32 357,151 278,143 233,90 233,32 c 0,-44 25,-91 81,-123 5,-5 7,-10 7,-15 0,-11 -10,-22 -22,-22 -3,0 -6,1 -9,2 -80,43 -117,115 -117,185 0,88 58,174 160,197 -14,58 -29,117 -46,175 C 180,310 74,188 74,28 Z M 335,-262 C 147,-262 2,-90 2,112 c 0,177 131,306 248,441 -19,62 -37,125 -45,190 -6,52 -7,104 -7,156 0,115 55,224 149,292 6,5 14,5 20,0 71,-84 133,-245 133,-358 0,-143 -86,-255 -180,-364 21,-68 39,-138 56,-207 4,0 9,1 13,1 155,0 256,-128 256,-261 0,-76 -33,-154 -107,-210 -22,-17 -47,-28 -73,-36 3,-35 5,-70 5,-105 0,-19 -1,-39 -2,-58 -7,-119 -88,-225 -202,-228 l 1,43 c 93,2 153,92 159,191 1,18 2,37 2,55 0,31 -1,61 -4,92 -29,-5 -58,-8 -89,-8 z m 93,1178 c 0,55 -4,79 -20,129 -99,-48 -162,-149 -162,-259 0,-74 18,-133 36,-194 80,97 146,198 146,324 z"
-       transform="matrix(0.004,0,0,-0.004,15.0264,12.0049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-    <path
-       id="path186"
-       d="m 359,27 c -49,0 -75,42 -75,75 0,38 27,77 72,77 4,0 9,0 14,-1 -28,37 -72,59 -120,59 C 144,237 137,164 137,51 V 0 -51 c 0,-113 7,-187 113,-187 80,0 139,70 158,151 2,7 7,10 12,10 6,0 13,-4 13,-12 0,-94 -105,-174 -183,-174 -68,0 -137,21 -184,70 C 17,-142 0,-71 0,0 c 0,71 17,142 66,193 47,49 116,69 184,69 87,0 160,-63 175,-149 1,-5 1,-10 1,-14 0,-40 -30,-72 -67,-72 z"
-       transform="matrix(0.004,0,0,-0.004,19.2264,11.0049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-    <path
-       id="path188"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       transform="translate(25.5744,12.0049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-    <path
-       id="path190"
-       d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       transform="matrix(0.004,0,0,-0.004,55.4588,10.5049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-    <path
-       id="path192"
-       d="m 215,112 c -50,0 -69,-43 -69,-88 0,-77 57,-136 134,-136 50,0 69,43 69,88 0,77 -57,136 -134,136 z M 495,0 c 0,-43 -35,-76 -73,-97 -53,-30 -113,-41 -174,-41 -61,0 -122,11 -175,41 -38,21 -73,54 -73,97 0,43 35,76 73,97 53,30 114,41 175,41 61,0 121,-11 174,-41 38,-21 73,-54 73,-97 z"
-       transform="matrix(0.004,0,0,-0.004,47.2907,10.5049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor" />
-    <text
-       id="text196"
-       font-size="2.4696"
-       transform="translate(47.2907,16.5049)"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan194">1</tspan>
-    </text>
-    <text
-       id="text200"
-       font-size="2.4696"
-       transform="translate(55.4588,16.5049)"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan198">1</tspan>
-    </text>
-    <path
-       id="path202"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       transform="translate(42.5527,12.0049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-    <text
-       id="text206"
-       font-size="2.4696"
-       transform="translate(39.9046,5.6207)"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan204">V</tspan>
-    </text>
-    <path
-       id="path208"
-       d="M 0,0 H 0.55688705 L 1.7333576,-2 h -0.556887 z"
-       transform="translate(39.9046,12.0049)"
-       inkscape:connector-curvature="0"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0;stroke-linecap:round;stroke-linejoin:round" />
-    <text
-       id="text212"
-       font-size="2.6163"
-       transform="translate(39.9046,8.4207)"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan210">G</tspan>
-    </text>
-    <text
-       id="text228"
-       font-size="2.6163"
-       transform="translate(47.2907,8.4207)"
-       style="font-size:2.61630011px;font-family:sans-serif;text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan226">C</tspan>
-    </text>
-    <text
-       id="text244"
-       font-size="2.4696"
-       transform="translate(47.2907,5.6207)"
-       style="font-size:2.46959996px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor">
-      <tspan
-         id="tspan242">I</tspan>
-    </text>
-  </g>
+       y="-0.47799999"
+       width="56.131599"
+       height="2.1169"
+       id="rect3198"
+       style="fill:none;stroke:none;stroke-width:0" />
+  </a>
+  <text
+     font-size="2.2001"
+     id="text3204"
+     style="font-size:2.20009995px;font-family:'Century Schoolbook L';text-anchor:start;fill:currentColor"
+     x="18.028368"
+     y="162.41747">
+    <tspan
+       id="tspan3202">Music engraving by LilyPond 2.18.2—www.lilypond.org</tspan>
+  </text>
 </svg>
