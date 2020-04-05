@@ -58,7 +58,7 @@
                 playing: false,
                 status: 'Not loaded',
                 loaded: false,
-                tempoBPM: 135,
+                tempoBPM: 130,
                 key: "",
                 sinceKeyChange: 0,
                 changeKeyEvery: 1,
@@ -199,12 +199,12 @@
                 }
                 return delay + duration * this.quarter;
             },
-            playDegree: function (key, degree, withResting, posOff, cadence) {
+            playDegree: function (key, degree, withResting, posOff, duration, cadence) {
                 /* play degree, optionally with resting chord */
                 const root = key + '3';
                 const note =  Midi.toMidi(Note.transpose(root, degree));
                 if (withResting) {
-                    this.playResting(key, cadence, posOff, 4);
+                    this.playResting(key, cadence, posOff, duration);
                 }
                 const delay = posOff;
                 const velocity = 127; // how hard the note hits
@@ -237,8 +237,8 @@
                 if (this.type === INTERNALIZATION) {
                     let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
                     for (let i=0;i<4;i++) {
-                        posOff = this.playDegree(this.key, this.degrees[0], true, posOff, cadence);
-                        posOff = this.playDegree(this.key, this.degrees[0], false, posOff, cadence);
+                        posOff = this.playDegree(this.key, this.degrees[0], true, posOff, 4, cadence);
+                        posOff = this.playDegree(this.key, this.degrees[0], false, posOff, 4, cadence);
                     }
                     this.roundDuration = posOff;
                     this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
@@ -247,14 +247,15 @@
                     let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
                     posOff = this.playResting(this.key, cadence, posOff, 4);
                     posOff = this.rest(posOff, 3 * 4);
-                    posOff = this.playDegree(this.key, this.degrees[0], false, posOff, cadence);
+                    posOff = this.playDegree(this.key, this.degrees[0], false, posOff, 8, cadence);
+                    posOff = this.rest(posOff, 2);
                     this.roundDuration = posOff;
                     this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
                 }
                 else if (this.type === RECOGNITION) {
                     const degree = this.degrees[Math.floor(Math.random()*this.degrees.length)];     // choose randomly
                     let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
-                    posOff = this.playDegree(this.key, degree, false, posOff, cadence);
+                    posOff = this.playDegree(this.key, degree, false, posOff, 4, cadence);
 
                     this.solution = degree;
                     if (this.useInput) {
