@@ -14,7 +14,7 @@
       <v-col>
         <v-card>
           <select v-model="rootMod" multiple>
-            <option value="b">b (flat)</option>
+            <option value="b"><b>&flat;</b> (flat)</option>
             <option value="">(natural)</option>
             <option value="#"># (sharp)</option>
           </select>
@@ -80,6 +80,7 @@
         >
           <div v-for="i in this.intervals" v-bind:key="i">
             <v-btn
+              class="normal-btn"
               :color="isEnabled(i.halfsteps) ? 'primary' : 'secondary'"
               :disabled="!isEnabled(i.halfsteps)"
               small
@@ -212,4 +213,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.normal-btn {
+  text-transform: none !important;
+}
+</style>
