@@ -54,6 +54,7 @@
 <script>
     import Courses from "./components/Courses";
     import Teacher from "./components/Teacher";
+
     export default {
         components: {Teacher, Courses},
         props: {
@@ -63,7 +64,7 @@
             drawer: null,
             curCourse: 0,
         }),
-    }
+    };
 </script>
 
 <style>
