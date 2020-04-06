@@ -49,7 +49,7 @@
                 Start the player by hitting »Test« below to listen to the internalisation test while you read the instructions.
             </p>
             <p>
-                <InlineConfigurator t-type="internalization"
+                <InlineConfigurator :prog-id="1001" t-type="internalization"
                                     :config="{degree: '1P'}">
                     Tonic Internalisation
                 </InlineConfigurator>

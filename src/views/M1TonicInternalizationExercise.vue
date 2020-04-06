@@ -13,7 +13,7 @@
                 made up of a 10 bar sequence, which is repeated throughout the
                 exercise. Hit »Practice« below to listen to this 10 bar sequence.</p>
             <p>
-                <InlineConfigurator t-type="internalization"
+                <InlineConfigurator :prog-id="1001" t-type="internalization"
                                     :config="{degree: '1P'}">
                     Tonic Internalisation
                 </InlineConfigurator>

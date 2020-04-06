@@ -170,25 +170,25 @@
                 of »Do«, now continue with »Re«, »Mi«, »So« and »La«.
             </p>
             <p>
-                <InlineConfigurator t-type="internalization"
+                <InlineConfigurator :prog-id="2001" t-type="internalization"
                 :config="{degree: '2M'}">
                     »Re« Internalisation
                 </InlineConfigurator>
             </p>
             <p>
-                <InlineConfigurator t-type="internalization"
+                <InlineConfigurator :prog-id="2002" t-type="internalization"
                                     :config="{degree: '3M'}">
                     »Mi« Internalisation
                 </InlineConfigurator>
             </p>
             <p>
-                <InlineConfigurator t-type="internalization"
+                <InlineConfigurator :prog-id="2004" t-type="internalization"
                                     :config="{degree: '5P'}">
                     »So« Internalisation
                 </InlineConfigurator>
             </p>
             <p>
-                <InlineConfigurator t-type="internalization"
+                <InlineConfigurator :prog-id="2005" t-type="internalization"
                                     :config="{degree: '6M'}">
                     »La« Internalisation
                 </InlineConfigurator>
@@ -200,13 +200,13 @@
                     exercises</router-link>, while also doing the internalisation exercises of the two missing
                 scale degrees, »Fa« and »Ti«.
             <p>
-                <InlineConfigurator t-type="internalization"
+                <InlineConfigurator :prog-id="2003" t-type="internalization"
                                     :config="{degree: '4P'}">
                     »Fa« Internalisation
                 </InlineConfigurator>
             </p>
             <p>
-                <InlineConfigurator t-type="internalization"
+                <InlineConfigurator :prog-id="2006" t-type="internalization"
                                     :config="{degree: '7M'}">
                     »Ti« Internalisation
                 </InlineConfigurator>

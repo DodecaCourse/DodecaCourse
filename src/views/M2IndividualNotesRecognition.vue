@@ -80,13 +80,13 @@
                 five errors.
             </p>
             <p>
-                <InlineConfigurator t-type="recognition-single"
+                <InlineConfigurator :prog-id="3001" t-type="recognition-single"
                                     :config="{degrees: ['1P', '2M', '3M', '5P', '6M']}">
                     Pentatonic Recognition
                 </InlineConfigurator>
             </p>
             <p>
-                <InlineConfigurator t-type="recognition-single"
+                <InlineConfigurator :prog-id="3002" t-type="recognition-single"
                                     :config="{degrees: ['1P', '2M', '3M', '4P', '5P', '6M', '7M']}">
                     Major Scale Recognition
                 </InlineConfigurator>
