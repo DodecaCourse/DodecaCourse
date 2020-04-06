@@ -134,6 +134,7 @@
                 // tType specific
                 // Recognition
                 inputDisabled: false,
+                fullCadenceEvery: 8,
                 solution: null,
                 answer: "",
             };
@@ -205,6 +206,16 @@
                 }
                 return delay + duration * this.quarter;
             },
+            playDrone: function (key, posOff, duration) {
+                const velocity = 110;
+                const notes = this.transposeToKey([0, 7], key, 3);
+                MIDI.setVolume(0, 127);
+                if (this.playing) {
+                    this.chordOn(0, notes, velocity, posOff);
+                    this.chordOff(0, notes, posOff + duration * this.quarter);
+                }
+                return posOff + duration * this.quarter;
+            },
             playDegree: function (key, degree, withResting, posOff, duration, cadence) {
                 /* play degree, optionally with resting chord */
                 const root = key + '3';
@@ -261,7 +272,13 @@
                 }
                 else if (this.type === RECOGNITION_SINGLE || this.type === RECOGNITION_SINGLE_TEST) {
                     const degree = this.degrees[Math.floor(Math.random()*this.degrees.length)];     // choose randomly
-                    let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
+                    let posOff = 0;
+                    let cadence = undefined;
+                    if ((this.roundSincePlay - 1) % this.fullCadenceEvery === 0) {
+                        [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
+                    } else {
+                        posOff = this.playDrone(this.key, 0, 4);
+                    }
                     posOff = this.playDegree(this.key, degree, false, posOff, 4, cadence);
 
                     this.solution = this.degreeName[degree];
