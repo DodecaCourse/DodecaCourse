@@ -34,12 +34,18 @@
                             },
                             {
                                 id: 1,
-                                title: 'Method',
+                                title: 'The Tonic',
                                 completed: false,
-                                path: '/method'
+                                path: '/tonic'
                             },
                             {
                                 id: 2,
+                                title: 'Exercise',
+                                completed: false,
+                                path: '/exercise'
+                            },
+                            {
+                                id: 3,
                                 title: 'Test',
                                 completed: false,
                                 path: '/test'
@@ -60,28 +66,22 @@
                             },
                             {
                                 id: 1,
-                                title: 'Internalisation Method',
+                                title: 'Scale Degrees',
                                 completed: false,
-                                path: '/internalisation-method'
+                                path: '/scale-degrees'
                             },
                             {
                                 id: 2,
-                                title: 'Internalisation Test',
+                                title: 'Internalisation',
                                 completed: false,
-                                path: '/internalisation-test'
-                            },
-                            {
-                                id: 3,
-                                title: 'Recognition Method',
-                                completed: false,
-                                path: '/recognition-method'
+                                path: '/internalisation'
                             },
                             {
                                 id: 4,
-                                title: 'Recognition Test',
+                                title: 'Recognition',
                                 completed: false,
-                                path: '/recognition-test'
-                            }
+                                path: '/recognition'
+                            },
                         ]
                     },
                     {

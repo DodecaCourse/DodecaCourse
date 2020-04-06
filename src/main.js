@@ -4,15 +4,15 @@ import App from './App.vue'
 import About from './views/About.vue'
 import VueRouter from "vue-router";
 import vuetify from './plugins/vuetify';
-import TonicInternalizationOverview from "./views/TonicInternalizationOverview";
-import TonicInternalizationMethod from "./views/TonicInternalizationMethod";
-import TonicInternalizationTest from "./views/TonicInternalizationTest";
+import M1TonicInternalizationOverview from "./views/M1TonicInternalizationOverview";
+import M1TheTonic from "./views/M1TheTonic";
+import M1TonicInternalizationExercise from "./views/M1TonicInternalizationExercise";
+import M1TonicInternalizationTest from "./views/M1TonicInternalizationTest";
 import NotFound from "./views/NotFound";
-import IndividualNotesOverview from "./views/IndividualNotesOverview";
-import IndividualNotesInternalizationMethod from "./views/IndividualNotesInternalizationMethod";
-import IndividualNotesInternalizationTest from "./views/IndividualNotesInternalizationTest";
-import IndividualNotesRecognitionMethod from "./views/IndividualNotesRecognitionMethod";
-import IndividualNotesRecognitionTest from "./views/IndividualNotesRecognitionTest";
+import M2IndividualNotesOverview from "./views/M2IndividualNotesOverview";
+import M2ScaleDegrees from "./views/M2ScaleDegrees";
+import M2IndividualNotesInternalization from "./views/M2IndividualNotesInternalization";
+import M2IndividualNotesRecognition from "./views/M2IndividualNotesRecognition";
 import RecognisingMelodiesOverview from "./views/RecognisingMelodiesOverview";
 import RecognisingMelodiesMethod from "./views/RecognisingMelodiesMethod";
 import TeacherPlayground from "./views/TeacherPlayground";
@@ -29,14 +29,14 @@ const router = new VueRouter({
     { path: '/', component: Home },
     { path: '/about', component: About },
     { path: '/teacher-playground', component: TeacherPlayground},
-    { path: '/tonic-internalization/overview', component: TonicInternalizationOverview},
-    { path: '/tonic-internalization/method', component: TonicInternalizationMethod},
-    { path: '/tonic-internalization/test', component: TonicInternalizationTest},
-    { path: '/individual-notes/overview', component: IndividualNotesOverview},
-    { path: '/individual-notes/internalisation-method', component: IndividualNotesInternalizationMethod},
-    { path: '/individual-notes/internalisation-test', component: IndividualNotesInternalizationTest},
-    { path: '/individual-notes/recognition-method', component: IndividualNotesRecognitionMethod},
-    { path: '/individual-notes/recognition-test', component: IndividualNotesRecognitionTest},
+    { path: '/tonic-internalization/overview', component: M1TonicInternalizationOverview},
+    { path: '/tonic-internalization/tonic', component: M1TheTonic},
+    { path: '/tonic-internalization/exercise', component: M1TonicInternalizationExercise},
+    { path: '/tonic-internalization/test', component: M1TonicInternalizationTest},
+    { path: '/individual-notes/overview', component: M2IndividualNotesOverview},
+    { path: '/individual-notes/scale-degrees', component: M2ScaleDegrees},
+    { path: '/individual-notes/internalisation', component: M2IndividualNotesInternalization},
+    { path: '/individual-notes/recognition', component: M2IndividualNotesRecognition},
     { path: '/recognising-melodies/overview', component: RecognisingMelodiesOverview},
     { path: '/recognising-melodies/recognition-exercises', component: RecognisingMelodiesMethod},
     { path: '/*', component: NotFound}

@@ -1,26 +1,37 @@
 <template>
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
-            <p>Tonic Internalisation</p>
-            <Teacher t-type="internalization" :preselect="['1P']" fixed/>
-            <p>Tonic Internalisation Test</p>
-            <Teacher t-type="internalization-test" :preselect="['1P']" fixed/>
-            <p>Individual Note Internalisation</p>
-            <Teacher t-type="internalization"/>
-            <p>Individual Note Internalisation Test</p>
-            <Teacher t-type="internalization-test"/>
+            <p>Tonic Internalisation Exercise & Test</p>
+            <p>
+                <InlineConfigurator t-type="internalization"
+                                    :config="{degree: '1P'}">
+                    Tonic Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>Individual Note Internalisation & Test</p>
+            <p>
+                <InlineConfigurator t-type="internalization"
+                                    :config="{degree: '2M'}">
+                    »Re« Internalisation
+                </InlineConfigurator>
+            </p>
             <p>Individual Note Recognition</p>
-            <Teacher t-type="recognition" :preselect="['1P', '2M', '3M', '4P', '5P', '6M', '7M']"/>
+            <p>
+                <InlineConfigurator t-type="recognition-single"
+                                    :config="{degrees: ['1P', '2M', '3M', '4P', '5P', '6M', '7M']}">
+                    Major Scale Recognition
+                </InlineConfigurator>
+            </p>
         </v-flex>
     </v-layout>
 </template>
 
 
 <script>
-    import Teacher from "../components/Teacher";
+    import InlineConfigurator from "../components/InlineConfigurator";
     export default {
         name: "TeacherPlayground",
-        components: {Teacher}
+        components: {InlineConfigurator}
     }
 </script>
 

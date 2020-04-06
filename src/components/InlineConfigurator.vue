@@ -13,7 +13,7 @@
 
 <script>
     const INTERNALIZATION = 0;
-    const RECOGNITION = 2;
+    const RECOGNITION_SINGLE = 1;
 
     export default {
         name: "InlineConfigurator",
@@ -33,20 +33,23 @@
             type: function () {
                 // defaults to INTERNALIZATION
                 if (this.tType === "internalization") return INTERNALIZATION;
-                else if (this.tType === "recognition") return RECOGNITION;
+                else if (this.tType === "recognition-single") return RECOGNITION_SINGLE;
                 else return INTERNALIZATION;
             },
         },
         methods: {
             onPractice: function () {
                 if (this.type === INTERNALIZATION) {
-                    console.log(this.$teacher);
                     this.$teacher.setupInternalization(this.config.degree, true);
+                } else if (this.type === RECOGNITION_SINGLE) {
+                    this.$teacher.setupRecognitionSingle(this.config.degrees, true);
                 }
             },
             onTest: function () {
                 if (this.type === INTERNALIZATION) {
                     this.$teacher.setupInternalizationTest(this.config.degree, true);
+                } else if (this.type === RECOGNITION_SINGLE) {
+                    this.$teacher.setupRecognitionSingleTest(this.config.degrees, true);
                 }
             }
         }

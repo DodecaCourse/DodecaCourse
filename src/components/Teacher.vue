@@ -41,7 +41,8 @@
 
     const INTERNALIZATION = 0;
     const INTERNALIZATION_TEST = 1;
-    const RECOGNITION = 2;
+    const RECOGNITION_SINGLE = 2;
+    const RECOGNITION_SINGLE_TEST = 3;
 
     const CADENCE_MAJOR_I_IV_V = 'major_i_iv_v';
     const CADENCE_MAJOR_I_IV_V_I = 'major_i_iv_v_i';
@@ -133,7 +134,8 @@
             multiple: function() {
                 if (this.type === INTERNALIZATION) return false;
                 else if (this.type === INTERNALIZATION_TEST) return false;
-                else if (this.type === RECOGNITION) return true;
+                else if (this.type === RECOGNITION_SINGLE) return true;
+                else if (this.type === RECOGNITION_SINGLE_TEST) return true;
                 else return false;
             },
             useInput: function() {
@@ -141,7 +143,8 @@
 
                 if (this.type === INTERNALIZATION) return false;
                 else if (this.type === INTERNALIZATION_TEST) return false;
-                else if (this.type === RECOGNITION) return true;
+                else if (this.type === RECOGNITION_SINGLE) return true;
+                else if (this.type === RECOGNITION_SINGLE_TEST) return true;
                 else return false;
             }
         },
@@ -240,7 +243,7 @@
                     this.roundDuration = posOff;
                     this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
                 }
-                else if (this.type === RECOGNITION) {
+                else if (this.type === RECOGNITION_SINGLE || this.type === RECOGNITION_SINGLE_TEST) {
                     const degree = this.degrees[Math.floor(Math.random()*this.degrees.length)];     // choose randomly
                     let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
                     posOff = this.playDegree(this.key, degree, false, posOff, 4, cadence);
@@ -286,20 +289,33 @@
             // setup functions for different practice/test scenarios
             setupInternalization: function(degree, autoplay) {
                 console.log("setupInternalization", degree);
+                this.description = "Internalisation";
                 this.chosenDegrees = [degree];
                 this.type = INTERNALIZATION;
-                if (autoplay || this.playing) {
-                    if (this.playing) {
-                        this.restart();
-                    } else {
-                        this.playing = true;
-                    }
-                }
+                this.finishSetup(autoplay);
             },
             setupInternalizationTest: function(degree, autoplay) {
                 console.log("setupInternalizationTest", degree);
+                this.description = "Internalisation Test";
                 this.chosenDegrees = [degree];
                 this.type = INTERNALIZATION_TEST;
+                this.finishSetup(autoplay);
+            },
+            setupRecognitionSingle: function(degrees, autoplay) {
+                console.log("setupRecognitionSingle", degrees);
+                this.description = "Recognition";
+                this.chosenDegrees = degrees;
+                this.type = RECOGNITION_SINGLE;
+                this.finishSetup(autoplay);
+            },
+            setupRecognitionSingleTest: function(degrees, autoplay) {
+                console.log("setupRecognitionSingleTest", degrees);
+                this.description = "Recognition Test";
+                this.chosenDegrees = degrees;
+                this.type = RECOGNITION_SINGLE_TEST;
+                this.finishSetup(autoplay);
+            },
+            finishSetup: function (autoplay) {
                 if (autoplay || this.playing) {
                     if (this.playing) {
                         this.restart();

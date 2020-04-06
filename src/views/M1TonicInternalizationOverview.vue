@@ -36,7 +36,8 @@
                     troubleshooting section</p>
                 </li>
             </ol>
-            <v-btn style="float: right" color="secondary" class="ma-2" to="/tonic-internalization/method">Start training</v-btn>
+            <v-btn style="float: right" color="secondary" class="ma-2"
+                   to="/tonic-internalization/tonic">Next Chapter</v-btn>
         </v-flex>
     </v-layout>
 </template>

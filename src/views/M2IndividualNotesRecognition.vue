@@ -5,8 +5,8 @@
             <h2>Individual Note Recognition Exercises</h2>
             <h3></h3>
             <p>
-                You'll find recognition exercises in every module of 80/20 Ear
-                Training from here on in. The idea behind recognition exercises is
+                You'll find recognition exercises in every module of this course
+                from here on. The idea behind recognition exercises is
                 simple: listen to a sound that you've internalised and try to
                 recognise what it is. Shortly after you've heard it played you'll be
                 told what it was so you can check to see if you got it right.</p>
@@ -19,7 +19,7 @@
                 exercises in this module focus on recognising individual notes using
                 their scale degrees.</p>
             <p>In the first 2
-                bars a I - IV - V progression is played. After that an individual
+                bars a <i>I - IV - V</i> progression is played. After that an individual
                 note is played every few seconds. After each note there is a pause of
                 a few seconds, then the scale degree of the note is said.</p>
             <p>Additionally there
@@ -41,12 +41,12 @@
                 Follow the steps below for the recognition exercises:</p>
             <ol>
                 <li><p><b>Listen to the
-                    I - IV - V Progression:</b> Simply listening to the I - IV - V
+                    <i>I - IV - V</i> progression:</b> Simply listening to the <i>I - IV - V</i>
                     progression will make it clear to your ear which note is the tonic
                     (even if you can't identify which note it is yet). So just sit back
                     and listen.</p></li>
                 <li><p><b>Listen to the
-                    note played after the I - IV - V Progression:</b> Listen to the note and
+                    note played after the <i>I - IV - V</i> progression:</b> Listen to the note and
                     listen for the way that is sounds and resonates in relation to the
                     tonic chord/pedal.</p></li>
                 <li><p><b>[OPTIONAL] Sing
@@ -73,12 +73,34 @@
                 pentatonic scale recognition tests. Then practice with these until
                 you pass the final two internalisation tests. Once you've done this
                 you're ready to move onto the major scale recognition tests</p>
+            <h2>Recognition Tests</h2>
+            <p>
+                The exercises and tests come in three levels at varying speeds.
+                Progress to the next level when you passed the test with less then
+                five errors.
+            </p>
+            <p>
+                <InlineConfigurator t-type="recognition-single"
+                                    :config="{degrees: ['1P', '2M', '3M', '5P', '6M']}">
+                    Pentatonic Recognition
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator t-type="recognition-single"
+                                    :config="{degrees: ['1P', '2M', '3M', '4P', '5P', '6M', '7M']}">
+                    Major Scale Recognition
+                </InlineConfigurator>
+            </p>
+            <v-btn style="float: right" color="secondary" class="ma-2"
+                   to="/melodies/overview">Next Module</v-btn>
         </v-flex>
     </v-layout>
 </template>
 
 <script>
+    import InlineConfigurator from "../components/InlineConfigurator";
     export default {
         name: "IndividualNotesMethod",
+        components: {InlineConfigurator},
     }
 </script>
