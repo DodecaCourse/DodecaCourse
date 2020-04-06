@@ -58,13 +58,14 @@
                 tempoBPM: 130,
                 key: "",
                 sinceKeyChange: 0,
-                changeKeyEvery: 1,
+                changeKeyEvery: 1, // set to -1 to never change key
                 timeoutRef: null,
                 progressRef: null,
                 progress: 0,
                 roundDuration: 0,
                 startTime: 0,
                 roundSincePlay: 0,
+                stopAfterRounds: 12, // set to -1 to play endlessly
                 degreesAvailable: [
                     {text: 'Do', value: '1P'},
                     {text: 'Re', value: '2M'},
@@ -234,7 +235,8 @@
                 this.roundSincePlay++;
                 // update key
                 const chrom = Scale.get("C chromatic").notes; // get list of all twelve notes
-                if (this.key === "" || (++this.sinceKeyChange % this.changeKeyEvery) === 0) {
+                if (this.key === "" ||
+                    (0 < this.changeKeyEvery && (++this.sinceKeyChange % this.changeKeyEvery) === 0)) {
                     // new random key
                     this.sinceKeyChange = 0;
                     this.key = chrom[Math.floor(Math.random() * chrom.length)];
@@ -299,6 +301,9 @@
             doRepeat: function() {
                 this.stopAllNotes();
                 this.clearTimeouts();
+                if ( 0 < this.stopAfterRounds && this.stopAfterRounds <= this.roundSincePlay) {
+                    this.playing = false;
+                }
                 if (this.playing) this.playRound();
             },
             // setup functions for different practice/test scenarios
@@ -307,6 +312,7 @@
                 this.description = "Internalisation";
                 this.chosenDegrees = [degree];
                 this.type = INTERNALIZATION;
+                this.stopAfterRounds = -1;
                 this.finishSetup(autoplay);
             },
             setupInternalizationTest: function(degree, autoplay) {
@@ -314,6 +320,7 @@
                 this.description = "Internalisation Test";
                 this.chosenDegrees = [degree];
                 this.type = INTERNALIZATION_TEST;
+                this.stopAfterRounds = 12;
                 this.finishSetup(autoplay);
             },
             setupRecognitionSingle: function(degrees, autoplay) {
@@ -321,6 +328,8 @@
                 this.description = "Recognition";
                 this.chosenDegrees = degrees;
                 this.type = RECOGNITION_SINGLE;
+                this.stopAfterRounds = -1;
+                this.changeKeyEvery = -1;
                 this.finishSetup(autoplay);
             },
             setupRecognitionSingleTest: function(degrees, autoplay) {
@@ -328,6 +337,8 @@
                 this.description = "Recognition Test";
                 this.chosenDegrees = degrees;
                 this.type = RECOGNITION_SINGLE_TEST;
+                this.stopAfterRounds = 12;
+                this.changeKeyEvery = -1;
                 this.finishSetup(autoplay);
             },
             finishSetup: function (autoplay) {
