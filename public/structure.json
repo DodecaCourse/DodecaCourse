@@ -1,0 +1,146 @@
+{
+  "modules": [
+    {
+      "id": 1,
+      "title": "Recognising the Tonic",
+      "path": "/tonic-internalization",
+      "chapters": [
+        {
+          "id": 1001,
+          "title": "Overview",
+          "path": "/overview"
+        },
+        {
+          "id": 1002,
+          "title": "The Tonic",
+          "path": "/tonic"
+        },
+        {
+          "id": 1003,
+          "title": "Exercise",
+          "path": "/exercise"
+        },
+        {
+          "id": 1004,
+          "title": "Test",
+          "path": "/test"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Recognising Individual Notes",
+      "path": "/individual-notes",
+      "chapters": [
+        {
+          "id": 2001,
+          "title": "Overview",
+          "path": "/overview"
+        },
+        {
+          "id": 2002,
+          "title": "Scale Degrees",
+          "path": "/scale-degrees"
+        },
+        {
+          "id": 2003,
+          "title": "Internalisation",
+          "path": "/internalisation"
+        },
+        {
+          "id": 2004,
+          "title": "Recognition",
+          "path": "/recognition"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Recognising Melodies",
+      "path": "/recognising-melodies",
+      "chapters": [
+        {
+          "id": 3001,
+          "title": "Overview",
+          "path": "/overview"
+        },
+        {
+          "id": 3002,
+          "title": "Recognition Exercises",
+          "path": "/recognition-exercises"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Chords",
+      "path": "/chords",
+      "chapters": [
+        {
+          "id": 4001,
+          "title": "Overview",
+          "path": "/overview"
+        },
+        {
+          "id": 4002,
+          "title": "Method",
+          "path": "/method"
+        },
+        {
+          "id": 4003,
+          "title": "Test",
+          "path": "/test"
+        }
+      ]
+    }
+  ],
+  "targets": [
+    {
+      "id": 1001,
+      "title": "Tonic Internalisation",
+      "levels": 1
+    },
+
+    {
+      "id": 2001,
+      "title": "Re Internalisation",
+      "levels": 1
+    },
+    {
+      "id": 2002,
+      "title": "Mi Internalisation",
+      "levels": 1
+    },
+    {
+      "id": 2003,
+      "title": "Fa Internalisation",
+      "levels": 1
+    },
+    {
+      "id": 2004,
+      "title": "So Internalisation",
+      "levels": 1
+    },
+    {
+      "id": 2005,
+      "title": "La Internalisation",
+      "levels": 1
+    },
+    {
+      "id": 2006,
+      "title": "Ti Internalisation",
+      "levels": 1
+    },
+
+    {
+      "id": 3001,
+      "title": "Pentatonic Recognition",
+      "levels": 5
+    },
+    {
+      "id": 3002,
+      "title": "Major Scale Internalisation",
+      "levels": 5
+    }
+  ]
+}
