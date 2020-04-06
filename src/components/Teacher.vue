@@ -57,7 +57,6 @@
                 loaded: false,
                 tempoBPM: 130,
                 key: "",
-                sinceKeyChange: 0,
                 changeKeyEvery: 1, // set to -1 to never change key
                 timeoutRef: null,
                 progressRef: null,
@@ -247,8 +246,10 @@
                 // update key
                 const chrom = Scale.get("C chromatic").notes; // get list of all twelve notes
                 if (this.key === "" ||
-                    (0 < this.changeKeyEvery && (++this.sinceKeyChange % this.changeKeyEvery) === 0)) {
+                    (0 < this.changeKeyEvery &&
+                        (this.roundSincePlay - 1) % this.changeKeyEvery === 0)) {
                     // new random key
+                    console.log("Change key");
                     this.sinceKeyChange = 0;
                     this.key = chrom[Math.floor(Math.random() * chrom.length)];
                 }
@@ -346,7 +347,7 @@
                 this.chosenDegrees = degrees;
                 this.type = RECOGNITION_SINGLE;
                 this.stopAfterRounds = -1;
-                this.changeKeyEvery = -1;
+                this.changeKeyEvery = this.fullCadenceEvery;
                 this.finishSetup(autoplay);
             },
             setupRecognitionSingleTest: function(degrees, autoplay) {
@@ -354,8 +355,8 @@
                 this.description = "Recognition Test";
                 this.chosenDegrees = degrees;
                 this.type = RECOGNITION_SINGLE_TEST;
-                this.stopAfterRounds = 12;
-                this.changeKeyEvery = -1;
+                this.stopAfterRounds = 32;
+                this.changeKeyEvery = this.fullCadenceEvery;
                 this.finishSetup(autoplay);
             },
             finishSetup: function (autoplay) {
