@@ -66,14 +66,28 @@
                 startTime: 0,
                 roundSincePlay: 0,
                 degreesAvailable: [
-                    {text: 'Tonic', value: '1P'},
-                    {text: '2nd', value: '2M'},
-                    {text: 'Maj 3rd', value: '3M'},
-                    {text: '4th', value: '4P'},
-                    {text: '5th', value: '5P'},
-                    {text: 'Maj 6th', value: '6M'},
-                    {text: 'Maj 7th', value: '7M'},
+                    {text: 'Do', value: '1P'},
+                    {text: 'Re', value: '2M'},
+                    {text: 'Mi', value: '3M'},
+                    {text: 'Fa', value: '4P'},
+                    {text: 'So', value: '5P'},
+                    {text: 'La', value: '6M'},
+                    {text: 'Ti', value: '7M'},
                 ],
+                degreeName: {
+                    '1P': 'Do',
+                    '2m': 'Di/Ra',
+                    '2M': 'Re',
+                    '3m': 'Ri/Me',
+                    '3M': 'Mi',
+                    '4P': 'Fa',
+                    '4A': 'Fi/Se',
+                    '5P': 'So',
+                    '6m': 'Si/Le',
+                    '6M': 'La',
+                    '7m': 'Li/Te',
+                    '7M': 'Ti'
+                },
                 chosenDegrees: ["1P", "2M", "3M", "4P", "5P", "6M", "7M"],
                 played: [],
                 cadences: {
@@ -248,7 +262,7 @@
                     let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
                     posOff = this.playDegree(this.key, degree, false, posOff, 4, cadence);
 
-                    this.solution = degree;
+                    this.solution = this.degreeName[degree];
                     if (this.useInput) {
                         console.log("USE_INPUT");
                         this.roundDuration = posOff;
@@ -269,11 +283,12 @@
                 this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
             },
             solutionInput: function(input) {
+                // TODO: Multiple possible solutions (e.g. Fi & Se for tritone)
                 if (this.solution === null) {
                     return;
                 }
                 console.log("SOLUTION_INPUT: ",input,this.solution,this.solution === input);
-                if (this.solution === input) {
+                if (this.solution.toLowerCase() === input.toLowerCase()) {
                     this.answer = "Correct: " + this.solution;
                 } else {
                     this.answer = "Wrong! It was " + this.solution;
