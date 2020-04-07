@@ -2,51 +2,6 @@
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
             <h1>1. Recognising the Tonic</h1>
-            <h2>Method</h2>
-            <v-banner app elevation="0" id="player" sticky>
-                <Teacher t-type="internalization" :preselect="['1P']" fixed/>
-            </v-banner>
-            <ol>
-                <li>
-                    <p>Read through the lesson on the tonic to find out what the tonic is
-                        and why it’s at the centre of an effective ear training approach.</p>
-                </li>
-                <li><p>Read the exercise explanations for internalisation exercises</p>
-                </li>
-                <li><p>Start with
-                    the tonic internalisation exercise.</p>
-                </li>
-                <li><p>Repeat until
-                    you feel ready to attempt the tonic internalisation test.</p>
-                </li>
-                <li><p>Attempt the
-                    tonic internalisation test.</p>
-                </li>
-                <li><p>If you pass the test, continue on to module 2. If you do not, refer to the
-                    troubleshooting section</p>
-                </li>
-            </ol>
-            <h2>The tonic</h2>
-            <p>
-                The tonic is the central note of a piece of music. It sounds the most
-                stable and at rest. The tonic is generally played at the end of a
-                piece of music to give it a sense of resolution and acts as the
-                reference point for the key of a piece of music: the tonic of a piece
-                in the key of A major is A.</p>
-            <p>The tonic is the
-                essential starting point for ear training because of that stable
-                sound it has. With a little practice we can learn to identify the
-                tonic when we hear it in music and then we can use it as a reference
-                point to identify every other note and chord we hear.</p>
-            <p>Once you’re able
-                to identify the tonic you can start learning to identify other notes
-                and chords based on the interval that separates them from the tonic.
-                But we’ll get to that in the next module.</p>
-            <p>First we need to
-                be able to confidently identify which note is the tonic. And that’s
-                precisely the goal of this first module.</p>
-            <p>We’ll
-                do that with an exercise called an internalisation exercise.</p>
             <h2>Tonic Internalisation Exercise</h2>
             <p>
                 The tonic internalisation exercise makes it as easy as possible for
@@ -56,8 +11,12 @@
                 will quickly start to remember the sound of the tonic.</p>
             <p>The exercise is
                 made up of a 10 bar sequence, which is repeated throughout the
-                exercise. Hit play above to listen to this 10 bar sequence.</p>
+                exercise. Hit »Practice« below to listen to this 10 bar sequence.</p>
             <p>
+                <InlineConfigurator :prog-id="1001" t-type="internalization"
+                                    :config="{degree: '1P'}" hide-test>
+                    Tonic Internalisation
+                </InlineConfigurator>
             </p>
             <p>The diagram below
                 shows this 10 bar sequence, taken from the tonic internalisation
@@ -106,7 +65,7 @@
                 you have a clear understanding of how to use the exercise.</p>
             <ol>
                 <li><p><b>Listen to the
-                    I - IV - V Progression:</b> Simply listening to the I - IV - V
+                    <i>I - IV - V</i> Progression:</b> Simply listening to the <i>I - IV - V</i>
                     progression will make it clear to your ear which note is the tonic
                     (even if you can't identify which note it is yet). So just sit back
                     and listen.</p>
@@ -121,7 +80,7 @@
                     will help you to really hear and internalise it's stable sound.</p>
                 </li>
                 <li><p><b>Repeat:</b> when
-                    the I - IV - V progression is played in a new key, listen to the
+                    the <i>I - IV - V</i> progression is played in a new key, listen to the
                     progression as you did the first time. This will establish a new
                     note as the tonic and then you can repeat listening to/singing the
                     new tonic.</p>
@@ -147,7 +106,7 @@
                     and sing, with no regard for what the actual notes/keys are.</p>
                 </li>
                 <li><p><b>DO NOT try to
-                    work out the tonic during the I - IV - V progression:</b> it takes a few
+                    work out the tonic during the <i>I - IV - V</i> progression:</b> it takes a few
                     moments for our ears to clearly identify a new tonic. We use the I -
                     IV - V progression to make it clear, so wait until after the
                     progression to start actively listening for the tonic. Trying to do
@@ -163,8 +122,8 @@
                 <b>TROUBLESHOOTING</b></h4>
             <b>“I’m struggling to sing in tune”</b>
             <p>If you’re
-                finding it difficult to sing in tune you may be worried that the Ear
-                Training HQ method won’t work for you.</p>
+                finding it difficult to sing in tune you may be worried that the described
+                method won’t work for you.</p>
             <p>Fortunately, we
                 have you covered!</p>
             <p>While many people
@@ -214,12 +173,14 @@
 </template>
 
 <script>
-    import Teacher from "../components/Teacher";
-
+    import InlineConfigurator from "../components/InlineConfigurator";
     export default {
         name: "TonicInternalizationMethod",
-        components: {
-            Teacher
+        components: {InlineConfigurator},
+        mounted: function () {
+            if (!this.$teacher.playing) {
+                this.$teacher.setupInternalization("1P", false)
+            }
         }
     }
 </script>
