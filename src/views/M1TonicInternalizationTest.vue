@@ -3,9 +3,6 @@
         <v-flex class="article" xs10>
             <h1>1. Recognising the Tonic</h1>
             <h2>Test</h2>
-            <v-banner app elevation="0" id="player" sticky>
-                <Teacher t-type="internalization-test" :preselect="['1P']" fixed/>
-            </v-banner>
             <p>
                 The tonic internalisation test gives you a way to easily tell when
                 you have successfully internalised the sound of the tonic so you can
@@ -26,7 +23,7 @@
                 Establish one note as the tonic</p>
             <p>Just like in the
                 internalisation exercise, a note is established as the tonic using
-                the I - IV - V progression.</p>
+                the <i>I - IV - V - I</i> progression.</p>
             <p><b>Bars 3-6:</b> Pause</p>
             <p>During the
                 following 4 bars, there is a pause. This is where the testing takes
@@ -49,17 +46,23 @@
             </p>
             <h3>How to use the tonic internalisation test</h3>
             <p>
-                Start the player to listen to the internalisation test while you read the instructions.</p>
-
+                Start the player by hitting »Test« below to listen to the internalisation test while you read the instructions.
+            </p>
+            <p>
+                <InlineConfigurator :prog-id="1001" t-type="internalization"
+                                    :config="{degree: '1P'}">
+                    Tonic Internalisation
+                </InlineConfigurator>
+            </p>
             <ol>
                 <li><p><b>Listen to the
-                    I - IV - V Progression:</b> Like with the internalisation exercises (and
-                    all other exercises in the course) just listen to the I - IV - V
+                    <i>I - IV - V - I</i> Progression:</b> Like with the internalisation exercises (and
+                    all other exercises in the course) just listen to the <i>I - IV - V - I</i>
                     progression while it outlines the key.</p>
                 </li>
                 <li><p><b>Listen for
                     the sound of the tonic and hear it clearly in your head:</b> wait until
-                    the I - IV - V progression has been played and you hear the tonic
+                    the <i>I - IV - V - I</i> progression has been played and you hear the tonic
                     chord played again, then see if you can hear internally which note
                     is the tonic. Try to hear it as clearly as you can in your head.</p>
                 </li>
@@ -87,8 +90,9 @@
             <p><br/>
             <p>If you didn't,
                 there's no need to worry. It takes most students at least a
-                few attempts to pass this test. Simply go back to the <router-link to="/tonic-internalization/method">internalisation
-                    exercise</router-link> to solidify your ability to recognise the sound of the tonic
+                few attempts to pass this test. Simply go back to the
+                <router-link to="/tonic-internalization/exercise">internalisation exercise</router-link>
+                to solidify your ability to recognise the sound of the tonic
                 and retry after a few more practice sessions. Make sure you check the
                 troubleshooting section if you have any specific problems.</p>
         </v-flex>
@@ -96,10 +100,15 @@
 </template>
 
 <script>
-    import Teacher from "../components/Teacher";
+    import InlineConfigurator from "../components/InlineConfigurator";
     export default {
         name: "TonicInternalizationTest",
-        components: {Teacher}
+        components: {InlineConfigurator},
+        mounted: function () {
+            if (!this.$teacher.playing) {
+                this.$teacher.setupInternalization("1P", false)
+            }
+        }
     }
 </script>
 

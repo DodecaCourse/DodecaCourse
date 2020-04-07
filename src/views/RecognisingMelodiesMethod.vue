@@ -8,7 +8,7 @@
                 first module. The 2 note melody recognition exercises are just like
                 the individual note recognition exercises from the previous module.</p>
             <p>A
-                I - IV - V progression is played at the start to establish one note
+                <i>I - IV - V</i> progression is played at the start to establish one note
                 as the tonic, and then the exercise begins. Instead of hearing one
                 note at a time, two are played - one straight after the other - then
                 there is a pause of a few seconds, then you're told the scale degrees
@@ -38,12 +38,12 @@
                 previous module:</p>
             <ol>
                 <li><p><b>Listen to the
-                    I - IV - V Progression:</b> Simply listening to the I - IV - V
+                    <i>I - IV - V</i> Progression:</b> Simply listening to the <i>I - IV - V</i>
                     progression will make it clear to your ear which note is the tonic
                     (even if you can't identify which note it is yet). So just sit back
                     and listen.</p></li>
                 <li><p><b>Listen to the
-                    2 note melody played after the I - IV - V Progression:</b> Listen to the
+                    2 note melody played after the <i>I - IV - V</i> Progression:</b> Listen to the
                     2 notes and listen for the way that they each sound and resonate in
                     relation to the tonic chord/pedal.</p></li>
                 <li><p><b>[OPTIONAL] Sing

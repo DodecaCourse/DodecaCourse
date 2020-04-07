@@ -2,7 +2,7 @@
     <v-card
             class="d-inline-flex px-1 align-center justify-center" elevation="5" width="100%"
     >
-        <b class="mr-3 hidden-sm-and-down">Play I-IV-V-I:</b>
+        <b class="mr-3 hidden-sm-and-down">{{ description }}</b>
         <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
             <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
         </v-btn>
@@ -37,10 +37,12 @@
     /* global MIDI */
     import { Note, Midi, Scale } from "@tonaljs/tonal"
     import BasicInput from "./BasicInput";
+    import Vue from "vue";
 
     const INTERNALIZATION = 0;
     const INTERNALIZATION_TEST = 1;
-    const RECOGNITION = 2;
+    const RECOGNITION_SINGLE = 2;
+    const RECOGNITION_SINGLE_TEST = 3;
 
     const CADENCE_MAJOR_I_IV_V = 'major_i_iv_v';
     const CADENCE_MAJOR_I_IV_V_I = 'major_i_iv_v_i';
@@ -48,11 +50,6 @@
     export default {
         name: "Teacher",
         components: {BasicInput},
-        props: {
-            preselect: Array, // which degrees to select on load || <Teacher ... :preselect="['1P', '5P']"/>
-            fixed: Boolean, // fix values of preselect || <Teacher .. :preselect="['1P', '5P']" fixed/>
-            tType: String,
-        },
         data: function() {
             return {
                 playing: false,
@@ -60,23 +57,37 @@
                 loaded: false,
                 tempoBPM: 130,
                 key: "",
-                sinceKeyChange: 0,
-                changeKeyEvery: 1,
+                changeKeyEvery: 1, // set to -1 to never change key
                 timeoutRef: null,
                 progressRef: null,
                 progress: 0,
                 roundDuration: 0,
                 startTime: 0,
                 roundSincePlay: 0,
+                stopAfterRounds: 12, // set to -1 to play endlessly
                 degreesAvailable: [
-                    {text: 'Tonic', value: '1P'},
-                    {text: '2nd', value: '2M'},
-                    {text: 'Maj 3rd', value: '3M'},
-                    {text: '4th', value: '4P'},
-                    {text: '5th', value: '5P'},
-                    {text: 'Maj 6th', value: '6M'},
-                    {text: 'Maj 7th', value: '7M'},
+                    {text: 'Do', value: '1P'},
+                    {text: 'Re', value: '2M'},
+                    {text: 'Mi', value: '3M'},
+                    {text: 'Fa', value: '4P'},
+                    {text: 'So', value: '5P'},
+                    {text: 'La', value: '6M'},
+                    {text: 'Ti', value: '7M'},
                 ],
+                degreeName: {
+                    '1P': 'Do',
+                    '2m': 'Di/Ra',
+                    '2M': 'Re',
+                    '3m': 'Ri/Me',
+                    '3M': 'Mi',
+                    '4P': 'Fa',
+                    '4A': 'Fi/Se',
+                    '5P': 'So',
+                    '6m': 'Si/Le',
+                    '6M': 'La',
+                    '7m': 'Li/Te',
+                    '7M': 'Ti'
+                },
                 chosenDegrees: ["1P", "2M", "3M", "4P", "5P", "6M", "7M"],
                 played: [],
                 cadences: {
@@ -116,10 +127,13 @@
                     ]
                 },
                 cadenceType: CADENCE_MAJOR_I_IV_V,
-
+                type: INTERNALIZATION,
+                description: "Internalisation",
+                fixed: true,
                 // tType specific
                 // Recognition
                 inputDisabled: false,
+                fullCadenceEvery: 8,
                 solution: null,
                 answer: "",
             };
@@ -132,17 +146,11 @@
                 }
                 return this.chosenDegrees;
             },
-            type: function () {
-                // defaults to INTERNALIZATION
-                if (this.tType === "internalization") return INTERNALIZATION;
-                else if (this.tType === "internalization-test") return INTERNALIZATION_TEST;
-                else if (this.tType === "recognition") return RECOGNITION;
-                else return INTERNALIZATION;
-            },
             multiple: function() {
                 if (this.type === INTERNALIZATION) return false;
                 else if (this.type === INTERNALIZATION_TEST) return false;
-                else if (this.type === RECOGNITION) return true;
+                else if (this.type === RECOGNITION_SINGLE) return true;
+                else if (this.type === RECOGNITION_SINGLE_TEST) return true;
                 else return false;
             },
             useInput: function() {
@@ -150,19 +158,17 @@
 
                 if (this.type === INTERNALIZATION) return false;
                 else if (this.type === INTERNALIZATION_TEST) return false;
-                else if (this.type === RECOGNITION) return true;
+                else if (this.type === RECOGNITION_SINGLE) return true;
+                else if (this.type === RECOGNITION_SINGLE_TEST) return true;
                 else return false;
             }
         },
         watch: {
             playing: function (val) {
                 if (val) {
-                    this.roundSincePlay = 0;
-                    this.playRound();
+                    this.doStart();
                 } else {
-                    this.clearTimeouts();
-                    this.progress = 0;
-                    this.stopAllNotes();
+                    this.doStop();
                 }
             }
         },
@@ -199,6 +205,16 @@
                 }
                 return delay + duration * this.quarter;
             },
+            playDrone: function (key, posOff, duration) {
+                const velocity = 110;
+                const notes = this.transposeToKey([0, 7], key, 3);
+                MIDI.setVolume(0, 127);
+                if (this.playing) {
+                    this.chordOn(0, notes, velocity, posOff);
+                    this.chordOff(0, notes, posOff + duration * this.quarter);
+                }
+                return posOff + duration * this.quarter;
+            },
             playDegree: function (key, degree, withResting, posOff, duration, cadence) {
                 /* play degree, optionally with resting chord */
                 const root = key + '3';
@@ -229,8 +245,11 @@
                 this.roundSincePlay++;
                 // update key
                 const chrom = Scale.get("C chromatic").notes; // get list of all twelve notes
-                if (this.key === "" || (++this.sinceKeyChange % this.changeKeyEvery) === 0) {
+                if (this.key === "" ||
+                    (0 < this.changeKeyEvery &&
+                        (this.roundSincePlay - 1) % this.changeKeyEvery === 0)) {
                     // new random key
+                    console.log("Change key");
                     this.sinceKeyChange = 0;
                     this.key = chrom[Math.floor(Math.random() * chrom.length)];
                 }
@@ -252,12 +271,18 @@
                     this.roundDuration = posOff;
                     this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
                 }
-                else if (this.type === RECOGNITION) {
+                else if (this.type === RECOGNITION_SINGLE || this.type === RECOGNITION_SINGLE_TEST) {
                     const degree = this.degrees[Math.floor(Math.random()*this.degrees.length)];     // choose randomly
-                    let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
+                    let posOff = 0;
+                    let cadence = undefined;
+                    if ((this.roundSincePlay - 1) % this.fullCadenceEvery === 0) {
+                        [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
+                    } else {
+                        posOff = this.playDrone(this.key, 0, 4);
+                    }
                     posOff = this.playDegree(this.key, degree, false, posOff, 4, cadence);
 
-                    this.solution = degree;
+                    this.solution = this.degreeName[degree];
                     if (this.useInput) {
                         console.log("USE_INPUT");
                         this.roundDuration = posOff;
@@ -278,11 +303,12 @@
                 this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
             },
             solutionInput: function(input) {
+                // TODO: Multiple possible solutions (e.g. Fi & Se for tritone)
                 if (this.solution === null) {
                     return;
                 }
                 console.log("SOLUTION_INPUT: ",input,this.solution,this.solution === input);
-                if (this.solution === input) {
+                if (this.solution.toLowerCase() === input.toLowerCase()) {
                     this.answer = "Correct: " + this.solution;
                 } else {
                     this.answer = "Wrong! It was " + this.solution;
@@ -293,8 +319,60 @@
             doRepeat: function() {
                 this.stopAllNotes();
                 this.clearTimeouts();
-                this.played = [];
+                if ( 0 < this.stopAfterRounds && this.stopAfterRounds <= this.roundSincePlay) {
+                    this.playing = false;
+                }
                 if (this.playing) this.playRound();
+            },
+            // setup functions for different practice/test scenarios
+            setupInternalization: function(degree, autoplay) {
+                console.log("setupInternalization", degree);
+                this.description = "Internalisation";
+                this.chosenDegrees = [degree];
+                this.type = INTERNALIZATION;
+                this.stopAfterRounds = -1;
+                this.finishSetup(autoplay);
+            },
+            setupInternalizationTest: function(degree, autoplay) {
+                console.log("setupInternalizationTest", degree);
+                this.description = "Internalisation Test";
+                this.chosenDegrees = [degree];
+                this.type = INTERNALIZATION_TEST;
+                this.stopAfterRounds = 12;
+                this.finishSetup(autoplay);
+            },
+            setupRecognitionSingle: function(degrees, autoplay, level) {
+                console.log("setupRecognitionSingle", degrees);
+                this.description = "Recognition";
+                this.chosenDegrees = degrees;
+                this.type = RECOGNITION_SINGLE;
+                this.stopAfterRounds = -1;
+                this.changeKeyEvery = this.fullCadenceEvery;
+                if (level === 1) this.tempoBPM = 100;
+                else if (level === 2) this.tempoBPM = 135;
+                else if (level === 3) this.tempoBPM = 180;
+                this.finishSetup(autoplay);
+            },
+            setupRecognitionSingleTest: function(degrees, autoplay, level) {
+                console.log("setupRecognitionSingleTest", degrees);
+                this.description = "Recognition Test";
+                this.chosenDegrees = degrees;
+                this.type = RECOGNITION_SINGLE_TEST;
+                this.stopAfterRounds = 32;
+                this.changeKeyEvery = this.fullCadenceEvery;
+                if (level === 1) this.tempoBPM = 100;
+                else if (level === 2) this.tempoBPM = 135;
+                else if (level === 3) this.tempoBPM = 180;
+                this.finishSetup(autoplay);
+            },
+            finishSetup: function (autoplay) {
+                if (autoplay || this.playing) {
+                    if (this.playing) {
+                        this.restart();
+                    } else {
+                        this.playing = true;
+                    }
+                }
             },
             updateProgress: function () {
                 if (this.playing) {
@@ -306,6 +384,19 @@
                 } else {
                     this.progress = 0;
                 }
+            },
+            restart: function () {
+                this.doStop();
+                this.doStart();
+            },
+            doStart: function () {
+                this.roundSincePlay = 0;
+                this.playRound();
+            },
+            doStop: function () {
+                this.clearTimeouts();
+                this.progress = 0;
+                this.stopAllNotes();
             },
             stopAllNotes: function () {
                 for (let i=0; i<this.played.length;i++) {
@@ -342,6 +433,10 @@
             }
         },
         created: function initAudio() {
+            if (this.$teacher !== undefined) {
+                this.$teacher.playing = false;
+            }
+            Vue.prototype.$teacher = this;
             var self = this;
             MIDI.loadPlugin({
                 soundfontUrl: "https://gleitz.github.io/midi-js-soundfonts/FluidR3_GM/",
@@ -358,11 +453,6 @@
                 }
             });
         },
-        mounted: function () {
-            if (this.preselect !== undefined) {
-                this.chosenDegrees = this.preselect;
-            }
-        },
         destroyed: function stopAudio() {
             this.clearTimeouts();
             this.stopAllNotes();
@@ -374,8 +464,4 @@
 <style lang="sass">
     .my-progress-circular .v-progress-circular__overlay
         transition: all 0.1s ease-in-out
-
-    #player .v-banner__wrapper
-        padding-bottom: 0
-        padding-top: 0
 </style>
