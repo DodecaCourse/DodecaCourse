@@ -24,8 +24,10 @@ db = TinyDB("db/db.json",
 # DATENBANKSTRUKTUR
 # User(user_id, user_keyword, settings...) (for settings see config)
 users = db.table('users')
-# Takes(↑user_id, ↑section_id, time_spend, finished)
+# Takes(take_id, ↑user_id, ↑level_id, time_spend, finished)
 takes = db.table('takes')
+# Levels(level_id, ↑section_id)
+levels = db.table('levels')
 # Section(section_id, ↑chapter_id, section_name)
 sections = db.table('sections')
 # Chapter(chapter_id, chapter_name)
@@ -117,6 +119,11 @@ def get_all_sections():
     return jsonify(sections.all())
 
 
+@app.route('/getalllevels')
+def get_all_levels():
+    return jsonify(levels.all())
+
+
 @app.route('/getalltakes')
 def get_all_takes():
     return jsonify(takes.all())
@@ -145,6 +152,30 @@ def get_sections_bychapterid(chapter_id):
             'section_name': sect['section_name']
         }
     return jsonify(found_sections)
+
+
+@app.route('/get_levels_bysection_id/<section_id>')
+def get_levels_by_section_id(section_id):
+    if not is_integer_string(section_id):
+        app.logger.warning('QUERY: Found invalid section_id \''
+                           + str(section_id) + '\'. Input integers! ')
+        return jsonify('Found invalid section_id')
+    section_id = int(section_id)
+    found = levels.search(q['section_id'] == section_id)
+    N = len(found)
+    if N == 0:
+        app.logger.warning('QUERY: No levels with section_id=='
+                           + str(section_id) + ' had been found.')
+        return jsonify('no levels in section \'' + str(section_id)
+                       + '\' were found')
+    found_levels = [None] * N
+    for i in range(len(found)):
+        lvl = found[i]
+        found_levels[i] = {
+            'level_id': lvl.eid,
+            'section_id': lvl['section_id']
+        }
+    return jsonify(found_levels)
 
 
 @app.route('/getuser_bykey/<user_key>')
@@ -244,7 +275,7 @@ def get_user_settings(user_id):
 
 
 @app.route('/getsections_byuser_id/<user_id>')
-def get_user_sections(user_id):
+def get_user_levles(user_id):
     if not is_integer_string(user_id):
         app.logger.warning('QUERY: Found invalid user_id \''
                            + str(user_id) + '\'. Input integers! ')
@@ -258,21 +289,21 @@ def get_user_sections(user_id):
     # user_id valid
     foundtakes = takes.search(q['user_id'] == user_id)
     N = len(foundtakes)
-    ret_sections = [{}] * N
+    ret_levels = [{}] * N
     for i in range(N):
         take = foundtakes[i]
-        # TODO: Add error when eid in sections does not exist
+        # TODO: Add error when eid in level does not exist
         # TODO: Add error when take is missing keys
         # Using try except for now
-        sect = sections.get(eid=take['section_id'])
-        ret_sections[i] = {
+        lvl = levels.get(eid=take['level_id'])
+        ret_levels[i] = {
             'take_id': take.eid,
-            'section_id': sect.eid,
-            'section_name': sect['section_name'],
+            'section_id': lvl.eid,
+            'section_name': lvl['section_name'],
             'time_spend': take['time_spend'],
             'finished': take['finished']
         }
-    return jsonify(ret_sections)
+    return jsonify(ret_levels)
 
 
 @app.route('/random')
