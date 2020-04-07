@@ -16,6 +16,8 @@
 </template>
 
 <script>
+    import structure from "../../public/structure.json"
+
     const INTERNALIZATION = 0;
     const RECOGNITION_SINGLE = 1;
 
@@ -45,22 +47,16 @@
             }
         },
         computed: {
+            target: function () {
+                for (let i=0;i<structure.targets.length;i++)
+                    if (structure.targets[i].id === this.progId) return structure.targets[i];
+                return undefined;
+            },
             type: function () {
                 // defaults to INTERNALIZATION
                 if (this.tType === "internalization") return INTERNALIZATION;
                 else if (this.tType === "recognition-single") return RECOGNITION_SINGLE;
                 else return INTERNALIZATION;
-            },
-            target: function () {
-                if (this.$structureJSON === undefined) {
-                    // structure not yet loaded -> return default
-                    return {
-                        levels: 1,
-                        title: 'None',
-                        id: -1
-                    }
-                }
-                return this.$structureJSON.targetId[this.progId];
             },
             levels: function () {
                 return this.target.levels;

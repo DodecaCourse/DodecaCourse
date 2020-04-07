@@ -9,7 +9,7 @@
 
 <script>
     import CourseItem from "./CourseItem";
-    import Vue from "vue";
+    import structure from "../../public/structure.json";
 
     export default {
         name: `Courses`,
@@ -27,23 +27,9 @@
         },
         computed: {
             courses: function () {
-                return this.structure["modules"];
+                return structure["modules"];
             }
         },
-        beforeCreate: function () {
-            fetch("/structure.json")
-                .then(r => r.json())
-                .then(json => {
-                    const targetId = {};
-                    for (let i=0; i<json.targets.length;i++) {
-                        targetId[json.targets[i].id] = json.targets[i];
-                    }
-                    json.targetId = targetId;
-                    Vue.prototype.$structureJSON = json;
-                    this.structure = json;
-
-                });
-        }
     }
 </script>
 
