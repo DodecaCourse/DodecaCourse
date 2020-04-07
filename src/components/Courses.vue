@@ -8,31 +8,29 @@
 
 
 <script>
-    import CourseItem from "./CourseItem";
-    import structure from "../../public/structure.json";
+  import CourseItem from "./CourseItem";
+  import structure from "../../public/structure.json";
 
-    export default {
-        name: `Courses`,
-        components: {
-            CourseItem
-        },
-        props: ['curCourse'],
-        data: function () {
-            return {
-                structure: {
-                    "modules": [],
-                    "targets": []
-                }
-            }
-        },
-        computed: {
-            courses: function () {
-                return structure["modules"];
-            }
-        },
-    }
+  export default {
+      name: `Courses`,
+      components: {
+          CourseItem
+      },
+      props: ['curCourse'],
+      data: function () {
+          return {
+              structure: {
+                  "modules": [],
+                  "targets": []
+              }
+          }
+      },
+      computed: {
+          courses: function () {
+              return structure["modules"];
+          }
+      },
   }
-}
 </script>
 
 <style scoped>
