@@ -14,6 +14,8 @@ import re
 # files
 import config
 
+# ø Datenbank laden
+# TODO
 
 # ø Konfiguration
 
@@ -24,14 +26,14 @@ db = TinyDB("db/db.json",
 # DATENBANKSTRUKTUR
 # User(user_id, user_keyword, settings...) (for settings see config)
 users = db.table('users')
-# Takes(take_id, ↑user_id, ↑level_id, time_spend, finished)
+# Takes(take_id, ↑user_id, ↑target_id, time_spend, finished)
 takes = db.table('takes')
-# Levels(level_id, ↑section_id)
-levels = db.table('levels')
-# Section(section_id, ↑chapter_id, section_name)
-sections = db.table('sections')
-# Chapter(chapter_id, chapter_name)
+# targets(target_id, ↑chapter_id)
+targets = db.table('targets')
+# chapter(chapter_id, ↑module_id, chapter_name)
 chapters = db.table('chapters')
+# module(module_id, module_name)
+modules = db.table('modules')
 
 # → Query starten
 # TODO: Sollte man hier jedes mal die Query neu initialisieren oder oben
@@ -109,19 +111,19 @@ def get_all_users():
     return jsonify(users.all())
 
 
+@app.route('/getallmodules')
+def get_all_modules():
+    return jsonify(modules.all())
+
+
 @app.route('/getallchapters')
 def get_all_chapters():
     return jsonify(chapters.all())
 
 
-@app.route('/getallsections')
-def get_all_sections():
-    return jsonify(sections.all())
-
-
-@app.route('/getalllevels')
-def get_all_levels():
-    return jsonify(levels.all())
+@app.route('/getalltargets')
+def get_all_targets():
+    return jsonify(targets.all())
 
 
 @app.route('/getalltakes')
@@ -129,53 +131,53 @@ def get_all_takes():
     return jsonify(takes.all())
 
 
-@app.route('/getsections_bychapter_id/<chapter_id>')
-def get_sections_bychapterid(chapter_id):
-    if not bool(re.match("-?\\d+", chapter_id)):
+@app.route('/getchapters_bymodule_id/<module_id>')
+def get_chapters_bymoduleid(module_id):
+    if not bool(re.match("-?\\d+", module_id)):
+        app.logger.warning('QUERY: Found invalid module_id \''
+                           + str(module_id) + '\'. Input integers! ')
+        return jsonify('Found invalid module_id')
+    module_id = int(module_id)
+    found = chapters.search(q['module_id'] == module_id)
+    N = len(found)
+    if N == 0:
+        app.logger.warning('QUERY: No chapters with module_id=='
+                           + str(module_id) + ' had been found.')
+        return jsonify('no chapter in module \'' + str(module_id)
+                       + '\' were found')
+    found_chapters = [None] * N
+    for i in range(len(found)):
+        sect = found[i]
+        found_chapters[i] = {
+            'chapter_id': sect.eid,
+            'module_id': sect['module_id'],
+            'chapter_name': sect['chapter_name']
+        }
+    return jsonify(found_chapters)
+
+
+@app.route('/get_targets_bychapter_id/<chapter_id>')
+def get_targets_by_chapter_id(chapter_id):
+    if not is_integer_string(chapter_id):
         app.logger.warning('QUERY: Found invalid chapter_id \''
                            + str(chapter_id) + '\'. Input integers! ')
         return jsonify('Found invalid chapter_id')
     chapter_id = int(chapter_id)
-    found = sections.search(q['chapter_id'] == chapter_id)
+    found = targets.search(q['chapter_id'] == chapter_id)
     N = len(found)
     if N == 0:
-        app.logger.warning('QUERY: No sections with chapter_id=='
+        app.logger.warning('QUERY: No targets with chapter_id=='
                            + str(chapter_id) + ' had been found.')
-        return jsonify('no section in chapter \'' + str(chapter_id)
+        return jsonify('no targets in chapter \'' + str(chapter_id)
                        + '\' were found')
-    found_sections = [None] * N
-    for i in range(len(found)):
-        sect = found[i]
-        found_sections[i] = {
-            'section_id': sect.eid,
-            'chapter_id': sect['chapter_id'],
-            'section_name': sect['section_name']
-        }
-    return jsonify(found_sections)
-
-
-@app.route('/get_levels_bysection_id/<section_id>')
-def get_levels_by_section_id(section_id):
-    if not is_integer_string(section_id):
-        app.logger.warning('QUERY: Found invalid section_id \''
-                           + str(section_id) + '\'. Input integers! ')
-        return jsonify('Found invalid section_id')
-    section_id = int(section_id)
-    found = levels.search(q['section_id'] == section_id)
-    N = len(found)
-    if N == 0:
-        app.logger.warning('QUERY: No levels with section_id=='
-                           + str(section_id) + ' had been found.')
-        return jsonify('no levels in section \'' + str(section_id)
-                       + '\' were found')
-    found_levels = [None] * N
+    found_targets = [None] * N
     for i in range(len(found)):
         lvl = found[i]
-        found_levels[i] = {
-            'level_id': lvl.eid,
-            'section_id': lvl['section_id']
+        found_targets[i] = {
+            'target_id': lvl.eid,
+            'chapter_id': lvl['chapter_id']
         }
-    return jsonify(found_levels)
+    return jsonify(found_targets)
 
 
 @app.route('/getuser_bykey/<user_key>')
@@ -195,8 +197,8 @@ def get_user_by_key(user_key):
     })
 
 
-@app.route('/takesection/<user_id>/<section_id>/<time_spend>')
-def take_section(user_id, section_id, time_spend):
+@app.route('/takechapter/<user_id>/<chapter_id>/<time_spend>')
+def take_chapter(user_id, chapter_id, time_spend):
     # Check if all arguments are valid first
     # → user_id
     # TODO: Same wie oben(get_user_by_key), vllt in Methode packen
@@ -211,17 +213,17 @@ def take_section(user_id, section_id, time_spend):
                            + " found. User does not exist.")
         return jsonify("Found invalid user_id " + str(user_id) + " found."
                        " User does not exist.")
-    # → section_id
-    if not is_integer_string(section_id):
-        app.logger.warning('QUERY: Found invalid section_id \''
-                           + str(section_id) + '\'. Input integers! ')
-        return jsonify('Found invalid section_id')
-    section_id = int(section_id)
-    if not users.contains(eids=[section_id]):
-        app.logger.warning("QUERY: Found invalid section_id " + str(section_id)
-                           + " found. Section does not exist.")
-        return jsonify("Found invalid section_id " + str(user_id) + " found."
-                       " Section does not exist.")
+    # → chapter_id
+    if not is_integer_string(chapter_id):
+        app.logger.warning('QUERY: Found invalid chapter_id \''
+                           + str(chapter_id) + '\'. Input integers! ')
+        return jsonify('Found invalid chapter_id')
+    chapter_id = int(chapter_id)
+    if not users.contains(eids=[chapter_id]):
+        app.logger.warning("QUERY: Found invalid chapter_id " + str(chapter_id)
+                           + " found. chapter does not exist.")
+        return jsonify("Found invalid chapter_id " + str(user_id) + " found."
+                       " chapter does not exist.")
     # → time_spend
     if not is_integer_string(time_spend):
         app.logger.warning('QUERY: Found invalid time_spend \''
@@ -230,22 +232,22 @@ def take_section(user_id, section_id, time_spend):
     # Magic starts here
     # check if entry already exists
     found = takes.search((q['user_id'] == user_id)
-                         & (q['section_id'] == section_id))
+                         & (q['chapter_id'] == chapter_id))
     if len(found) == 0:
         with transaction(takes) as tr:
             tr.insert({
                 'user_id': user_id,
-                'section_id': section_id,
+                'chapter_id': chapter_id,
                 'time_spend': time_spend
             })
     else:
         if len(found) > 1:
             app.logger.warning('QUERY: Multiple takes entries with same'
-                               ' section_id and user_id have been found.'
+                               ' chapter_id and user_id have been found.'
                                ' Updating first found instance')
         found[0]['time_spend'] = time_spend
-    return jsonify("User \'" + str(user_id) + "\' succesfully took section \'"
-                   + str(section_id) + "\'")
+    return jsonify("User \'" + str(user_id) + "\' succesfully took chapter \'"
+                   + str(chapter_id) + "\'")
 
 
 @app.route('/getsettings/<user_id>')
@@ -274,7 +276,7 @@ def get_user_settings(user_id):
     return jsonify(returned_settings)
 
 
-@app.route('/getsections_byuser_id/<user_id>')
+@app.route('/getchapters_byuser_id/<user_id>')
 def get_user_levles(user_id):
     if not is_integer_string(user_id):
         app.logger.warning('QUERY: Found invalid user_id \''
@@ -289,21 +291,21 @@ def get_user_levles(user_id):
     # user_id valid
     foundtakes = takes.search(q['user_id'] == user_id)
     N = len(foundtakes)
-    ret_levels = [{}] * N
+    ret_targets = [{}] * N
     for i in range(N):
         take = foundtakes[i]
-        # TODO: Add error when eid in level does not exist
+        # TODO: Add error when eid in target does not exist
         # TODO: Add error when take is missing keys
         # Using try except for now
-        lvl = levels.get(eid=take['level_id'])
-        ret_levels[i] = {
+        lvl = targets.get(eid=take['target_id'])
+        ret_targets[i] = {
             'take_id': take.eid,
-            'section_id': lvl.eid,
-            'section_name': lvl['section_name'],
+            'chapter_id': lvl.eid,
+            'chapter_name': lvl['chapter_name'],
             'time_spend': take['time_spend'],
             'finished': take['finished']
         }
-    return jsonify(ret_levels)
+    return jsonify(ret_targets)
 
 
 @app.route('/random')
@@ -317,7 +319,6 @@ def rand():
     response = {
         'rand': randint(1, 100)
     }
-    print(response)
     return jsonify(response)
 
 

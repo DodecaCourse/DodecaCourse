@@ -30,16 +30,16 @@
     <br>
     <br>
     <p><b>allusers:</b> {{allusers}} </p>
+    <p><b>allmodules:</b> {{allmodules}} </p>
     <p><b>allchapters:</b> {{allchapters}} </p>
-    <p><b>allsections:</b> {{allsections}} </p>
     <p><b>alltakes:</b> {{alltakes}} </p>
-    <p><b>sections1:</b> {{sections1}} </p>
+    <p><b>chapters1:</b> {{chapters1}} </p>
     <p><b>settings1:</b> {{settings1}} </p>
     <p><b>random:</b> {{random}} </p>
     <v-text-field name="search" v-model="search" label="search.." @input="updateSearch" solo></v-text-field>
     <p><b>founduser:</b> {{founduser}} </p>
     <p><b>foundsettings:</b> {{foundsettings}} </p>
-    <p><b>foundsections:</b> {{foundsections}} </p>
+    <p><b>foundchapters:</b> {{foundchapters}} </p>
     <!-- <p v-for="user in allusers" :key="user">
       <b>{{user.user_keyword}}</b>
     </p> -->
@@ -59,13 +59,13 @@
         flask_server: 'http://localhost:5000/',
         connection: true,
         allusers: 'no users found',
+        allmodules: 'no modules found',
         allchapters: 'no chapters found',
-        allsections: 'no sections found',
         alltakes: 'no takes found',
-        sections1: 'no sections found',
+        chapters1: 'no chapters found',
         founduser: 'not found',
         foundsettings: 'no settings found',
-        foundsections: 'no sections found',
+        foundchapters: 'no chapters found',
         settings1: 'no settings found',
         search: '',
         random: 0,
@@ -95,11 +95,11 @@
       getAllUsers() {
         return this.fetch('getallusers');
       },
-      getAllChapters() {
-        return this.fetch('getallchapters');
+      getAllmodules() {
+        return this.fetch('getallmodules');
       },
-      getAllSections() {
-        return this.fetch('getallsections');
+      getAllchapters() {
+        return this.fetch('getallchapters');
       },
       getAllTakes() {
         return this.fetch('getalltakes');
@@ -107,11 +107,11 @@
       getRandom() {
         return this.fetch('random');
       },
-      getSectionsOfChapter(chapter_id) {
-        return this.fetch('getsections_bychapter_id/' + chapter_id);
+      getchaptersOfmodule(module_id) {
+        return this.fetch('getchapters_bymodule_id/' + module_id);
       },
-      getSections(user_id){
-        return this.fetch('getsections_byuser_id/' + user_id);
+      getchapters(user_id){
+        return this.fetch('getchapters_byuser_id/' + user_id);
       },
       updateSearch() {
         if (this.search.trim().length > 2) {
@@ -121,11 +121,11 @@
               if (!(this.founduser.user_id == null)) {
                 this.getSettings(this.founduser.user_id)
                   .then(data => (this.foundsettings = data));
-                this.getSections(this.founduser.user_id)
-                  .then(data => (this.foundsections = data));
+                this.getchapters(this.founduser.user_id)
+                  .then(data => (this.foundchapters = data));
               } else {
                 this.foundsettings = "";
-                this.foundsections = "";
+                this.foundchapters = "";
               }
             });
         }
@@ -145,18 +145,18 @@
       // Testing random functionality
       this.getRandom()
         .then(data => (this.random = data.rand))
-      // Testing allChapters
-      this.getAllChapters()
+      // Testing allmodules
+      this.getAllmodules()
+        .then(data => (this.allmodules = data))
+      // Testing allchapters
+      this.getAllchapters()
         .then(data => (this.allchapters = data))
-      // Testing allSections
-      this.getAllSections()
-        .then(data => (this.allsections = data))
-      // Testing allSections
+      // Testing allchapters
       this.getAllTakes()
         .then(data => (this.alltakes = data))
-      // Testing getSectionsofChapter for chapter_id 1
-      this.getSectionsOfChapter('1')
-        .then(data => (this.sections1 = data))
+      // Testing getchaptersofmodule for module_id 1
+      this.getchaptersOfmodule('1')
+        .then(data => (this.chapters1 = data))
       // Testing getSettings for user_id test
       this.getSettings('1')
         .then(data => (this.settings1 = data))
