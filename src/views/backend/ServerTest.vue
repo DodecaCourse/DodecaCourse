@@ -43,6 +43,9 @@
     <!-- <p v-for="user in allusers" :key="user">
       <b>{{user.user_keyword}}</b>
     </p> -->
+    <v-text-field name="cookie" v-model="cookie" label="set current user.." @input="updateCurrentUser" solo></v-text-field>
+    <v-btn type="submit" rounded @click="setCurrentUserToTextfield" color="secondary" dark>Set Current User</v-btn>
+    <p><b>currentuser:</b> {{currentuser}} </p>
   </div>
 
 </template>
@@ -58,6 +61,7 @@
         debug: true,
         flask_server: 'http://localhost:5000/',
         connection: true,
+        currentuser: 'no current user',
         allusers: 'no users found',
         allmodules: 'no modules found',
         allchapters: 'no chapters found',
@@ -68,6 +72,7 @@
         foundchapters: 'no chapters found',
         settings1: 'no settings found',
         search: '',
+        cookie: '',
         random: 0,
         tmp: 'no'
       }
@@ -113,6 +118,13 @@
       getchapters(user_id){
         return this.fetch('getchapters_byuser_id/' + user_id);
       },
+      updateCurrentUser(){
+        this.fetch('getcurrentuser')
+          .then(usr => this.currentuser = usr);
+      },
+      setCurrentUserToTextfield(){
+        this.fetch('setcurrentuser/' + this.cookie);
+      },
       updateSearch() {
         if (this.search.trim().length > 2) {
           this.getUserID(this.search.trim())
@@ -138,28 +150,30 @@
     created() {
       // Testing getUserID for user_keyword test
       this.getUserID('test')
-        .then(data => (this.founduser = data))
+        .then(data => (this.founduser = data));
       // Testing allUsers
       this.getAllUsers()
-        .then(data => (this.allusers = data))
+        .then(data => (this.allusers = data));
       // Testing random functionality
       this.getRandom()
-        .then(data => (this.random = data.rand))
+        .then(data => (this.random = data.rand));
       // Testing allmodules
       this.getAllmodules()
-        .then(data => (this.allmodules = data))
+        .then(data => (this.allmodules = data));
       // Testing allchapters
       this.getAllchapters()
-        .then(data => (this.allchapters = data))
+        .then(data => (this.allchapters = data));
       // Testing allchapters
       this.getAllTakes()
-        .then(data => (this.alltakes = data))
+        .then(data => (this.alltakes = data));
       // Testing getchaptersofmodule for module_id 1
       this.getchaptersOfmodule('1')
-        .then(data => (this.chapters1 = data))
+        .then(data => (this.chapters1 = data));
       // Testing getSettings for user_id test
       this.getSettings('1')
-        .then(data => (this.settings1 = data))
+        .then(data => (this.settings1 = data));
+        
+      this.updateCurrentUser();
     }
   }
 

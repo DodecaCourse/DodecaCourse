@@ -1,5 +1,5 @@
 # dependencies: tinyDB flask flask-cors tinyrecord
-from flask import Flask, jsonify, request, redirect
+from flask import Flask, jsonify, request, redirect, make_response
 from flask_cors import CORS
 
 from tinydb import TinyDB, Query
@@ -61,6 +61,8 @@ def is_integer_string(string):
 
 
 # ø App Routes
+
+#   * Datenbank Stuff
 
 @app.route('/adduser', methods=['POST'])
 def adduser():
@@ -306,6 +308,41 @@ def get_user_levles(user_id):
             'finished': take['finished']
         }
     return jsonify(ret_targets)
+
+#   * Cookie Stuff
+
+
+@app.route('/setcurrentuser/<user_keyword>')
+def set_current_user(user_keyword):
+    ret = jsonify("Success on setcurrentuser to " + str(user_keyword))
+    resp = make_response(ret)
+    resp.set_cookie('user_keyword', value=user_keyword, domain='127.0.0.1')
+    print("Set cookie user_keyword to \'" + user_keyword + "\'")
+    # user_id = get_user_by_key(user_keyword)['user_id']
+    # resp.set_cookie('user_id', user_id)
+    return resp
+
+
+@app.route('/getcurrentuser')
+def get_current_user():
+    user_key = request.cookies.get('user_keyword')
+    if user_key is None:
+        return jsonify("no current user set")
+    return jsonify(user_key)
+
+
+# @app.route('/getcurrentuser_withid')
+# def get_current_user_with_id():
+#     user_key = request.cookies.get('user_keyword')
+#     if user_key is None:
+#         return jsonify("no current user set")
+#     user = {
+#         'user_keyword': user_key,
+#         'user_id': request.cookies.get('user_id')
+#     }
+#     return jsonify(user)
+
+#   * Extra Testing Stuff
 
 
 @app.route('/random')
