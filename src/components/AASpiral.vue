@@ -70,27 +70,44 @@
         </v-card>
       </v-col>
     </v-row>
+    <!--:class="'normal-btn normal-btn--' + (i.halfsteps + 1)"-->
+    <v-row align="start" justify="start">
+      <v-col align="center">
+        <div class="div-spiral">
+          <v-btn v-for="i in this.intervals" v-bind:key="i"
+            :class="'normal-btn normal-btn--' + (i.halfsteps + 1)"
+            :color="isEnabled(i.halfsteps) ? 'primary' : 'secondary'"
+            :disabled="!isEnabled(i.halfsteps)"
+            x-small
+            fab
+            elevation="1"
+            v-on:click="noteBt(i)"
+            >{{ i.name }}</v-btn
+          >
+        </div>
 
-    <v-row>
-      <v-col>
-        <v-card
-          class="d-inline-flex px-1 align-center justify-center"
-          elevation="5"
-          width="100%"
+        <!--
+        <v-btn
+          :color="isEnabled(intervals[0].halfsteps) ? 'primary' : 'secondary'"
+          :class="'normal btn normal-btn--' + (intervals[0].halfsteps + 1)"
+          :disabled="!isEnabled(intervals[0].halfsteps)"
+          small
+          fab
+          elevation="1"
+          v-on:click="noteBt(intervals[0])"
+          >{{ intervals[0].name }}</v-btn
         >
-          <div v-for="i in this.intervals" v-bind:key="i">
-            <v-btn
-              class="normal-btn"
-              :color="isEnabled(i.halfsteps) ? 'primary' : 'secondary'"
-              :disabled="!isEnabled(i.halfsteps)"
-              small
-              fab
-              elevation="1"
-              v-on:click="noteBt(i)"
-              >{{ i.name }}</v-btn
-            >
-          </div>
-        </v-card>
+        <v-btn
+          :color="isEnabled(intervals[1].halfsteps) ? 'primary' : 'secondary'"
+          :class="'normal btn normal-btn--' + (intervals[1].halfsteps + 1)"
+          :disabled="!isEnabled(intervals[1].halfsteps)"
+          small
+          fab
+          elevation="1"
+          v-on:click="noteBt(intervals[1])"
+          >{{ intervals[1].name }}</v-btn
+        >
+        -->
       </v-col>
     </v-row>
   </v-container>
@@ -147,8 +164,7 @@ export default {
         { halfsteps: 8, name: "6m" },
         { halfsteps: 9, name: "6M" },
         { halfsteps: 10, name: "7m" },
-        { halfsteps: 11, name: "7M" },
-        { halfsteps: 12, name: "8P" }
+        { halfsteps: 11, name: "7M" }
       ],
 
       bases: ["C", "D", "E", "F", "G", "A", "B"],
@@ -165,7 +181,6 @@ export default {
         false,
         true,
         false,
-        true,
         true
       ]
     };
@@ -213,8 +228,29 @@ export default {
 };
 </script>
 
-<style scoped>
-.normal-btn {
-  text-transform: none !important;
-}
+<style scoped lang="sass">
+    @use "sass:math"
+    @use "sass:list"
+
+    $radius: 60
+    $centerX: 70
+    $centerY: 70
+
+    $sin: 0, 0.5, 0.866, 1, 0.866, 0.5, 0, -0.5, -0.866, -1, -0.866, -0.5
+    $cos: 1, 0.866, 0.5, 0, -0.5, -0.866, -1, -0.866, -0.5, 0, 0.5, 0.866
+
+    $indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+
+    @each $i in $indices
+      .normal-btn--#{$i}
+        left: math.floor(nth($sin, $i) * $radius + $centerX) * 1px
+        top: math.floor(-1 * nth($cos, $i) * $radius + $centerY) * 1px
+
+
+.normal-btn
+  text-transform: none !important
+  position: absolute
+
+.div-spiral
+  position: relative
 </style>
