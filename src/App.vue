@@ -8,7 +8,7 @@
             <v-list dense>
                 <v-list-item to="/" link>
                     <v-list-item-action>
-                        <v-icon>mdi-view-dashboard</v-icon>
+                        <v-icon>mdi-book-music</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
                         <v-list-item-title>Introduction</v-list-item-title>
@@ -27,11 +27,14 @@
         </v-navigation-drawer>
 
         <v-app-bar
+                flat
                 app
                 clipped-left
+                dense
+                :hide-on-scroll="$vuetify.breakpoint.xs"
         >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-            <v-toolbar-title>FETT</v-toolbar-title>
+            <v-toolbar-title><b>FETT</b></v-toolbar-title>
         </v-app-bar>
 
         <v-content>
