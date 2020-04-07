@@ -34,8 +34,14 @@
             fetch("/structure.json")
                 .then(r => r.json())
                 .then(json => {
+                    const targetId = {};
+                    for (let i=0; i<json.targets.length;i++) {
+                        targetId[json.targets[i].id] = json.targets[i];
+                    }
+                    json.targetId = targetId;
                     Vue.prototype.$structureJSON = json;
                     this.structure = json;
+
                 });
         }
     }

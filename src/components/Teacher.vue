@@ -341,22 +341,32 @@
                 this.stopAfterRounds = 12;
                 this.finishSetup(autoplay);
             },
-            setupRecognitionSingle: function(degrees, autoplay) {
+            setupRecognitionSingle: function(degrees, autoplay, level) {
                 console.log("setupRecognitionSingle", degrees);
                 this.description = "Recognition";
                 this.chosenDegrees = degrees;
                 this.type = RECOGNITION_SINGLE;
                 this.stopAfterRounds = -1;
                 this.changeKeyEvery = this.fullCadenceEvery;
+                if (level === 1) this.tempoBPM = 100;
+                else if (level === 2) this.tempoBPM = 130;
+                else if (level === 3) this.tempoBPM = 160;
+                else if (level === 4) this.tempoBPM = 180;
+                else if (level === 5) this.tempoBPM = 200;
                 this.finishSetup(autoplay);
             },
-            setupRecognitionSingleTest: function(degrees, autoplay) {
+            setupRecognitionSingleTest: function(degrees, autoplay, level) {
                 console.log("setupRecognitionSingleTest", degrees);
                 this.description = "Recognition Test";
                 this.chosenDegrees = degrees;
                 this.type = RECOGNITION_SINGLE_TEST;
                 this.stopAfterRounds = 32;
                 this.changeKeyEvery = this.fullCadenceEvery;
+                if (level === 1) this.tempoBPM = 100;
+                else if (level === 2) this.tempoBPM = 130;
+                else if (level === 3) this.tempoBPM = 160;
+                else if (level === 4) this.tempoBPM = 180;
+                else if (level === 5) this.tempoBPM = 200;
                 this.finishSetup(autoplay);
             },
             finishSetup: function (autoplay) {
