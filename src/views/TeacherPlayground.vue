@@ -22,7 +22,7 @@
                     Major Scale Recognition
                 </InlineConfigurator>
             </p>
-            <p>Spiral Test</p>
+            <p>DegreeCircle Test</p>
             <AASpiral></AASpiral>
         </v-flex>
     </v-layout>
@@ -31,7 +31,7 @@
 
 <script>
     import InlineConfigurator from "../components/InlineConfigurator";
-    import AASpiral from "../components/AASpiral";
+    import AASpiral from "../components/DegreeCircle";
     export default {
         name: "TeacherPlayground",
         components: {AASpiral, InlineConfigurator}
