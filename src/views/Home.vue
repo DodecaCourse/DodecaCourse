@@ -1,25 +1,11 @@
 <template>
   <v-layout align-center justify-center row>
     <v-flex class="article" xs10>
-      <h1>Functional Ear Training</h1>
-      <h2>The Skill You’ll Learn And The Approach You’ll Use</h2>
-      <p>When you first picked up your instrument I’m sure you wanted to jump right in and start playing
-        your favourite tunes. Then you discovered that it’s impossible to play those tunes until you’ve
-        learned the notes and developed a little bit of technique.</p>
-      <p>
-        Ear training is just the same. You might want to jump straight into it so you can begin the
-        wonderful transformation that awaits you (and I want you to as well!) but there are a couple of
-        things you need to understand first, so getting started is nice and easy (and not frustrating!).
-        Fortunately, it will only take a few minutes to learn everything you need to so you can dive in and
-        we’ll cover it all in this short introduction.
-      </p>
-      <p>
-        You’re about to learn about the specific skill you’ll develop with ETHQ’s materials (called relative
-        pitch) and the approach you’ll use to develop it (called tonality based ear training). Even if you’re
-        an old hand when it comes to ear training I recommend you give it a quick read as you’ll learn
-        why using a tonality based approach to develop relative pitch is absolutely essential if you want
-        to experience great results with ear training.
-      </p>
+      <h1>{{$t('title')}}</h1>
+      <h2>{{$t('h1')}}</h2>
+      <p>{{$t('p1')}}</p>
+      <p>{{$t('p2')}}</p>
+      <p>{{$t('p3')}}</p>
       <h3>What is relative pitch?</h3>
       <p>
         For those new to ear training relative pitch can appear a little counterintuitive.
@@ -111,3 +97,24 @@
     },
   }
 </script>
+
+
+<i18n>
+  {
+    "en": {
+      "title": "Functional Ear Training",
+      "h1": "The Skill You’ll Learn And The Approach You’ll Use",
+      "p1": "When you first picked up your instrument I’m sure you wanted to jump right in and start playing your favourite tunes. Then you discovered that it’s impossible to play those tunes until you’ve learned the notes and developed a little bit of technique.",
+      "p2": "Ear training is just the same. You might want to jump straight into it so you can begin the wonderful transformation that awaits you (and I want you to as well!) but there are a couple of things you need to understand first, so getting started is nice and easy (and not frustrating!). Fortunately, it will only take a few minutes to learn everything you need to so you can dive in and we’ll cover it all in this short introduction.",
+      "p3": "You’re about to learn about the specific skill you’ll develop with ETHQ’s materials (called relative pitch) and the approach you’ll use to develop it (called tonality based ear training). Even if you’re an old hand when it comes to ear training I recommend you give it a quick read as you’ll learn why using a tonality based approach to develop relative pitch is absolutely essential if you want to experience great results with ear training."
+
+    },
+    "de": {
+      "title": "Funktionale Gehörbildung",
+      "h1": "Die Fähigkeit die du erlangen wirst und der Weg dahin",
+      "p1": "Als du dein Instrument zum ersten Mal in die Hand genommen hast, wolltest du sicher sofort anfangen, deine Lieblingsmusik zu spielen. Dann hast du entdeckt, dass es unmöglich ist, diese Melodien zu spielen, bevor du die Noten gelernt und ein wenig Technik entwickelt hast.",
+      "p2": "Das Gehörtraining ist genau so. Vielleicht möchtest du dich direkt hineinstürzen, damit du die wunderbare Transformation beginnen kannst, die dich erwartet (und ich möchte, dass du das auch tust!), aber es gibt ein paar Dinge, die du zuerst verstehen musst, so dass der Einstieg schön einfach ist (und nicht frustrierend!). Glücklicherweise dauert es nur wenige Minuten, um alles zu lernen, was du brauchst, damit du eintauchen kannst, und wir werden in dieser kurzen Einführung auf alles eingehen.",
+      "p3": "Du wirst gleich die spezifischen Fähigkeiten kennenlernen, die du mit den Materialien der ETHQ entwickeln wirst (genannt relative Tonhöhe) und den Ansatz, den du zu deiner Entwicklung verwenden wirst (genannt tonalitätsbasiertes Gehörtraining). Auch wenn du ein alter Hase in Sachen Gehörbildung bist, empfehle ich dir eine kurze Lektüre, da du lernen wirst, warum die Verwendung eines tonalitätsbasierten Ansatzes zur Entwicklung der relativen Tonhöhe absolut notwendig ist, wenn du mit der Gehörbildung großartige Ergebnisse erzielen willst."
+    }
+  }
+</i18n>
