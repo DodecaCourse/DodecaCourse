@@ -349,10 +349,8 @@
                 this.stopAfterRounds = -1;
                 this.changeKeyEvery = this.fullCadenceEvery;
                 if (level === 1) this.tempoBPM = 100;
-                else if (level === 2) this.tempoBPM = 130;
-                else if (level === 3) this.tempoBPM = 160;
-                else if (level === 4) this.tempoBPM = 180;
-                else if (level === 5) this.tempoBPM = 200;
+                else if (level === 2) this.tempoBPM = 135;
+                else if (level === 3) this.tempoBPM = 180;
                 this.finishSetup(autoplay);
             },
             setupRecognitionSingleTest: function(degrees, autoplay, level) {
@@ -363,10 +361,8 @@
                 this.stopAfterRounds = 32;
                 this.changeKeyEvery = this.fullCadenceEvery;
                 if (level === 1) this.tempoBPM = 100;
-                else if (level === 2) this.tempoBPM = 130;
-                else if (level === 3) this.tempoBPM = 160;
-                else if (level === 4) this.tempoBPM = 180;
-                else if (level === 5) this.tempoBPM = 200;
+                else if (level === 2) this.tempoBPM = 135;
+                else if (level === 3) this.tempoBPM = 180;
                 this.finishSetup(autoplay);
             },
             finishSetup: function (autoplay) {

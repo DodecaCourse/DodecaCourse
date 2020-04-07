@@ -135,12 +135,12 @@
     {
       "id": 3001,
       "title": "Pentatonic Recognition",
-      "levels": 5
+      "levels": 3
     },
     {
       "id": 3002,
       "title": "Major Scale Internalisation",
-      "levels": 5
+      "levels": 3
     }
   ]
 }
