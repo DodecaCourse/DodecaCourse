@@ -6,7 +6,7 @@
             <h3>Exercise Description</h3>
             <p>
                 In this module there is an internalisation exercise for each scale
-                degree. The scale degree that an internalisation exercise focuses on
+                degree (see <router-link to="#targets">below</router-link>). The scale degree that an internalisation exercise focuses on
                 is called the target scale degree of the exercise.</p>
             <p>These exercises
                 are just like the internalisation exercise from the first module. A
@@ -169,6 +169,7 @@
                 Start with the scale degrees of the pentatonic scale. You already learned the sound
                 of »Do«, now continue with »Re«, »Mi«, »So« and »La«.
             </p>
+            <h3 id="targets">Practice & Test</h3><br />
             <p>
                 <InlineConfigurator :prog-id="2001" t-type="internalization"
                 :config="{degree: '2M'}">
