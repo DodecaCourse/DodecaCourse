@@ -223,7 +223,6 @@
                     (0 < this.changeKeyEvery &&
                         (this.roundSincePlay - 1) % this.changeKeyEvery === 0)) {
                     // new random key
-                    console.log("Change key");
                     this.sinceKeyChange = 0;
                     this.key = chrom[Math.floor(Math.random() * chrom.length)];
                 }

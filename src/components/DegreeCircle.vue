@@ -204,7 +204,6 @@ export default {
       }
     },
     enabledDegrees: function (newVal) {
-      console.log("DegreeCircle", newVal, this.degrees);
       for (let l=0; l<this.degrees.length; l++) {
         this.degrees[l].enabled = newVal.indexOf(this.degrees[l].degree) > -1
       }
