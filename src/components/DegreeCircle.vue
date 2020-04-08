@@ -89,6 +89,7 @@
   </v-container>
 -->
   <div class="div-circle">
+    <div ref="background" id="background-circle" />
     <v-btn
       v-for="i in this.degrees"
       v-bind:key="i.display"
@@ -97,11 +98,18 @@
       :disabled="!i.enabled"
       x-small
       fab
-      elevation="2"
+      :elevation="i.degree === 0 ? 5 : 2"
       v-on:click="noteBt(i)"
+      :ripple="i.degree === solution ? {class: 'green--text' } : { class: 'red--text' }"
       >{{ i.display }}</v-btn>
+    <div id="progress-content">
+      <slot name="progress"></slot>
+    </div>
     <div id="inner-content">
-      <p>{{answer}}</p>
+      <slot name="playbtn"></slot>
+    </div>
+    <div id="inner-text" :style="'color: ' + $vuetify.theme.currentTheme.primary">
+      <slot name="text"></slot>
     </div>
   </div>
 </template>
@@ -116,8 +124,8 @@ export default {
       type: Function,
       required: true,
     },
-    answer: {
-      type: String,
+    solution: {
+      type: Number,
       required: true,
     },
     enabledDegrees: {
@@ -247,6 +255,11 @@ export default {
       //schonmal eine Variable "lastClicked" (s.o.) erstellt, weiß nicht ob die hilfreich ist aber die könnte
       //man ja dann hier ändern oder so
       // let result = Note.transpose(this.getRoot(), index.name);
+      console.log(this.$refs.background);
+      this.$refs.background.style.backgroundColor = this.solution === index.degree ?"green" : "red";
+      this.$refs.background.className = "fade-in-out";
+      const self = this;
+      setTimeout(function () {self.$refs.background.className = ""}, 700);
       this.submitSolution(index.degree);
     }
   }
@@ -262,6 +275,8 @@ export default {
     $btnrad: 32
     $centerX: $radius
     $centerY: $radius
+
+    $backgroundMargin: 5
 
     //math values for computing the respective positions of the btns
     $sin: 0, 0.5, 0.866, 1, 0.866, 0.5, 0, -0.5, -0.866, -1, -0.866, -0.5
@@ -282,13 +297,36 @@ export default {
       top: math.floor(-1 * nth($cos, 11) * $radius + $centerY) * 1.3px
       width: $radius * 1.2px
       height: $radius * 1.2px
-      display: table
+      display: flex
 
     #inner-content *
-      text-align: center
-      display: table-cell
-      vertical-align: middle
+      justify-self: center
+      align-self: center
+      margin-left: auto
+      margin-right: auto
 
+    #progress-content
+      position: absolute
+      left: $btnrad * 1px + 1px
+      top: $btnrad * 1px + 1px
+
+    #inner-text
+      position: absolute
+      left: $btnrad * 1.8px
+      bottom: $btnrad * 1px
+      right: $btnrad * 1.8px
+      top: $btnrad * 3px
+      text-align: center
+
+    #background-circle
+      position: absolute
+      left: $btnrad * 1px + 1px * $backgroundMargin
+      top: $btnrad * 1px + 1px * $backgroundMargin
+      width: 2px * $radius - 1px * $btnrad - 2px * $backgroundMargin
+      height: 2px * $radius - 1px * $btnrad - 2px * $backgroundMargin
+      border-radius: 1px * $radius - 0.5px * $btnrad  - 1px * $backgroundMargin
+      background-color: green
+      opacity: 0
 
  //standard template for the btns
 .normal-btn
@@ -300,4 +338,25 @@ export default {
   position: relative
   width: 2px * $radius + 1px * $btnrad
   height: 2px * $radius + 1px * $btnrad
+
+  .red--text
+    color: lightcoral
+
+  .green--text
+    color: lightgreen
+
+  .fade-in-out
+    opacity: 1
+    animation-name: fadeInOutOpacity
+    animation-iteration-count: 1
+    animation-timing-function: ease-in-out
+    animation-duration: 0.7s
+
+  @keyframes fadeInOutOpacity
+    0%
+      opacity: 0
+    50%
+      opacity: 0.2
+    100%
+      opacity: 0
 </style>

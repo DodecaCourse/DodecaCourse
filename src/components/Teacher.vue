@@ -3,15 +3,32 @@
             class="d-inline-flex px-1 align-center justify-center" elevation="5" width="100%"
     >
         <b class="mr-3 hidden-sm-and-down">{{ description }}</b>
-        <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
-            <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
-        </v-btn>
         <DegreeCircle v-show="useInput" class="ma-1"
-                      :submit-solution="solutionInput" :answer="answer" :enabled-degrees="chosenDegrees"/>
-        <v-progress-circular class="my-progress-circular ml-2 text-center" :value="progress"
-                             :color="loaded ? 'primary': 'red'" size="50">
-            <DegreeCirclePictogram :enabled-degrees="chosenDegrees">{{roundSincePlay}}</DegreeCirclePictogram>
-        </v-progress-circular>
+                      :submit-solution="solutionInput" :solution="solution" :enabled-degrees="chosenDegrees">
+            <template v-slot:playbtn>
+                <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
+                    <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
+                </v-btn>
+            </template>
+            <template v-slot:progress>
+                <v-progress-circular class="my-progress-circular text-center" :value="progress"
+                                     :color="loaded ? 'primary': 'red'" size="90" />
+            </template>
+            <template v-slot:text>
+                {{ roundSincePlay }}
+            </template>
+        </DegreeCircle>
+        <div v-show="!useInput">
+            <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
+                <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
+            </v-btn>
+            <v-progress-circular class="my-progress-circular ma-1 text-center" :value="progress"
+                                 :color="loaded ? 'primary': 'red'" size="50">
+                <DegreeCirclePictogram :enabled-degrees="chosenDegrees">
+                    {{roundSincePlay}}
+                </DegreeCirclePictogram>
+            </v-progress-circular>
+        </div>
     </v-card>
 </template>
 
@@ -108,7 +125,7 @@
                 // Recognition
                 inputDisabled: false,
                 fullCadenceEvery: 8,
-                solution: null,
+                solution: 0,
                 answer: "",
             };
         },
@@ -276,18 +293,21 @@
                 this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
             },
             solutionInput: function(input) {
-                // TODO: Multiple possible solutions (e.g. Fi & Se for tritone)
                 if (this.solution === null) {
                     return;
                 }
+                let correct;
                 console.log("SOLUTION_INPUT: ",input,this.solution,this.solution === input);
                 if (this.solution === input) {
+                    correct = true;
                     this.answer = "Correct: " + this.degreeName[this.solution];
                 } else {
+                    correct = false;
                     this.answer = "Wrong! It was " + this.degreeName[this.solution];
                 }
                 let posOff = this.rest(0, 4);
                 this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
+                return [correct, this.solution];
             },
             doRepeat: function() {
                 this.stopAllNotes();
