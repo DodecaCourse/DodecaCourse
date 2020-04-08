@@ -31,7 +31,6 @@
                 app
                 clipped-left
                 dense
-                :hide-on-scroll="$vuetify.breakpoint.xs"
         >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
             <v-toolbar-title><b>FETT</b></v-toolbar-title>
@@ -40,7 +39,8 @@
 
         <v-content>
             <v-container fluid>
-                <v-banner app elevation="0" id="player_banner">
+                <v-banner app elevation="0" id="player_banner"
+                          v-show="!(this.$teacher !== undefined && this.$teacher.hidden)">
                     <Teacher ref="teacher"/>
                 </v-banner>
             <router-view>

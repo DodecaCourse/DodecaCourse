@@ -65,6 +65,41 @@
                 backbone of so many styles of music so they’re the perfect place to
                 start, and once you’ve mastered them, adding scale degrees from
                 outside those two scales is much easier.</p>
+            <p>The twelve scale degrees can be displayed in the style of a clock,
+                with »Do« being twelve o'clock and the other scale degrees following
+                clockwise. The position of the hour corresponds to the number of half steps
+                you have to go down to get back to the tonic. Below you can see the complete circle,
+                in the second picture only the major scale is selected:</p>
+            <div style="display: flex; justify-content: center; pointer-events: none">
+                <DegreeCircle :submit-solution="function() {}" :solution="0"
+                              :enabled-degrees="[0,1,2,3,4,5,6,7,8,9,10,11]">
+                </DegreeCircle>
+                <div style="margin-left: 5px">
+                    <DegreeCircle :submit-solution="function() {}" :solution="0"
+                                  :enabled-degrees="[0,2,4,5,7,9,11]">
+                    </DegreeCircle>
+                </div>
+            </div>
+            <p>This system will be used
+                throughout the exercises, as it allows to display to relevant scale
+                degrees in a compact and efficient way, using the circle as an icon.
+                Look at the examples below to see how it works:
+            </p>
+            <div style="display: flex; justify-content: left; align-items: center; margin-left: 3ch">
+            <DegreeCirclePictogram :enabled-degrees="[0]"></DegreeCirclePictogram>
+                <span style="margin-left: 1ch">Only »Do« ist selected</span>
+            </div>
+            <div style="display: flex; justify-content: left; align-items: center; margin-left: 3ch">
+                <DegreeCirclePictogram :enabled-degrees="[0,2,4,7,9]"></DegreeCirclePictogram>
+                <span style="margin-left: 1ch">The pentatonic scale (Do, Re, Mi, So, La)</span>
+            </div>
+            <div style="display: flex; justify-content: left; align-items: center; margin-left: 3ch">
+                <DegreeCirclePictogram :enabled-degrees="[0,2,4,5,7,9,11]"></DegreeCirclePictogram>
+                <span style="margin-left: 1ch">The major scale (Do, Re, Mi, Fa, So, La, Ti)</span>
+            </div>
+            <p v-show="!$vuetify.breakpoint.xsOnly">
+                You can hover over an icon to see the selected degrees as text.
+            </p>
             <p>In this module you
                 will internalise the sound of each scale degree from the major scale,
                 just as you did in the last module with the tonic. The approach is
@@ -87,9 +122,13 @@
 </template>
 
 <script>
+    import DegreeCircle from "../components/DegreeCircle";
+    import DegreeCirclePictogram from "../components/DegreeCirclePictogram";
     export default {
         name: "IndividualNotesMethod",
         components: {
+            DegreeCirclePictogram,
+            DegreeCircle
         },
     }
 </script>

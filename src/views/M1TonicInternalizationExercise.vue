@@ -14,7 +14,7 @@
                 exercise. Hit »Practice« below to listen to this 10 bar sequence.</p>
             <p>
                 <InlineConfigurator :prog-id="1001" t-type="internalization"
-                                    :config="{degree: '1P'}" hide-test>
+                                    :config="{degree: 0}" hide-test>
                     Tonic Internalisation
                 </InlineConfigurator>
             </p>
@@ -179,7 +179,7 @@
         components: {InlineConfigurator},
         mounted: function () {
             if (!this.$teacher.playing) {
-                this.$teacher.setupInternalization("1P", false)
+                this.$teacher.setupInternalization(0, false)
             }
         }
     }
