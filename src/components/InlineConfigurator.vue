@@ -2,10 +2,12 @@
     <v-card class="d-inline-flex px-1 align-center justify-center" elevation="2"
         >
         <b class="mx-1 hidden-sm-and-down"><slot></slot>:</b>
-            <v-btn v-show="levels > 1" class="mr-1" v-for="(lvl, i) in this.levels" :key="i + 1"
-                   @click="level = i + 1" :color="level === i + 1 ? 'primary' : 'secondary'" fab x-small depressed >
-                {{i + 1}}
-            </v-btn>
+        <DegreeCirclePictogram v-show="enabledDegrees !== undefined" :enabled-degrees="enabledDegrees">
+        </DegreeCirclePictogram>
+        <v-btn v-show="levels > 1" :class="i === 0 ? 'mx-1' : 'mr-1'" v-for="(lvl, i) in this.levels" :key="i + 1"
+               @click="level = i + 1" :color="level === i + 1 ? 'primary' : 'secondary'" fab x-small depressed >
+            {{i + 1}}
+        </v-btn>
         <v-btn v-if="!hidePractice" class="ma-1" color="primary" small elevation="1" v-on:click="onPractice">
             Practice
         </v-btn>
@@ -17,12 +19,14 @@
 
 <script>
     import structure from "../../public/structure.json"
+    import DegreeCirclePictogram from "./DegreeCirclePictogram";
 
     const INTERNALIZATION = 0;
     const RECOGNITION_SINGLE = 1;
 
     export default {
         name: "InlineConfigurator",
+        components: {DegreeCirclePictogram},
         props: {
             tType: {
                 type: String,
@@ -61,6 +65,15 @@
             levels: function () {
                 return this.target.levels;
             },
+            enabledDegrees: function () {
+                if (this.type === INTERNALIZATION) {
+                    return [this.config.degree]
+                }
+                if (this.type === RECOGNITION_SINGLE) {
+                    return this.config.degrees;
+                }
+                return undefined;
+            }
         },
         methods: {
             onPractice: function () {

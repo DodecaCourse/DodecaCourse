@@ -1,6 +1,8 @@
 <template>
-    <div>
-        <div class="div-circle-pict" :title="description">
+    <div :title="description">
+        <div class="div-circle-pict" @click="function() {
+            console.log('Click');
+        }">
             <v-btn
                     v-for="i in this.degrees"
                     v-bind:key="i.display"
@@ -69,9 +71,10 @@
                 }
             }
         },
-
-        methods: {
-
+        mounted: function () {
+            for (let l=0; l<this.degrees.length; l++) {
+                this.degrees[l].enabled = this.enabledDegrees.indexOf(this.degrees[l].degree) > -1;
+            }
         }
     };
 </script>
