@@ -3,7 +3,7 @@
             class="d-inline-flex px-1 align-center justify-center" elevation="5" width="100%"
     >
         <b class="mr-3 hidden-sm-and-down">{{ description }}</b>
-        <DegreeCircle v-show="useInput" class="ma-1"
+        <DegreeCircle v-show="useInput && playing" class="ma-1"
                       :submit-solution="solutionInput" :solution="solution" :enabled-degrees="chosenDegrees">
             <template v-slot:playbtn>
                 <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
@@ -18,7 +18,7 @@
                 {{ roundSincePlay }}
             </template>
         </DegreeCircle>
-        <div v-show="!useInput">
+        <div v-show="!(useInput && playing)">
             <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
                 <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
             </v-btn>
