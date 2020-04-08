@@ -34,6 +34,7 @@
             </v-list>
         </v-navigation-drawer>
 
+        
         <v-app-bar
                 flat
                 dark
@@ -44,6 +45,9 @@
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
             <v-toolbar-title><b>FETT</b></v-toolbar-title>
             <v-spacer></v-spacer>
+            <v-btn icon>
+              <v-icon>mdi-account-plus</v-icon>
+            </v-btn>
             <pre>Logged in as: </pre><b>{{user}}</b>
             <v-btn icon>
               <v-icon>mdi-logout</v-icon>
@@ -77,17 +81,29 @@
 <script>
     import Courses from "./components/Courses";
     import Teacher from "./components/Teacher";
-
+    import api from "./api.js"
+    
     export default {
-        components: {Teacher, Courses},
-        props: {
-            source: String,
-        },
-        data: () => ({
-            drawer: null,
-            curCourse: 0,
-            user: "2Tfv6"
-        }),
+      name: "FETT",
+      mixins: [
+        api
+      ],
+      components: {
+        Teacher,
+        Courses
+      },
+      props: {
+          source: String,
+      },
+      data: () => ({
+          drawer: null,
+          user: 'not logged in',
+          curCourse: 0
+      }),
+      created: function() {
+        this.getCurrentUser()
+          .then(res => this.user = res);
+      }
     };
 </script>
 

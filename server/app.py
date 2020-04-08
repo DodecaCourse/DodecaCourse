@@ -1,5 +1,5 @@
 # dependencies: tinyDB flask flask-cors tinyrecord
-from flask import Flask, jsonify, request, redirect, make_response
+from flask import Flask, jsonify, request, redirect, session
 from flask_cors import CORS
 
 from tinydb import TinyDB, Query
@@ -46,10 +46,11 @@ app = Flask(__name__)
 app.config.from_object(config.Config)
 # CORS ermöglicht es, Regeln für den Zugriff festzulegen.
 # Wir wollen hier alle Zugriffe erlauben.
-CORS(app, resources={r'/*': {'origins': '*'}})
-
+CORS(app, origins=["http://localhost:8080"], headers=['Content-Type'],
+     expose_headers=['Access-Control-Allow-Origin'], supports_credentials=True)
 
 # ø Utility Funktionen
+
 
 def is_user(user_key):
     return not (len(users.search(q['user_keyword'] == user_key)) == 0)
@@ -315,19 +316,23 @@ def get_user_levles(user_id):
 @app.route('/setcurrentuser/<user_keyword>')
 def set_current_user(user_keyword):
     ret = jsonify("Success on setcurrentuser to " + str(user_keyword))
-    resp = make_response(ret)
-    resp.set_cookie('user_keyword', value=user_keyword, domain='127.0.0.1')
+    # resp = make_response(ret)
+    # TODO: Fix
+    # resp.set_cookie('user_keyword', value=user_keyword,
+    #                 domain='domain.local')
+    session['user_keyword'] = user_keyword
     print("Set cookie user_keyword to \'" + user_keyword + "\'")
     # user_id = get_user_by_key(user_keyword)['user_id']
     # resp.set_cookie('user_id', user_id)
-    return resp
+    return ret
 
 
 @app.route('/getcurrentuser')
 def get_current_user():
-    user_key = request.cookies.get('user_keyword')
-    if user_key is None:
+    # print(session)
+    if not'user_keyword' in session.keys():
         return jsonify("no current user set")
+    user_key = session['user_keyword']
     return jsonify(user_key)
 
 
@@ -357,6 +362,15 @@ def rand():
         'rand': randint(1, 100)
     }
     return jsonify(response)
+
+
+# handle withCredentials
+# TODO: Nochmal genau lesen, wie hier was funktioniert
+
+# @app.after_request
+# def handle_credentials(response):
+#     response.headers["Access-Control-Allow-Credentials"] = True
+#     return response
 
 
 # LETS GO

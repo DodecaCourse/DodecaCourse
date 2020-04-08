@@ -50,104 +50,39 @@
 
 </template>
 
-<script>
-
-  import axios from 'axios'
-
+ <script>
+  import api from '../../api.js'
+  
   export default {
     name: 'ServerTest',
-    data() {
+    mixins: [
+      api
+    ],
+    data: function(){
       return {
-        debug: true,
-        flask_server: 'http://localhost:5000/',
-        connection: true,
-        currentuser: 'no current user',
-        allusers: 'no users found',
-        allmodules: 'no modules found',
-        allchapters: 'no chapters found',
-        alltakes: 'no takes found',
-        chapters1: 'no chapters found',
+        chapters1: 'no chapters1 found',
+        settings1: 'no settings1 found',
+        currentuser: 'no current user requested',
+        allusers: 'no list of all users requested',
+        allmodules: 'no list of all modules requested',
+        allchapters: 'no list of all chapters requested',
+        alltakes: 'no list of all takes requested',
         founduser: 'not found',
         foundsettings: 'no settings found',
         foundchapters: 'no chapters found',
-        settings1: 'no settings found',
         search: '',
         cookie: '',
         random: 0,
         tmp: 'no'
-      }
+      };
     },
-    methods: {
-      fetch(url) {
-        const path = this.flask_server + url
-        if (this.debug) {
-          console.log('FETCH: ' + path)
-        }
-        // Promisse return
-        return axios
-          .get(path)
-          .then(res => {
-            return res.data;
-          })
-          .catch(err => {
-            console.log(err)
-            this.connection = false;
-          });
-      },
-      getUserID(user_keyword) {
-        return this.fetch('getuser_bykey/' + user_keyword);
-      },
-      getAllUsers() {
-        return this.fetch('getallusers');
-      },
-      getAllmodules() {
-        return this.fetch('getallmodules');
-      },
-      getAllchapters() {
-        return this.fetch('getallchapters');
-      },
-      getAllTakes() {
-        return this.fetch('getalltakes');
-      },
-      getRandom() {
-        return this.fetch('random');
-      },
-      getchaptersOfmodule(module_id) {
-        return this.fetch('getchapters_bymodule_id/' + module_id);
-      },
-      getchapters(user_id){
-        return this.fetch('getchapters_byuser_id/' + user_id);
-      },
-      updateCurrentUser(){
-        this.fetch('getcurrentuser')
-          .then(usr => this.currentuser = usr);
-      },
-      setCurrentUserToTextfield(){
-        this.fetch('setcurrentuser/' + this.cookie);
-      },
-      updateSearch() {
-        if (this.search.trim().length > 2) {
-          this.getUserID(this.search.trim())
-            .then(data => {
-              this.founduser = data;
-              if (!(this.founduser.user_id == null)) {
-                this.getSettings(this.founduser.user_id)
-                  .then(data => (this.foundsettings = data));
-                this.getchapters(this.founduser.user_id)
-                  .then(data => (this.foundchapters = data));
-              } else {
-                this.foundsettings = "";
-                this.foundchapters = "";
-              }
-            });
-        }
-
-      },
-      getSettings(user_id){
-        return this.fetch('getsettings/' + user_id);
-      }
-    },
-    created() {
+    created: function(){
+      // Testing getchaptersofmodule for module_id 1
+      this.getChaptersOfmodule('1')
+        .then(data => (this.chapters1 = data));
+      // Testing getSettings for user_id test
+      this.getSettings('1')
+        .then(data => (this.settings1 = data));
       // Testing getUserID for user_keyword test
       this.getUserID('test')
         .then(data => (this.founduser = data));
@@ -161,20 +96,13 @@
       this.getAllmodules()
         .then(data => (this.allmodules = data));
       // Testing allchapters
-      this.getAllchapters()
+      this.getAllChapters()
         .then(data => (this.allchapters = data));
       // Testing allchapters
       this.getAllTakes()
         .then(data => (this.alltakes = data));
-      // Testing getchaptersofmodule for module_id 1
-      this.getchaptersOfmodule('1')
-        .then(data => (this.chapters1 = data));
-      // Testing getSettings for user_id test
-      this.getSettings('1')
-        .then(data => (this.settings1 = data));
-        
+    
       this.updateCurrentUser();
     }
   }
-
 </script>
