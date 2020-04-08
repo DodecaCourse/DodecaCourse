@@ -81,13 +81,13 @@
             </p>
             <p>
                 <InlineConfigurator :prog-id="3001" t-type="recognition-single"
-                                    :config="{degrees: ['1P', '2M', '3M', '5P', '6M']}">
+                                    :config="{degrees: [0, 2, 4, 7, 9]}">
                     Pentatonic Recognition
                 </InlineConfigurator>
             </p>
             <p>
                 <InlineConfigurator :prog-id="3002" t-type="recognition-single"
-                                    :config="{degrees: ['1P', '2M', '3M', '4P', '5P', '6M', '7M']}">
+                                    :config="{degrees: [0, 2, 4, 5, 7, 9, 11]}">
                     Major Scale Recognition
                 </InlineConfigurator>
             </p>

@@ -135,7 +135,7 @@ export default {
       rootMod: "",
 
       //button which was clicked last, 1P by default
-      lastClicked: "1P",
+      lastClicked: 0,
 
       //var to save on which octave the tone is
       octave: 4,
@@ -199,14 +199,14 @@ export default {
     modeEnabled: function (newVal) {
       if (this.useMode) {
         for (let l=0; l<this.degrees.length; l++) {
-          this.degrees[l].enabled = newVal.indexOf(this.degrees[l].name) > -1
+          this.degrees[l].enabled = newVal.indexOf(this.degrees[l].degree) > -1
         }
       }
     },
     enabledDegrees: function (newVal) {
       console.log("DegreeCircle", newVal, this.degrees);
       for (let l=0; l<this.degrees.length; l++) {
-        this.degrees[l].enabled = newVal.indexOf(this.degrees[l].name) > -1
+        this.degrees[l].enabled = newVal.indexOf(this.degrees[l].degree) > -1
       }
     }
   },
@@ -229,7 +229,7 @@ export default {
       let newEnabled = [];
       let i = 0;
       while (i < this.enabled.length) {
-        newEnabled.push(this.degrees[i]);
+        newEnabled.push(this.degrees[i].degree);
         if (i === mode.halfsteps.first || i === mode.halfsteps.second) {
           i++;
         } else {
@@ -248,7 +248,7 @@ export default {
       //schonmal eine Variable "lastClicked" (s.o.) erstellt, weiß nicht ob die hilfreich ist aber die könnte
       //man ja dann hier ändern oder so
       // let result = Note.transpose(this.getRoot(), index.name);
-      this.submitSolution(index.name);
+      this.submitSolution(index.degree);
     }
   }
 };

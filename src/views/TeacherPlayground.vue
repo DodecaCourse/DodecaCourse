@@ -4,21 +4,21 @@
             <p>Tonic Internalisation Exercise & Test</p>
             <p>
                 <InlineConfigurator :prog-id="1001" t-type="internalization"
-                                    :config="{degree: '1P'}">
+                                    :config="{degree: 0}">
                     Tonic Internalisation
                 </InlineConfigurator>
             </p>
             <p>Individual Note Internalisation & Test</p>
             <p>
                 <InlineConfigurator :prog-id="2001" t-type="internalization"
-                                    :config="{degree: '2M'}">
+                                    :config="{degree: 2}">
                     »Re« Internalisation
                 </InlineConfigurator>
             </p>
             <p>Individual Note Recognition</p>
             <p>
                 <InlineConfigurator :prog-id="3002" t-type="recognition-single"
-                                    :config="{degrees: ['1P', '2M', '3M', '4P', '5P', '6M', '7M']}">
+                                    :config="{degrees: [0, 2, 4, 5, 7, 9, 11]}">
                     Major Scale Recognition
                 </InlineConfigurator>
             </p>
@@ -29,10 +29,9 @@
 
 <script>
     import InlineConfigurator from "../components/InlineConfigurator";
-    import AASpiral from "../components/DegreeCircle";
     export default {
         name: "TeacherPlayground",
-        components: {AASpiral, InlineConfigurator}
+        components: {InlineConfigurator}
     }
 </script>
 

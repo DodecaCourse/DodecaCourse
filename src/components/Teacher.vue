@@ -17,7 +17,7 @@
 
 <script>
     /* global MIDI */
-    import { Note, Midi, Scale } from "@tonaljs/tonal"
+    import { Midi, Scale } from "@tonaljs/tonal"
     import Vue from "vue";
     import DegreeCircle from "./DegreeCircle";
     import DegreeCirclePictogram from "./DegreeCirclePictogram";
@@ -48,30 +48,21 @@
                 startTime: 0,
                 roundSincePlay: 0,
                 stopAfterRounds: 12, // set to -1 to play endlessly
-                degreesAvailable: [
-                    {text: 'Do', value: '1P'},
-                    {text: 'Re', value: '2M'},
-                    {text: 'Mi', value: '3M'},
-                    {text: 'Fa', value: '4P'},
-                    {text: 'So', value: '5P'},
-                    {text: 'La', value: '6M'},
-                    {text: 'Ti', value: '7M'},
-                ],
                 degreeName: {
-                    '1P': 'Do',
-                    '2m': 'Di/Ra',
-                    '2M': 'Re',
-                    '3m': 'Ri/Me',
-                    '3M': 'Mi',
-                    '4P': 'Fa',
-                    '4A': 'Fi/Se',
-                    '5P': 'So',
-                    '6m': 'Si/Le',
-                    '6M': 'La',
-                    '7m': 'Li/Te',
-                    '7M': 'Ti'
+                    0: 'Do',
+                    1: 'Di/Ra',
+                    2: 'Re',
+                    3: 'Ri/Me',
+                    4: 'Mi',
+                    5: 'Fa',
+                    6: 'Fi/Se',
+                    7: 'So',
+                    8: 'Si/Le',
+                    9: 'La',
+                    10: 'Li/Te',
+                    11: 'Ti'
                 },
-                chosenDegrees: ["1P", "2M", "3M", "4P", "5P", "6M", "7M"],
+                chosenDegrees: [0, 2, 4, 5, 7, 9, 11],
                 played: [],
                 cadences: {
                     'major_i_iv_v': [
@@ -125,7 +116,7 @@
             quarter: function () { return 60 / this.tempoBPM },
             degrees: function () {
                 if (this.chosenDegrees.length === 0) {
-                    return ['1P'];
+                    return [0];
                 }
                 return this.chosenDegrees;
             },
@@ -201,7 +192,7 @@
             playDegree: function (key, degree, withResting, posOff, duration, cadence) {
                 /* play degree, optionally with resting chord */
                 const root = key + '3';
-                const note =  Midi.toMidi(Note.transpose(root, degree));
+                const note =  Midi.toMidi(root) + degree;
                 if (withResting) {
                     this.playResting(key, cadence, posOff, duration);
                 }
@@ -291,10 +282,10 @@
                     return;
                 }
                 console.log("SOLUTION_INPUT: ",input,this.solution,this.solution === input);
-                if (this.solution.toLowerCase() === input.toLowerCase()) {
-                    this.answer = "Correct: " + this.solution;
+                if (this.solution === input) {
+                    this.answer = "Correct: " + this.degreeName[this.solution];
                 } else {
-                    this.answer = "Wrong! It was " + this.solution;
+                    this.answer = "Wrong! It was " + this.degreeName[this.solution];
                 }
                 let posOff = this.rest(0, 4);
                 this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
@@ -433,7 +424,7 @@
                     self.status = "Loaded";
                     self.progress = 0;
                     self.loaded = true;
-                    self.setupInternalization('1P', false);
+                    self.setupInternalization(0, false);
                 }
             });
         },
