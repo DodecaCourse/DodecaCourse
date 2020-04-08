@@ -90,11 +90,11 @@
 -->
   <div class="div-circle">
     <v-btn
-      v-for="i in this.intervals"
+      v-for="i in this.degrees"
       v-bind:key="i.display"
-      :class="'normal-btn normal-btn--' + (i.halfsteps + 1)"
-      :color="isEnabled(i.halfsteps) ? 'primary' : 'secondary'"
-      :disabled="!isEnabled(i.halfsteps)"
+      :class="'normal-btn normal-btn--' + (i.degree + 1)"
+      :color="i.enabled ? 'primary' : 'secondary'"
+      :disabled="!i.enabled"
       x-small
       fab
       elevation="2"
@@ -118,6 +118,10 @@ export default {
     },
     answer: {
       type: String,
+      required: true,
+    },
+    enabledDegrees: {
+      type: Array,
       required: true,
     }
   },
@@ -165,45 +169,47 @@ export default {
 
       //database for the intervals/degrees, "name" chosen to fit TonalJS, display is the name of
       //Solfege and shown on btns
-      intervals: [
-        { halfsteps: 0, name: "1P", display: "Do" },
-        { halfsteps: 1, name: "2m", display: "Ra" },
-        { halfsteps: 2, name: "2M", display: "Re" },
-        { halfsteps: 3, name: "3m", display: "Ma" },
-        { halfsteps: 4, name: "3M", display: "Mi" },
-        { halfsteps: 5, name: "4P", display: "Fa" },
-        { halfsteps: 6, name: "4A", display: "Fi" },
-        { halfsteps: 7, name: "5P", display: "So" },
-        { halfsteps: 8, name: "6m", display: "Le" },
-        { halfsteps: 9, name: "6M", display: "La" },
-        { halfsteps: 10, name: "7m", display: "Ta" },
-        { halfsteps: 11, name: "7M", display: "Ti" }
+      degrees: [
+        { degree: 0, name: "1P", display: "Do", enabled: true },
+        { degree: 1, name: "2m", display: "Ra", enabled: true },
+        { degree: 2, name: "2M", display: "Re", enabled: true },
+        { degree: 3, name: "3m", display: "Ma", enabled: true },
+        { degree: 4, name: "3M", display: "Mi", enabled: true },
+        { degree: 5, name: "4P", display: "Fa", enabled: true },
+        { degree: 6, name: "4A", display: "Fi", enabled: true },
+        { degree: 7, name: "5P", display: "So", enabled: true },
+        { degree: 8, name: "6m", display: "Le", enabled: true },
+        { degree: 9, name: "6M", display: "La", enabled: true },
+        { degree: 10, name: "7m", display: "Ta", enabled: true },
+        { degree: 11, name: "7M", display: "Ti", enabled: true }
       ],
 
       //base notes, like the white tiles to get the root system running
       bases: ["C", "D", "E", "F", "G", "A", "B"],
 
-      //handles which buttons are enabled for each mode
-      enabled: [
-        true,
-        false,
-        true,
-        false,
-        true,
-        true,
-        false,
-        true,
-        false,
-        true,
-        false,
-        true
-      ]
+      // contains enabled degrees of mode
+      modeEnabled: [],
+      useMode: false,
     };
   },
 
   computed: {},
 
-  watch: {},
+  watch: {
+    modeEnabled: function (newVal) {
+      if (this.useMode) {
+        for (let l=0; l<this.degrees.length; l++) {
+          this.degrees[l].enabled = newVal.indexOf(this.degrees[l].name) > -1
+        }
+      }
+    },
+    enabledDegrees: function (newVal) {
+      console.log("DegreeCircle", newVal, this.degrees);
+      for (let l=0; l<this.degrees.length; l++) {
+        this.degrees[l].enabled = newVal.indexOf(this.degrees[l].name) > -1
+      }
+    }
+  },
 
   methods: {
     //returns full root note
@@ -215,29 +221,22 @@ export default {
     //is unused when mode interface is unused
     changeMode: function(mode) {
       this.mode = mode.name;
-      this.changeEnabled(mode);
+      this.setEnabledMode(mode);
     },
 
     //handles the enabled buttons according to the new mode using the mode's halfsteps
-    changeEnabled: function(mode) {
-      let i;
-      for (i = 0; i < this.enabled.length; i++) {
-        this.enabled[i] = false;
-      }
-      i = 0;
+    setEnabledMode: function(mode) {
+      let newEnabled = [];
+      let i = 0;
       while (i < this.enabled.length) {
-        this.enabled[i] = true;
+        newEnabled.push(this.degrees[i]);
         if (i === mode.halfsteps.first || i === mode.halfsteps.second) {
           i++;
         } else {
           i = i + 2;
         }
       }
-    },
-
-    //returns if the indexth btn/degree is enabled
-    isEnabled: function(index) {
-      return this.enabled[index];
+      this.modeEnabled = newEnabled;
     },
 
     //triggers when the indexth btn is clicked

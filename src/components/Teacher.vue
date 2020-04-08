@@ -6,30 +6,12 @@
         <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
             <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
         </v-btn>
-        <DegreeCircle v-show="useInput" :submit-solution="solutionInput" :answer="answer" class="ma-1"/>
-            <v-select v-if="multiple" class="mx-1"
-                      :readonly="fixed"
-                      :items="degreesAvailable"
-                      v-model="chosenDegrees"
-                      label="Degree"
-                      single-line
-                      style="max-width: 150px;"
-                      dense
-                      multiple
-                      chips
-            />
-
-            <v-select v-else class="mx-1"
-                  :readonly="fixed"
-                  :items="degreesAvailable"
-                  v-model="chosenDegrees[0]"
-                  label="Degree"
-                  single-line
-                  style="max-width: 150px;"
-                  dense
-            />
+        <DegreeCircle v-show="useInput" class="ma-1"
+                      :submit-solution="solutionInput" :answer="answer" :enabled-degrees="chosenDegrees"/>
         <v-progress-circular class="my-progress-circular ml-2 text-center" :value="progress"
-                             :color="loaded ? 'primary': 'red'">{{roundSincePlay}}</v-progress-circular>
+                             :color="loaded ? 'primary': 'red'" size="50">
+            <DegreeCirclePictogram :enabled-degrees="chosenDegrees">{{roundSincePlay}}</DegreeCirclePictogram>
+        </v-progress-circular>
     </v-card>
 </template>
 
@@ -38,6 +20,7 @@
     import { Note, Midi, Scale } from "@tonaljs/tonal"
     import Vue from "vue";
     import DegreeCircle from "./DegreeCircle";
+    import DegreeCirclePictogram from "./DegreeCirclePictogram";
 
     const INTERNALIZATION = 0;
     const INTERNALIZATION_TEST = 1;
@@ -49,7 +32,7 @@
 
     export default {
         name: "Teacher",
-        components: {DegreeCircle},
+        components: {DegreeCirclePictogram, DegreeCircle},
         data: function() {
             return {
                 playing: false,
@@ -450,6 +433,7 @@
                     self.status = "Loaded";
                     self.progress = 0;
                     self.loaded = true;
+                    self.setupInternalization('1P', false);
                 }
             });
         },
