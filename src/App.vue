@@ -35,6 +35,7 @@
         >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
             <v-toolbar-title><b>FETT</b></v-toolbar-title>
+            <LocaleChooser/>
         </v-app-bar>
 
         <v-content>
@@ -57,9 +58,10 @@
 <script>
     import Courses from "./components/Courses";
     import Teacher from "./components/Teacher";
+    import LocaleChooser from "./components/LocaleChooser";
 
     export default {
-        components: {Teacher, Courses},
+        components: {LocaleChooser, Teacher, Courses},
         props: {
             source: String,
         },
