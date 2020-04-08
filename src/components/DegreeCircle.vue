@@ -91,23 +91,36 @@
   <div class="div-circle">
     <v-btn
       v-for="i in this.intervals"
-      v-bind:key="i"
+      v-bind:key="i.display"
       :class="'normal-btn normal-btn--' + (i.halfsteps + 1)"
       :color="isEnabled(i.halfsteps) ? 'primary' : 'secondary'"
       :disabled="!isEnabled(i.halfsteps)"
       x-small
       fab
-      elevation="1"
+      elevation="2"
       v-on:click="noteBt(i)"
-      >{{ i.display }}</v-btn
-    >
+      >{{ i.display }}</v-btn>
+    <div id="inner-content">
+      <p>{{answer}}</p>
+    </div>
   </div>
 </template>
 
 <script>
-import { Note } from "@tonaljs/tonal";
+// import { Note } from "@tonaljs/tonal";
 export default {
   name: "DegreeCircle",
+
+  props: {
+    submitSolution: {
+      type: Function,
+      required: true,
+    },
+    answer: {
+      type: String,
+      required: true,
+    }
+  },
 
   data: function() {
     return {
@@ -160,8 +173,8 @@ export default {
         { halfsteps: 4, name: "3M", display: "Mi" },
         { halfsteps: 5, name: "4P", display: "Fa" },
         { halfsteps: 6, name: "4A", display: "Fi" },
-        { halfsteps: 7, name: "5P", display: "Sol" },
-        { halfsteps: 8, name: "6m", display: "Lo" },
+        { halfsteps: 7, name: "5P", display: "So" },
+        { halfsteps: 8, name: "6m", display: "Le" },
         { halfsteps: 9, name: "6M", display: "La" },
         { halfsteps: 10, name: "7m", display: "Ta" },
         { halfsteps: 11, name: "7M", display: "Ti" }
@@ -214,7 +227,7 @@ export default {
       i = 0;
       while (i < this.enabled.length) {
         this.enabled[i] = true;
-        if (i == mode.halfsteps.first || i == mode.halfsteps.second) {
+        if (i === mode.halfsteps.first || i === mode.halfsteps.second) {
           i++;
         } else {
           i = i + 2;
@@ -228,10 +241,6 @@ export default {
     },
 
     //triggers when the indexth btn is clicked
-    // !!!!!!!!!!!!!!!!!!!HIIIIIER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     noteBt: function(index) {
       //index ist vom typ "interval" -> Solfege Bez.: index.display
       //                                Intervallname: index.name (also zB 3m, wie TonalsJS es auch benutzt)
@@ -239,8 +248,8 @@ export default {
       //wenn man die Eingabe des Users speichern will sollte das dann denke ich hier passieren, ich habe auch
       //schonmal eine Variable "lastClicked" (s.o.) erstellt, weiß nicht ob die hilfreich ist aber die könnte
       //man ja dann hier ändern oder so
-      let result = Note.transpose(this.getRoot(), index.name);
-      window.alert(result);
+      // let result = Note.transpose(this.getRoot(), index.name);
+      this.submitSolution(index.name);
     }
   }
 };
@@ -251,9 +260,10 @@ export default {
     @use "sass:list"
 
     //parameters for the DegreeCircles' position and size
-    $radius: 60
-    $centerX: 70
-    $centerY: 70
+    $radius: 62
+    $btnrad: 32
+    $centerX: $radius
+    $centerY: $radius
 
     //math values for computing the respective positions of the btns
     $sin: 0, 0.5, 0.866, 1, 0.866, 0.5, 0, -0.5, -0.866, -1, -0.866, -0.5
@@ -268,6 +278,19 @@ export default {
         left: math.floor(nth($sin, $i) * $radius + $centerX) * 1px
         top: math.floor(-1 * nth($cos, $i) * $radius + $centerY) * 1px
 
+    #inner-content
+      position: absolute
+      left: math.floor(nth($sin, 12) * $radius + $centerX) * 1.3px
+      top: math.floor(-1 * nth($cos, 11) * $radius + $centerY) * 1.3px
+      width: $radius * 1.2px
+      height: $radius * 1.2px
+      display: table
+
+    #inner-content *
+      text-align: center
+      display: table-cell
+      vertical-align: middle
+
 
  //standard template for the btns
 .normal-btn
@@ -277,4 +300,6 @@ export default {
   //class which contains the DegreeCircle
 .div-circle
   position: relative
+  width: 2px * $radius + 1px * $btnrad
+  height: 2px * $radius + 1px * $btnrad
 </style>

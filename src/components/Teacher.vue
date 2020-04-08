@@ -6,6 +6,7 @@
         <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
             <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
         </v-btn>
+        <DegreeCircle v-show="useInput" :submit-solution="solutionInput" :answer="answer" class="ma-1"/>
             <v-select v-if="multiple" class="mx-1"
                       :readonly="fixed"
                       :items="degreesAvailable"
@@ -29,15 +30,14 @@
             />
         <v-progress-circular class="my-progress-circular ml-2 text-center" :value="progress"
                              :color="loaded ? 'primary': 'red'">{{roundSincePlay}}</v-progress-circular>
-        <BasicInput v-show="useInput" :submit-solution="solutionInput" :answer="answer"/>
     </v-card>
 </template>
 
 <script>
     /* global MIDI */
     import { Note, Midi, Scale } from "@tonaljs/tonal"
-    import BasicInput from "./BasicInput";
     import Vue from "vue";
+    import DegreeCircle from "./DegreeCircle";
 
     const INTERNALIZATION = 0;
     const INTERNALIZATION_TEST = 1;
@@ -49,7 +49,7 @@
 
     export default {
         name: "Teacher",
-        components: {BasicInput},
+        components: {DegreeCircle},
         data: function() {
             return {
                 playing: false,
@@ -282,7 +282,7 @@
                     }
                     posOff = this.playDegree(this.key, degree, false, posOff, 4, cadence);
 
-                    this.solution = this.degreeName[degree];
+                    this.solution = degree;
                     if (this.useInput) {
                         console.log("USE_INPUT");
                         this.roundDuration = posOff;
