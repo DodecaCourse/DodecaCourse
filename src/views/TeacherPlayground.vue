@@ -22,8 +22,6 @@
                     Major Scale Recognition
                 </InlineConfigurator>
             </p>
-            <p>DegreeCircle Test</p>
-            <AASpiral></AASpiral>
         </v-flex>
     </v-layout>
 </template>
