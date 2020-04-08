@@ -52,6 +52,7 @@
         components: {DegreeCirclePictogram, DegreeCircle},
         data: function() {
             return {
+                hidden: false,
                 playing: false,
                 status: 'Not loaded',
                 loaded: false,
