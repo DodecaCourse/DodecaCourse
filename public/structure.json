@@ -98,49 +98,58 @@
     {
       "id": 1001,
       "title": "Tonic Internalisation",
-      "levels": 1
+      "levels": 1,
+      "chapter_id": 1
     },
 
     {
       "id": 2001,
       "title": "Re Internalisation",
-      "levels": 1
+      "levels": 1,
+      "chapter_id": 2
     },
     {
       "id": 2002,
       "title": "Mi Internalisation",
-      "levels": 1
+      "levels": 1,
+      "chapter_id": 2
     },
     {
       "id": 2003,
       "title": "Fa Internalisation",
-      "levels": 1
+      "levels": 1,
+      "chapter_id": 2
     },
     {
       "id": 2004,
       "title": "So Internalisation",
-      "levels": 1
+      "levels": 1,
+      "chapter_id": 2
     },
     {
       "id": 2005,
       "title": "La Internalisation",
-      "levels": 1
+      "levels": 1,
+      "chapter_id": 2
     },
     {
       "id": 2006,
       "title": "Ti Internalisation",
-      "levels": 1
+      "levels": 1,
+      "chapter_id": 2
     },
 
     {
       "id": 3001,
       "title": "Pentatonic Recognition",
-      "levels": 3
+      "levels": 3,
+      "chapter_id": 3
     },
     {
       "id": 3002,
       "title": "Major Scale Internalisation",
-      "levels": 3
+      "levels": 3,
+      "chapter_id": 3
     }
   ]
 }
