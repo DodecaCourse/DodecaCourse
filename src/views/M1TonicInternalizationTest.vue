@@ -50,7 +50,7 @@
             </p>
             <p>
                 <InlineConfigurator :prog-id="1001" t-type="internalization"
-                                    :config="{degree: '1P'}">
+                                    :config="{degree: 0}">
                     Tonic Internalisation
                 </InlineConfigurator>
             </p>
@@ -106,7 +106,7 @@
         components: {InlineConfigurator},
         mounted: function () {
             if (!this.$teacher.playing) {
-                this.$teacher.setupInternalization("1P", false)
+                this.$teacher.setupInternalization(0, false)
             }
         }
     }

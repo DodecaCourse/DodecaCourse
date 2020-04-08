@@ -3,41 +3,41 @@
             class="d-inline-flex px-1 align-center justify-center" elevation="5" width="100%"
     >
         <b class="mr-3 hidden-sm-and-down">{{ description }}</b>
-        <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
-            <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
-        </v-btn>
-            <v-select v-if="multiple" class="mx-1"
-                      :readonly="fixed"
-                      :items="degreesAvailable"
-                      v-model="chosenDegrees"
-                      label="Degree"
-                      single-line
-                      style="max-width: 150px;"
-                      dense
-                      multiple
-                      chips
-            />
-
-            <v-select v-else class="mx-1"
-                  :readonly="fixed"
-                  :items="degreesAvailable"
-                  v-model="chosenDegrees[0]"
-                  label="Degree"
-                  single-line
-                  style="max-width: 150px;"
-                  dense
-            />
-        <v-progress-circular class="my-progress-circular ml-2 text-center" :value="progress"
-                             :color="loaded ? 'primary': 'red'">{{roundSincePlay}}</v-progress-circular>
-        <BasicInput v-show="useInput" :submit-solution="solutionInput" :answer="answer"/>
+        <DegreeCircle v-show="useInput && playing" class="ma-1"
+                      :submit-solution="solutionInput" :solution="solution" :enabled-degrees="chosenDegrees">
+            <template v-slot:playbtn>
+                <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
+                    <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
+                </v-btn>
+            </template>
+            <template v-slot:progress>
+                <v-progress-circular class="my-progress-circular text-center" :value="progress"
+                                     :color="loaded ? 'primary': 'red'" size="90" />
+            </template>
+            <template v-slot:text>
+                {{ roundSincePlay }}
+            </template>
+        </DegreeCircle>
+        <div v-show="!(useInput && playing)">
+            <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
+                <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
+            </v-btn>
+            <v-progress-circular class="my-progress-circular ma-1 text-center" :value="progress"
+                                 :color="loaded ? 'primary': 'red'" size="50">
+                <DegreeCirclePictogram :enabled-degrees="chosenDegrees">
+                    {{roundSincePlay}}
+                </DegreeCirclePictogram>
+            </v-progress-circular>
+        </div>
     </v-card>
 </template>
 
 <script>
     /* global MIDI */
-    import { Note, Midi, Scale } from "@tonaljs/tonal"
-    import BasicInput from "./BasicInput";
+    import { Midi, Scale } from "@tonaljs/tonal"
     import Vue from "vue";
+    import DegreeCircle from "./DegreeCircle";
+    import DegreeCirclePictogram from "./DegreeCirclePictogram";
 
     const INTERNALIZATION = 0;
     const INTERNALIZATION_TEST = 1;
@@ -49,9 +49,10 @@
 
     export default {
         name: "Teacher",
-        components: {BasicInput},
+        components: {DegreeCirclePictogram, DegreeCircle},
         data: function() {
             return {
+                hidden: false,
                 playing: false,
                 status: 'Not loaded',
                 loaded: false,
@@ -65,30 +66,21 @@
                 startTime: 0,
                 roundSincePlay: 0,
                 stopAfterRounds: 12, // set to -1 to play endlessly
-                degreesAvailable: [
-                    {text: 'Do', value: '1P'},
-                    {text: 'Re', value: '2M'},
-                    {text: 'Mi', value: '3M'},
-                    {text: 'Fa', value: '4P'},
-                    {text: 'So', value: '5P'},
-                    {text: 'La', value: '6M'},
-                    {text: 'Ti', value: '7M'},
-                ],
                 degreeName: {
-                    '1P': 'Do',
-                    '2m': 'Di/Ra',
-                    '2M': 'Re',
-                    '3m': 'Ri/Me',
-                    '3M': 'Mi',
-                    '4P': 'Fa',
-                    '4A': 'Fi/Se',
-                    '5P': 'So',
-                    '6m': 'Si/Le',
-                    '6M': 'La',
-                    '7m': 'Li/Te',
-                    '7M': 'Ti'
+                    0: 'Do',
+                    1: 'Di/Ra',
+                    2: 'Re',
+                    3: 'Ri/Me',
+                    4: 'Mi',
+                    5: 'Fa',
+                    6: 'Fi/Se',
+                    7: 'So',
+                    8: 'Si/Le',
+                    9: 'La',
+                    10: 'Li/Te',
+                    11: 'Ti'
                 },
-                chosenDegrees: ["1P", "2M", "3M", "4P", "5P", "6M", "7M"],
+                chosenDegrees: [0, 2, 4, 5, 7, 9, 11],
                 played: [],
                 cadences: {
                     'major_i_iv_v': [
@@ -134,7 +126,7 @@
                 // Recognition
                 inputDisabled: false,
                 fullCadenceEvery: 8,
-                solution: null,
+                solution: 0,
                 answer: "",
             };
         },
@@ -142,7 +134,7 @@
             quarter: function () { return 60 / this.tempoBPM },
             degrees: function () {
                 if (this.chosenDegrees.length === 0) {
-                    return ['1P'];
+                    return [0];
                 }
                 return this.chosenDegrees;
             },
@@ -218,7 +210,7 @@
             playDegree: function (key, degree, withResting, posOff, duration, cadence) {
                 /* play degree, optionally with resting chord */
                 const root = key + '3';
-                const note =  Midi.toMidi(Note.transpose(root, degree));
+                const note =  Midi.toMidi(root) + degree;
                 if (withResting) {
                     this.playResting(key, cadence, posOff, duration);
                 }
@@ -249,7 +241,6 @@
                     (0 < this.changeKeyEvery &&
                         (this.roundSincePlay - 1) % this.changeKeyEvery === 0)) {
                     // new random key
-                    console.log("Change key");
                     this.sinceKeyChange = 0;
                     this.key = chrom[Math.floor(Math.random() * chrom.length)];
                 }
@@ -282,7 +273,7 @@
                     }
                     posOff = this.playDegree(this.key, degree, false, posOff, 4, cadence);
 
-                    this.solution = this.degreeName[degree];
+                    this.solution = degree;
                     if (this.useInput) {
                         console.log("USE_INPUT");
                         this.roundDuration = posOff;
@@ -303,18 +294,21 @@
                 this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
             },
             solutionInput: function(input) {
-                // TODO: Multiple possible solutions (e.g. Fi & Se for tritone)
                 if (this.solution === null) {
                     return;
                 }
+                let correct;
                 console.log("SOLUTION_INPUT: ",input,this.solution,this.solution === input);
-                if (this.solution.toLowerCase() === input.toLowerCase()) {
-                    this.answer = "Correct: " + this.solution;
+                if (this.solution === input) {
+                    correct = true;
+                    this.answer = "Correct: " + this.degreeName[this.solution];
                 } else {
-                    this.answer = "Wrong! It was " + this.solution;
+                    correct = false;
+                    this.answer = "Wrong! It was " + this.degreeName[this.solution];
                 }
                 let posOff = this.rest(0, 4);
                 this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
+                return [correct, this.solution];
             },
             doRepeat: function() {
                 this.stopAllNotes();
@@ -450,6 +444,7 @@
                     self.status = "Loaded";
                     self.progress = 0;
                     self.loaded = true;
+                    self.setupInternalization(0, false);
                 }
             });
         },

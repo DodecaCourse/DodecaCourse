@@ -47,7 +47,7 @@
         name: "TonicInternalizationOverview",
         mounted: function () {
             if (!this.$teacher.playing) {
-                this.$teacher.setupInternalization("1P", false)
+                this.$teacher.setupInternalization(0, false)
             }
         }
     }

@@ -172,25 +172,25 @@
             <h3 id="targets">Practice & Test</h3><br />
             <p>
                 <InlineConfigurator :prog-id="2001" t-type="internalization"
-                :config="{degree: '2M'}">
+                :config="{degree: 2}">
                     »Re« Internalisation
                 </InlineConfigurator>
             </p>
             <p>
                 <InlineConfigurator :prog-id="2002" t-type="internalization"
-                                    :config="{degree: '3M'}">
+                                    :config="{degree: 4}">
                     »Mi« Internalisation
                 </InlineConfigurator>
             </p>
             <p>
                 <InlineConfigurator :prog-id="2004" t-type="internalization"
-                                    :config="{degree: '5P'}">
+                                    :config="{degree: 7}">
                     »So« Internalisation
                 </InlineConfigurator>
             </p>
             <p>
                 <InlineConfigurator :prog-id="2005" t-type="internalization"
-                                    :config="{degree: '6M'}">
+                                    :config="{degree: 9}">
                     »La« Internalisation
                 </InlineConfigurator>
             </p>
@@ -202,13 +202,13 @@
                 scale degrees, »Fa« and »Ti«.
             <p>
                 <InlineConfigurator :prog-id="2003" t-type="internalization"
-                                    :config="{degree: '4P'}">
+                                    :config="{degree: 5}">
                     »Fa« Internalisation
                 </InlineConfigurator>
             </p>
             <p>
                 <InlineConfigurator :prog-id="2006" t-type="internalization"
-                                    :config="{degree: '7M'}">
+                                    :config="{degree: 11}">
                     »Ti« Internalisation
                 </InlineConfigurator>
             </p>
