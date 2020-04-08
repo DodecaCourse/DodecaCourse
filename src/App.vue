@@ -39,7 +39,7 @@
         <v-content>
             <v-container fluid>
                 <v-banner app elevation="0" id="player_banner"
-                          v-show="this.$teacher !== undefined && !this.$teacher.hidden">
+                          v-show="!(this.$teacher !== undefined && this.$teacher.hidden)">
                     <Teacher ref="teacher"/>
                 </v-banner>
             <router-view>
