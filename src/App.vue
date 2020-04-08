@@ -31,7 +31,6 @@
                 app
                 clipped-left
                 dense
-                :hide-on-scroll="$vuetify.breakpoint.xs"
         >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
             <v-toolbar-title><b>FETT</b></v-toolbar-title>
