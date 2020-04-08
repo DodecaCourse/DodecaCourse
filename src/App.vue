@@ -34,6 +34,7 @@
         >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
             <v-toolbar-title><b>FETT</b></v-toolbar-title>
+            <v-spacer/>
             <LocaleChooser/>
         </v-app-bar>
 
