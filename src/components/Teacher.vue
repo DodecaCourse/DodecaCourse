@@ -298,7 +298,7 @@
                 else if (this.type === RECOGNITION_INTERVAL || this.type === RECOGNITION_INTERVAL_TEST) {
                     let degree = this.degrees[Math.floor(Math.random()*this.degrees.length)]; // choose randomly
                     // shift randomly up/down
-                    degree += 12 * (Math.floor(Math.random() * 3 ) - 1);
+                    degree += 12 * (Math.floor(Math.random() * 3 ) - 2);
                     const secondDegree = this.randomInterval(degree);
                     let posOff = 0;
                     let cadence = undefined;
@@ -310,7 +310,9 @@
                     posOff = this.playDegree(this.key, degree, false, posOff, 2, cadence, false);
                     posOff = this.playDegree(this.key, secondDegree, false, posOff, 2, cadence, false);
 
-                    this.solution = [degree % 12, secondDegree % 12];
+                    this.solution = [Math.abs(degree % 12 > -1 ? degree % 12 : degree % 12 + 12),
+                        Math.abs(secondDegree % 12 > -1 ? secondDegree % 12 : secondDegree % 12 + 12)];
+
                     if (this.useInput) {
                         console.log("USE_INPUT");
                         this.roundDuration = posOff;
