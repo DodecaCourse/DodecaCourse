@@ -45,6 +45,13 @@
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
             <v-toolbar-title><b>FETT</b></v-toolbar-title>
             <v-spacer></v-spacer>
+            <v-form method="post" action="http://localhost:5000/trylogin">
+              <v-text-field name="user" label="userId"></v-text-field>
+              <v-btn type="submit" icon>
+                <v-icon>mdi-login</v-icon>
+              </v-btn>
+            </v-form>
+            
             <v-btn icon>
               <v-icon>mdi-account-plus</v-icon>
             </v-btn>

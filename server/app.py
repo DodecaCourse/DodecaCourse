@@ -365,7 +365,7 @@ def rand():
 
 
 # handle withCredentials
-# TODO: Nochmal genau lesen, wie hier was funktioniert
+# TODO: Nochmal genau lesen, wie hier die credentials funktionieren
 
 # @app.after_request
 # def handle_credentials(response):
