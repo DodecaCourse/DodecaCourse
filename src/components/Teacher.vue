@@ -296,7 +296,9 @@
                     }
                 }
                 else if (this.type === RECOGNITION_INTERVAL || this.type === RECOGNITION_INTERVAL_TEST) {
-                    const degree = this.degrees[Math.floor(Math.random()*this.degrees.length)]; // choose randomly
+                    let degree = this.degrees[Math.floor(Math.random()*this.degrees.length)]; // choose randomly
+                    // shift randomly up/down
+                    degree += 12 * (Math.floor(Math.random() * 3 ) - 1);
                     const secondDegree = this.randomInterval(degree);
                     let posOff = 0;
                     let cadence = undefined;
