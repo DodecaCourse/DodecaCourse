@@ -89,11 +89,11 @@
   </v-container>
 -->
   <div class="div-circle">
-    <div ref="background" id="background-circle" />
+    <div id="background-circle" :class="backgroundClass" :style="'backgroundColor: ' + backgroundColor"/>
     <v-btn
       v-for="i in this.degrees"
       v-bind:key="i.display"
-      :class="'normal-btn normal-btn--' + (i.degree + 1)"
+      :class="'normal-btn normal-btn--' + (i.degree + 1) + ' ' + i.addClass"
       :color="i.enabled ? 'primary' : 'secondary'"
       :disabled="!i.enabled"
       x-small
@@ -178,22 +178,25 @@ export default {
       //database for the intervals/degrees, "name" chosen to fit TonalJS, display is the name of
       //Solfege and shown on btns
       degrees: [
-        { degree: 0, name: "1P", display: "Do", enabled: true },
-        { degree: 1, name: "2m", display: "Ra", enabled: true },
-        { degree: 2, name: "2M", display: "Re", enabled: true },
-        { degree: 3, name: "3m", display: "Ma", enabled: true },
-        { degree: 4, name: "3M", display: "Mi", enabled: true },
-        { degree: 5, name: "4P", display: "Fa", enabled: true },
-        { degree: 6, name: "4A", display: "Fi", enabled: true },
-        { degree: 7, name: "5P", display: "So", enabled: true },
-        { degree: 8, name: "6m", display: "Le", enabled: true },
-        { degree: 9, name: "6M", display: "La", enabled: true },
-        { degree: 10, name: "7m", display: "Ta", enabled: true },
-        { degree: 11, name: "7M", display: "Ti", enabled: true }
+        { degree: 0, name: "1P", display: "Do", enabled: true, addClass: ""},
+        { degree: 1, name: "2m", display: "Ra", enabled: true, addClass: ""},
+        { degree: 2, name: "2M", display: "Re", enabled: true, addClass: ""},
+        { degree: 3, name: "3m", display: "Ma", enabled: true, addClass: ""},
+        { degree: 4, name: "3M", display: "Mi", enabled: true, addClass: ""},
+        { degree: 5, name: "4P", display: "Fa", enabled: true, addClass: ""},
+        { degree: 6, name: "4A", display: "Fi", enabled: true, addClass: ""},
+        { degree: 7, name: "5P", display: "So", enabled: true, addClass: ""},
+        { degree: 8, name: "6m", display: "Le", enabled: true, addClass: ""},
+        { degree: 9, name: "6M", display: "La", enabled: true, addClass: ""},
+        { degree: 10, name: "7m", display: "Ta", enabled: true, addClass: ""},
+        { degree: 11, name: "7M", display: "Ti", enabled: true, addClass: ""}
       ],
 
       //base notes, like the white tiles to get the root system running
       bases: ["C", "D", "E", "F", "G", "A", "B"],
+
+      backgroundClass: "",
+      backgroundColor: "green",
 
       // contains enabled degrees of mode
       modeEnabled: [],
@@ -262,10 +265,20 @@ export default {
       //man ja dann hier ändern oder so
       // let result = Note.transpose(this.getRoot(), index.name);
       console.log(this.$refs.background);
-      this.$refs.background.style.backgroundColor = this.solution === index.degree ?"green" : "red";
-      this.$refs.background.className = "fade-in-out";
       const self = this;
-      setTimeout(function () {self.$refs.background.className = ""}, 700);
+      const solution = this.solution;
+      if (this.solution === index.degree) {
+        this.backgroundColor = 'green';
+      } else {
+        this.backgroundColor = 'red';
+        console.log(this.$refs);
+        this.degrees[solution].addClass = 'correct-background';
+        setTimeout(function () {
+          self.degrees[solution].addClass = '';
+                }, 350);
+      }
+      this.backgroundClass = "fade-in-out";
+      setTimeout(function () {self.backgroundClass = ""}, 700);
       this.submitSolution(index.degree);
     }
   }
@@ -338,6 +351,7 @@ export default {
 .normal-btn
   text-transform: none !important
   position: absolute
+  transition: background-color 0.35s linear
 
   //class which contains the DegreeCircle
 .div-circle
@@ -365,4 +379,7 @@ export default {
       opacity: 0.2
     100%
       opacity: 0
+
+  .correct-background
+    background-color: #7cd2b6 !important
 </style>
