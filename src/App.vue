@@ -70,15 +70,15 @@
     };
 </script>
 
-<style>
-    .article {
-        max-width: 43em!important;
-    }
-    #player_banner .v-banner__text {
+<style lang="sass">
+    @import '../node_modules/typeface-roboto/index.css'
+    .article
+        max-width: 43em!important
+
+    #player_banner .v-banner__text
         width: 100%
-    }
-    #player_banner .v-banner__wrapper {
-        padding-bottom: 0;
-        padding-top: 0;
-    }
+
+    #player_banner .v-banner__wrapper
+        padding-bottom: 0
+        padding-top: 0
 </style>

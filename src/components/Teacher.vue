@@ -513,7 +513,7 @@
             Vue.prototype.$teacher = this;
             var self = this;
             MIDI.loadPlugin({
-                soundfontUrl: "https://gleitz.github.io/midi-js-soundfonts/FluidR3_GM/",
+                soundfontUrl: "/soundfont/",
                 instrument: "acoustic_grand_piano",
                 onprogress: function (state, progress) {
                     self.status = "Loading..." + Math.floor(progress * 100) + "%";
