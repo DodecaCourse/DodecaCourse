@@ -310,7 +310,7 @@
                     posOff = this.playDegree(this.key, degree, false, posOff, 2, cadence, false);
                     posOff = this.playDegree(this.key, secondDegree, false, posOff, 2, cadence, false);
 
-                    this.solution = [degree, secondDegree % 12];
+                    this.solution = [degree % 12, secondDegree % 12];
                     if (this.useInput) {
                         console.log("USE_INPUT");
                         this.roundDuration = posOff;
