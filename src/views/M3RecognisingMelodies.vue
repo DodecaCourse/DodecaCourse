@@ -73,20 +73,20 @@
                 </InlineConfigurator>
             </p>
             <p>
-                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], intervals: [5, 6, 7]}" :prog-id="4001"
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], intervals: [5, 6, 7]}" :prog-id="4002"
                                     t-type="recognition-interval">
                     4ths & 5ths
                 </InlineConfigurator>
             </p>
             <p>
-                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], intervals: [8, 9, 12]}" :prog-id="4001"
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], intervals: [8, 9, 12]}" :prog-id="4003"
                                     t-type="recognition-interval">
                     6ths & 8ves
                 </InlineConfigurator>
             </p>
             <p>
                 <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], intervals: [0,1,2,3,4,5,6,7,8,9,12]}"
-                                    :prog-id="4001"
+                                    :prog-id="4004"
                                     t-type="recognition-interval">
                     Melodic Intervals
                 </InlineConfigurator>
