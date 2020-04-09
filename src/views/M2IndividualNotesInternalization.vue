@@ -70,7 +70,7 @@
                 it's internalisation exercise.</p>
             <p>The
                 internalisation test for each scale degree is just like the
-                internalisation test for the tonic from the first module. A <i>I - IV -V</i>
+                internalisation test for the tonic from the first module. A <i>I - IV - V - I</i>
                 progression is played for the first two bars, followed by a pause,
                 and finally the target scale degree is played before the sequence is
                 repeated in a new key.</p>

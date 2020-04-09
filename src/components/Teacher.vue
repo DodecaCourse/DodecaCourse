@@ -1,6 +1,6 @@
 <template>
     <v-card
-            class="d-inline-flex px-1 align-center justify-center" elevation="5" width="100%"
+            class="d-inline-flex px-1 align-center justify-center" elevation="0" width="100%"
     >
         <b class="mr-3 hidden-sm-and-down">{{ description }}</b>
         <DegreeCircle v-show="useInput && playing" class="ma-1"

@@ -11,7 +11,11 @@
                 will quickly start to remember the sound of the tonic.</p>
             <p>The exercise is
                 made up of a 10 bar sequence, which is repeated throughout the
-                exercise. Hit »Practice« below to listen to this 10 bar sequence.</p>
+                exercise. Hit »Practice« below to listen to this 10 bar sequence.
+                (If you wonder about the icon, you can already take a quick look at
+                the <router-link to="/individual-notes/scale-degrees">scale degrees</router-link>
+                chapter in Module 2)
+            </p>
             <p>
                 <InlineConfigurator :prog-id="1001" t-type="internalization"
                                     :config="{degree: 0}" hide-test>
