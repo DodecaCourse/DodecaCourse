@@ -66,8 +66,8 @@
         },
         {
           "id": 3002,
-          "title": "Recognition Exercises",
-          "path": "/recognition-exercises"
+          "title": "Exercises & Tests",
+          "path": "/exercise-test"
         }
       ]
     },
@@ -143,12 +143,36 @@
       "id": 3001,
       "title": "Pentatonic Recognition",
       "levels": 3,
-      "chapter_id": 3
+      "chapter_id": 2
     },
     {
       "id": 3002,
       "title": "Major Scale Internalisation",
       "levels": 3,
+      "chapter_id": 2
+    },
+    {
+      "id": 4001,
+      "title": "2nds & 3rds",
+      "levels": 5,
+      "chapter_id": 3
+    },
+    {
+      "id": 4002,
+      "title": "4ths & 5ths",
+      "levels": 5,
+      "chapter_id": 3
+    },
+    {
+      "id": 4003,
+      "title": "6ths & 8ves",
+      "levels": 5,
+      "chapter_id": 3
+    },
+    {
+      "id": 4004,
+      "title": "Melodic intervals",
+      "levels": 5,
       "chapter_id": 3
     }
   ]

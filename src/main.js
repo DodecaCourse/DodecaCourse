@@ -13,8 +13,8 @@ import M2IndividualNotesOverview from "./views/M2IndividualNotesOverview";
 import M2ScaleDegrees from "./views/M2ScaleDegrees";
 import M2IndividualNotesInternalization from "./views/M2IndividualNotesInternalization";
 import M2IndividualNotesRecognition from "./views/M2IndividualNotesRecognition";
-import RecognisingMelodiesOverview from "./views/RecognisingMelodiesOverview";
-import RecognisingMelodiesMethod from "./views/RecognisingMelodiesMethod";
+import M3RecognisingMelodiesOverview from "./views/M3RecognisingMelodiesOverview";
+import M3RecognisingMelodies from "./views/M3RecognisingMelodies";
 import TeacherPlayground from "./views/TeacherPlayground";
 
 
@@ -37,8 +37,8 @@ const router = new VueRouter({
     { path: '/individual-notes/scale-degrees', component: M2ScaleDegrees},
     { path: '/individual-notes/internalisation', component: M2IndividualNotesInternalization},
     { path: '/individual-notes/recognition', component: M2IndividualNotesRecognition},
-    { path: '/recognising-melodies/overview', component: RecognisingMelodiesOverview},
-    { path: '/recognising-melodies/recognition-exercises', component: RecognisingMelodiesMethod},
+    { path: '/recognising-melodies/overview', component: M3RecognisingMelodiesOverview},
+    { path: '/recognising-melodies/exercise-test', component: M3RecognisingMelodies},
     { path: '/*', component: NotFound}
   ],
   scrollBehavior (to, from, savedPosition) {
