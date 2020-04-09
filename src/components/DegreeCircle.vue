@@ -100,9 +100,6 @@
       fab
       :elevation="i.degree === 0 ? 5 : 2"
       v-on:click="noteBt(i)"
-      v-on:focus="function(i) {
-        alert(i);
-      }"
       >{{ i.display }}</v-btn>
     <div id="progress-content">
       <slot name="progress"></slot>
@@ -284,13 +281,12 @@ export default {
           }, correctionTime * (i + 1) + 10 + i);
         }
       }
-      console.log(this.backgroundTimeout);
       if (this.backgroundTimeout !== undefined) {
         clearTimeout(this.backgroundTimeout);
       }
       // fade-in-out could still be set on fast clicks -> reset and timeout
       this.backgroundClass = "";
-      setTimeout(function () {self.backgroundClass = "fade-in-out"}, 10);
+      setTimeout(function () {self.backgroundClass = "fade-in-out"}, 50);
       this.backgroundTimeout = setTimeout(function () {self.backgroundClass = ""}, 700);
     }
   }

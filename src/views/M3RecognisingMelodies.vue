@@ -14,9 +14,8 @@
                 there is a pause where you can enter the scale degrees you heard.</p>
             <h3>How the exercises are organised</h3>
             <p>
-                You'll see below that there is a large selection of 2 Note Melody
-                Recognition Exercises. There are 120 of them in total, split up into
-                four groups: 2nds &amp; 3rds , 4ths &amp; 5ths, 6ths &amp; 8ves and
+                You'll see below that there are several 2 Note Melody
+                Recognition Exercises: 2nds &amp; 3rds , 4ths &amp; 5ths, 6ths &amp; 8ves and
                 melodic intervals. The first 3 groups contain melodies of specific
                 intervals: in the 2nds &amp; 3rds exercises for example there is
                 always either a 2nd or 3rd between the two notes of the melody. The
@@ -85,7 +84,7 @@
                 </InlineConfigurator>
             </p>
             <p>
-                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], intervals: [0,1,2,3,4,5,6,7,8,9,12]}"
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], intervals: [1,2,3,4,5,6,7,8,9,12]}"
                                     :prog-id="4004"
                                     t-type="recognition-interval">
                     Melodic Intervals
