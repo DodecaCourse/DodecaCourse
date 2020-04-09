@@ -1,19 +1,24 @@
 <template>
-    <v-card class="d-inline-flex px-1 align-center justify-center" elevation="2"
+    <v-card class="d-flex flex-wrap px-1 align-center justify-center" elevation="2"
         >
-        <b class="mx-1 hidden-sm-and-down"><slot></slot>:</b>
+        <b class="mx-1"><slot></slot>:</b>
         <DegreeCirclePictogram v-show="enabledDegrees !== undefined" :enabled-degrees="enabledDegrees">
         </DegreeCirclePictogram>
+        <div>
         <v-btn v-show="levels > 1" :class="i === 0 ? 'mx-1' : 'mr-1'" v-for="(lvl, i) in this.levels" :key="i + 1"
-               @click="level = i + 1" :color="level === i + 1 ? 'primary' : 'secondary'" fab x-small depressed >
+               @click="level = i + 1" :color="level === i + 1 ? 'primary' : 'secondary'" fab x-small depressed
+        class="level">
             {{i + 1}}
         </v-btn>
+        </div>
+        <div>
         <v-btn v-if="!hidePractice" class="ma-1" color="primary" small elevation="1" v-on:click="onPractice">
             Practice
         </v-btn>
         <v-btn v-if="!hideTest" class="ma-1" color="ternary" small elevation="1" v-on:click="onTest">
             Test
         </v-btn>
+        </div>
     </v-card>
 </template>
 
@@ -23,6 +28,7 @@
 
     const INTERNALIZATION = 0;
     const RECOGNITION_SINGLE = 1;
+    const RECOGNITION_INTERVAL = 2;
 
     export default {
         name: "InlineConfigurator",
@@ -60,6 +66,7 @@
                 // defaults to INTERNALIZATION
                 if (this.tType === "internalization") return INTERNALIZATION;
                 else if (this.tType === "recognition-single") return RECOGNITION_SINGLE;
+                else if (this.tType === "recognition-interval") return RECOGNITION_INTERVAL;
                 else return INTERNALIZATION;
             },
             levels: function () {
@@ -68,8 +75,9 @@
             enabledDegrees: function () {
                 if (this.type === INTERNALIZATION) {
                     return [this.config.degree]
-                }
-                if (this.type === RECOGNITION_SINGLE) {
+                } else if (this.type === RECOGNITION_SINGLE) {
+                    return this.config.degrees;
+                } else if (this.type === RECOGNITION_INTERVAL) {
                     return this.config.degrees;
                 }
                 return undefined;
@@ -81,6 +89,9 @@
                     this.$teacher.setupInternalization(this.config.degree, true);
                 } else if (this.type === RECOGNITION_SINGLE) {
                     this.$teacher.setupRecognitionSingle(this.config.degrees, true, this.level);
+                } else if (this.type === RECOGNITION_INTERVAL) {
+                    this.$teacher.setupRecognitionInterval(this.config.degrees, this.config.intervals,
+                        true, this.level)
                 }
             },
             onTest: function () {
@@ -88,12 +99,16 @@
                     this.$teacher.setupInternalizationTest(this.config.degree, true);
                 } else if (this.type === RECOGNITION_SINGLE) {
                     this.$teacher.setupRecognitionSingleTest(this.config.degrees, true, this.level);
+                } else if (this.type === RECOGNITION_INTERVAL) {
+                    this.$teacher.setupRecognitionIntervalTest(this.config.degrees, this.config.intervals,
+                        true, this.level)
                 }
             }
         }
     }
 </script>
 
-<style scoped>
-
+<style lang="sass" scoped>
+    .level:not(.v-btn--text):not(.v-btn--outlined):focus::before
+        opacity: 0
 </style>

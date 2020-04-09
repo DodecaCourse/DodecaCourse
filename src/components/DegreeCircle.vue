@@ -100,7 +100,9 @@
       fab
       :elevation="i.degree === 0 ? 5 : 2"
       v-on:click="noteBt(i)"
-      :ripple="i.degree === solution ? {class: 'green--text' } : { class: 'red--text' }"
+      v-on:focus="function(i) {
+        alert(i);
+      }"
       >{{ i.display }}</v-btn>
     <div id="progress-content">
       <slot name="progress"></slot>
@@ -122,10 +124,6 @@ export default {
   props: {
     submitSolution: {
       type: Function,
-      required: true,
-    },
-    solution: {
-      type: Number,
       required: true,
     },
     enabledDegrees: {
@@ -197,6 +195,7 @@ export default {
 
       backgroundClass: "",
       backgroundColor: "green",
+      backgroundTimeout:undefined,
 
       // contains enabled degrees of mode
       modeEnabled: [],
@@ -264,22 +263,35 @@ export default {
       //schonmal eine Variable "lastClicked" (s.o.) erstellt, weiß nicht ob die hilfreich ist aber die könnte
       //man ja dann hier ändern oder so
       // let result = Note.transpose(this.getRoot(), index.name);
-      console.log(this.$refs.background);
+      const [correct, solution] = this.submitSolution(index.degree);
       const self = this;
-      const solution = this.solution;
-      if (this.solution === index.degree) {
+      const correctionTime = 500;
+      if (correct) {
         this.backgroundColor = 'green';
       } else {
         this.backgroundColor = 'red';
-        console.log(this.$refs);
-        this.degrees[solution].addClass = 'correct-background';
-        setTimeout(function () {
-          self.degrees[solution].addClass = '';
-                }, 350);
+        for (let i=0; i<solution.length; i++) {
+          const c = i;
+          if (i === 0) {
+            this.degrees[solution[c]].addClass = 'correct-background';
+          } else {
+            setTimeout(function() {
+              self.degrees[solution[c]].addClass = 'correct-background';
+            }, correctionTime * i + 10 * (i-1))
+          }
+          setTimeout(function () {
+            self.degrees[solution[c]].addClass = '';
+          }, correctionTime * (i + 1) + 10 + i);
+        }
       }
-      this.backgroundClass = "fade-in-out";
-      setTimeout(function () {self.backgroundClass = ""}, 700);
-      this.submitSolution(index.degree);
+      console.log(this.backgroundTimeout);
+      if (this.backgroundTimeout !== undefined) {
+        clearTimeout(this.backgroundTimeout);
+      }
+      // fade-in-out could still be set on fast clicks -> reset and timeout
+      this.backgroundClass = "";
+      setTimeout(function () {self.backgroundClass = "fade-in-out"}, 10);
+      this.backgroundTimeout = setTimeout(function () {self.backgroundClass = ""}, 700);
     }
   }
 };
@@ -352,6 +364,8 @@ export default {
   text-transform: none !important
   position: absolute
   transition: background-color 0.35s linear
+.normal-btn:not(.v-btn--text):not(.v-btn--outlined):focus::before
+  opacity: 0
 
   //class which contains the DegreeCircle
 .div-circle

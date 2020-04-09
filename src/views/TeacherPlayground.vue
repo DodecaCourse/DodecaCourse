@@ -22,6 +22,13 @@
                     Major Scale Recognition
                 </InlineConfigurator>
             </p>
+            <p>Interval Recognition</p>
+            <p>
+                <InlineConfigurator :prog-id="4001" t-type="recognition-interval"
+                                    :config="{degrees: [0, 2, 4, 5, 7, 9, 11], intervals: [1, 2, 3, 4]}">
+                    2nds & 3rds
+                </InlineConfigurator>
+            </p>
         </v-flex>
     </v-layout>
 </template>

@@ -2,7 +2,7 @@
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
             <h1>3. Recognising Melodies</h1>
-            <h2>2 Note Melody Recognition Exercises</h2>
+            <h2>2 Note Melody Recognition</h2>
             <p>
                 These exercises are just like the internalisation exercise from the
                 first module. The 2 note melody recognition exercises are just like
@@ -65,13 +65,42 @@
                 intervals exercise at the slowest speed. Then move onto level 2
                 for 2nds &amp; 3rds. Slowly make your way through all the exercises
                 until you can complete them all at the fastest speed.</p>
+            <h3>Exercises & Tests</h3>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], intervals: [1, 2, 3, 4]}" :prog-id="4001"
+                                    t-type="recognition-interval">
+                    2nds & 3rds
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], intervals: [5, 6, 7]}" :prog-id="4001"
+                                    t-type="recognition-interval">
+                    4ths & 5ths
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], intervals: [8, 9, 12]}" :prog-id="4001"
+                                    t-type="recognition-interval">
+                    6ths & 8ves
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], intervals: [0,1,2,3,4,5,6,7,8,9,12]}"
+                                    :prog-id="4001"
+                                    t-type="recognition-interval">
+                    Melodic Intervals
+                </InlineConfigurator>
+            </p>
         </v-flex>
     </v-layout>
 </template>
 
 <script>
+    import InlineConfigurator from "../components/InlineConfigurator";
+
     export default {
-        name: "RecognisingMelodiesMethod"
+        name: "RecognisingMelodiesMethod",
+        components: {InlineConfigurator}
     }
 </script>
 
