@@ -16,6 +16,11 @@ import M2IndividualNotesRecognition from "./views/M2IndividualNotesRecognition";
 import M3RecognisingMelodiesOverview from "./views/M3RecognisingMelodiesOverview";
 import M3RecognisingMelodies from "./views/M3RecognisingMelodies";
 import TeacherPlayground from "./views/TeacherPlayground";
+import M4RecognisingChordsOverview from "./views/M4RecognisingChordsOverview";
+import M4TargetingTones from "./views/M4TargetingTones";
+import M4ChordQualityRecognition from "./views/M4ChordQualityRecognition";
+import M4DiatonicChordsInternalization from "./views/M4DiatonicChordsInternalization";
+import M4DiatonicChordsRecognition from "./views/M4DiatonicChordsRecognition";
 
 
 Vue.config.productionTip = false;
@@ -39,6 +44,11 @@ const router = new VueRouter({
     { path: '/individual-notes/recognition', component: M2IndividualNotesRecognition},
     { path: '/recognising-melodies/overview', component: M3RecognisingMelodiesOverview},
     { path: '/recognising-melodies/exercise-test', component: M3RecognisingMelodies},
+    { path: '/chords/overview', component: M4RecognisingChordsOverview },
+    { path: '/chords/targeting-tones', component: M4TargetingTones },
+    { path: '/chords/chord-quality-recognition', component: M4ChordQualityRecognition },
+    { path: '/chords/diatonic-chord-internalisation', component: M4DiatonicChordsInternalization },
+    { path: '/chords/diatonic-chord-recognition', component: M4DiatonicChordsRecognition },
     { path: '/*', component: NotFound}
   ],
   scrollBehavior (to, from, savedPosition) {

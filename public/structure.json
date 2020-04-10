@@ -83,13 +83,23 @@
         },
         {
           "id": 4002,
-          "title": "Method",
-          "path": "/method"
+          "title": "Targeting Tones",
+          "path": "/targeting-tones"
         },
         {
           "id": 4003,
-          "title": "Test",
-          "path": "/test"
+          "title": "Chord Quality Recognition",
+          "path": "/chord-quality-recognition"
+        },
+        {
+          "id": 4004,
+          "title": "Diatonic Chord Internalisation",
+          "path": "/diatonic-chord-internalisation"
+        },
+        {
+          "id": 4005,
+          "title": "Diatonic Chord Recognition",
+          "path": "/diatonic-chord-recognition"
         }
       ]
     }
