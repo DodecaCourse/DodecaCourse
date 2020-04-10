@@ -48,6 +48,8 @@
                 If you are unsure whether you are identifying the root note accurately, return to the targeting tones
                 exercises to focus on this.
             </p>
+            <v-btn style="float: right" color="secondary" class="mx-3"
+                   to="/minor/overview">Next module</v-btn>
         </v-flex>
     </v-layout>
 </template>

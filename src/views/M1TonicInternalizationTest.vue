@@ -86,7 +86,8 @@
                 passed the first module! You've taken an
                 incredibly important step on the road to relative pitch and more
                 creativity and confidence with music. Continue to the next module:</p>
-            <v-btn style="float: right" color="secondary" class="mx-3" to="/individual-notes/overview">To Module 2</v-btn>
+            <v-btn style="float: right" color="secondary" class="mx-3"
+                   to="/individual-notes/overview">Next module</v-btn>
             <p><br/>
             <p>If you didn't,
                 there's no need to worry. It takes most students at least a

@@ -42,6 +42,9 @@
             <p>
                 Practice with each internalisation exercise for 1-2 sessions, then progress onto the diatonic chords recognition exercises. Return to these internalisation exercises if you find a chord difficult in the recognition exercises.
             </p>
+            <v-btn style="float: right" color="secondary" class="ma-2"
+                   to="/chords/diatonic-chord-recognition">Next Chapter
+            </v-btn>
         </v-flex>
     </v-layout>
 </template>

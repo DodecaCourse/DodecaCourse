@@ -136,6 +136,9 @@
                     Minor 7b5
                 </InlineConfigurator>
             </p>
+            <v-btn style="float: right" color="secondary" class="ma-2"
+                   to="/chords/chord-quality-recognition">Next Chapter
+            </v-btn>
         </v-flex>
     </v-layout>
 </template>
