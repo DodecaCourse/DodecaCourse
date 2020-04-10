@@ -298,7 +298,7 @@
                 else if (this.type === RECOGNITION_INTERVAL || this.type === RECOGNITION_INTERVAL_TEST) {
                     let degree = this.degrees[Math.floor(Math.random()*this.degrees.length)]; // choose randomly
                     // shift randomly up/down
-                    degree += 12 * (Math.floor(Math.random() * 3 ) - 2);
+                    degree += 12 * (Math.floor(Math.random() * 2 ) - 1);
                     const secondDegree = this.randomInterval(degree);
                     let posOff = 0;
                     let cadence = undefined;
@@ -310,8 +310,8 @@
                     posOff = this.playDegree(this.key, degree, false, posOff, 2, cadence, false);
                     posOff = this.playDegree(this.key, secondDegree, false, posOff, 2, cadence, false);
 
-                    this.solution = [Math.abs(degree % 12 > -1 ? degree % 12 : degree % 12 + 12),
-                        Math.abs(secondDegree % 12 > -1 ? secondDegree % 12 : secondDegree % 12 + 12)];
+                    this.solution = [this.normalizeDegree(degree),
+                        this.normalizeDegree(secondDegree)];
 
                     if (this.useInput) {
                         console.log("USE_INPUT");
@@ -440,13 +440,17 @@
                     }
                 }
             },
+            normalizeDegree: function (degree) {
+                // Bring degree into range from 0 to 11
+                return Math.abs(degree % 12 > -1 ? degree % 12 : degree % 12 + 12);
+            },
             randomInterval: function (degree) {
                 let intervalsAvailable = [];
                 for (let i=0; i<this.intervals.length; i++) {
-                    if (this.degrees.indexOf((degree + this.intervals[i]) % 12) > -1) {
+                    if (this.degrees.indexOf(this.normalizeDegree(degree + this.intervals[i])) > -1) {
                         intervalsAvailable.push(degree + this.intervals[i]);
                     }
-                    if (this.degrees.indexOf((degree - this.intervals[i]) % 12) > -1) {
+                    if (this.degrees.indexOf(this.normalizeDegree(degree - this.intervals[i])) > -1) {
                         intervalsAvailable.push(degree - this.intervals[i]);
                     }
                 }
