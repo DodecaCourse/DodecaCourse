@@ -45,12 +45,22 @@
     const RECOGNITION_SINGLE_TEST = 3;
     const RECOGNITION_INTERVAL = 4;
     const RECOGNITION_INTERVAL_TEST = 5;
+    const TARGET_TONE = 6;
+    const TARGET_TONE_TEST = 7;
 
     const SPEED_SLOW = 100;
     const SPEED_MEDIUM_SLOW = 125;
     const SPEED_MEDIUM = 140;
     const SPEED_MEDIUM_FAST = 160;
     const SPEED_FAST = 180;
+
+    const CHORD_MAJ = 0;
+    const CHORD_MIN = 1;
+    const CHORD_MAJ_7 = 2;
+    const CHORD_MIN_7 = 3;
+    const CHORD_DOM_7 = 4;
+    const CHORD_DIM_7 = 5;
+    const CHORD_MIN_7b5 = 6;
 
     const CADENCE_MAJOR_I_IV_V = 'major_i_iv_v';
     const CADENCE_MAJOR_I_IV_V_I = 'major_i_iv_v_i';
@@ -138,7 +148,28 @@
                 solution: 0,
                 answer: "",
                 // Recognition interval
-                intervals: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+                intervals: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+                // Targeting tone
+                targetDegree: 0,
+                chordTypes: [],
+                chordMap: {
+                    'maj': CHORD_MAJ,
+                    'min': CHORD_MIN,
+                    'maj7': CHORD_MAJ_7,
+                    'min7': CHORD_MIN_7,
+                    'dom7': CHORD_DOM_7,
+                    'dim7': CHORD_DIM_7,
+                    'min7b5': CHORD_MIN_7b5,
+                },
+                chordTones: {
+                    [CHORD_MAJ]: [0, 4, 7],
+                    [CHORD_MIN]: [0, 3, 7],
+                    [CHORD_MAJ_7]: [0, 4, 7, 11],
+                    [CHORD_MIN_7]: [0, 3, 7, 10],
+                    [CHORD_DOM_7]: [0, 4, 7, 10],
+                    [CHORD_DIM_7]: [0, 3, 6, 9],
+                    [CHORD_MIN_7b5]: [0, 3, 6, 10]
+                }
             };
         },
         computed: {
@@ -158,6 +189,8 @@
                 else if (this.type === RECOGNITION_SINGLE_TEST) return true;
                 else if (this.type === RECOGNITION_INTERVAL) return true;
                 else if (this.type === RECOGNITION_INTERVAL_TEST) return true;
+                else if (this.type === TARGET_TONE) return false;
+                else if (this.type === TARGET_TONE_TEST) return false;
                 else return false;
             }
         },
@@ -236,11 +269,39 @@
                 }
                 return delay + this.quarter * duration;
             },
+            playChord:function (root, chordType, posOff, duration) {
+                const delay = posOff;
+                const velocity = 127;
+                MIDI.setVolume(0, 127);
+                const notes = this.transposeBy(this.chordTones[chordType], root);
+                if (this.playing) {
+                    this.chordOn(0, notes, velocity, delay);
+                    this.chordOff(0, notes, delay + duration * this.quarter);
+                }
+                return delay + duration * this.quarter;
+            },
+            playNote:function (note, posOff, duration) {
+                const delay = posOff;
+                const velocity = 127;
+                MIDI.setVolume(0, 127);
+                if (this.playing) {
+                    this.noteOn(0, note, velocity, delay);
+                    this.noteOff(0, note, delay + duration * this.quarter);
+                }
+                return delay + duration * this.quarter;
+            },
             transposeToKey: function (notes, key, octaves) {
                 const keyOffset = Midi.toMidi(key + '0') + 12 * octaves;
                 let notesMod = notes.slice();
                 for (let i=0; i<notes.length; i++) {
                     notesMod[i] = notesMod[i] + keyOffset;
+                }
+                return notesMod;
+            },
+            transposeBy: function (notes, halfsteps) {
+                let notesMod = notes.slice();
+                for (let i=0; i<notes.length; i++) {
+                    notesMod[i] = notesMod[i] + halfsteps;
                 }
                 return notesMod;
             },
@@ -322,7 +383,29 @@
                         this.timeoutRef = setTimeout(this.solutionNoInput, this.roundDuration * 1000);
                     }
                 }
-
+                else if (this.type === TARGET_TONE) {
+                    let root = Math.floor(Math.random()*12) + 5 * 12; // choose randomly
+                    let chordType = this.chordTypes[Math.floor(Math.random()*this.chordTypes.length)]; // choose randomly
+                    root += 12 * (Math.floor(Math.random() * 2 ) - 1);
+                    let posOff = 0;
+                    for (let i=0; i<4; i++) {
+                        posOff = this.playChord(root, chordType, posOff, 4);
+                        posOff = this.playNote(root + this.targetDegree, posOff, 4);
+                    }
+                    this.roundDuration = posOff;
+                    this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
+                } else if (this.type === TARGET_TONE_TEST) {
+                    let root = Math.floor(Math.random()*12) + 5 * 12; // choose randomly
+                    let chordType = this.chordTypes[Math.floor(Math.random()*this.chordTypes.length)]; // choose randomly
+                    root += 12 * (Math.floor(Math.random() * 2 ) - 1);
+                    let posOff = 0;
+                    posOff = this.playChord(root, chordType, posOff, 4);
+                    posOff = this.rest(posOff, 4);
+                    posOff = this.playNote(root + this.targetDegree, posOff, 4);
+                    posOff = this.rest(posOff, 4);
+                    this.roundDuration = posOff;
+                    this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
+                }
 
                 this.startTime = new Date().getTime();
                 this.updateProgress();
@@ -366,6 +449,7 @@
                 this.chosenDegrees = [degree];
                 this.type = INTERNALIZATION;
                 this.stopAfterRounds = -1;
+                this.tempoBPM = SPEED_MEDIUM;
                 this.finishSetup(autoplay);
             },
             setupInternalizationTest: function(degree, autoplay) {
@@ -374,8 +458,10 @@
                 this.chosenDegrees = [degree];
                 this.type = INTERNALIZATION_TEST;
                 this.stopAfterRounds = 12;
+                this.tempoBPM = SPEED_MEDIUM;
                 this.finishSetup(autoplay);
             },
+
             setupRecognitionSingle: function(degrees, autoplay, level) {
                 console.log("setupRecognitionSingle", degrees);
                 this.description = "Recognition";
@@ -431,6 +517,32 @@
                 else if (level === 5) this.tempoBPM = SPEED_FAST;
                 this.finishSetup(autoplay);
             },
+
+            setupTargetTone(chordTypes, autoplay) {
+                console.log("setupTargetTone", chordTypes);
+                this.description = "Target Tones";
+                this.chosenDegrees = [];
+                this.chordTypes = [];
+                for (let i=0; i<chordTypes.length; i++)
+                    this.chordTypes.push(this.chordMap[chordTypes[i]]);
+                this.stopAfterRounds = -1;
+                this.type = TARGET_TONE;
+                this.tempoBPM = SPEED_MEDIUM_SLOW;
+                this.finishSetup(autoplay);
+            },
+            setupTargetToneTest(chordTypes, autoplay) {
+                console.log("setupTargetToneTest", chordTypes);
+                this.description = "Target Tones";
+                this.chosenDegrees = [];
+                this.chordTypes = [];
+                for (let i=0; i<chordTypes.length; i++)
+                    this.chordTypes.push(this.chordMap[chordTypes[i]]);
+                this.type = TARGET_TONE_TEST;
+                this.tempoBPM = SPEED_MEDIUM_SLOW;
+                this.stopAfterRounds = 12;
+                this.finishSetup(autoplay);
+            },
+
             finishSetup: function (autoplay) {
                 if (autoplay || this.playing) {
                     if (this.playing) {
@@ -491,7 +603,7 @@
                 try {
                     MIDI.stopAllNotes();
                 } catch (e) {
-                    console.log('MIDI.stopAllNotes failed:', e);
+                    console.log('MIDI.stopAllNotes failed:');
                 }
             },
             noteOn: function(channel, note, velocity, delay) {

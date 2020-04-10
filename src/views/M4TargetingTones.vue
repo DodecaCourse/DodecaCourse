@@ -22,7 +22,8 @@
                 Below you can see the first 24 bars of the major triad targeting tones exercise.
             </p>
             <p>
-                <v-img src="/img/module_4_html_87eacacdcd1f7785.png"
+                <v-img  contain max-height="27ch" max-width="83.5vw"
+                        src="/img/module_4_html_87eacacdcd1f7785.png"
                        title="24 bars of the major triad targeting tones exercise"/>
             </p>
             <h3>How to use the targeting tones exercises</h3>
@@ -64,7 +65,8 @@
                 You can see the first 16 bars of the major triad targeting tones test below:
             </p>
             <p>
-                <v-img src="/img/module_4_html_b22b262992be1fd5.png"
+                <v-img contain max-height="27ch" max-width="83.5vw"
+                        src="/img/module_4_html_b22b262992be1fd5.png"
                      title="The first 16 bars of the major triad targeting tones test"/>
             </p>
             <h3>How to use the targeting tones tests</h3>
@@ -85,13 +87,64 @@
             <p>
                 When you can sing 10 out of 12 root notes correctly, move onto the targeting tones exercise for the next chord.
             </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], chordTypes: ['maj']}"
+                                    :prog-id="5001"
+                                    t-type="target-tone">
+                    Major
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], chordTypes: ['min']}"
+                                    :prog-id="5002"
+                                    t-type="target-tone">
+                    Minor
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], chordTypes: ['maj7']}"
+                                    :prog-id="5003"
+                                    t-type="target-tone">
+                    Major 7th
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], chordTypes: ['min7']}"
+                                    :prog-id="5004"
+                                    t-type="target-tone">
+                    Minor 7th
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], chordTypes: ['dom7']}"
+                                    :prog-id="5005"
+                                    t-type="target-tone">
+                    Dominant 7th
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], chordTypes: ['dim7']}"
+                                    :prog-id="5006"
+                                    t-type="target-tone">
+                    Diminished 7th
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], chordTypes: ['min7b5']}"
+                                    :prog-id="5007"
+                                    t-type="target-tone">
+                    Minor 7b5
+                </InlineConfigurator>
+            </p>
         </v-flex>
     </v-layout>
 </template>
 
 <script>
+    import InlineConfigurator from "../components/InlineConfigurator";
     export default {
-        name: "M4TargetingTones"
+        name: "M4TargetingTones",
+        components: {InlineConfigurator}
     }
 </script>
 

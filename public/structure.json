@@ -201,6 +201,49 @@
       "title": "Melodic intervals",
       "levels": 5,
       "chapter_id": 3
+    },
+
+    {
+      "id": 5001,
+      "title": "Major Triad Root",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 5002,
+      "title": "Minor Triad Root",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 5003,
+      "title": "Maj 7th Root",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 5004,
+      "title": "Min 7th Root",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 5005,
+      "title": "Dom 7th Root",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 5006,
+      "title": "Dim 7th Root",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 5007,
+      "title": "Min7b5 Root",
+      "levels": 1,
+      "chapter_id": 4
     }
   ]
 }

@@ -71,7 +71,7 @@
                 process for recognising chords you'll often resolve a problem in another one.
             </p>
             <v-btn style="float: right" color="secondary" class="ma-2"
-                   to="/tonic-internalization/tonic">Next Chapter
+                   to="/chords/targeting-tones">Next Chapter
             </v-btn>
         </v-flex>
     </v-layout>

@@ -93,7 +93,7 @@
                 </InlineConfigurator>
             </p>
             <v-btn style="float: right" color="secondary" class="ma-2"
-                   to="/melodies/overview">Next Module</v-btn>
+                   to="/recognising-melodies/overview">Next Module</v-btn>
         </v-flex>
     </v-layout>
 </template>
