@@ -102,6 +102,23 @@
           "path": "/diatonic-chord-recognition"
         }
       ]
+    },
+    {
+      "id": 5,
+      "title": "Minor keys",
+      "path": "/minor",
+      "chapters": [
+        {
+          "id": 5001,
+          "title": "Overview",
+          "path": "/overview"
+        },
+        {
+          "id": 5002,
+          "title": "Exercises & Tests",
+          "path": "/ex-tests"
+        }
+      ]
     }
   ],
   "targets": [
