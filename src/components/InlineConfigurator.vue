@@ -124,7 +124,7 @@
                 } else if (this.type === CHORD_QUALITY) {
                     this.$teacher.setupChordQualityTest(this.config.chordTypes, true, this.level)
                 } else if (this.type === CHORD_INTERNALIZATION) {
-                    this.$teacher.setupChordInternalizationTest(this.config.diatonic, this.config.degrees, this.config.count, true, this.level)
+                    console.error("No chord internalization test available");
                 } else if (this.type === CHORD_RECOGNITION) {
                     this.$teacher.setupChordRecognitionTest(this.config.diatonics, this.config.degrees, this.config.count,true, this.level)
                 }
