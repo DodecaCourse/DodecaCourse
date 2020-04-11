@@ -95,7 +95,6 @@
                 changeKeyEvery: 1, // set to -1 to never change key
                 chosenDegrees: [0, 2, 4, 5, 7, 9, 11], // activated degrees
                 type: INTERNALIZATION,
-                description: "Internalisation",
                 cadenceType: CADENCE_MAJOR_I_IV_V,
                 inputDisabled: false,
                 fullCadenceEvery: 8,
@@ -217,6 +216,20 @@
                 else {
                     console.error("useInput not set for type", this.type);
                     return NO_INPUT;
+                }
+            },
+            description: function () {
+                if (this.type === INTERNALIZATION || this.type === INTERNALIZATION_TEST ||
+                    this.type === CHORD_INTERNALIZATION || this.type === CHORD_INTERNALIZATION_TEST)
+                    return "Internalisation";
+                else if (this.type === RECOGNITION_SINGLE || this.type === RECOGNITION_SINGLE_TEST ||
+                         this.type === RECOGNITION_INTERVAL || this.type === RECOGNITION_INTERVAL_TEST)
+                    return "Recognition";
+                else if (this.type === TARGET_TONE || this.type === TARGET_TONE_TEST) return "Targeting Tones";
+                else if (this.type === CHORD_QUALITY || this.type === CHORD_QUALITY_TEST) return "Chord Quality";
+                else {
+                    console.warn("No description for type", this.type);
+                    return ""
                 }
             }
         },
@@ -355,6 +368,140 @@
                 }
                 return notesMod;
             },
+            roundInternalization: function () {
+                let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
+                for (let i=0;i<4;i++) {
+                    posOff = this.playDegree(this.key, this.degrees[0], true, posOff, 4, cadence, true);
+                    posOff = this.playDegree(this.key, this.degrees[0], false, posOff, 4, cadence, true);
+                }
+                this.roundDuration = posOff;
+                this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
+            },
+            roundInternalizationTest: function () {
+                let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
+                posOff = this.playResting(this.key, cadence, posOff, 4);
+                posOff = this.rest(posOff, 3 * 4);
+                posOff = this.playDegree(this.key, this.degrees[0], false, posOff, 8, cadence, true);
+                posOff = this.rest(posOff, 4);
+                this.roundDuration = posOff;
+                this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
+            },
+            roundRecognitionSingle: function () {
+                const degree = this.degrees[Math.floor(Math.random()*this.degrees.length)];     // choose randomly
+                let posOff = 0;
+                let cadence = undefined;
+                if ((this.roundSincePlay - 1) % this.fullCadenceEvery === 0) {
+                    [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
+                } else {
+                    posOff = this.playDrone(this.key, 0, 4);
+                }
+                posOff = this.playDegree(this.key, degree, false, posOff, 4, cadence, false);
+
+                this.solution = [degree];
+                if (this.useInput !== NO_INPUT) {
+                    console.log("USE_INPUT");
+                    this.roundDuration = posOff;
+                } else {
+                    posOff = this.rest(posOff, 2 * 4);
+                    this.roundDuration = posOff;
+                    this.timeoutRef = setTimeout(this.solutionNoInput, this.roundDuration * 1000);
+                }
+            },
+            roundRecognitionInterval: function () {
+                let degree = this.degrees[Math.floor(Math.random()*this.degrees.length)]; // choose randomly
+                // shift randomly up/down
+                degree += 12 * (Math.floor(Math.random() * 2 ) - 1);
+                const secondDegree = this.randomInterval(degree);
+                let posOff = 0;
+                let cadence = undefined;
+                if ((this.roundSincePlay - 1) % this.fullCadenceEvery === 0) {
+                    [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
+                } else {
+                    posOff = this.playDrone(this.key, 0, 4);
+                }
+                posOff = this.playDegree(this.key, degree, false, posOff, 2, cadence, false);
+                posOff = this.playDegree(this.key, secondDegree, false, posOff, 2, cadence, false);
+
+                this.solution = [this.normalizeDegree(degree), this.normalizeDegree(secondDegree)];
+
+                if (this.useInput !== NO_INPUT) {
+                    console.log("USE_INPUT");
+                    this.roundDuration = posOff;
+                } else {
+                    posOff = this.rest(posOff, 2 * 4);
+                    this.roundDuration = posOff;
+                    this.timeoutRef = setTimeout(this.solutionNoInput, this.roundDuration * 1000);
+                }
+            },
+            roundTargetTone: function () {
+                let root = Math.floor(Math.random()*12) + 5 * 12; // choose randomly
+                let chordType = this.chordTypes[Math.floor(Math.random()*this.chordTypes.length)]; // choose randomly
+                root += 12 * (Math.floor(Math.random() * 2 ) - 1);
+                let posOff = 0;
+                for (let i=0; i<4; i++) {
+                    posOff = this.playChord(root, chordType, posOff, 4);
+                    posOff = this.playNote(root + this.targetDegree, posOff, 4);
+                }
+                this.roundDuration = posOff;
+                this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
+            },
+            roundTargetToneTest: function () {
+                let root = Math.floor(Math.random()*12) + 5 * 12; // choose randomly
+                let chordType = this.chordTypes[Math.floor(Math.random()*this.chordTypes.length)]; // choose randomly
+                root += 12 * (Math.floor(Math.random() * 2 ) - 1);
+                let posOff = this.playChord(root, chordType, 0, 4);
+                posOff = this.rest(posOff, 4);
+                posOff = this.playNote(root + this.targetDegree, posOff, 4);
+                posOff = this.rest(posOff, 4);
+                this.roundDuration = posOff;
+                this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
+            },
+            roundChordQuality: function () {
+                let root = Math.floor(Math.random()*12) + 5 * 12; // choose randomly
+                let chordType = this.chordTypes[Math.floor(Math.random()*this.chordTypes.length)]; // choose randomly
+                root += 12 * (Math.floor(Math.random() * 2 ) - 1);
+                let posOff = this.playChord(root, chordType, 0, 4);
+                this.solution = [chordType];
+
+                if (this.useInput !== NO_INPUT) {
+                    console.log("USE_INPUT");
+                    this.roundDuration = posOff;
+                } else {
+                    posOff = this.rest(posOff, 2 * 4);
+                    this.roundDuration = posOff;
+                    this.timeoutRef = setTimeout(this.solutionNoInput, this.roundDuration * 1000);
+                }
+            },
+            roundChordInternalization: function () {
+                let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
+                for (let i=0;i<4;i++) {
+                    posOff = this.playResting(this.key, cadence, posOff, 4);
+                    posOff = this.playDiatonic(this.key, this.diatonic, this.diatonicCount, posOff, 4, cadence, false);
+                }
+                this.roundDuration = posOff;
+                this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
+            },
+            roundChordRecognition: function () {
+                let diatonic = this.diatonics[Math.floor(Math.random()*this.diatonics.length)]; // choose randomly
+                let posOff = 0;
+                let cadence = undefined;
+                if ((this.roundSincePlay - 1) % this.fullCadenceEvery === 0) {
+                    [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
+                } else {
+                    posOff = this.playDrone(this.key, 0, 4);
+                }
+                posOff = this.playDiatonic(this.key, diatonic, this.diatonicCount, posOff, 4, cadence, false);
+
+                this.solution = [diatonic];
+                if (this.useInput !== NO_INPUT) {
+                    console.log("USE_INPUT");
+                    this.roundDuration = posOff;
+                } else {
+                    posOff = this.rest(posOff, 2 * 4);
+                    this.roundDuration = posOff;
+                    this.timeoutRef = setTimeout(this.solutionNoInput, this.roundDuration * 1000);
+                }
+            },
             playRound: function() {
                 this.inputPos = 0;
                 this.roundSincePlay++;
@@ -367,152 +514,35 @@
                     this.sinceKeyChange = 0;
                     this.key = chrom[Math.floor(Math.random() * chrom.length)];
                 }
-                if (this.type === INTERNALIZATION) {
-                    let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
-                    for (let i=0;i<4;i++) {
-                        posOff = this.playDegree(this.key, this.degrees[0], true, posOff, 4, cadence, true);
-                        posOff = this.playDegree(this.key, this.degrees[0], false, posOff, 4, cadence, true);
-                    }
-                    this.roundDuration = posOff;
-                    this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
-                }
-                else if (this.type === INTERNALIZATION_TEST) {
-                    let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
-                    posOff = this.playResting(this.key, cadence, posOff, 4);
-                    posOff = this.rest(posOff, 3 * 4);
-                    posOff = this.playDegree(this.key, this.degrees[0], false, posOff, 8, cadence, true);
-                    posOff = this.rest(posOff, 4);
-                    this.roundDuration = posOff;
-                    this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
-                }
-                else if (this.type === RECOGNITION_SINGLE || this.type === RECOGNITION_SINGLE_TEST) {
-                    const degree = this.degrees[Math.floor(Math.random()*this.degrees.length)];     // choose randomly
-                    let posOff = 0;
-                    let cadence = undefined;
-                    if ((this.roundSincePlay - 1) % this.fullCadenceEvery === 0) {
-                        [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
-                    } else {
-                        posOff = this.playDrone(this.key, 0, 4);
-                    }
-                    posOff = this.playDegree(this.key, degree, false, posOff, 4, cadence, false);
+                if (this.type === INTERNALIZATION) this.roundInternalization();
+                else if (this.type === INTERNALIZATION_TEST) this.roundInternalizationTest();
+                else if (this.type === RECOGNITION_SINGLE || this.type === RECOGNITION_SINGLE_TEST)
+                    this.roundRecognitionSingle();
+                else if (this.type === RECOGNITION_INTERVAL || this.type === RECOGNITION_INTERVAL_TEST)
+                    this.roundRecognitionInterval();
+                else if (this.type === TARGET_TONE) this.roundTargetTone();
+                else if (this.type === TARGET_TONE_TEST) this.roundTargetToneTest();
+                else if (this.type === CHORD_QUALITY || this.type === CHORD_QUALITY_TEST)
+                    this.roundChordQuality();
+                else if (this.type === CHORD_INTERNALIZATION || this.type === CHORD_INTERNALIZATION_TEST)
+                    this.roundChordInternalization();
+                else if (this.type === CHORD_RECOGNITION || this.type === CHORD_RECOGNITION_TEST)
+                    this.roundChordRecognition();
 
-                    this.solution = [degree];
-                    if (this.useInput !== NO_INPUT) {
-                        console.log("USE_INPUT");
-                        this.roundDuration = posOff;
-                    } else {
-                        posOff = this.rest(posOff, 2 * 4);
-                        this.roundDuration = posOff;
-                        this.timeoutRef = setTimeout(this.solutionNoInput, this.roundDuration * 1000);
-                    }
-                }
-                else if (this.type === RECOGNITION_INTERVAL || this.type === RECOGNITION_INTERVAL_TEST) {
-                    let degree = this.degrees[Math.floor(Math.random()*this.degrees.length)]; // choose randomly
-                    // shift randomly up/down
-                    degree += 12 * (Math.floor(Math.random() * 2 ) - 1);
-                    const secondDegree = this.randomInterval(degree);
-                    let posOff = 0;
-                    let cadence = undefined;
-                    if ((this.roundSincePlay - 1) % this.fullCadenceEvery === 0) {
-                        [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
-                    } else {
-                        posOff = this.playDrone(this.key, 0, 4);
-                    }
-                    posOff = this.playDegree(this.key, degree, false, posOff, 2, cadence, false);
-                    posOff = this.playDegree(this.key, secondDegree, false, posOff, 2, cadence, false);
-
-                    this.solution = [this.normalizeDegree(degree),
-                        this.normalizeDegree(secondDegree)];
-
-                    if (this.useInput !== NO_INPUT) {
-                        console.log("USE_INPUT");
-                        this.roundDuration = posOff;
-                    } else {
-                        posOff = this.rest(posOff, 2 * 4);
-                        this.roundDuration = posOff;
-                        this.timeoutRef = setTimeout(this.solutionNoInput, this.roundDuration * 1000);
-                    }
-                }
-                else if (this.type === TARGET_TONE) {
-                    let root = Math.floor(Math.random()*12) + 5 * 12; // choose randomly
-                    let chordType = this.chordTypes[Math.floor(Math.random()*this.chordTypes.length)]; // choose randomly
-                    root += 12 * (Math.floor(Math.random() * 2 ) - 1);
-                    let posOff = 0;
-                    for (let i=0; i<4; i++) {
-                        posOff = this.playChord(root, chordType, posOff, 4);
-                        posOff = this.playNote(root + this.targetDegree, posOff, 4);
-                    }
-                    this.roundDuration = posOff;
-                    this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
-                } else if (this.type === TARGET_TONE_TEST) {
-                    let root = Math.floor(Math.random()*12) + 5 * 12; // choose randomly
-                    let chordType = this.chordTypes[Math.floor(Math.random()*this.chordTypes.length)]; // choose randomly
-                    root += 12 * (Math.floor(Math.random() * 2 ) - 1);
-                    let posOff = 0;
-                    posOff = this.playChord(root, chordType, posOff, 4);
-                    posOff = this.rest(posOff, 4);
-                    posOff = this.playNote(root + this.targetDegree, posOff, 4);
-                    posOff = this.rest(posOff, 4);
-                    this.roundDuration = posOff;
-                    this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
-                } else if (this.type === CHORD_QUALITY || this.type === CHORD_QUALITY_TEST) {
-                    let root = Math.floor(Math.random()*12) + 5 * 12; // choose randomly
-                    let chordType = this.chordTypes[Math.floor(Math.random()*this.chordTypes.length)]; // choose randomly
-                    root += 12 * (Math.floor(Math.random() * 2 ) - 1);
-                    let posOff = 0;
-                    posOff = this.playChord(root, chordType, posOff, 4);
-                    this.solution = [chordType];
-
-                    if (this.useInput !== NO_INPUT) {
-                        console.log("USE_INPUT");
-                        this.roundDuration = posOff;
-                    } else {
-                        posOff = this.rest(posOff, 2 * 4);
-                        this.roundDuration = posOff;
-                        this.timeoutRef = setTimeout(this.solutionNoInput, this.roundDuration * 1000);
-                    }
-                }
-                else if (this.type === CHORD_INTERNALIZATION || this.type === CHORD_INTERNALIZATION_TEST) {
-                    let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
-                    for (let i=0;i<4;i++) {
-                        posOff = this.playResting(this.key, cadence, posOff, 4);
-                        posOff = this.playDiatonic(this.key, this.diatonic, this.diatonicCount, posOff, 4, cadence, false);
-                    }
-                    this.roundDuration = posOff;
-                    this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
-                }
-                else if (this.type === CHORD_RECOGNITION || this.type === CHORD_RECOGNITION_TEST) {
-                    let diatonic = this.diatonics[Math.floor(Math.random()*this.diatonics.length)]; // choose randomly
-                    let posOff = 0;
-                    let cadence = undefined;
-                    if ((this.roundSincePlay - 1) % this.fullCadenceEvery === 0) {
-                        [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
-                    } else {
-                        posOff = this.playDrone(this.key, 0, 4);
-                    }
-                    posOff = this.playDiatonic(this.key, diatonic, this.diatonicCount, posOff, 4, cadence, false);
-
-                    this.solution = [diatonic];
-                    if (this.useInput !== NO_INPUT) {
-                        console.log("USE_INPUT");
-                        this.roundDuration = posOff;
-                    } else {
-                        posOff = this.rest(posOff, 2 * 4);
-                        this.roundDuration = posOff;
-                        this.timeoutRef = setTimeout(this.solutionNoInput, this.roundDuration * 1000);
-                    }
-                }
-
+                // state to calculate progress
                 this.startTime = new Date().getTime();
                 this.updateProgress();
             },
             solutionNoInput: function() {
+                /* TODO: Output solution via audio for the user to compare */
                 console.log("SOLUTION_NO_INPUT: ",this.solution);
                 let posOff = this.rest(0,  4);
                 this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
             },
             solutionInput: function(input) {
+                /* returns: correct (bool), solution (Object if correct, else Array) */
                 if (this.solution === null || this.inputPos >= this.solution.length) {
+                    // no solution to compare with
                     return;
                 }
                 const curSolution = this.solution[this.inputPos];
@@ -520,20 +550,26 @@
                 if (curSolution === input) {
                     this.inputPos++;
                     if (this.inputPos === this.solution.length) {
+                        // finished round
                         let posOff = this.rest(0, 2);
                         this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
                     }
                     return [true, curSolution];
                 } else {
+                    // wrong -> round ends
                     let posOff = this.rest(0, 2 * this.solution.length - this.inputPos);
                     this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
+                    // return the correct solution not yet answered
                     return [false, this.solution.slice(this.inputPos)]
                 }
             },
             doRepeat: function() {
+                /* Auomatically play a new round */
+                // clear up previous round
                 this.stopAllNotes();
                 this.clearTimeouts();
                 if ( 0 < this.stopAfterRounds && this.stopAfterRounds <= this.roundSincePlay) {
+                    // autostop for tests
                     this.playing = false;
                 }
                 if (this.playing) this.playRound();
@@ -541,7 +577,6 @@
             // setup functions for different practice/test scenarios
             setupInternalization: function(degree, autoplay) {
                 console.log("setupInternalization", degree);
-                this.description = "Internalisation";
                 this.chosenDegrees = [degree];
                 this.type = INTERNALIZATION;
                 this.stopAfterRounds = -1;
@@ -550,7 +585,6 @@
             },
             setupInternalizationTest: function(degree, autoplay) {
                 console.log("setupInternalizationTest", degree);
-                this.description = "Internalisation Test";
                 this.chosenDegrees = [degree];
                 this.type = INTERNALIZATION_TEST;
                 this.stopAfterRounds = 12;
@@ -560,7 +594,6 @@
 
             setupRecognitionSingle: function(degrees, autoplay, level) {
                 console.log("setupRecognitionSingle", degrees);
-                this.description = "Recognition";
                 this.chosenDegrees = degrees;
                 this.type = RECOGNITION_SINGLE;
                 this.circleType = "degree";
@@ -573,7 +606,6 @@
             },
             setupRecognitionSingleTest: function(degrees, autoplay, level) {
                 console.log("setupRecognitionSingleTest", degrees);
-                this.description = "Recognition Test";
                 this.chosenDegrees = degrees;
                 this.type = RECOGNITION_SINGLE_TEST;
                 this.circleType = "degree";
@@ -587,7 +619,6 @@
 
             setupRecognitionInterval: function(degrees, intervals, autoplay, level) {
                 console.log("setupRecognitionInterval", degrees);
-                this.description = "Recognition";
                 this.chosenDegrees = degrees;
                 this.intervals = intervals;
                 this.type = RECOGNITION_INTERVAL;
@@ -603,7 +634,6 @@
             },
             setupRecognitionIntervalTest: function(degrees, intervals, autoplay, level) {
                 console.log("setupRecognitionIntervalTest", degrees);
-                this.description = "Recognition Test";
                 this.chosenDegrees = degrees;
                 this.intervals = intervals;
                 this.type = RECOGNITION_INTERVAL_TEST;
@@ -620,7 +650,6 @@
 
             setupTargetTone(chordTypes, autoplay) {
                 console.log("setupTargetTone", chordTypes);
-                this.description = "Target Tones";
                 this.chosenDegrees = [];
                 this.chordTypes = chordTypes;
                 this.stopAfterRounds = -1;
@@ -630,7 +659,6 @@
             },
             setupTargetToneTest(chordTypes, autoplay) {
                 console.log("setupTargetToneTest", chordTypes);
-                this.description = "Target Tones";
                 this.chosenDegrees = [];
                 this.chordTypes = chordTypes;
                 this.type = TARGET_TONE_TEST;
@@ -641,7 +669,6 @@
 
             setupChordQuality(chordTypes, autoplay) {
                 console.log("setupChordQuality", chordTypes);
-                this.description = "Chord Quality";
                 this.chosenDegrees = [];
                 this.chordTypes = chordTypes;
                 this.stopAfterRounds = -1;
@@ -651,7 +678,6 @@
             },
             setupChordQualityTest(chordTypes, autoplay) {
                 console.log("setupChordQualityTest", chordTypes);
-                this.description = "Chord Quality";
                 this.chosenDegrees = [];
                 this.chordTypes = chordTypes;
                 this.type = CHORD_QUALITY_TEST;
@@ -662,7 +688,6 @@
 
             setupChordInternalization(diatonic, degrees, count, autoplay) {
                 console.log("setupChordInternalization", diatonic);
-                this.description = "Chord Internalization";
                 this.chosenDegrees = degrees;
                 this.diatonic = diatonic;
                 this.diatonicCount = count;
@@ -673,7 +698,6 @@
             },
             setupChordInternalizationTest(diatonic, degrees, count, autoplay) {
                 console.log("setupChordInternalization", diatonic);
-                this.description = "Chord Internalization";
                 this.chosenDegrees = degrees;
                 this.diatonic = diatonic;
                 this.diatonicCount = count;
@@ -684,7 +708,6 @@
             },
             setupChordRecognition(diatonics, degrees, count, autoplay, level) {
                 console.log("setupChordRecognition", diatonics);
-                this.description = "Chord Recognition";
                 this.chosenDegrees = degrees;
                 this.diatonics = diatonics;
                 this.diatonicCount = count;
@@ -699,7 +722,6 @@
             },
             setupChordRecognitionTest(diatonics, degrees, count, autoplay, level) {
                 console.log("setupChordRecognitionTest", diatonics);
-                this.description = "Chord Recognition";
                 this.chosenDegrees = degrees;
                 this.diatonics = diatonics;
                 this.diatonicCount = count;
