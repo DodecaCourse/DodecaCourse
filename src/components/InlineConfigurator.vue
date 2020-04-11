@@ -32,6 +32,7 @@
     const TARGET_TONE = 3;
     const CHORD_QUALITY = 4;
     const CHORD_INTERNALIZATION = 5;
+    const CHORD_RECOGNITION = 6;
 
     export default {
         name: "InlineConfigurator",
@@ -73,6 +74,7 @@
                 else if (this.tType === "target-tone") return TARGET_TONE;
                 else if (this.tType === "chord-quality") return CHORD_QUALITY;
                 else if (this.tType === "chord-internalization") return CHORD_INTERNALIZATION;
+                else if (this.tType === "chord-recognition") return CHORD_RECOGNITION;
                 else return INTERNALIZATION;
             },
             levels: function () {
@@ -105,6 +107,8 @@
                     this.$teacher.setupChordQuality(this.config.chordTypes, true, this.level)
                 } else if (this.type === CHORD_INTERNALIZATION) {
                     this.$teacher.setupChordInternalization(this.config.diatonic, this.config.degrees, true, this.level)
+                } else if (this.type === CHORD_RECOGNITION) {
+                    this.$teacher.setupChordRecognition(this.config.diatonics, this.config.degrees, true, this.level)
                 }
             },
             onTest: function () {
@@ -121,6 +125,8 @@
                     this.$teacher.setupChordQualityTest(this.config.chordTypes, true, this.level)
                 } else if (this.type === CHORD_INTERNALIZATION) {
                     this.$teacher.setupChordInternalizationTest(this.config.diatonic, this.config.degrees, true, this.level)
+                } else if (this.type === CHORD_RECOGNITION) {
+                    this.$teacher.setupChordRecognitionTest(this.config.diatonics, this.config.degrees, true, this.level)
                 }
             }
         }

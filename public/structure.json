@@ -271,8 +271,14 @@
     },
     {
       "id": 7001,
-      "title": "ii Internalisationii Internalisation",
+      "title": "ii Internalisation",
       "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 8001,
+      "title": "Diatonic Triads",
+      "levels": 3,
       "chapter_id": 4
     }
   ]

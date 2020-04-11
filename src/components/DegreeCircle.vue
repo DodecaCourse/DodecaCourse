@@ -92,7 +92,7 @@
     <div id="background-circle" :class="backgroundClass" :style="'backgroundColor: ' + backgroundColor"/>
     <v-btn
       v-for="i in this.degrees"
-      v-bind:key="i.display"
+      v-bind:key="i.degree"
       :class="'normal-btn normal-btn--' + (i.degree + 1) + ' ' + i.addClass"
       :color="i.enabled ? 'primary' : 'secondary'"
       :disabled="!i.enabled"
@@ -100,7 +100,7 @@
       fab
       :elevation="i.degree === 0 ? 5 : 2"
       v-on:click="noteBt(i)"
-      >{{ i.display }}</v-btn>
+      >{{ type === 'degree' ? i.display : i.displayChord }}</v-btn>
     <div id="progress-content">
       <slot name="progress"></slot>
     </div>
@@ -126,6 +126,10 @@ export default {
     enabledDegrees: {
       type: Array,
       required: true,
+    },
+    tType: {
+      type: String,
+      required: false,
     }
   },
 
@@ -173,18 +177,18 @@ export default {
       //database for the intervals/degrees, "name" chosen to fit TonalJS, display is the name of
       //Solfege and shown on btns
       degrees: [
-        { degree: 0, name: "1P", display: "Do", enabled: true, addClass: ""},
-        { degree: 1, name: "2m", display: "Ra", enabled: true, addClass: ""},
-        { degree: 2, name: "2M", display: "Re", enabled: true, addClass: ""},
-        { degree: 3, name: "3m", display: "Ma", enabled: true, addClass: ""},
-        { degree: 4, name: "3M", display: "Mi", enabled: true, addClass: ""},
-        { degree: 5, name: "4P", display: "Fa", enabled: true, addClass: ""},
-        { degree: 6, name: "4A", display: "Fi", enabled: true, addClass: ""},
-        { degree: 7, name: "5P", display: "So", enabled: true, addClass: ""},
-        { degree: 8, name: "6m", display: "Le", enabled: true, addClass: ""},
-        { degree: 9, name: "6M", display: "La", enabled: true, addClass: ""},
-        { degree: 10, name: "7m", display: "Ta", enabled: true, addClass: ""},
-        { degree: 11, name: "7M", display: "Ti", enabled: true, addClass: ""}
+        { degree: 0, name: "1P", display: "Do", displayChord: "I", enaenabled: true, addClass: ""},
+        { degree: 1, name: "2m", display: "Ra", displayChord: "bII", eenabled: true, addClass: ""},
+        { degree: 2, name: "2M", display: "Re", displayChord: "ii", enenabled: true, addClass: ""},
+        { degree: 3, name: "3m", display: "Ma", displayChord: "bIII", enabled: true, addClass: ""},
+        { degree: 4, name: "3M", display: "Mi", displayChord: "iii", eenabled: true, addClass: ""},
+        { degree: 5, name: "4P", display: "Fa", displayChord: "IV", enenabled: true, addClass: ""},
+        { degree: 6, name: "4A", display: "Fi", displayChord: "bV", enenabled: true, addClass: ""},
+        { degree: 7, name: "5P", display: "So", displayChord: "V", enaenabled: true, addClass: ""},
+        { degree: 8, name: "6m", display: "Le", displayChord: "bVI", eenabled: true, addClass: ""},
+        { degree: 9, name: "6M", display: "La", displayChord: "vi", enenabled: true, addClass: ""},
+        { degree: 10, name: "7m", display: "Ta", displayChord: "bVII", enabled: true, addClass: ""},
+        { degree: 11, name: "7M", display: "Ti", displayChord: "vii",  enabled: true, addClass: ""}
       ],
 
       //base notes, like the white tiles to get the root system running
@@ -200,7 +204,11 @@ export default {
     };
   },
 
-  computed: {},
+  computed: {
+    type: function () {
+      return this.tType || "degree";
+    }
+  },
 
   watch: {
     modeEnabled: function (newVal) {

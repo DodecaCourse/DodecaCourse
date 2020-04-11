@@ -4,7 +4,8 @@
     >
         <b class="mr-3 hidden-sm-and-down">{{ description }}</b>
         <DegreeCircle v-show="useInput === 1 && playing" class="ma-1"
-                      :submit-solution="solutionInput" :enabled-degrees="chosenDegrees">
+                      :submit-solution="solutionInput" :enabled-degrees="chosenDegrees"
+        :t-type="circleType">
             <template v-slot:playbtn>
                 <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
                     <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
@@ -57,6 +58,8 @@
     const CHORD_QUALITY_TEST = 9;
     const CHORD_INTERNALIZATION = 10;
     const CHORD_INTERNALIZATION_TEST = 11;
+    const CHORD_RECOGNITION = 12;
+    const CHORD_RECOGNITION_TEST = 13;
 
     const SPEED_SLOW = 100;
     const SPEED_MEDIUM_SLOW = 125;
@@ -148,6 +151,7 @@
                 fixed: true,
                 // tType specific
                 // Recognition
+                circleType: "degree",
                 inputDisabled: false,
                 inputPos: 0,
                 fullCadenceEvery: 8,
@@ -168,7 +172,9 @@
                     'dom7': [0, 4, 7, 10],
                     'dim7': [0, 3, 6, 9],
                     'min7b5': [0, 3, 6, 10]
-                }
+                },
+                diatonic: 0,
+                diatonics: [0],
             };
         },
         computed: {
@@ -193,7 +199,9 @@
                 else if (this.type === CHORD_QUALITY) return INPUT_CHORD_QUALITY;
                 else if (this.type === CHORD_QUALITY_TEST) return INPUT_CHORD_QUALITY;
                 else if (this.type === CHORD_INTERNALIZATION) return NO_INPUT;
-                else if (this.type === CHORD_INTERNALIZATION_TEST) return INPUT_CIRCLE;
+                else if (this.type === CHORD_INTERNALIZATION_TEST) return NO_INPUT;
+                else if (this.type === CHORD_RECOGNITION) return INPUT_CIRCLE;
+                else if (this.type === CHORD_RECOGNITION_TEST) return INPUT_CIRCLE;
                 else return NO_INPUT;
             }
         },
@@ -449,7 +457,7 @@
                         this.timeoutRef = setTimeout(this.solutionNoInput, this.roundDuration * 1000);
                     }
                 }
-                else if (this.type === CHORD_INTERNALIZATION) {
+                else if (this.type === CHORD_INTERNALIZATION || this.type === CHORD_INTERNALIZATION_TEST) {
                     let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
                     for (let i=0;i<4;i++) {
                         posOff = this.playResting(this.key, cadence, posOff, 4);
@@ -458,14 +466,26 @@
                     this.roundDuration = posOff;
                     this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
                 }
-                else if (this.type === CHORD_INTERNALIZATION_TEST) {
-                    let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
-                    posOff = this.playResting(this.key, cadence, posOff, 4);
-                    posOff = this.rest(posOff, 3 * 4);
-                    posOff = this.playDegree(this.key, this.degrees[0], false, posOff, 8, cadence, true);
-                    posOff = this.rest(posOff, 4);
-                    this.roundDuration = posOff;
-                    this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
+                else if (this.type === CHORD_RECOGNITION || this.type === CHORD_RECOGNITION_TEST) {
+                    let diatonic = this.diatonics[Math.floor(Math.random()*this.diatonics.length)]; // choose randomly
+                    let posOff = 0;
+                    let cadence = undefined;
+                    if ((this.roundSincePlay - 1) % this.fullCadenceEvery === 0) {
+                        [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
+                    } else {
+                        posOff = this.playDrone(this.key, 0, 4);
+                    }
+                    posOff = this.playDiatonic(this.key, diatonic, 3, posOff, 4, cadence, false);
+
+                    this.solution = [diatonic];
+                    if (this.useInput !== NO_INPUT) {
+                        console.log("USE_INPUT");
+                        this.roundDuration = posOff;
+                    } else {
+                        posOff = this.rest(posOff, 2 * 4);
+                        this.roundDuration = posOff;
+                        this.timeoutRef = setTimeout(this.solutionNoInput, this.roundDuration * 1000);
+                    }
                 }
 
                 this.startTime = new Date().getTime();
@@ -528,6 +548,7 @@
                 this.description = "Recognition";
                 this.chosenDegrees = degrees;
                 this.type = RECOGNITION_SINGLE;
+                this.circleType = "degree";
                 this.stopAfterRounds = -1;
                 this.changeKeyEvery = this.fullCadenceEvery;
                 if (level === 1) this.tempoBPM = SPEED_SLOW;
@@ -540,6 +561,7 @@
                 this.description = "Recognition Test";
                 this.chosenDegrees = degrees;
                 this.type = RECOGNITION_SINGLE_TEST;
+                this.circleType = "degree";
                 this.stopAfterRounds = 32;
                 this.changeKeyEvery = this.fullCadenceEvery;
                 if (level === 1) this.tempoBPM = SPEED_SLOW;
@@ -554,6 +576,7 @@
                 this.chosenDegrees = degrees;
                 this.intervals = intervals;
                 this.type = RECOGNITION_INTERVAL;
+                this.circleType = "degree";
                 this.stopAfterRounds = -1;
                 this.changeKeyEvery = this.fullCadenceEvery;
                 if (level === 1) this.tempoBPM = SPEED_SLOW;
@@ -569,6 +592,7 @@
                 this.chosenDegrees = degrees;
                 this.intervals = intervals;
                 this.type = RECOGNITION_INTERVAL_TEST;
+                this.circleType = "degree";
                 this.stopAfterRounds = 32;
                 this.changeKeyEvery = this.fullCadenceEvery;
                 if (level === 1) this.tempoBPM = SPEED_SLOW;
@@ -632,13 +656,41 @@
                 this.finishSetup(autoplay);
             },
             setupChordInternalizationTest(diatonic, degrees, autoplay) {
-                console.log("setupChordInternalizationTest", diatonic);
+                console.log("setupChordInternalization", diatonic);
                 this.description = "Chord Internalization";
                 this.chosenDegrees = degrees;
                 this.diatonic = diatonic;
+                this.stopAfterRounds = 12;
                 this.type = CHORD_INTERNALIZATION_TEST;
                 this.tempoBPM = SPEED_MEDIUM_SLOW;
-                this.stopAfterRounds = 12;
+                this.finishSetup(autoplay);
+            },
+            setupChordRecognition(diatonics, degrees, autoplay, level) {
+                console.log("setupChordRecognition", diatonics);
+                this.description = "Chord Recognition";
+                this.chosenDegrees = degrees;
+                this.diatonics = diatonics;
+                this.type = CHORD_RECOGNITION;
+                this.circleType = "chord";
+                this.stopAfterRounds = -1;
+                this.changeKeyEvery = this.fullCadenceEvery;
+                if (level === 1) this.tempoBPM = SPEED_SLOW;
+                else if (level === 2) this.tempoBPM = SPEED_MEDIUM;
+                else if (level === 3) this.tempoBPM = SPEED_FAST;
+                this.finishSetup(autoplay);
+            },
+            setupChordRecognitionTest(diatonics, degrees, autoplay, level) {
+                console.log("setupChordRecognitionTest", diatonics);
+                this.description = "Chord Recognition";
+                this.chosenDegrees = degrees;
+                this.diatonics = diatonics;
+                this.type = CHORD_RECOGNITION_TEST;
+                this.circleType = "chord";
+                this.stopAfterRounds = 32;
+                this.changeKeyEvery = this.fullCadenceEvery;
+                if (level === 1) this.tempoBPM = SPEED_SLOW;
+                else if (level === 2) this.tempoBPM = SPEED_MEDIUM;
+                else if (level === 3) this.tempoBPM = SPEED_FAST;
                 this.finishSetup(autoplay);
             },
 

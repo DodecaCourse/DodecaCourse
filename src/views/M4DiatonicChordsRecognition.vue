@@ -48,6 +48,14 @@
                 If you are unsure whether you are identifying the root note accurately, return to the targeting tones
                 exercises to focus on this.
             </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11],
+                diatonics: [2, 4, 5, 7, 9, 11]}"
+                                    :prog-id="8001"
+                                    t-type="chord-recognition">
+                    Diatonic Triads
+                </InlineConfigurator>
+            </p>
             <v-btn style="float: right" color="secondary" class="mx-3"
                    to="/minor/overview">Next module</v-btn>
         </v-flex>
@@ -55,8 +63,10 @@
 </template>
 
 <script>
+    import InlineConfigurator from "../components/InlineConfigurator";
     export default {
-        name: "M4DiatonicChordsRecognition"
+        name: "M4DiatonicChordsRecognition",
+        components: {InlineConfigurator}
     }
 </script>
 
