@@ -3,7 +3,6 @@
         <v-flex class="article" xs10>
             <h1>4. Recognising Chords</h1>
             <h2>Diatonic Chords Internalisation</h2>
-            <h3>Exercises</h3>
             <p>
                 There is an internalisation exercise for each diatonic triad.
             </p>
@@ -42,6 +41,7 @@
             <p>
                 Practice with each internalisation exercise for 1-2 sessions, then progress onto the diatonic chords recognition exercises. Return to these internalisation exercises if you find a chord difficult in the recognition exercises.
             </p>
+            <h3>Diatonic Triads</h3>
             <p>
                 <InlineConfigurator
                         :config="{degrees: [0, 2, 4, 5, 7, 9, 11], diatonic: 2, count: 3}"
@@ -84,6 +84,7 @@
                     vii Internalisation
                 </InlineConfigurator>
             </p>
+            <h3>Diatonic 7th Chords</h3>
             <p>
                 <InlineConfigurator
                         :config="{degrees: [0, 2, 4, 5, 7, 9, 11], diatonic: 2, count: 4}"

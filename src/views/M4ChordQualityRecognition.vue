@@ -80,7 +80,7 @@
                 chordTypes: ['maj', 'min', 'dim', 'maj7', 'min7', 'dom7', 'dim7', 'min7b5']}"
                                     :prog-id="6004"
                                     t-type="chord-quality">
-                    Maj, Min & Dim Triads
+                    Triads & 7th Chords
                 </InlineConfigurator>
             </p>
             <v-btn style="float: right" color="secondary" class="ma-2"
