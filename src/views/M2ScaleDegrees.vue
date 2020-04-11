@@ -72,11 +72,13 @@
                 in the second picture only the major scale is selected:</p>
             <div style="display: flex; justify-content: center; pointer-events: none">
                 <DegreeCircle :submit-solution="function() {}" :solution="0"
-                              :enabled-degrees="[0,1,2,3,4,5,6,7,8,9,10,11]">
+                              :enabled-buttons="[0,1,2,3,4,5,6,7,8,9,10,11]"
+                              :labels="['Do', 'Ra', 'Re', 'Ma', 'Mi', 'Fa', 'Fi', 'So', 'Le', 'La', 'Te', 'Ti']">
                 </DegreeCircle>
                 <div style="margin-left: 5px">
                     <DegreeCircle :submit-solution="function() {}" :solution="0"
-                                  :enabled-degrees="[0,2,4,5,7,9,11]">
+                                  :enabled-buttons="[0,2,4,5,7,9,11]"
+                                  :labels="['Do', 'Ra', 'Re', 'Ma', 'Mi', 'Fa', 'Fi', 'So', 'Le', 'La', 'Te', 'Ti']">
                     </DegreeCircle>
                 </div>
             </div>

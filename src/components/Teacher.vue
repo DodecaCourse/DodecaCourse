@@ -4,8 +4,8 @@
     >
         <b class="mr-3 hidden-sm-and-down">{{ description }}</b>
         <DegreeCircle v-show="(useInput === 1 || useInput === 2) && playing" class="ma-1"
-                      :submit-solution="solutionInput" :enabled-degrees="chosenDegrees"
-                      :t-type="useInput === 1 ? 'degree' : 'chord'">
+                      :submit-solution="solutionInput" :enabled-buttons="chosenDegrees"
+                      :labels="circleLabels">
             <template v-slot:playbtn>
                 <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
                     <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
@@ -224,7 +224,8 @@
                     this.type === CHORD_INTERNALIZATION)
                     return "Internalisation";
                 else if (this.type === RECOGNITION_SINGLE || this.type === RECOGNITION_SINGLE_TEST ||
-                         this.type === RECOGNITION_INTERVAL || this.type === RECOGNITION_INTERVAL_TEST)
+                         this.type === RECOGNITION_INTERVAL || this.type === RECOGNITION_INTERVAL_TEST ||
+                         this.type === CHORD_RECOGNITION || this.type === CHORD_RECOGNITION_TEST)
                     return "Recognition";
                 else if (this.type === TARGET_TONE || this.type === TARGET_TONE_TEST) return "Targeting Tones";
                 else if (this.type === CHORD_QUALITY || this.type === CHORD_QUALITY_TEST) return "Chord Quality";
@@ -267,6 +268,15 @@
                 else if (this.type === CHORD_QUALITY_TEST) return 12;
                 else if (this.type === CHORD_RECOGNITION_TEST) return 32;
                 return -1;
+            },
+            circleLabels: function () {
+                if (this.useInput === INPUT_CIRCLE_CHORD && this.diatonicCount <= 3) {
+                    return ["I", "bII", "ii", "bIII", "iii", "IV", "bV", "V", "bVI", "vi", "bVII", "vii"]
+                } else if (this.useInput === INPUT_CIRCLE_CHORD && this.diatonicCount > 3) {
+                    return ["IM7", "bII7", "ii7", "bIII7", "iii7", "IVM7",
+                        "bV7", "V7", "bVI7", "vi7", "bVII7", "vii7b5"]
+                }
+                return ["Do", "Ra", "Re", "Ma", "Mi", "Fa", "Fi", "So", "Le", "La", "Te", "Ti"]
             }
         },
         watch: {
