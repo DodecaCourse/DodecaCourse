@@ -177,16 +177,16 @@ export default {
       //database for the intervals/degrees, "name" chosen to fit TonalJS, display is the name of
       //Solfege and shown on btns
       degrees: [
-        { degree: 0, name: "1P", display: "Do", displayChord: "I", enaenabled: true, addClass: ""},
-        { degree: 1, name: "2m", display: "Ra", displayChord: "bII", eenabled: true, addClass: ""},
-        { degree: 2, name: "2M", display: "Re", displayChord: "ii", enenabled: true, addClass: ""},
+        { degree: 0, name: "1P", display: "Do", displayChord: "I", enabled: true, addClass: ""},
+        { degree: 1, name: "2m", display: "Ra", displayChord: "bII", enabled: true, addClass: ""},
+        { degree: 2, name: "2M", display: "Re", displayChord: "ii", enabled: true, addClass: ""},
         { degree: 3, name: "3m", display: "Ma", displayChord: "bIII", enabled: true, addClass: ""},
-        { degree: 4, name: "3M", display: "Mi", displayChord: "iii", eenabled: true, addClass: ""},
-        { degree: 5, name: "4P", display: "Fa", displayChord: "IV", enenabled: true, addClass: ""},
-        { degree: 6, name: "4A", display: "Fi", displayChord: "bV", enenabled: true, addClass: ""},
-        { degree: 7, name: "5P", display: "So", displayChord: "V", enaenabled: true, addClass: ""},
-        { degree: 8, name: "6m", display: "Le", displayChord: "bVI", eenabled: true, addClass: ""},
-        { degree: 9, name: "6M", display: "La", displayChord: "vi", enenabled: true, addClass: ""},
+        { degree: 4, name: "3M", display: "Mi", displayChord: "iii", enabled: true, addClass: ""},
+        { degree: 5, name: "4P", display: "Fa", displayChord: "IV", enabled: true, addClass: ""},
+        { degree: 6, name: "4A", display: "Fi", displayChord: "bV", enabled: true, addClass: ""},
+        { degree: 7, name: "5P", display: "So", displayChord: "V", enabled: true, addClass: ""},
+        { degree: 8, name: "6m", display: "Le", displayChord: "bVI", enabled: true, addClass: ""},
+        { degree: 9, name: "6M", display: "La", displayChord: "vi", enabled: true, addClass: ""},
         { degree: 10, name: "7m", display: "Ta", displayChord: "bVII", enabled: true, addClass: ""},
         { degree: 11, name: "7M", display: "Ti", displayChord: "vii",  enabled: true, addClass: ""}
       ],
