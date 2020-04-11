@@ -276,7 +276,7 @@
                     return ["IM7", "bII7", "ii7", "bIII7", "iii7", "IVM7",
                         "bV7", "V7", "bVI7", "vi7", "bVII7", "vii7b5"]
                 }
-                return ["Do", "Ra", "Re", "Ma", "Mi", "Fa", "Fi", "So", "Le", "La", "Te", "Ti"]
+                return ["Do", "Ra", "Re", "Me", "Mi", "Fa", "Fi", "So", "Le", "La", "Te", "Ti"]
             }
         },
         watch: {
