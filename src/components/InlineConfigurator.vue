@@ -30,6 +30,7 @@
     const RECOGNITION_SINGLE = 1;
     const RECOGNITION_INTERVAL = 2;
     const TARGET_TONE = 3;
+    const CHORD_QUALITY = 4;
 
     export default {
         name: "InlineConfigurator",
@@ -69,6 +70,7 @@
                 else if (this.tType === "recognition-single") return RECOGNITION_SINGLE;
                 else if (this.tType === "recognition-interval") return RECOGNITION_INTERVAL;
                 else if (this.tType === "target-tone") return TARGET_TONE;
+                else if (this.tType === "chord-quality") return CHORD_QUALITY;
                 else return INTERNALIZATION;
             },
             levels: function () {
@@ -81,10 +83,9 @@
                     return this.config.degrees;
                 } else if (this.type === RECOGNITION_INTERVAL) {
                     return this.config.degrees;
-                } else if (this.type === TARGET_TONE) {
+                } else {
                     return this.config.degrees || [0, 2, 4, 5, 7, 9, 11];
                 }
-                return undefined;
             }
         },
         methods: {
@@ -98,6 +99,8 @@
                         true, this.level)
                 } else if (this.type === TARGET_TONE) {
                     this.$teacher.setupTargetTone(this.config.chordTypes, true, this.level)
+                } else if (this.type === CHORD_QUALITY) {
+                    this.$teacher.setupChordQuality(this.config.chordTypes, true, this.level)
                 }
             },
             onTest: function () {
@@ -110,6 +113,8 @@
                         true, this.level)
                 } else if (this.type === TARGET_TONE) {
                     this.$teacher.setupTargetToneTest(this.config.chordTypes, true, this.level)
+                } else if (this.type === CHORD_QUALITY) {
+                    this.$teacher.setupChordQualityTest(this.config.chordTypes, true, this.level)
                 }
             }
         }

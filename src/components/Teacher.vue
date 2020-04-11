@@ -3,7 +3,7 @@
             class="d-inline-flex px-1 align-center justify-center" elevation="0" width="100%"
     >
         <b class="mr-3 hidden-sm-and-down">{{ description }}</b>
-        <DegreeCircle v-show="useInput && playing" class="ma-1"
+        <DegreeCircle v-show="useInput === 1 && playing" class="ma-1"
                       :submit-solution="solutionInput" :enabled-degrees="chosenDegrees">
             <template v-slot:playbtn>
                 <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
@@ -18,7 +18,7 @@
                 {{ roundSincePlay }}
             </template>
         </DegreeCircle>
-        <div v-show="!(useInput && playing)">
+        <div v-show="(useInput === 0 || useInput === 2) || !playing">
             <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
                 <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
             </v-btn>
@@ -28,6 +28,11 @@
                     {{roundSincePlay}}
                 </DegreeCirclePictogram>
             </v-progress-circular>
+            <div v-show="useInput === 2 && playing">
+                <ChordQualityInput
+                        :submit-solution="solutionInput" :enabled-qualities="chordTypes">
+                </ChordQualityInput>
+            </div>
         </div>
     </v-card>
 </template>
@@ -38,6 +43,7 @@
     import Vue from "vue";
     import DegreeCircle from "./DegreeCircle";
     import DegreeCirclePictogram from "./DegreeCirclePictogram";
+    import ChordQualityInput from "./ChordQualityInput";
 
     const INTERNALIZATION = 0;
     const INTERNALIZATION_TEST = 1;
@@ -47,6 +53,8 @@
     const RECOGNITION_INTERVAL_TEST = 5;
     const TARGET_TONE = 6;
     const TARGET_TONE_TEST = 7;
+    const CHORD_QUALITY = 8;
+    const CHORD_QUALITY_TEST = 9;
 
     const SPEED_SLOW = 100;
     const SPEED_MEDIUM_SLOW = 125;
@@ -54,20 +62,16 @@
     const SPEED_MEDIUM_FAST = 160;
     const SPEED_FAST = 180;
 
-    const CHORD_MAJ = 0;
-    const CHORD_MIN = 1;
-    const CHORD_MAJ_7 = 2;
-    const CHORD_MIN_7 = 3;
-    const CHORD_DOM_7 = 4;
-    const CHORD_DIM_7 = 5;
-    const CHORD_MIN_7b5 = 6;
+    const NO_INPUT = 0;
+    const INPUT_CIRCLE = 1;
+    const INPUT_CHORD_QUALITY = 2;
 
     const CADENCE_MAJOR_I_IV_V = 'major_i_iv_v';
     const CADENCE_MAJOR_I_IV_V_I = 'major_i_iv_v_i';
 
     export default {
         name: "Teacher",
-        components: {DegreeCirclePictogram, DegreeCircle},
+        components: {ChordQualityInput, DegreeCirclePictogram, DegreeCircle},
         data: function() {
             return {
                 hidden: false,
@@ -152,23 +156,16 @@
                 // Targeting tone
                 targetDegree: 0,
                 chordTypes: [],
-                chordMap: {
-                    'maj': CHORD_MAJ,
-                    'min': CHORD_MIN,
-                    'maj7': CHORD_MAJ_7,
-                    'min7': CHORD_MIN_7,
-                    'dom7': CHORD_DOM_7,
-                    'dim7': CHORD_DIM_7,
-                    'min7b5': CHORD_MIN_7b5,
-                },
                 chordTones: {
-                    [CHORD_MAJ]: [0, 4, 7],
-                    [CHORD_MIN]: [0, 3, 7],
-                    [CHORD_MAJ_7]: [0, 4, 7, 11],
-                    [CHORD_MIN_7]: [0, 3, 7, 10],
-                    [CHORD_DOM_7]: [0, 4, 7, 10],
-                    [CHORD_DIM_7]: [0, 3, 6, 9],
-                    [CHORD_MIN_7b5]: [0, 3, 6, 10]
+                    'maj': [0, 4, 7],
+                    'min': [0, 3, 7],
+                    'dim': [0, 3, 6],
+                    'aug': [0, 4, 8],
+                    'maj7': [0, 4, 7, 11],
+                    'min7': [0, 3, 7, 10],
+                    'dom7': [0, 4, 7, 10],
+                    'dim7': [0, 3, 6, 9],
+                    'min7b5': [0, 3, 6, 10]
                 }
             };
         },
@@ -181,17 +178,19 @@
                 return this.chosenDegrees;
             },
             useInput: function() {
-                if (this.inputDisabled) return false;
+                if (this.inputDisabled) return NO_INPUT;
 
-                if (this.type === INTERNALIZATION) return false;
-                else if (this.type === INTERNALIZATION_TEST) return false;
-                else if (this.type === RECOGNITION_SINGLE) return true;
-                else if (this.type === RECOGNITION_SINGLE_TEST) return true;
-                else if (this.type === RECOGNITION_INTERVAL) return true;
-                else if (this.type === RECOGNITION_INTERVAL_TEST) return true;
-                else if (this.type === TARGET_TONE) return false;
-                else if (this.type === TARGET_TONE_TEST) return false;
-                else return false;
+                if (this.type === INTERNALIZATION) return NO_INPUT;
+                else if (this.type === INTERNALIZATION_TEST) return NO_INPUT;
+                else if (this.type === RECOGNITION_SINGLE) return INPUT_CIRCLE;
+                else if (this.type === RECOGNITION_SINGLE_TEST) return INPUT_CIRCLE;
+                else if (this.type === RECOGNITION_INTERVAL) return INPUT_CIRCLE;
+                else if (this.type === RECOGNITION_INTERVAL_TEST) return INPUT_CIRCLE;
+                else if (this.type === TARGET_TONE) return NO_INPUT;
+                else if (this.type === TARGET_TONE_TEST) return NO_INPUT;
+                else if (this.type === CHORD_QUALITY) return INPUT_CHORD_QUALITY;
+                else if (this.type === CHORD_QUALITY_TEST) return INPUT_CHORD_QUALITY;
+                else return NO_INPUT;
             }
         },
         watch: {
@@ -347,7 +346,7 @@
                     posOff = this.playDegree(this.key, degree, false, posOff, 4, cadence, false);
 
                     this.solution = [degree];
-                    if (this.useInput) {
+                    if (this.useInput !== NO_INPUT) {
                         console.log("USE_INPUT");
                         this.roundDuration = posOff;
                     } else {
@@ -374,7 +373,7 @@
                     this.solution = [this.normalizeDegree(degree),
                         this.normalizeDegree(secondDegree)];
 
-                    if (this.useInput) {
+                    if (this.useInput !== NO_INPUT) {
                         console.log("USE_INPUT");
                         this.roundDuration = posOff;
                     } else {
@@ -405,6 +404,22 @@
                     posOff = this.rest(posOff, 4);
                     this.roundDuration = posOff;
                     this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
+                } else if (this.type === CHORD_QUALITY || this.type === CHORD_QUALITY_TEST) {
+                    let root = Math.floor(Math.random()*12) + 5 * 12; // choose randomly
+                    let chordType = this.chordTypes[Math.floor(Math.random()*this.chordTypes.length)]; // choose randomly
+                    root += 12 * (Math.floor(Math.random() * 2 ) - 1);
+                    let posOff = 0;
+                    posOff = this.playChord(root, chordType, posOff, 4);
+                    this.solution = [chordType];
+
+                    if (this.useInput !== NO_INPUT) {
+                        console.log("USE_INPUT");
+                        this.roundDuration = posOff;
+                    } else {
+                        posOff = this.rest(posOff, 2 * 4);
+                        this.roundDuration = posOff;
+                        this.timeoutRef = setTimeout(this.solutionNoInput, this.roundDuration * 1000);
+                    }
                 }
 
                 this.startTime = new Date().getTime();
@@ -522,9 +537,7 @@
                 console.log("setupTargetTone", chordTypes);
                 this.description = "Target Tones";
                 this.chosenDegrees = [];
-                this.chordTypes = [];
-                for (let i=0; i<chordTypes.length; i++)
-                    this.chordTypes.push(this.chordMap[chordTypes[i]]);
+                this.chordTypes = chordTypes;
                 this.stopAfterRounds = -1;
                 this.type = TARGET_TONE;
                 this.tempoBPM = SPEED_MEDIUM_SLOW;
@@ -534,10 +547,29 @@
                 console.log("setupTargetToneTest", chordTypes);
                 this.description = "Target Tones";
                 this.chosenDegrees = [];
-                this.chordTypes = [];
-                for (let i=0; i<chordTypes.length; i++)
-                    this.chordTypes.push(this.chordMap[chordTypes[i]]);
+                this.chordTypes = chordTypes;
                 this.type = TARGET_TONE_TEST;
+                this.tempoBPM = SPEED_MEDIUM_SLOW;
+                this.stopAfterRounds = 12;
+                this.finishSetup(autoplay);
+            },
+
+            setupChordQuality(chordTypes, autoplay) {
+                console.log("setupChordQuality", chordTypes);
+                this.description = "Chord Quality";
+                this.chosenDegrees = [];
+                this.chordTypes = chordTypes;
+                this.stopAfterRounds = -1;
+                this.type = CHORD_QUALITY;
+                this.tempoBPM = SPEED_MEDIUM_SLOW;
+                this.finishSetup(autoplay);
+            },
+            setupChordQualityTest(chordTypes, autoplay) {
+                console.log("setupChordQualityTest", chordTypes);
+                this.description = "Chord Quality";
+                this.chosenDegrees = [];
+                this.chordTypes = chordTypes;
+                this.type = CHORD_QUALITY_TEST;
                 this.tempoBPM = SPEED_MEDIUM_SLOW;
                 this.stopAfterRounds = 12;
                 this.finishSetup(autoplay);

@@ -51,7 +51,37 @@
                 with, sing it to ensure that you are able to accurately identify which note is the root note.
             </p>
             <p>
-                If you are unsure whether you are identifying the root note accurately, return to the targeting tones exercises to focus on this.
+                If you are unsure whether you are identifying the root note accurately, return to the targeting tones
+                exercises to focus on this.
+            </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], chordTypes: ['maj', 'min', 'dim']}"
+                                    :prog-id="6001"
+                                    t-type="chord-quality">
+                    Maj, Min & Dim Triads
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], chordTypes: ['maj7', 'min7', 'dom7']}"
+                                    :prog-id="6002"
+                                    t-type="chord-quality">
+                    Maj 7th, Min 7th & Dom 7th
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], chordTypes: ['dim7', 'min7b5']}"
+                                    :prog-id="6003"
+                                    t-type="chord-quality">
+                    Dim 7th & Min7b5
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11],
+                chordTypes: ['maj', 'min', 'dim', 'maj7', 'min7', 'dom7', 'dim7', 'min7b5']}"
+                                    :prog-id="6004"
+                                    t-type="chord-quality">
+                    Maj, Min & Dim Triads
+                </InlineConfigurator>
             </p>
             <v-btn style="float: right" color="secondary" class="ma-2"
                    to="/chords/diatonic-chord-internalisation">Next Chapter
@@ -61,8 +91,11 @@
 </template>
 
 <script>
+    import InlineConfigurator from "../components/InlineConfigurator";
+
     export default {
-        name: "M4ChordQualityRecognition"
+        name: "M4ChordQualityRecognition",
+        components: {InlineConfigurator}
     }
 </script>
 

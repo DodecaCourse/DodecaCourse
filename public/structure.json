@@ -244,6 +244,30 @@
       "title": "Min7b5 Root",
       "levels": 1,
       "chapter_id": 4
+    },
+    {
+      "id": 6001,
+      "title": "Maj, Min & Dim Triads",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 6002,
+      "title": "Maj 7th, Min 7th & Dom 7th",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 6003,
+      "title": "Dim 7th & Min7b5",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 6004,
+      "title": "Triads & 7th Chords",
+      "levels": 1,
+      "chapter_id": 4
     }
   ]
 }
