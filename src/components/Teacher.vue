@@ -3,7 +3,7 @@
             class="d-inline-flex px-1 align-center justify-center" elevation="0" width="100%"
     >
         <b class="mr-3 hidden-sm-and-down">{{ description }}</b>
-        <DegreeCircle v-show="(useInput === 1 || useInput === 2) && playing" class="ma-1"
+        <DegreeCircle v-if="(useInput === 1 || useInput === 2) && playing" class="ma-1"
                       :submit-solution="solutionInput" :enabled-buttons="chosenDegrees"
                       :labels="circleLabels">
             <template v-slot:playbtn>
@@ -19,7 +19,7 @@
                 {{ roundSincePlay }}
             </template>
         </DegreeCircle>
-        <div v-show="(useInput === 0 || useInput === 3) || !playing">
+        <div v-if="(useInput === 0 || useInput === 3) || !playing">
             <v-btn color="primary" small fab elevation="1" v-on:click="playing = !playing" :disabled="!loaded">
                 <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
             </v-btn>
@@ -29,7 +29,7 @@
                     {{roundSincePlay}}
                 </DegreeCirclePictogram>
             </v-progress-circular>
-            <div v-show="useInput === 3 && playing">
+            <div v-if="useInput === 3 && playing">
                 <ChordQualityInput
                         :submit-solution="solutionInput" :enabled-qualities="chordTypes">
                 </ChordQualityInput>
