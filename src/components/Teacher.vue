@@ -55,6 +55,8 @@
     const TARGET_TONE_TEST = 7;
     const CHORD_QUALITY = 8;
     const CHORD_QUALITY_TEST = 9;
+    const CHORD_INTERNALIZATION = 10;
+    const CHORD_INTERNALIZATION_TEST = 11;
 
     const SPEED_SLOW = 100;
     const SPEED_MEDIUM_SLOW = 125;
@@ -190,6 +192,8 @@
                 else if (this.type === TARGET_TONE_TEST) return NO_INPUT;
                 else if (this.type === CHORD_QUALITY) return INPUT_CHORD_QUALITY;
                 else if (this.type === CHORD_QUALITY_TEST) return INPUT_CHORD_QUALITY;
+                else if (this.type === CHORD_INTERNALIZATION) return NO_INPUT;
+                else if (this.type === CHORD_INTERNALIZATION_TEST) return INPUT_CIRCLE;
                 else return NO_INPUT;
             }
         },
@@ -264,6 +268,30 @@
                     } else {
                         this.noteOn(0, note + 12, velocity, delay);
                         this.noteOff(0, note + 12, delay + this.quarter * duration);
+                    }
+                }
+                return delay + this.quarter * duration;
+            },
+            playDiatonic: function (key, degree, count, posOff, duration, playOctaves) {
+                const root = key + '3';
+                const note =  Midi.toMidi(root);
+                const delay = posOff;
+                const velocity = 127; // how hard the note hits
+                MIDI.setVolume(0, 127);
+                const basePos = this.degrees.indexOf(degree);
+                if (basePos < 0) {
+                    console.error("Invalid configuration: degree ",
+                        degree, "not in degrees", this.degrees)
+                }
+                if (this.playing) {
+                    for (let i=0; i<count; i++) {
+                        let oct = Math.floor((basePos + 2 * i) / this.degrees.length);
+                        const curPos = (basePos + 2 * i) % this.degrees.length;
+                        const it = playOctaves ? 2 : 1;
+                        for (let j=0; j<it; j++) {
+                            this.noteOn(0, note + this.degrees[curPos] + 12 * (oct + j), velocity, delay);
+                            this.noteOff(0, note + this.degrees[curPos] + 12 * (oct + j), delay + this.quarter * duration);
+                        }
                     }
                 }
                 return delay + this.quarter * duration;
@@ -421,6 +449,24 @@
                         this.timeoutRef = setTimeout(this.solutionNoInput, this.roundDuration * 1000);
                     }
                 }
+                else if (this.type === CHORD_INTERNALIZATION) {
+                    let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
+                    for (let i=0;i<4;i++) {
+                        posOff = this.playResting(this.key, cadence, posOff, 4);
+                        posOff = this.playDiatonic(this.key, this.diatonic, 3, posOff, 4, cadence, false);
+                    }
+                    this.roundDuration = posOff;
+                    this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
+                }
+                else if (this.type === CHORD_INTERNALIZATION_TEST) {
+                    let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
+                    posOff = this.playResting(this.key, cadence, posOff, 4);
+                    posOff = this.rest(posOff, 3 * 4);
+                    posOff = this.playDegree(this.key, this.degrees[0], false, posOff, 8, cadence, true);
+                    posOff = this.rest(posOff, 4);
+                    this.roundDuration = posOff;
+                    this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
+                }
 
                 this.startTime = new Date().getTime();
                 this.updateProgress();
@@ -570,6 +616,27 @@
                 this.chosenDegrees = [];
                 this.chordTypes = chordTypes;
                 this.type = CHORD_QUALITY_TEST;
+                this.tempoBPM = SPEED_MEDIUM_SLOW;
+                this.stopAfterRounds = 12;
+                this.finishSetup(autoplay);
+            },
+
+            setupChordInternalization(diatonic, degrees, autoplay) {
+                console.log("setupChordInternalization", diatonic);
+                this.description = "Chord Internalization";
+                this.chosenDegrees = degrees;
+                this.diatonic = diatonic;
+                this.stopAfterRounds = -1;
+                this.type = CHORD_INTERNALIZATION;
+                this.tempoBPM = SPEED_MEDIUM_SLOW;
+                this.finishSetup(autoplay);
+            },
+            setupChordInternalizationTest(diatonic, degrees, autoplay) {
+                console.log("setupChordInternalizationTest", diatonic);
+                this.description = "Chord Internalization";
+                this.chosenDegrees = degrees;
+                this.diatonic = diatonic;
+                this.type = CHORD_INTERNALIZATION_TEST;
                 this.tempoBPM = SPEED_MEDIUM_SLOW;
                 this.stopAfterRounds = 12;
                 this.finishSetup(autoplay);

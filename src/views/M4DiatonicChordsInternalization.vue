@@ -42,6 +42,14 @@
             <p>
                 Practice with each internalisation exercise for 1-2 sessions, then progress onto the diatonic chords recognition exercises. Return to these internalisation exercises if you find a chord difficult in the recognition exercises.
             </p>
+            <p>
+                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11],
+                diatonic: 2}"
+                                    :prog-id="7001"
+                                    t-type="chord-internalization">
+                    ii Internalisation
+                </InlineConfigurator>
+            </p>
             <v-btn style="float: right" color="secondary" class="ma-2"
                    to="/chords/diatonic-chord-recognition">Next Chapter
             </v-btn>
@@ -50,8 +58,10 @@
 </template>
 
 <script>
+    import InlineConfigurator from "../components/InlineConfigurator";
     export default {
-        name: "M4DiatonicChordsInternalization"
+        name: "M4DiatonicChordsInternalization",
+        components: {InlineConfigurator}
     }
 </script>
 
