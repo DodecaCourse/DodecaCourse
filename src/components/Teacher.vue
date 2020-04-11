@@ -74,6 +74,8 @@
     const CADENCE_MAJOR_I_IV_V = 'major_i_iv_v';
     const CADENCE_MAJOR_I_IV_V_I = 'major_i_iv_v_i';
 
+    const VELOCITY = 127;
+
     export default {
         name: "Teacher",
         components: {ChordQualityInput, DegreeCirclePictogram, DegreeCircle},
@@ -196,21 +198,26 @@
             useInput: function() {
                 if (this.inputDisabled) return NO_INPUT;
 
-                if (this.type === INTERNALIZATION) return NO_INPUT;
-                else if (this.type === INTERNALIZATION_TEST) return NO_INPUT;
-                else if (this.type === RECOGNITION_SINGLE) return INPUT_CIRCLE;
-                else if (this.type === RECOGNITION_SINGLE_TEST) return INPUT_CIRCLE;
-                else if (this.type === RECOGNITION_INTERVAL) return INPUT_CIRCLE;
-                else if (this.type === RECOGNITION_INTERVAL_TEST) return INPUT_CIRCLE;
-                else if (this.type === TARGET_TONE) return NO_INPUT;
-                else if (this.type === TARGET_TONE_TEST) return NO_INPUT;
-                else if (this.type === CHORD_QUALITY) return INPUT_CHORD_QUALITY;
-                else if (this.type === CHORD_QUALITY_TEST) return INPUT_CHORD_QUALITY;
-                else if (this.type === CHORD_INTERNALIZATION) return NO_INPUT;
-                else if (this.type === CHORD_INTERNALIZATION_TEST) return NO_INPUT;
-                else if (this.type === CHORD_RECOGNITION) return INPUT_CIRCLE;
-                else if (this.type === CHORD_RECOGNITION_TEST) return INPUT_CIRCLE;
-                else return NO_INPUT;
+                const no_input = [
+                    INTERNALIZATION, INTERNALIZATION_TEST,
+                    TARGET_TONE, TARGET_TONE_TEST,
+                    CHORD_INTERNALIZATION, CHORD_INTERNALIZATION_TEST
+                ];
+                const input_circle = [
+                    RECOGNITION_SINGLE, RECOGNITION_SINGLE_TEST,
+                    RECOGNITION_INTERVAL, RECOGNITION_INTERVAL_TEST,
+                    CHORD_RECOGNITION, CHORD_RECOGNITION_TEST
+                ];
+                const input_chord_quality = [
+                    CHORD_QUALITY, CHORD_QUALITY_TEST
+                ];
+                if (no_input.indexOf(this.type) > -1) return NO_INPUT;
+                else if (input_circle.indexOf(this.type) > -1) return INPUT_CIRCLE;
+                else if (input_chord_quality.indexOf(this.type) > -1) return INPUT_CHORD_QUALITY;
+                else {
+                    console.error("useInput not set for type", this.type);
+                    return NO_INPUT;
+                }
             }
         },
         watch: {
@@ -229,12 +236,11 @@
                     Math.random()*this.cadences[cadenceType].length)]; // select cadence randomly
                 for (let chordNum=0; chordNum < cadence.progression.length; chordNum++) {
                     // play transposed cadence
-                    const velocity = 127; // how hard the note hits
                     const notes = this.transposeToKey(cadence.progression[chordNum], key, 4);
                     // play the notes
                     MIDI.setVolume(0, 127);
                     if(this.playing){
-                      this.chordOn(0, notes, velocity, posOff);
+                      this.chordOn(0, notes, VELOCITY, posOff);
                       this.chordOff(0, notes, posOff + this.quarter * cadence.chordLength[chordNum]);
                     }
                     posOff = posOff + this.quarter * cadence.chordLength[chordNum];
@@ -256,6 +262,7 @@
                 return delay + duration * this.quarter;
             },
             playDrone: function (key, posOff, duration) {
+                /* play drone of tonic and fifth */
                 const velocity = 110;
                 const notes = this.transposeToKey([0, 7], key, 3);
                 MIDI.setVolume(0, 127);
@@ -272,27 +279,28 @@
                 if (withResting) {
                     this.playResting(key, cadence, posOff, duration);
                 }
-                const delay = posOff;
-                const velocity = 127; // how hard the note hits
                 MIDI.setVolume(0, 127);
                 if (this.playing) {
                     if (playOctaves) {
                         for (let i = 0; i < 3; i++) {
-                            this.noteOn(0, note + i * 12, velocity, delay);
-                            this.noteOff(0, note + i * 12, delay + this.quarter * duration);
+                            this.noteOn(0, note + i * 12, VELOCITY, posOff);
+                            this.noteOff(0, note + i * 12, posOff + this.quarter * duration);
                         }
                     } else {
-                        this.noteOn(0, note + 12, velocity, delay);
-                        this.noteOff(0, note + 12, delay + this.quarter * duration);
+                        this.noteOn(0, note + 12, VELOCITY, posOff);
+                        this.noteOff(0, note + 12, posOff + this.quarter * duration);
                     }
                 }
-                return delay + this.quarter * duration;
+                return posOff + this.quarter * duration;
             },
             playDiatonic: function (key, degree, count, posOff, duration, playOctaves) {
+                /* Play a diatonic chord
+                *
+                * Builds a diatonic chord by choosing every second degree in self.degrees
+                * _count_ times, starting on _degree_
+                *  */
                 const root = key + '3';
                 const note =  Midi.toMidi(root);
-                const delay = posOff;
-                const velocity = 127; // how hard the note hits
                 MIDI.setVolume(0, 127);
                 const basePos = this.degrees.indexOf(degree);
                 if (basePos < 0) {
@@ -301,50 +309,49 @@
                 }
                 if (this.playing) {
                     for (let i=0; i<count; i++) {
-                        let oct = Math.floor((basePos + 2 * i) / this.degrees.length);
-                        const curPos = (basePos + 2 * i) % this.degrees.length;
+                        let oct = Math.floor((basePos + 2 * i) / this.degrees.length); // which octave
+                        const curPos = (basePos + 2 * i) % this.degrees.length; // octave independent
                         const it = playOctaves ? 2 : 1;
                         for (let j=0; j<it; j++) {
-                            this.noteOn(0, note + this.degrees[curPos] + 12 * (oct + j), velocity, delay);
-                            this.noteOff(0, note + this.degrees[curPos] + 12 * (oct + j), delay + this.quarter * duration);
+                            this.noteOn(0, note + this.degrees[curPos] + 12 * (oct + j), VELOCITY, posOff);
+                            this.noteOff(0, note + this.degrees[curPos] + 12 * (oct + j), posOff + this.quarter * duration);
                         }
                     }
                 }
-                return delay + this.quarter * duration;
+                return posOff + this.quarter * duration;
             },
             playChord:function (root, chordType, posOff, duration) {
-                const delay = posOff;
-                const velocity = 127;
+                /* PLay chord specified by _chordType_ with root note _root_ */
                 MIDI.setVolume(0, 127);
                 const notes = this.transposeBy(this.chordTones[chordType], root);
                 if (this.playing) {
-                    this.chordOn(0, notes, velocity, delay);
-                    this.chordOff(0, notes, delay + duration * this.quarter);
+                    this.chordOn(0, notes, VELOCITY, posOff);
+                    this.chordOff(0, notes, posOff + duration * this.quarter);
                 }
-                return delay + duration * this.quarter;
+                return posOff + duration * this.quarter;
             },
             playNote:function (note, posOff, duration) {
-                const delay = posOff;
-                const velocity = 127;
+                /* Play a MIDI note with a duration */
                 MIDI.setVolume(0, 127);
                 if (this.playing) {
-                    this.noteOn(0, note, velocity, delay);
-                    this.noteOff(0, note, delay + duration * this.quarter);
+                    this.noteOn(0, note, VELOCITY, posOff);
+                    this.noteOff(0, note, posOff + duration * this.quarter);
                 }
-                return delay + duration * this.quarter;
+                return posOff + duration * this.quarter;
             },
             transposeToKey: function (notes, key, octaves) {
+                /* Transpose to _key_ and up/down _octaves_ octaves */
                 const keyOffset = Midi.toMidi(key + '0') + 12 * octaves;
-                let notesMod = notes.slice();
+                let notesMod = [];
                 for (let i=0; i<notes.length; i++) {
-                    notesMod[i] = notesMod[i] + keyOffset;
+                    notesMod.push(notes[i] + keyOffset);
                 }
                 return notesMod;
             },
             transposeBy: function (notes, halfsteps) {
-                let notesMod = notes.slice();
+                let notesMod = [];
                 for (let i=0; i<notes.length; i++) {
-                    notesMod[i] = notesMod[i] + halfsteps;
+                    notesMod.push(notes[i] + halfsteps);
                 }
                 return notesMod;
             },
@@ -720,6 +727,7 @@
                 return Math.abs(degree % 12 > -1 ? degree % 12 : degree % 12 + 12);
             },
             randomInterval: function (degree) {
+                /* Return a random interval (up or down) from _degree_ from this.intervals */
                 let intervalsAvailable = [];
                 for (let i=0; i<this.intervals.length; i++) {
                     if (this.degrees.indexOf(this.normalizeDegree(degree + this.intervals[i])) > -1) {
@@ -732,6 +740,7 @@
                 return intervalsAvailable[Math.floor(Math.random()*intervalsAvailable.length)];
             },
             updateProgress: function () {
+                /* Update the progress property */
                 if (this.playing) {
                     const passed = new Date().getTime() - this.startTime;
                     this.progress = passed / this.roundDuration / 10;
@@ -795,6 +804,7 @@
             }
             Vue.prototype.$teacher = this;
             var self = this;
+            // Initialize MIDI
             MIDI.loadPlugin({
                 soundfontUrl: "/soundfont/",
                 instrument: "acoustic_grand_piano",
