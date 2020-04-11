@@ -1,8 +1,6 @@
 <template>
     <div :title="description">
-        <div class="div-circle-pict" @click="function() {
-            console.log('Click');
-        }">
+        <div class="div-circle-pict">
             <v-btn
                     v-for="i in this.degrees"
                     v-bind:key="i.display"
@@ -36,18 +34,18 @@
                 //database for the intervals/degrees, "name" chosen to fit TonalJS, display is the name of
                 //Solfege and shown on btns
                 degrees: [
-                    { degree: 0, name: "1P", display: "Do", enabled: true },
-                    { degree: 1, name: "2m", display: "Ra", enabled: true },
-                    { degree: 2, name: "2M", display: "Re", enabled: true },
-                    { degree: 3, name: "3m", display: "Ma", enabled: true },
-                    { degree: 4, name: "3M", display: "Mi", enabled: true },
-                    { degree: 5, name: "4P", display: "Fa", enabled: true },
-                    { degree: 6, name: "4A", display: "Fi", enabled: true },
-                    { degree: 7, name: "5P", display: "So", enabled: true },
-                    { degree: 8, name: "6m", display: "Le", enabled: true },
-                    { degree: 9, name: "6M", display: "La", enabled: true },
-                    { degree: 10, name: "7m", display: "Ta", enabled: true },
-                    { degree: 11, name: "7M", display: "Ti", enabled: true }
+                    { degree: 0, display: "Do", enabled: true },
+                    { degree: 1, display: "Ra", enabled: true },
+                    { degree: 2, display: "Re", enabled: true },
+                    { degree: 3, display: "Ma", enabled: true },
+                    { degree: 4, display: "Mi", enabled: true },
+                    { degree: 5, display: "Fa", enabled: true },
+                    { degree: 6, display: "Fi", enabled: true },
+                    { degree: 7, display: "So", enabled: true },
+                    { degree: 8, display: "Le", enabled: true },
+                    { degree: 9, display: "La", enabled: true },
+                    { degree: 10, display: "Ta", enabled: true },
+                    { degree: 11, display: "Ti", enabled: true }
                 ],
             };
         },
