@@ -80,19 +80,46 @@
         data: function() {
             return {
                 hidden: false,
-                playing: false,
-                status: 'Not loaded',
                 loaded: false,
-                tempoBPM: 130,
-                key: "",
-                changeKeyEvery: 1, // set to -1 to never change key
+                playing: false,
+
+                // references to cancel setTimeout
                 timeoutRef: null,
                 progressRef: null,
-                progress: 0,
+
+                // settings
+                tempoBPM: 130,
+                stopAfterRounds: 12, // set to -1 to play endlessly
+                changeKeyEvery: 1, // set to -1 to never change key
+                chosenDegrees: [0, 2, 4, 5, 7, 9, 11], // activated degrees
+                type: INTERNALIZATION,
+                description: "Internalisation",
+                cadenceType: CADENCE_MAJOR_I_IV_V,
+                inputDisabled: false,
+                fullCadenceEvery: 8,
+                // Recognition interval
+                intervals: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+                // Recognition
+                circleType: "degree",
+                // Targeting tone
+                targetDegree: 0,
+                // Diatonic Chord Recognition
+                chordTypes: [],
+                diatonic: 0,
+                diatonics: [0],
+                diatonicCount: 3,
+
+                // exercise state
+                roundSincePlay: 0,
+                key: "", // ['C', 'C#', 'D', ...]
+                progress: 0, // progress in percent
                 roundDuration: 0,
                 startTime: 0,
-                roundSincePlay: 0,
-                stopAfterRounds: 12, // set to -1 to play endlessly
+                played: [],
+                inputPos: 0,
+                solution: [0],
+
+                // NAMES & MAPPINGS
                 degreeName: {
                     0: 'Do',
                     1: 'Di/Ra',
@@ -107,8 +134,8 @@
                     10: 'Li/Te',
                     11: 'Ti'
                 },
-                chosenDegrees: [0, 2, 4, 5, 7, 9, 11],
-                played: [],
+                // cadences with multiple options
+                // resting chord is played whenever the tpnic should be reinforced without a full cadence
                 cadences: {
                     'major_i_iv_v': [
                         {
@@ -145,23 +172,6 @@
                         },
                     ]
                 },
-                cadenceType: CADENCE_MAJOR_I_IV_V,
-                type: INTERNALIZATION,
-                description: "Internalisation",
-                fixed: true,
-                // tType specific
-                // Recognition
-                circleType: "degree",
-                inputDisabled: false,
-                inputPos: 0,
-                fullCadenceEvery: 8,
-                solution: 0,
-                answer: "",
-                // Recognition interval
-                intervals: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-                // Targeting tone
-                targetDegree: 0,
-                chordTypes: [],
                 chordTones: {
                     'maj': [0, 4, 7],
                     'min': [0, 3, 7],
@@ -173,9 +183,6 @@
                     'dim7': [0, 3, 6, 9],
                     'min7b5': [0, 3, 6, 10]
                 },
-                diatonic: 0,
-                diatonics: [0],
-                diatonicCount: 3,
             };
         },
         computed: {
@@ -792,12 +799,10 @@
                 soundfontUrl: "/soundfont/",
                 instrument: "acoustic_grand_piano",
                 onprogress: function (state, progress) {
-                    self.status = "Loading..." + Math.floor(progress * 100) + "%";
                     console.log(state, progress);
                     self.progress = progress * 100;
                 },
                 onsuccess: function () {
-                    self.status = "Loaded";
                     self.progress = 0;
                     self.loaded = true;
                     self.setupInternalization(0, false);
