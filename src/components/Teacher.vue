@@ -175,6 +175,7 @@
                 },
                 diatonic: 0,
                 diatonics: [0],
+                diatonicCount: 3,
             };
         },
         computed: {
@@ -461,7 +462,7 @@
                     let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
                     for (let i=0;i<4;i++) {
                         posOff = this.playResting(this.key, cadence, posOff, 4);
-                        posOff = this.playDiatonic(this.key, this.diatonic, 3, posOff, 4, cadence, false);
+                        posOff = this.playDiatonic(this.key, this.diatonic, this.diatonicCount, posOff, 4, cadence, false);
                     }
                     this.roundDuration = posOff;
                     this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
@@ -475,7 +476,7 @@
                     } else {
                         posOff = this.playDrone(this.key, 0, 4);
                     }
-                    posOff = this.playDiatonic(this.key, diatonic, 3, posOff, 4, cadence, false);
+                    posOff = this.playDiatonic(this.key, diatonic, this.diatonicCount, posOff, 4, cadence, false);
 
                     this.solution = [diatonic];
                     if (this.useInput !== NO_INPUT) {
@@ -645,31 +646,34 @@
                 this.finishSetup(autoplay);
             },
 
-            setupChordInternalization(diatonic, degrees, autoplay) {
+            setupChordInternalization(diatonic, degrees, count, autoplay) {
                 console.log("setupChordInternalization", diatonic);
                 this.description = "Chord Internalization";
                 this.chosenDegrees = degrees;
                 this.diatonic = diatonic;
+                this.diatonicCount = count;
                 this.stopAfterRounds = -1;
                 this.type = CHORD_INTERNALIZATION;
                 this.tempoBPM = SPEED_MEDIUM_SLOW;
                 this.finishSetup(autoplay);
             },
-            setupChordInternalizationTest(diatonic, degrees, autoplay) {
+            setupChordInternalizationTest(diatonic, degrees, count, autoplay) {
                 console.log("setupChordInternalization", diatonic);
                 this.description = "Chord Internalization";
                 this.chosenDegrees = degrees;
                 this.diatonic = diatonic;
+                this.diatonicCount = count;
                 this.stopAfterRounds = 12;
                 this.type = CHORD_INTERNALIZATION_TEST;
                 this.tempoBPM = SPEED_MEDIUM_SLOW;
                 this.finishSetup(autoplay);
             },
-            setupChordRecognition(diatonics, degrees, autoplay, level) {
+            setupChordRecognition(diatonics, degrees, count, autoplay, level) {
                 console.log("setupChordRecognition", diatonics);
                 this.description = "Chord Recognition";
                 this.chosenDegrees = degrees;
                 this.diatonics = diatonics;
+                this.diatonicCount = count;
                 this.type = CHORD_RECOGNITION;
                 this.circleType = "chord";
                 this.stopAfterRounds = -1;
@@ -679,11 +683,12 @@
                 else if (level === 3) this.tempoBPM = SPEED_FAST;
                 this.finishSetup(autoplay);
             },
-            setupChordRecognitionTest(diatonics, degrees, autoplay, level) {
+            setupChordRecognitionTest(diatonics, degrees, count, autoplay, level) {
                 console.log("setupChordRecognitionTest", diatonics);
                 this.description = "Chord Recognition";
                 this.chosenDegrees = degrees;
                 this.diatonics = diatonics;
+                this.diatonicCount = count;
                 this.type = CHORD_RECOGNITION_TEST;
                 this.circleType = "chord";
                 this.stopAfterRounds = 32;

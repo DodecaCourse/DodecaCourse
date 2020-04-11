@@ -276,8 +276,80 @@
       "chapter_id": 4
     },
     {
+      "id": 7002,
+      "title": "iii Internalisation",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 7003,
+      "title": "IV Internalisation",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 7004,
+      "title": "V Internalisation",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 7005,
+      "title": "vi Internalisation",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 7006,
+      "title": "vii Internalisation",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 7007,
+      "title": "ii7 Internalisation",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 7008,
+      "title": "iii7 Internalisation",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 7009,
+      "title": "IVmaj7 Internalisation",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 7010,
+      "title": "V7 Internalisation",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 7011,
+      "title": "vi7 Internalisation",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
+      "id": 7012,
+      "title": "vii7b5 Internalisation",
+      "levels": 1,
+      "chapter_id": 4
+    },
+    {
       "id": 8001,
       "title": "Diatonic Triads",
+      "levels": 3,
+      "chapter_id": 4
+    },
+    {
+      "id": 8002,
+      "title": "Diatonic 7th Chords",
       "levels": 3,
       "chapter_id": 4
     }

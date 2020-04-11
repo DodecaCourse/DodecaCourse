@@ -106,9 +106,9 @@
                 } else if (this.type === CHORD_QUALITY) {
                     this.$teacher.setupChordQuality(this.config.chordTypes, true, this.level)
                 } else if (this.type === CHORD_INTERNALIZATION) {
-                    this.$teacher.setupChordInternalization(this.config.diatonic, this.config.degrees, true, this.level)
+                    this.$teacher.setupChordInternalization(this.config.diatonic, this.config.degrees, this.config.count, true, this.level)
                 } else if (this.type === CHORD_RECOGNITION) {
-                    this.$teacher.setupChordRecognition(this.config.diatonics, this.config.degrees, true, this.level)
+                    this.$teacher.setupChordRecognition(this.config.diatonics, this.config.degrees, this.config.count, true, this.level)
                 }
             },
             onTest: function () {
@@ -124,9 +124,9 @@
                 } else if (this.type === CHORD_QUALITY) {
                     this.$teacher.setupChordQualityTest(this.config.chordTypes, true, this.level)
                 } else if (this.type === CHORD_INTERNALIZATION) {
-                    this.$teacher.setupChordInternalizationTest(this.config.diatonic, this.config.degrees, true, this.level)
+                    this.$teacher.setupChordInternalizationTest(this.config.diatonic, this.config.degrees, this.config.count, true, this.level)
                 } else if (this.type === CHORD_RECOGNITION) {
-                    this.$teacher.setupChordRecognitionTest(this.config.diatonics, this.config.degrees, true, this.level)
+                    this.$teacher.setupChordRecognitionTest(this.config.diatonics, this.config.degrees, this.config.count,true, this.level)
                 }
             }
         }

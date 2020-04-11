@@ -43,11 +43,87 @@
                 Practice with each internalisation exercise for 1-2 sessions, then progress onto the diatonic chords recognition exercises. Return to these internalisation exercises if you find a chord difficult in the recognition exercises.
             </p>
             <p>
-                <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11],
-                diatonic: 2}"
-                                    :prog-id="7001"
-                                    t-type="chord-internalization">
+                <InlineConfigurator
+                        :config="{degrees: [0, 2, 4, 5, 7, 9, 11], diatonic: 2, count: 3}"
+                        :prog-id="7001" t-type="chord-internalization" hide-test>
                     ii Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator
+                        :config="{degrees: [0, 2, 4, 5, 7, 9, 11], diatonic: 4, count: 3}"
+                        :prog-id="7002" t-type="chord-internalization" hide-test>
+                    iii Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator
+                        :config="{degrees: [0, 2, 4, 5, 7, 9, 11], diatonic: 5, count: 3}"
+                        :prog-id="7003" t-type="chord-internalization" hide-test>
+                    IV Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator
+                        :config="{degrees: [0, 2, 4, 5, 7, 9, 11], diatonic: 7, count: 3}"
+                        :prog-id="7004" t-type="chord-internalization" hide-test>
+                    V Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator
+                        :config="{degrees: [0, 2, 4, 5, 7, 9, 11], diatonic: 9, count: 3}"
+                        :prog-id="7005" t-type="chord-internalization" hide-test>
+                    vi Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator
+                        :config="{degrees: [0, 2, 4, 5, 7, 9, 11], diatonic: 11, count: 3}"
+                        :prog-id="7006" t-type="chord-internalization" hide-test>
+                    vii Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator
+                        :config="{degrees: [0, 2, 4, 5, 7, 9, 11], diatonic: 2, count: 4}"
+                        :prog-id="7007" t-type="chord-internalization" hide-test>
+                    ii7 Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator
+                        :config="{degrees: [0, 2, 4, 5, 7, 9, 11], diatonic: 4, count: 4}"
+                        :prog-id="7008" t-type="chord-internalization" hide-test>
+                    iii7 Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator
+                        :config="{degrees: [0, 2, 4, 5, 7, 9, 11], diatonic: 5, count: 4}"
+                        :prog-id="7009" t-type="chord-internalization" hide-test>
+                    IVmaj7 Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator
+                        :config="{degrees: [0, 2, 4, 5, 7, 9, 11], diatonic: 7, count: 4}"
+                        :prog-id="7010" t-type="chord-internalization" hide-test>
+                    V7 Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator
+                        :config="{degrees: [0, 2, 4, 5, 7, 9, 11], diatonic: 9, count: 4}"
+                        :prog-id="7011" t-type="chord-internalization" hide-test>
+                    vi7 Internalisation
+                </InlineConfigurator>
+            </p>
+            <p>
+                <InlineConfigurator
+                        :config="{degrees: [0, 2, 4, 5, 7, 9, 11], diatonic: 11, count: 4}"
+                        :prog-id="7012" t-type="chord-internalization" hide-test>
+                    vii7b5 Internalisation
                 </InlineConfigurator>
             </p>
             <v-btn style="float: right" color="secondary" class="ma-2"
