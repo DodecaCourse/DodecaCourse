@@ -17,7 +17,7 @@
                 first 10 bars from the internalisation exercise for the second scale
                 degree "Re" below. In the key of C major, this is the note D.</p>
             <p>
-                <v-img contain max-height="11.2ch" max-width="83.5vw" src="/img/m2_c_major_intern_solfege.svg"
+                <v-img contain :class="{'invert-img': $vuetify.theme.dark}" max-height="11.2ch" max-width="83.5vw" src="/img/m2_c_major_intern_solfege.svg"
                 title="First 10 bars from the internalisation exercise for the second scale degree"/>
             </p>
             <h3>How to use the individual note internalisation exercises</h3>
@@ -78,7 +78,7 @@
                 first 8 bars from the internalisation test for the second scale
                 degree below.</p>
             <p>
-                <v-img contain max-height="10.8ch" max-width="83.5vw" src="/img/m2_c_major_re_intern_test.svg"
+                <v-img contain :class="{'invert-img': $vuetify.theme.dark}" max-height="10.8ch" max-width="83.5vw" src="/img/m2_c_major_re_intern_test.svg"
                        title="First 8 bars from the internalisation test for the second scale degree"/>
             </p>
             <h3>How to use the individual note internalisation tests</h3>

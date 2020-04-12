@@ -33,7 +33,7 @@
             <p>Below you can see
                 the first 26 bars (8 notes) of a recognition exercise:</p>
             <p>
-                <v-img contain max-height="27ch" max-width="83.5vw" src="/img/m2_recognition.svg"
+                <v-img contain :class="{'invert-img': $vuetify.theme.dark}" max-height="27ch" max-width="83.5vw" src="/img/m2_recognition.svg"
                        title="first 26 bars of a recognition exercise"/>
             </p>
 

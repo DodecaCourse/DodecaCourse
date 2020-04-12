@@ -22,7 +22,7 @@
                 Below you can see the first 24 bars of the major triad targeting tones exercise.
             </p>
             <p>
-                <v-img  contain max-height="25ch" max-width="83.5vw"
+                <v-img  contain :class="{'invert-img': $vuetify.theme.dark}" max-height="25ch" max-width="83.5vw"
                         src="/img/m4_targeting_tones_exercise.svg"
                        title="24 bars of the major triad targeting tones exercise"/>
             </p>
@@ -65,7 +65,7 @@
                 You can see the first 16 bars of the major triad targeting tones test below:
             </p>
             <p>
-                <v-img contain max-height="17ch" max-width="83.5vw"
+                <v-img contain :class="{'invert-img': $vuetify.theme.dark}" max-height="17ch" max-width="83.5vw"
                         src="/img/m4_targeting_tones_test.svg"
                      title="The first 16 bars of the major triad targeting tones test"/>
             </p>

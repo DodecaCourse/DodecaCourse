@@ -14,7 +14,7 @@
                 scale degree two and so on. Take a look at the diagram below to see
                 the C major scale with scale degrees shown below it:</p>
             <p>
-                <v-img contain max-height="10ch" max-width="83.5vw" src="/img/m2_c_major.svg"
+                <v-img contain :class="{'invert-img': $vuetify.theme.dark}" max-height="10ch" max-width="83.5vw" src="/img/m2_c_major.svg"
                 title="C Major Scale with Scale Degrees"/>
             </p>
 
@@ -31,7 +31,7 @@
                 C major scale with both systems applied.
             </p>
             <p>
-                <v-img contain max-height="10ch" max-width="83.5vw" src="/img/m2_c_major_solfege.svg"
+                <v-img contain :class="{'invert-img': $vuetify.theme.dark}" max-height="10ch" max-width="83.5vw" src="/img/m2_c_major_solfege.svg"
                        title="C Major Scale with Scale Degrees and Solfege"/>
             </p>
             <p>
@@ -45,7 +45,7 @@
                 major scale below where F is now Do (scale degree 1) and C has become So (the
                 fifth scale degree).</p>
             <p>
-                <v-img contain max-height="10ch" max-width="83.5vw" src="/img/m2_f_major_solfege.svg"
+                <v-img contain :class="{'invert-img': $vuetify.theme.dark}" max-height="10ch" max-width="83.5vw" src="/img/m2_f_major_solfege.svg"
                 title="F Major Scale with Scale Degrees"/>
             </p>
             <p>Scale degrees are

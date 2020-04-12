@@ -34,6 +34,10 @@
         >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
             <v-toolbar-title><b>FETT</b></v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn v-on:click="$vuetify.theme.dark = !$vuetify.theme.dark" icon title="Toggle Light/Dark">
+                <v-icon>mdi-invert-colors</v-icon>
+            </v-btn>
         </v-app-bar>
 
         <v-content>
@@ -81,4 +85,8 @@
     #player_banner .v-banner__wrapper
         padding-bottom: 0
         padding-top: 0
+
+    .invert-img .v-image__image
+        filter: invert(100%)
+
 </style>

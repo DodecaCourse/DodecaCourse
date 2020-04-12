@@ -15,7 +15,7 @@
                 The diagram below shows the internalisation exercise for the ii chord (the chord built on the second scale degree).
             </p>
             <p>
-                <v-img  contain max-height="25ch" max-width="83.5vw"
+                <v-img  contain :class="{'invert-img': $vuetify.theme.dark}" max-height="25ch" max-width="83.5vw"
                         src="/img/m4_chord_internalisation_ii.svg"
                         title="Internalisation exercise for the ii chord"/>
             </p>
