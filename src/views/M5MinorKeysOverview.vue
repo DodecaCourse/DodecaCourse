@@ -27,6 +27,9 @@
             <p>
                 So dive in and good luck!
             </p>
+            <v-btn style="float: right" color="secondary" class="ma-2"
+                   to="/minor/ex-tests">Next Chapter
+            </v-btn>
 
         </v-flex>
     </v-layout>
