@@ -167,9 +167,9 @@ export default {
       const self = this;
       const correctionTime = 500;
       if (correct) {
-        this.backgroundColor = 'green';
+        this.backgroundColor = 'lightcoral';
       } else {
-        this.backgroundColor = 'red';
+        this.backgroundColor = 'lightgreen';
         for (let i=0; i<solution.length; i++) {
           const c = i;
           if (i === 0) {
@@ -289,7 +289,7 @@ export default {
     0%
       opacity: 0
     50%
-      opacity: 0.2
+      opacity: 0.4
     100%
       opacity: 0
 
