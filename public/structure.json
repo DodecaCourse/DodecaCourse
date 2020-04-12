@@ -415,25 +415,25 @@
       "id": 11001,
       "title": "2nds & 3rds",
       "levels": 5,
-      "chapter_id": 3
+      "chapter_id": 5
     },
     {
       "id": 11002,
       "title": "4ths & 5ths",
       "levels": 5,
-      "chapter_id": 3
+      "chapter_id": 5
     },
     {
       "id": 11003,
       "title": "6ths & 8ves",
       "levels": 5,
-      "chapter_id": 3
+      "chapter_id": 5
     },
     {
       "id": 11004,
       "title": "Melodic intervals",
       "levels": 5,
-      "chapter_id": 3
+      "chapter_id": 5
     }
   ]
 }
