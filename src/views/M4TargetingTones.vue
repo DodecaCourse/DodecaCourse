@@ -22,8 +22,8 @@
                 Below you can see the first 24 bars of the major triad targeting tones exercise.
             </p>
             <p>
-                <v-img  contain max-height="27ch" max-width="83.5vw"
-                        src="/img/module_4_html_87eacacdcd1f7785.png"
+                <v-img  contain max-height="25ch" max-width="83.5vw"
+                        src="/img/m4_targeting_tones_exercise.svg"
                        title="24 bars of the major triad targeting tones exercise"/>
             </p>
             <h3>How to use the targeting tones exercises</h3>
@@ -65,8 +65,8 @@
                 You can see the first 16 bars of the major triad targeting tones test below:
             </p>
             <p>
-                <v-img contain max-height="27ch" max-width="83.5vw"
-                        src="/img/module_4_html_b22b262992be1fd5.png"
+                <v-img contain max-height="17ch" max-width="83.5vw"
+                        src="/img/m4_targeting_tones_test.svg"
                      title="The first 16 bars of the major triad targeting tones test"/>
             </p>
             <h3>How to use the targeting tones tests</h3>

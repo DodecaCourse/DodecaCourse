@@ -15,8 +15,8 @@
                 The diagram below shows the internalisation exercise for the ii chord (the chord built on the second scale degree).
             </p>
             <p>
-                <v-img  contain max-height="27ch" max-width="83.5vw"
-                        src="/img/module_4_html_a5e8de0199e88396.png"
+                <v-img  contain max-height="25ch" max-width="83.5vw"
+                        src="/img/m4_chord_internalisation_ii.svg"
                         title="Internalisation exercise for the ii chord"/>
             </p>
             <h3>How to use the diatonic chords internalisation exercises</h3>

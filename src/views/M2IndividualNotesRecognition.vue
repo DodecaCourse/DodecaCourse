@@ -31,10 +31,10 @@
                 After 8 notes, the key changes and is introduced by a cadence.
             </p>
             <p>Below you can see
-                the first 27 bars (8 notes) of a recognition exercise:</p>
+                the first 26 bars (8 notes) of a recognition exercise:</p>
             <p>
                 <v-img contain max-height="27ch" max-width="83.5vw" src="/img/m2_recognition.svg"
-                       title="first 27 bars of a recognition exercise"/>
+                       title="first 26 bars of a recognition exercise"/>
             </p>
 
             <h3>How to use the individual note recognition exercises</h3>
