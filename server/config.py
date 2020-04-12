@@ -41,6 +41,7 @@ class Config:
     THEME_DARK = 1
 
     # ø Default User Settings
+    # TODO: Auslagern
     DEFAULT_SETTINGS = {
         'input_type': INPUT_SOLFEGE,
         'language': LANG_ENGLISH,

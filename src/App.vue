@@ -40,25 +40,45 @@
                 dark
                 app
                 clipped-left
+                solo
                 dense
         >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
             <v-toolbar-title><b>FETT</b></v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-form method="post" action="http://localhost:5000/trylogin">
-              <v-text-field name="user" label="userId"></v-text-field>
-              <v-btn type="submit" icon>
+            <template v-if="!connection">
+              <v-chip
+                
+                class="ma-2"
+                text-color="white"
+                color="red"
+              >
+                Disconnected
+                <v-icon right>mdi-server-network-off</v-icon>
+              </v-chip>
+            </template>
+            <template v-if="connection">
+              <v-text-field
+                class="shrink"
+                outlined
+                width="10px"
+                height="10px"
+                dense
+              ></v-text-field>
+              <v-btn icon>
                 <v-icon>mdi-login</v-icon>
               </v-btn>
-            </v-form>
             
-            <v-btn icon>
-              <v-icon>mdi-account-plus</v-icon>
-            </v-btn>
-            <pre>Logged in as: </pre><b>{{user}}</b>
-            <v-btn icon>
-              <v-icon>mdi-logout</v-icon>
-            </v-btn>
+              
+              <v-btn icon>
+                <v-icon>mdi-account-plus</v-icon>
+              </v-btn>
+              <pre>Logged in as: </pre><b>{{user}}</b>
+              <v-btn icon>
+                <v-icon>mdi-logout</v-icon>
+              </v-btn>
+              
+            </template>
             <v-btn icon>
               <v-icon>mdi-heart</v-icon>
             </v-btn>
@@ -73,9 +93,10 @@
                           v-show="!(this.$teacher !== undefined && this.$teacher.hidden)">
                     <Teacher ref="teacher"/>
                 </v-banner>
-            <router-view>
-            </router-view>
+                <router-view></router-view>
+                
             </v-container>
+            <LoginPanel />
         </v-content>
 
         <v-footer app>
@@ -88,6 +109,7 @@
 <script>
     import Courses from "./components/Courses";
     import Teacher from "./components/Teacher";
+    import LoginPanel from "./components/LoginPanel"
     import api from "./api.js"
     
     export default {
@@ -97,7 +119,8 @@
       ],
       components: {
         Teacher,
-        Courses
+        Courses,
+        LoginPanel
       },
       props: {
           source: String,

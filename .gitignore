@@ -30,6 +30,9 @@ yarn-error.log*
 # Backups
 *backup/
 
+# env
+*env/
+
 # Testscripts
 *testscripts/
 
