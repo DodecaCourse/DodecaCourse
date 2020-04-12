@@ -15,14 +15,6 @@
                     </v-list-item-content>
                 </v-list-item>
                 <Courses :cur-course="curCourse" />
-                <v-list-item to="/teacher-playground" link>
-                    <v-list-item-action>
-                        <v-icon>mdi-animation-play</v-icon>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                        <v-list-item-title>Playground</v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>
             </v-list>
         </v-navigation-drawer>
 

@@ -15,7 +15,6 @@ import M2IndividualNotesInternalization from "./views/M2IndividualNotesInternali
 import M2IndividualNotesRecognition from "./views/M2IndividualNotesRecognition";
 import M3RecognisingMelodiesOverview from "./views/M3RecognisingMelodiesOverview";
 import M3RecognisingMelodies from "./views/M3RecognisingMelodies";
-import TeacherPlayground from "./views/TeacherPlayground";
 import M4RecognisingChordsOverview from "./views/M4RecognisingChordsOverview";
 import M4TargetingTones from "./views/M4TargetingTones";
 import M4ChordQualityRecognition from "./views/M4ChordQualityRecognition";
@@ -35,7 +34,6 @@ const router = new VueRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/about', component: About },
-    { path: '/teacher-playground', component: TeacherPlayground},
     { path: '/tonic-internalization/overview', component: M1TonicInternalizationOverview},
     { path: '/tonic-internalization/tonic', component: M1TheTonic},
     { path: '/tonic-internalization/exercise', component: M1TonicInternalizationExercise},
