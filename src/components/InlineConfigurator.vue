@@ -47,12 +47,16 @@
             },
             progId: {
                 type: Number,
+                required: true,
             },
             hideTest: {
                 type: Boolean,
             },
             hidePractice: {
                 type: Boolean,
+            },
+            scale: {
+                type: String
             }
         },
         data: function () {
@@ -95,38 +99,38 @@
         methods: {
             onPractice: function () {
                 if (this.type === INTERNALIZATION) {
-                    this.$teacher.setupInternalization(this.config.degree, true);
+                    this.$teacher.setupInternalization(this.config.degree, true, this.level, this.scale);
                 } else if (this.type === RECOGNITION_SINGLE) {
-                    this.$teacher.setupRecognitionSingle(this.config.degrees, true, this.level);
+                    this.$teacher.setupRecognitionSingle(this.config.degrees, true, this.level, this.scale);
                 } else if (this.type === RECOGNITION_INTERVAL) {
                     this.$teacher.setupRecognitionInterval(this.config.degrees, this.config.intervals,
-                        true, this.level)
+                        true, this.level, this.scale)
                 } else if (this.type === TARGET_TONE) {
-                    this.$teacher.setupTargetTone(this.config.chordTypes, true, this.level)
+                    this.$teacher.setupTargetTone(this.config.chordTypes, true, this.level, this.scale)
                 } else if (this.type === CHORD_QUALITY) {
-                    this.$teacher.setupChordQuality(this.config.chordTypes, true, this.level)
+                    this.$teacher.setupChordQuality(this.config.chordTypes, true, this.level, this.scale)
                 } else if (this.type === CHORD_INTERNALIZATION) {
-                    this.$teacher.setupChordInternalization(this.config.diatonic, this.config.degrees, this.config.count, true, this.level)
+                    this.$teacher.setupChordInternalization(this.config.diatonic, this.config.degrees, this.config.count, true, this.level, this.scale)
                 } else if (this.type === CHORD_RECOGNITION) {
-                    this.$teacher.setupChordRecognition(this.config.diatonics, this.config.degrees, this.config.count, true, this.level)
+                    this.$teacher.setupChordRecognition(this.config.diatonics, this.config.degrees, this.config.count, true, this.level, this.scale)
                 }
             },
             onTest: function () {
                 if (this.type === INTERNALIZATION) {
-                    this.$teacher.setupInternalizationTest(this.config.degree, true);
+                    this.$teacher.setupInternalizationTest(this.config.degree, true, this.level, this.scale);
                 } else if (this.type === RECOGNITION_SINGLE) {
-                    this.$teacher.setupRecognitionSingleTest(this.config.degrees, true, this.level);
+                    this.$teacher.setupRecognitionSingleTest(this.config.degrees, true, this.level, this.scale);
                 } else if (this.type === RECOGNITION_INTERVAL) {
                     this.$teacher.setupRecognitionIntervalTest(this.config.degrees, this.config.intervals,
-                        true, this.level)
+                        true, this.level, this.scale)
                 } else if (this.type === TARGET_TONE) {
-                    this.$teacher.setupTargetToneTest(this.config.chordTypes, true, this.level)
+                    this.$teacher.setupTargetToneTest(this.config.chordTypes, true, this.level, this.scale)
                 } else if (this.type === CHORD_QUALITY) {
-                    this.$teacher.setupChordQualityTest(this.config.chordTypes, true, this.level)
+                    this.$teacher.setupChordQualityTest(this.config.chordTypes, true, this.level, this.scale)
                 } else if (this.type === CHORD_INTERNALIZATION) {
                     console.error("No chord internalization test available");
                 } else if (this.type === CHORD_RECOGNITION) {
-                    this.$teacher.setupChordRecognitionTest(this.config.diatonics, this.config.degrees, this.config.count,true, this.level)
+                    this.$teacher.setupChordRecognitionTest(this.config.diatonics, this.config.degrees, this.config.count,true, this.level, this.scale)
                 }
             }
         }

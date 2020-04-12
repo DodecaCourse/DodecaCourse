@@ -72,8 +72,10 @@
     const INPUT_CIRCLE_CHORD = 2;
     const INPUT_CHORD_QUALITY = 3;
 
-    const CADENCE_MAJOR_I_IV_V = 'major_i_iv_v';
-    const CADENCE_MAJOR_I_IV_V_I = 'major_i_iv_v_i';
+    const CADENCE_I_IV_V = 'i_iv_v';
+    const CADENCE_I_IV_V_I = 'i_iv_v_i';
+    const MODE_IONIAN = 'ionian';
+    const MODE_AEOLIAN = 'aeolian';
 
     const VELOCITY = 127;
 
@@ -94,10 +96,10 @@
                 changeKeyEvery: 1, // set to -1 to never change key
                 chosenDegrees: [0, 2, 4, 5, 7, 9, 11], // activated degrees
                 type: INTERNALIZATION,
-                cadenceType: CADENCE_MAJOR_I_IV_V,
                 inputDisabled: false,
                 fullCadenceEvery: 8,
                 level: 1,
+                scale: MODE_AEOLIAN,
                 // Recognition interval
                 intervals: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
                 // Targeting tone
@@ -134,42 +136,80 @@
                     11: 'Ti'
                 },
                 // cadences with multiple options
-                // resting chord is played whenever the tpnic should be reinforced without a full cadence
+                // resting chord is played whenever the tonic should be reinforced without a full cadence
                 cadences: {
-                    'major_i_iv_v': [
-                        {
-                            progression: [[-12, 0, 4, 7], [-7, -3, 0, 5], [-5, -1, 2, 7]],
-                            chordLength: [4, 2, 2],
-                            resting: [-12, 0, 4, 7]
-                        },
-                        {
-                            progression: [[-12, 4, 7, 12], [-7, 0, 5, 9], [-5, 2, 7, 11]],
-                            chordLength: [4, 2, 2],
-                            resting: [-12, 4, 7, 12]
-                        },
-                        {
-                            progression: [[-12, -5, 0, 4], [-19, -3, 0, 5], [-17, -5, -1, 2]],
-                            chordLength: [4, 2, 2],
-                            resting: [-12, -5, 0, 4]
-                        },
-                    ],
-                    'major_i_iv_v_i': [
-                        {
-                            progression: [[-12, 0, 4, 7], [-7, -3, 0, 5], [-5, -1, 2, 7],[-12, 0, 4, 7]],
-                            chordLength: [4, 2, 2, 4],
-                            resting: [-12, 0, 4, 7]
-                        },
-                        {
-                            progression: [[-12, 4, 7, 12], [-7, 0, 5, 9], [-5, 2, 7, 11],[-12, 4, 7, 12]],
-                            chordLength: [4, 2, 2, 4],
-                            resting: [-12, 4, 7, 12]
-                        },
-                        {
-                            progression: [[-12, -5, 0, 4], [-19, -3, 0, 5], [-17, -5, -1, 2],[-12, -5, 0, 4]],
-                            chordLength: [4, 2, 2, 4],
-                            resting: [-12, -5, 0, 4]
-                        },
-                    ]
+                    [MODE_IONIAN]: {
+                        [CADENCE_I_IV_V]: [
+                            {
+                                progression: [[-12, 0, 4, 7], [-7, -3, 0, 5], [-5, -1, 2, 7]],
+                                chordLength: [4, 2, 2],
+                                resting: [-12, 0, 4, 7]
+                            },
+                            {
+                                progression: [[-12, 4, 7, 12], [-7, 0, 5, 9], [-5, 2, 7, 11]],
+                                chordLength: [4, 2, 2],
+                                resting: [-12, 4, 7, 12]
+                            },
+                            {
+                                progression: [[-12, -5, 0, 4], [-19, -3, 0, 5], [-17, -5, -1, 2]],
+                                chordLength: [4, 2, 2],
+                                resting: [-12, -5, 0, 4]
+                            },
+                        ],
+                        [CADENCE_I_IV_V_I]: [
+                            {
+                                progression: [[-12, 0, 4, 7], [-7, -3, 0, 5], [-5, -1, 2, 7], [-12, 0, 4, 7]],
+                                chordLength: [4, 2, 2, 4],
+                                resting: [-12, 0, 4, 7]
+                            },
+                            {
+                                progression: [[-12, 4, 7, 12], [-7, 0, 5, 9], [-5, 2, 7, 11], [-12, 4, 7, 12]],
+                                chordLength: [4, 2, 2, 4],
+                                resting: [-12, 4, 7, 12]
+                            },
+                            {
+                                progression: [[-12, -5, 0, 4], [-19, -3, 0, 5], [-17, -5, -1, 2], [-12, -5, 0, 4]],
+                                chordLength: [4, 2, 2, 4],
+                                resting: [-12, -5, 0, 4]
+                            },
+                        ],
+                    },
+                    [MODE_AEOLIAN]: {
+                        [CADENCE_I_IV_V]: [
+                            {
+                                progression: [[-12, 0, 3, 7], [-7, -4, 0, 5], [-5, -1, 2, 7]],
+                                chordLength: [4, 2, 2],
+                                resting: [-12, 0, 3, 7]
+                            },
+                            {
+                                progression: [[-12, 3, 7, 12], [-7, 0, 5, 8], [-5, 2, 7, 11]],
+                                chordLength: [4, 2, 2],
+                                resting: [-12, 3, 7, 12]
+                            },
+                            {
+                                progression: [[-12, -5, 0, 3], [-19, -4, 0, 5], [-17, -5, -1, 2]],
+                                chordLength: [4, 2, 2],
+                                resting: [-12, -5, 0, 3]
+                            },
+                        ],
+                        [CADENCE_I_IV_V_I]: [
+                            {
+                                progression: [[-12, 0, 3, 7], [-7, -4, 0, 5], [-5, -1, 2, 7], [-12, 0, 3, 7]],
+                                chordLength: [4, 2, 2, 4],
+                                resting: [-12, 0, 3, 7]
+                            },
+                            {
+                                progression: [[-12, 3, 7, 12], [-7, 0, 5, 8], [-5, 2, 7, 11], [-12, 3, 7, 12]],
+                                chordLength: [4, 2, 2, 4],
+                                resting: [-12, 3, 7, 12]
+                            },
+                            {
+                                progression: [[-12, -5, 0, 3], [-19, -4, 0, 5], [-17, -5, -1, 2], [-12, -5, 0, 3]],
+                                chordLength: [4, 2, 2, 4],
+                                resting: [-12, -5, 0, 3]
+                            },
+                        ],
+                    }
                 },
                 chordTones: {
                     'maj': [0, 4, 7],
@@ -291,8 +331,8 @@
         methods: {
             playCadence: function (key, cadenceType, posOff) {
                 /* play *cadenceType* in *key* */
-                const cadence = this.cadences[cadenceType][Math.floor(
-                    Math.random()*this.cadences[cadenceType].length)]; // select cadence randomly
+                const cadence = this.cadences[this.scale][cadenceType][Math.floor(
+                    Math.random()*this.cadences[this.scale][cadenceType].length)]; // select cadence randomly
                 for (let chordNum=0; chordNum < cadence.progression.length; chordNum++) {
                     // play transposed cadence
                     const notes = this.transposeToKey(cadence.progression[chordNum], key, 4);
@@ -415,7 +455,7 @@
                 return notesMod;
             },
             roundInternalization: function () {
-                let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
+                let [posOff, cadence] = this.playCadence(this.key, CADENCE_I_IV_V, 0);
                 for (let i=0;i<4;i++) {
                     posOff = this.playDegree(this.key, this.degrees[0], true, posOff, 4, cadence, true);
                     posOff = this.playDegree(this.key, this.degrees[0], false, posOff, 4, cadence, true);
@@ -424,7 +464,7 @@
                 this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
             },
             roundInternalizationTest: function () {
-                let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
+                let [posOff, cadence] = this.playCadence(this.key, CADENCE_I_IV_V, 0);
                 posOff = this.playResting(this.key, cadence, posOff, 4);
                 posOff = this.rest(posOff, 3 * 4);
                 posOff = this.playDegree(this.key, this.degrees[0], false, posOff, 8, cadence, true);
@@ -437,7 +477,7 @@
                 let posOff;
                 let cadence = undefined;
                 if ((this.roundSincePlay - 1) % this.fullCadenceEvery === 0) {
-                    [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
+                    [posOff, cadence] = this.playCadence(this.key, CADENCE_I_IV_V_I, 0);
                 } else {
                     posOff = this.playDrone(this.key, 0, 4);
                 }
@@ -461,7 +501,7 @@
                 let posOff;
                 let cadence = undefined;
                 if ((this.roundSincePlay - 1) % this.fullCadenceEvery === 0) {
-                    [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
+                    [posOff, cadence] = this.playCadence(this.key, CADENCE_I_IV_V_I, 0);
                 } else {
                     posOff = this.playDrone(this.key, 0, 4);
                 }
@@ -519,7 +559,7 @@
                 }
             },
             roundChordInternalization: function () {
-                let [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V, 0);
+                let [posOff, cadence] = this.playCadence(this.key, CADENCE_I_IV_V, 0);
                 for (let i=0;i<4;i++) {
                     posOff = this.playResting(this.key, cadence, posOff, 4);
                     posOff = this.playDiatonic(this.key, this.diatonic, this.diatonicCount, posOff, 4, cadence, false);
@@ -532,7 +572,7 @@
                 let posOff;
                 let cadence = undefined;
                 if ((this.roundSincePlay - 1) % this.fullCadenceEvery === 0) {
-                    [posOff, cadence] = this.playCadence(this.key, CADENCE_MAJOR_I_IV_V_I, 0);
+                    [posOff, cadence] = this.playCadence(this.key, CADENCE_I_IV_V_I, 0);
                 } else {
                     posOff = this.playDrone(this.key, 0, 4);
                 }
@@ -620,110 +660,111 @@
                 if (this.playing) this.playRound();
             },
             // setup functions for different practice/test scenarios
-            setupInternalization: function(degree, autoplay) {
+            setupInternalization: function(degree, autoplay, level, scale) {
                 console.log("setupInternalization", degree);
                 this.type = INTERNALIZATION;
                 this.chosenDegrees = [degree];
-                this.finishSetup(autoplay, 1);
+                this.finishSetup(autoplay, level, scale);
             },
-            setupInternalizationTest: function(degree, autoplay) {
+            setupInternalizationTest: function(degree, autoplay, level, scale) {
                 console.log("setupInternalizationTest", degree);
                 this.type = INTERNALIZATION_TEST;
                 this.chosenDegrees = [degree];
-                this.finishSetup(autoplay, 1);
+                this.finishSetup(autoplay, level, scale);
             },
 
-            setupRecognitionSingle: function(degrees, autoplay, level) {
+            setupRecognitionSingle: function(degrees, autoplay, level, scale) {
                 console.log("setupRecognitionSingle", degrees);
                 this.type = RECOGNITION_SINGLE;
                 this.chosenDegrees = degrees;
                 this.changeKeyEvery = this.fullCadenceEvery;
-                this.finishSetup(autoplay, level);
+                this.finishSetup(autoplay, level, scale);
             },
-            setupRecognitionSingleTest: function(degrees, autoplay, level) {
+            setupRecognitionSingleTest: function(degrees, autoplay, level, scale) {
                 console.log("setupRecognitionSingleTest", degrees);
                 this.type = RECOGNITION_SINGLE_TEST;
                 this.chosenDegrees = degrees;
                 this.changeKeyEvery = this.fullCadenceEvery;
-                this.finishSetup(autoplay, level);
+                this.finishSetup(autoplay, level, scale);
             },
 
-            setupRecognitionInterval: function(degrees, intervals, autoplay, level) {
+            setupRecognitionInterval: function(degrees, intervals, autoplay, level, scale) {
                 console.log("setupRecognitionInterval", degrees);
                 this.type = RECOGNITION_INTERVAL;
                 this.chosenDegrees = degrees;
                 this.intervals = intervals;
                 this.changeKeyEvery = this.fullCadenceEvery;
-                this.finishSetup(autoplay, level);
+                this.finishSetup(autoplay, level, scale);
             },
-            setupRecognitionIntervalTest: function(degrees, intervals, autoplay, level) {
+            setupRecognitionIntervalTest: function(degrees, intervals, autoplay, level, scale) {
                 console.log("setupRecognitionIntervalTest", degrees);
                 this.type = RECOGNITION_INTERVAL_TEST;
                 this.chosenDegrees = degrees;
                 this.intervals = intervals;
                 this.changeKeyEvery = this.fullCadenceEvery;
-                this.finishSetup(autoplay, level);
+                this.finishSetup(autoplay, level, scale);
             },
 
-            setupTargetTone(chordTypes, autoplay) {
+            setupTargetTone(chordTypes, autoplay, level, scale) {
                 console.log("setupTargetTone", chordTypes);
                 this.type = TARGET_TONE;
                 this.chosenDegrees = [];
                 this.chordTypes = chordTypes;
-                this.finishSetup(autoplay, 1);
+                this.finishSetup(autoplay, level, scale);
             },
-            setupTargetToneTest(chordTypes, autoplay) {
+            setupTargetToneTest(chordTypes, autoplay, level, scale) {
                 console.log("setupTargetToneTest", chordTypes);
                 this.type = TARGET_TONE_TEST;
                 this.chosenDegrees = [];
                 this.chordTypes = chordTypes;
-                this.finishSetup(autoplay, 1);
+                this.finishSetup(autoplay, level, scale);
             },
 
-            setupChordQuality(chordTypes, autoplay) {
+            setupChordQuality(chordTypes, autoplay, level, scale) {
                 console.log("setupChordQuality", chordTypes);
                 this.type = CHORD_QUALITY;
                 this.chosenDegrees = [];
                 this.chordTypes = chordTypes;
-                this.finishSetup(autoplay, 1);
+                this.finishSetup(autoplay, level, scale);
             },
-            setupChordQualityTest(chordTypes, autoplay) {
+            setupChordQualityTest(chordTypes, autoplay, level, scale) {
                 console.log("setupChordQualityTest", chordTypes);
                 this.type = CHORD_QUALITY_TEST;
                 this.chosenDegrees = [];
                 this.chordTypes = chordTypes;
-                this.finishSetup(autoplay, 1);
+                this.finishSetup(autoplay, level, scale);
             },
 
-            setupChordInternalization(diatonic, degrees, count, autoplay) {
+            setupChordInternalization(diatonic, degrees, count, autoplay, level, scale) {
                 this.type = CHORD_INTERNALIZATION;
                 console.log("setupChordInternalization", diatonic);
                 this.chosenDegrees = degrees;
                 this.diatonic = diatonic;
                 this.diatonicCount = count;
-                this.finishSetup(autoplay, 1);
+                this.finishSetup(autoplay, level, scale);
             },
-            setupChordRecognition(diatonics, degrees, count, autoplay, level) {
+            setupChordRecognition(diatonics, degrees, count, autoplay, level, scale) {
                 this.type = CHORD_RECOGNITION;
                 console.log("setupChordRecognition", diatonics);
                 this.chosenDegrees = degrees;
                 this.diatonics = diatonics;
                 this.diatonicCount = count;
                 this.changeKeyEvery = this.fullCadenceEvery;
-                this.finishSetup(autoplay, level);
+                this.finishSetup(autoplay, level, scale);
             },
-            setupChordRecognitionTest(diatonics, degrees, count, autoplay, level) {
+            setupChordRecognitionTest(diatonics, degrees, count, autoplay, level, scale) {
                 this.type = CHORD_RECOGNITION_TEST;
                 console.log("setupChordRecognitionTest", diatonics);
                 this.chosenDegrees = degrees;
                 this.diatonics = diatonics;
                 this.diatonicCount = count;
                 this.changeKeyEvery = this.fullCadenceEvery;
-                this.finishSetup(autoplay, level);
+                this.finishSetup(autoplay, level, scale);
             },
 
-            finishSetup: function (autoplay, level) {
-                this.level = level;
+            finishSetup: function (autoplay, level, scale) {
+                this.level = level || 1;
+                this.scale = scale || MODE_IONIAN;
                 if (autoplay || this.playing) {
                     if (this.playing) {
                         this.restart();

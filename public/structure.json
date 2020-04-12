@@ -352,6 +352,88 @@
       "title": "Diatonic 7th Chords",
       "levels": 3,
       "chapter_id": 4
+    },
+
+    {
+      "id": 9001,
+      "title": "Do Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 9002,
+      "title": "Re Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 9003,
+      "title": "Me Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 9004,
+      "title": "Fa Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 9005,
+      "title": "So Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 9006,
+      "title": "Le Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 9007,
+      "title": "Te Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+
+    {
+      "id": 10001,
+      "title": "Minor Pentatonic Recognition",
+      "levels": 3,
+      "chapter_id": 5
+    },
+    {
+      "id": 10002,
+      "title": "Minor Scale Internalisation",
+      "levels": 3,
+      "chapter_id": 5
+    },
+
+
+    {
+      "id": 11001,
+      "title": "2nds & 3rds",
+      "levels": 5,
+      "chapter_id": 3
+    },
+    {
+      "id": 11002,
+      "title": "4ths & 5ths",
+      "levels": 5,
+      "chapter_id": 3
+    },
+    {
+      "id": 11003,
+      "title": "6ths & 8ves",
+      "levels": 5,
+      "chapter_id": 3
+    },
+    {
+      "id": 11004,
+      "title": "Melodic intervals",
+      "levels": 5,
+      "chapter_id": 3
     }
   ]
 }
