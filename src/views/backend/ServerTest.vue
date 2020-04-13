@@ -76,10 +76,38 @@
         tmp: 'no'
       };
     },
+    methods: {
+      setCurrentUserToTextfield(){
+        this.fetch('setcurrentuser/' + this.cookie, true)
+          .then(res => {
+            console.log(res);
+            this.updateCurrentUser();
+            location.reload();
+          });
+      },
+      updateSearch() {
+        if (this.search.trim().length > 2) {
+          this.getUserID(this.search.trim())
+            .then(data => {
+              this.founduser = data;
+              if (!(this.founduser.user_id == null)) {
+                this.getSettings(this.founduser.user_id)
+                  .then(data => (this.foundsettings = data));
+                this.getTakes(this.founduser.user_id)
+                  .then(data => (this.foundchapters = data));
+              } else {
+                this.foundsettings = "";
+                this.foundchapters = "";
+              }
+            });
+        }
+
+      },
+    },
     created: function(){
       // Testing getchaptersofmodule for module_id 1
-      this.getChaptersOfmodule('1')
-        .then(data => (this.chapters1 = data));
+      // this.getChaptersOfmodule('1')
+      //   .then(data => (this.chapters1 = data));
       // Testing getSettings for user_id test
       this.getSettings('1')
         .then(data => (this.settings1 = data));

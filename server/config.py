@@ -22,7 +22,7 @@ class Config:
     SESSION_REDIS = redis.from_url(os.getenv('SESSION_REDIS'))
 
     # User
-    USER_KEYWORD_LENGTH = 6
+    USER_KEYWORD_LENGTH = 4
 
     # ø User Settings
     # TODO: Expand

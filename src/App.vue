@@ -80,7 +80,16 @@
                 <router-view></router-view>
                 
             </v-container>
-            <LoginPanel :connection="connection" :usr="user"/>
+            <v-container fluid>
+              <AccountPanel v-if="connection & user == 'no current user set'" :usr="user"/>
+              <h2 v-if="!connection" style="ma-2">
+                <v-icon>mdi-alert</v-icon> Warning:<br>
+                You are not connected to the server.<br>
+                Your progress will not be saved!<br>
+                Please contact an admin.
+              </h2>
+            </v-container>
+            
         </v-content>
 
         <v-footer app>
@@ -93,7 +102,7 @@
 <script>
     import Courses from "./components/Courses";
     import Teacher from "./components/Teacher";
-    import LoginPanel from "./components/LoginPanel"
+    import AccountPanel from "./components/AccountPanel"
     import api from "./api.js"
     
     export default {
@@ -104,20 +113,25 @@
       components: {
         Teacher,
         Courses,
-        LoginPanel
+        AccountPanel
       },
       props: {
           source: String,
       },
       data: () => ({
           drawer: null,
-          user: 'not logged in',
+          user: 'no current user set',
           curCourse: 0
       }),
       methods: {
         updateUser: function() {
           this.getCurrentUser()
             .then(res => this.user = res);
+        }
+      },
+      provide: function() {
+        return {
+          'updateUser': this.updateUser
         }
       },
       created: function() {

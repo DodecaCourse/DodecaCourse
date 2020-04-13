@@ -41,7 +41,7 @@ targets = db.table('targets')
 
 # Modules Chapters und targets aus structure.json lesen
 insert_structure("../public/structure.json", modules, chapters, targets)
-db.close()
+db.close()  # close after inserting data
 
 # → Query starten
 # TODO: Sollte man hier jedes mal die Query neu initialisieren oder oben
@@ -86,7 +86,7 @@ def adduser():
         return jsonify('user with keyword ' + user + ' already exists.')
 
 
-@app.route('/generateuser', methods=['POST', 'GET'])
+@app.route('/generateuser')
 def generate_user():
     """
     Generates random user keyword, that is compatible with the current
@@ -112,8 +112,8 @@ def generate_user():
         if not is_user(user):
             with transaction(users) as tr:
                 tr.insert({'user_keyword': user})
-            db.close()
-            return redirect('http://localhost:8080/dev/servertest')
+            # db.close()
+            return jsonify(user)
     raise Exception("Could not allocate another user. All keywords are taken."
                     " You should increase USER_KEYWORD_LENGTH in settings.")
 
@@ -143,29 +143,29 @@ def get_all_takes():
     return jsonify(takes.all())
 
 
-@app.route('/getchapters_bymodule_id/<module_id>')
-def get_chapters_bymoduleid(module_id):
-    if not bool(re.match("-?\\d+", module_id)):
-        app.logger.warning('QUERY: Found invalid module_id \''
-                           + str(module_id) + '\'. Input integers! ')
-        return jsonify('Found invalid module_id')
-    module_id = int(module_id)
-    found = chapters.search(q['module_id'] == module_id)
-    N = len(found)
-    if N == 0:
-        app.logger.warning('QUERY: No chapters with module_id=='
-                           + str(module_id) + ' had been found.')
-        return jsonify('no chapter in module \'' + str(module_id)
-                       + '\' were found')
-    found_chapters = [None] * N
-    for i in range(len(found)):
-        sect = found[i]
-        found_chapters[i] = {
-            'chapter_id': sect.eid,
-            'module_id': sect['module_id'],
-            'chapter_name': sect['chapter_name']
-        }
-    return jsonify(found_chapters)
+# @app.route('/getchapters_bymodule_id/<module_id>')
+# def get_chapters_bymoduleid(module_id):
+#     if not bool(re.match("-?\\d+", module_id)):
+#         app.logger.warning('QUERY: Found invalid module_id \''
+#                            + str(module_id) + '\'. Input integers! ')
+#         return jsonify('Found invalid module_id')
+#     module_id = int(module_id)
+#     found = chapters.search(q['module_id'] == module_id)
+#     N = len(found)
+#     if N == 0:
+#         app.logger.warning('QUERY: No chapters with module_id=='
+#                            + str(module_id) + ' had been found.')
+#         return jsonify('no chapter in module \'' + str(module_id)
+#                        + '\' were found')
+#     found_chapters = [None] * N
+#     for i in range(len(found)):
+#         sect = found[i]
+#         found_chapters[i] = {
+#             'chapter_id': sect.eid,
+#             'module_id': sect['module_id'],
+#             'chapter_name': sect['chapter_name']
+#         }
+#     return jsonify(found_chapters)
 
 
 @app.route('/get_targets_bychapter_id/<chapter_id>')
@@ -209,8 +209,8 @@ def get_user_by_key(user_key):
     })
 
 
-@app.route('/takechapter/<user_id>/<chapter_id>/<time_spend>')
-def take_chapter(user_id, chapter_id, time_spend):
+@app.route('/complete_target/<user_id>/<chapter_id>')
+def complete_target(user_id, target_id):
     # Check if all arguments are valid first
     # → user_id
     # TODO: Same wie oben(get_user_by_key), vllt in Methode packen
@@ -226,41 +226,41 @@ def take_chapter(user_id, chapter_id, time_spend):
         return jsonify("Found invalid user_id " + str(user_id) + " found."
                        " User does not exist.")
     # → chapter_id
-    if not is_integer_string(chapter_id):
-        app.logger.warning('QUERY: Found invalid chapter_id \''
-                           + str(chapter_id) + '\'. Input integers! ')
-        return jsonify('Found invalid chapter_id')
-    chapter_id = int(chapter_id)
-    if not users.contains(eids=[chapter_id]):
-        app.logger.warning("QUERY: Found invalid chapter_id " + str(chapter_id)
+    if not is_integer_string(target_id):
+        app.logger.warning('QUERY: Found invalid target_id \''
+                           + str(target_id) + '\'. Input integers! ')
+        return jsonify('Found invalid target_id')
+    target_id = int(target_id)
+    if not users.contains(eids=[target_id]):
+        app.logger.warning("QUERY: Found invalid target_id " + str(target_id)
                            + " found. chapter does not exist.")
-        return jsonify("Found invalid chapter_id " + str(user_id) + " found."
+        return jsonify("Found invalid target_id " + str(user_id) + " found."
                        " chapter does not exist.")
     # → time_spend
-    if not is_integer_string(time_spend):
-        app.logger.warning('QUERY: Found invalid time_spend \''
-                           + str(time_spend) + '\'. Input integers! ')
-        return jsonify('Found invalid time_spend. Expected integer.')
+    # if not is_integer_string(time_spend):
+    #     app.logger.warning('QUERY: Found invalid time_spend \''
+    #                        + str(time_spend) + '\'. Input integers! ')
+    #     return jsonify('Found invalid time_spend. Expected integer.')
     # Magic starts here
     # check if entry already exists
     found = takes.search((q['user_id'] == user_id)
-                         & (q['chapter_id'] == chapter_id))
+                         & (q['chapter_id'] == target_id))
     if len(found) == 0:
         with transaction(takes) as tr:
             tr.insert({
                 'user_id': user_id,
-                'chapter_id': chapter_id,
-                'time_spend': time_spend
+                'target_id': target_id,
+                'completed': True
             })
     else:
         if len(found) > 1:
             app.logger.warning('QUERY: Multiple takes entries with same'
-                               ' chapter_id and user_id have been found.'
+                               ' target_id and user_id have been found.'
                                ' Updating first found instance')
-        found[0]['time_spend'] = time_spend
-    db.close()
+        found[0]['completed'] = True
+    # db.close()
     return jsonify("User \'" + str(user_id) + "\' succesfully took chapter \'"
-                   + str(chapter_id) + "\'")
+                   + str(target_id) + "\'")
 
 
 @app.route('/getsettings/<user_id>')
@@ -289,8 +289,43 @@ def get_user_settings(user_id):
     return jsonify(returned_settings)
 
 
-@app.route('/getchapters_byuser_id/<user_id>')
-def get_user_targets(user_id):
+# @app.route('/get_takes_by_user_id/<user_id>')
+# def get_user_takes(user_id):
+#     if not is_integer_string(user_id):
+#         app.logger.warning('QUERY: Found invalid user_id \''
+#                            + str(user_id) + '\'. Input integers! ')
+#         return jsonify('Found invalid user_id')
+#     user_id = int(user_id)
+#     if not users.contains(eids=[user_id]):
+#         app.logger.warning("QUERY: Found invalid user_id " + str(user_id)
+#                            + ". User does not exist.")
+#         return jsonify("Found invalid user id " + str(user_id) + "."
+#                        " User does not exist.")
+#     # user_id valid
+#     foundtakes = takes.search(q['user_id'] == user_id)
+#     N = len(foundtakes)
+#     ret_targets = [{}] * N
+#     for i in range(N):
+#         take = foundtakes[i]
+#         # TODO: Add error when eid in target does not exist
+#         # TODO: Add error when take is missing keys
+#         # Using try except for now
+#         tar = targets.get(eid=take['target_id'])
+#         ret_targets[i] = {
+#             'take_id': take.eid,
+#             'target_id': tar.eid,
+#             'target_name': tar['target_name'],
+#             'time_spend': take['time_spend'],
+#             'completed': take['completed']
+#         }
+#     return jsonify(ret_targets)
+
+@app.route('/get_completed_by_user_id/<user_id>')
+def get_completed_by_user_id(user_id):
+    """
+    Returns lists of
+        completed_modules, completed_chapters and completed_targets
+    """
     if not is_integer_string(user_id):
         app.logger.warning('QUERY: Found invalid user_id \''
                            + str(user_id) + '\'. Input integers! ')

@@ -70,11 +70,11 @@ export default {
     getRandom() {
       return this.fetch('random');
     },
-    getChaptersOfmodule(module_id) {
-      return this.fetch('getchapters_bymodule_id/' + module_id);
-    },
-    getChapters(user_id){
-      return this.fetch('getchapters_byuser_id/' + user_id);
+    // getChaptersOfmodule(module_id) {
+    //   return this.fetch('getchapters_bymodule_id/' + module_id, true);
+    // },
+    getTakes(user_id){
+      return this.fetch('get_takes_by_user_id/' + user_id);
     },
     updateCurrentUser(){
       this.fetch('getcurrentuser', true)
@@ -83,33 +83,14 @@ export default {
     getCurrentUser(){
       return this.fetch('getcurrentuser', true);
     },
-    setCurrentUserToTextfield(){
-      this.fetch('setcurrentuser/' + this.cookie, true)
-        .then(res => {
-          console.log(res);
-          this.updateCurrentUser();
-        });
-    },
-    updateSearch() {
-      if (this.search.trim().length > 2) {
-        this.getUserID(this.search.trim())
-          .then(data => {
-            this.founduser = data;
-            if (!(this.founduser.user_id == null)) {
-              this.getSettings(this.founduser.user_id)
-                .then(data => (this.foundsettings = data));
-              this.getChapters(this.founduser.user_id)
-                .then(data => (this.foundchapters = data));
-            } else {
-              this.foundsettings = "";
-              this.foundchapters = "";
-            }
-          });
-      }
-
+    setCurrentUser(user){
+      return this.fetch('setcurrentuser/' + user, true)
     },
     getSettings(user_id){
       return this.fetch('getsettings/' + user_id);
+    },
+    generateUser() {
+      return this.fetch('generateuser');
     }
   },
   // TODO: Überlegen ob beim mixin von von Daten "vorgeladen" werden
