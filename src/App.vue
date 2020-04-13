@@ -76,9 +76,6 @@
             <v-btn v-on:click="$vuetify.theme.dark = !$vuetify.theme.dark" icon title="Toggle Light/Dark">
                 <v-icon>mdi-invert-colors</v-icon>
             </v-btn>
-            <v-btn icon to="/settings">
-              <v-icon>mdi-cog</v-icon>
-            </v-btn>
         </v-app-bar>
 
         <v-content>
