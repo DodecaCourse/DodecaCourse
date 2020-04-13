@@ -13,7 +13,10 @@
     </template>
     <v-list-item :key="chapter.id" v-for="chapter in course.chapters" :to="course.path + chapter.path">
       <v-list-item-title>{{ chapter.title }}</v-list-item-title>
-      <v-icon>{{ chapter.completed ? "mdi-checkbox-marked-circle-outline" : "mdi-checkbox-blank-circle-outline"}}</v-icon>
+      
+      <v-icon v-if:="user != 'not logged in'">
+        {{ completedLevels.some(level => level === chapter.id) ? "mdi-checkbox-marked-circle-outline" : "mdi-checkbox-blank-circle-outline"}}
+      </v-icon>
     </v-list-item>
   </v-list-group>
 
@@ -23,12 +26,7 @@
 
 export default {
   name: 'CourseItem',
-  props: ['course', 'active', 'num'],
-  methods: {
-    changeCheck: function() {
-      this.course.completed = !this.course.completed
-    }
-  }
+  props: ['course', 'active', 'num', 'visitedLevels', 'completedLevels']
 }
 
 </script>

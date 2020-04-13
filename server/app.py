@@ -280,7 +280,7 @@ def get_user_settings(user_id):
 
 
 @app.route('/getchapters_byuser_id/<user_id>')
-def get_user_levles(user_id):
+def get_user_levels(user_id):
     if not is_integer_string(user_id):
         app.logger.warning('QUERY: Found invalid user_id \''
                            + str(user_id) + '\'. Input integers! ')
@@ -303,8 +303,8 @@ def get_user_levles(user_id):
         lvl = targets.get(eid=take['target_id'])
         ret_targets[i] = {
             'take_id': take.eid,
-            'chapter_id': lvl.eid,
-            'chapter_name': lvl['chapter_name'],
+            'level_id': lvl.eid,
+            'level_name': lvl['level_name'],
             'time_spend': take['time_spend'],
             'finished': take['finished']
         }

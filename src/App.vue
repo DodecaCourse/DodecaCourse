@@ -14,7 +14,7 @@
                         <v-list-item-title>Introduction</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-                <Courses :cur-course="curCourse" />
+                <Courses :cur-course="curCourse" :user="user"/>
                 <v-list-item to="/teacher-playground" link>
                     <v-list-item-action>
                         <v-icon>mdi-animation-play</v-icon>
@@ -96,7 +96,7 @@
                 <router-view></router-view>
                 
             </v-container>
-            <LoginPanel />
+            <LoginPanel :connection="connection" :usr="user"/>
         </v-content>
 
         <v-footer app>
@@ -130,9 +130,14 @@
           user: 'not logged in',
           curCourse: 0
       }),
+      methods: {
+        updateUser: function() {
+          this.getCurrentUser()
+            .then(res => this.user = res);
+        }
+      },
       created: function() {
-        this.getCurrentUser()
-          .then(res => this.user = res);
+        this.updateUser();
       }
     };
 </script>
