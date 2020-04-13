@@ -23,6 +23,8 @@ import M4DiatonicChordsRecognition from "./views/M4DiatonicChordsRecognition";
 import M5MinorKeysOverview from "./views/M5MinorKeysOverview";
 import M5SolfegeMinor from "./views/M5SolfegeMinor";
 import M5MinorKeyExercisesTests from "./views/M5MinorKeyExercisesTests";
+import FurtherPractice from "./views/FurtherPractice";
+import GetPlaying from "./views/GetPlaying";
 
 
 Vue.config.productionTip = false;
@@ -53,6 +55,8 @@ const router = new VueRouter({
     { path: '/minor/overview', component: M5MinorKeysOverview },
     { path: '/minor/solfege', component: M5SolfegeMinor },
     { path: '/minor/ex-tests', component: M5MinorKeyExercisesTests },
+    { path: '/next/practice', component: FurtherPractice },
+    { path: '/next/play', component: GetPlaying },
     { path: '/*', component: NotFound}
   ],
   scrollBehavior (to, from, savedPosition) {
