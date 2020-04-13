@@ -124,6 +124,23 @@
           "path": "/ex-tests"
         }
       ]
+    },
+    {
+      "id": 6,
+      "title": "What's next?",
+      "path": "/next",
+      "chapters": [
+        {
+          "id": 5001,
+          "title": "Further Practice",
+          "path": "/practice"
+        },
+        {
+          "id": 5002,
+          "title": "Get Playing",
+          "path": "/playing"
+        }
+      ]
     }
   ],
   "targets": [

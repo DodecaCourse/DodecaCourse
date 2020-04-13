@@ -92,6 +92,9 @@
                     Melodic Intervals
                 </InlineConfigurator>
             </p>
+            <v-btn style="float: right" color="secondary" class="ma-2"
+                   to="/next/practice">What's next?
+            </v-btn>
         </v-flex>
     </v-layout>
 </template>
