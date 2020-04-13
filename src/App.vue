@@ -49,13 +49,6 @@
               </v-chip>
             </template>
             <template v-if="connection">
-              <v-text-field
-                class="shrink"
-                outlined
-                width="10px"
-                height="10px"
-                dense
-              ></v-text-field>
               <v-btn icon>
                 <v-icon>mdi-login</v-icon>
               </v-btn>

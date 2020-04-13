@@ -13,27 +13,36 @@ import random
 import re
 # files
 import config
-
+from read_structure import insert_structure
 # ø Datenbank laden
 # TODO
 
 # ø Konfiguration
 
 # → Datenbank
-db = TinyDB("db/db.json",
-            storage=CachingMiddleware(JSONStorage))
-# db.purge() # Datenbank clearen
+db = TinyDB("db.json")
+# db.purge()  # Datenbank clearen
+
+db.purge_table('modules')
+db.purge_table('chapters')
+db.purge_table('targets')
+
 # DATENBANKSTRUKTUR
 # User(user_id, user_keyword, settings...) (for settings see config)
 users = db.table('users')
-# Takes(take_id, ↑user_id, ↑target_id, time_spend, finished)
+# Take(take_id, ↑user_id, ↑target_id, time_spend, finished)
 takes = db.table('takes')
-# targets(target_id, ↑chapter_id)
-targets = db.table('targets')
-# chapter(chapter_id, ↑module_id, chapter_name)
-chapters = db.table('chapters')
-# module(module_id, module_name)
+# module(module_id)
 modules = db.table('modules')
+# chapter(chapter_id, ↑module_id)
+chapters = db.table('chapters')
+# Target(target_id, ↑chapter_id)
+targets = db.table('targets')
+
+# Modules Chapters und targets aus structure.json lesen
+modules, chapters, targets = insert_structure("../public/structure.json",
+                                              modules, chapters, targets)
+
 
 # → Query starten
 # TODO: Sollte man hier jedes mal die Query neu initialisieren oder oben
@@ -175,10 +184,10 @@ def get_targets_by_chapter_id(chapter_id):
                        + '\' were found')
     found_targets = [None] * N
     for i in range(len(found)):
-        lvl = found[i]
+        tar = found[i]
         found_targets[i] = {
-            'target_id': lvl.eid,
-            'chapter_id': lvl['chapter_id']
+            'target_id': tar.eid,
+            'chapter_id': tar['chapter_id']
         }
     return jsonify(found_targets)
 
@@ -280,7 +289,7 @@ def get_user_settings(user_id):
 
 
 @app.route('/getchapters_byuser_id/<user_id>')
-def get_user_levels(user_id):
+def get_user_targets(user_id):
     if not is_integer_string(user_id):
         app.logger.warning('QUERY: Found invalid user_id \''
                            + str(user_id) + '\'. Input integers! ')
@@ -300,11 +309,11 @@ def get_user_levels(user_id):
         # TODO: Add error when eid in target does not exist
         # TODO: Add error when take is missing keys
         # Using try except for now
-        lvl = targets.get(eid=take['target_id'])
+        tar = targets.get(eid=take['target_id'])
         ret_targets[i] = {
             'take_id': take.eid,
-            'level_id': lvl.eid,
-            'level_name': lvl['level_name'],
+            'target_id': tar.eid,
+            'target_name': tar['target_name'],
             'time_spend': take['time_spend'],
             'finished': take['finished']
         }
