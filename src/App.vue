@@ -15,14 +15,6 @@
                     </v-list-item-content>
                 </v-list-item>
                 <Courses :cur-course="curCourse" :user="user"/>
-                <v-list-item to="/teacher-playground" link>
-                    <v-list-item-action>
-                        <v-icon>mdi-animation-play</v-icon>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                        <v-list-item-title>Playground</v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>
                 <v-list-item to="/dev/servertest" link>
                     <v-list-item-action>
                         <v-icon>mdi-bash</v-icon>
@@ -37,7 +29,6 @@
         
         <v-app-bar
                 flat
-                dark
                 app
                 clipped-left
                 solo
@@ -85,12 +76,15 @@
             <v-btn icon to="/settings">
               <v-icon>mdi-cog</v-icon>
             </v-btn>
+            <v-btn v-on:click="$vuetify.theme.dark = !$vuetify.theme.dark" icon title="Toggle Light/Dark">
+                <v-icon>mdi-invert-colors</v-icon>
+            </v-btn>
         </v-app-bar>
 
         <v-content>
             <v-container fluid>
                 <v-banner app elevation="0" id="player_banner"
-                          v-show="!(this.$teacher !== undefined && this.$teacher.hidden)">
+                          v-show="!(this.$refs.teacher !== undefined && this.$refs.teacher.hidden)">
                     <Teacher ref="teacher"/>
                 </v-banner>
                 <router-view></router-view>
@@ -142,15 +136,19 @@
     };
 </script>
 
-<style>
-    .article {
-        max-width: 43em!important;
-    }
-    #player_banner .v-banner__text {
+<style lang="sass">
+    @import '../node_modules/typeface-roboto/index.css'
+    .article
+        max-width: 43em!important
+
+    #player_banner .v-banner__text
         width: 100%
-    }
-    #player_banner .v-banner__wrapper {
-        padding-bottom: 0;
-        padding-top: 0;
-    }
+
+    #player_banner .v-banner__wrapper
+        padding-bottom: 0
+        padding-top: 0
+
+    .invert-img .v-image__image
+        filter: invert(100%)
+
 </style>

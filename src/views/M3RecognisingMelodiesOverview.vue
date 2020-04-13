@@ -43,6 +43,8 @@
             <p>So
                 continue onto the exercise explanations and get started! In a week
                 you can then move onto module 4 while you continue practicing these.</p>
+            <v-btn style="float: right" color="secondary" class="ma-2"
+                   to="/recognising-melodies/exercise-test">Next Chapter</v-btn>
         </v-flex>
     </v-layout>
 </template>

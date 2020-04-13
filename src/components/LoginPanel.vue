@@ -13,7 +13,7 @@
             You'll need to save that username somewhere in order to restore your progress. You can allow us to set cookies, so you don't
             need to keep track if you are not deleting your cookies. Alternatively, you can copy a link or create a bookmark
             ending on "
-            <b>?usr={{user}}</b>", that directly logs you in and puts you back to where you stopped. We will not save any personal
+            <b>?usr={{usr}}</b>", that directly logs you in and puts you back to where you stopped. We will not save any personal
             data(e.g. names). By checking the below checkmark you allow us to save cookies on your system.
             <v-card-actions>
 
@@ -56,8 +56,7 @@
     name: 'LoginPanel',
     mixins: [api],
     props: [
-      'connected',
-      'usr'],
+      'connected'],
     data: () => ({
         usr: 'none'
     }),

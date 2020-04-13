@@ -4,7 +4,7 @@
             <CourseItem
               v-bind:course="course"
               :visitedLevels="visitedLevels"
-              :completedlevels="completedLevels"
+              :completedLevels="completedLevels"
               :user="user"
               :num="num"
               :active="$route.path.startsWith(course.path)"/>
@@ -27,10 +27,6 @@
       props: ['curCourse', 'user'],
       data: function () {
           return {
-              structure: {
-                  "modules": [],
-                  "targets": []
-              },
               visitedLevels: [],
               completedLevels: []
           }
@@ -49,16 +45,17 @@
           if(usr.user_id != null){
             var id = usr.user_id;
             var lvls;
+            const self = this;
             this.getChapters(id)
               .then(l => lvls = l);
             lvls.forEach( lvl => {
-              this.visitedLevels = this.visitedLevels + lvl.level_id;
+              self.visitedLevels = self.visitedLevels + lvl.level_id;
               if(lvl.completed){
-                this.completedLevels = this.completedLevels + lvl.level_id;
+                self.completedLevels = self.completedLevels + lvl.level_id;
               }
             });
             console.log(this.visitedLevels);
-            
+            console.log(this.completedLevels);
           }
           
         }

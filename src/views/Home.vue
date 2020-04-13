@@ -14,7 +14,7 @@
         we’ll cover it all in this short introduction.
       </p>
       <p>
-        You’re about to learn about the specific skill you’ll develop with ETHQ’s materials (called relative
+        You’re about to learn about the specific skill you’ll develop in this course (called relative
         pitch) and the approach you’ll use to develop it (called tonality based ear training). Even if you’re
         an old hand when it comes to ear training I recommend you give it a quick read as you’ll learn
         why using a tonality based approach to develop relative pitch is absolutely essential if you want
