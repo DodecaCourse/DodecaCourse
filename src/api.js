@@ -91,6 +91,9 @@ export default {
     },
     generateUser() {
       return this.fetch('generateuser');
+    },
+    logout(){
+      return this.fetch('logout');
     }
   },
   // TODO: Überlegen ob beim mixin von von Daten "vorgeladen" werden

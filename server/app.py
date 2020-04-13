@@ -381,6 +381,23 @@ def get_current_user():
     return jsonify(user_key)
 
 
+@app.route('/logout')
+def logout():
+    # if not'user_keyword' in session.keys():
+    #     print("hä?")
+    #     return jsonify("no current user set")
+    # TODO: Fix this trash
+    try:
+        # for key in session.keys():
+        #     session.pop(key)
+        # session.clear()
+        set_current_user("no current user set")
+        return jsonify('success')
+    except:
+        print("an error occured on logout, while trying to delete the session")
+        return jsonify("err")
+
+
 # @app.route('/getcurrentuser_withid')
 # def get_current_user_with_id():
 #     user_key = request.cookies.get('user_keyword')

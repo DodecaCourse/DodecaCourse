@@ -1,5 +1,5 @@
 <template>
-  <v-container v-if="!success" fluid class="panel">
+  <v-container fluid class="panel">
     <h2>You are not logged in!</h2>
     <h3>Login or generate a new username to save your progress! <i>TODO: Styling</i></h3>
     <v-row dense>
@@ -71,9 +71,6 @@
     name: 'AccountPanel',
     mixins: [api],
     inject: ['updateUser'],
-    props: [
-      'connection'
-    ],
     data: () => ({
         usr: 'none',
         txtfld: '',
