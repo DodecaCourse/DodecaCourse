@@ -26,6 +26,8 @@ import M5MinorKeyExercisesTests from "./views/M5MinorKeyExercisesTests";
 import FurtherPractice from "./views/FurtherPractice";
 import GetPlaying from "./views/GetPlaying";
 
+import ServerTest from "./views/backend/ServerTest";
+
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
@@ -56,6 +58,7 @@ const router = new VueRouter({
     { path: '/minor/ex-tests', component: M5MinorKeyExercisesTests },
     { path: '/next/practice', component: FurtherPractice },
     { path: '/next/play', component: GetPlaying },
+    { path: '/dev/servertest', component: ServerTest},
     { path: '/*', component: NotFound}
   ],
   scrollBehavior (to, from, savedPosition) {
