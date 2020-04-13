@@ -24,7 +24,7 @@
                 <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
             </v-btn>
             <v-progress-circular class="my-progress-circular ma-1 text-center" :value="progress"
-                                 :color="loaded ? 'primary': 'red'" size="50">
+                                 :color="loaded ? 'primary': 'red'" size="50" :indeterminate="!loaded">
                 <DegreeCirclePictogram :enabled-degrees="chosenDegrees">
                     {{roundSincePlay}}
                 </DegreeCirclePictogram>
@@ -864,6 +864,22 @@
             clearTimeouts: function () {
                 clearTimeout(this.timeoutRef);
                 clearTimeout(this.progressRef);
+            },
+            loadMIDI: function () {
+                const self = this;
+                MIDI.loadPlugin({
+                    soundfontUrl: "/soundfont/",
+                    instrument: "acoustic_grand_piano",
+                    onprogress: function (state, progress) {
+                        console.log(state, progress);
+                        self.progress = progress * 100;
+                    },
+                    onsuccess: function () {
+                        self.progress = 0;
+                        self.loaded = true;
+                        self.setupInternalization(0, false);
+                    }
+                });
             }
         },
         created: function initAudio() {
@@ -871,21 +887,12 @@
                 this.$teacher.playing = false;
             }
             Vue.prototype.$teacher = this;
-            const self = this;
             // Initialize MIDI
-            MIDI.loadPlugin({
-                soundfontUrl: "/soundfont/",
-                instrument: "acoustic_grand_piano",
-                onprogress: function (state, progress) {
-                    console.log(state, progress);
-                    self.progress = progress * 100;
-                },
-                onsuccess: function () {
-                    self.progress = 0;
-                    self.loaded = true;
-                    self.setupInternalization(0, false);
-                }
-            });
+            if (typeof MIDI !== 'undefined') {
+                this.loadMIDI();
+            } else {
+                window.onload = this.loadMIDI;
+            }
         },
         destroyed: function stopAudio() {
             this.clearTimeouts();

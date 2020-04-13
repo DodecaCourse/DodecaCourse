@@ -49,18 +49,20 @@
               </v-chip>
             </template>
             <template v-if="connection">
-              <v-btn icon>
+              <v-btn
+                v-if="user === 'no current user set'"
+                icon
+                v-on:click="show_login=!show_login"
+              >
                 <v-icon>mdi-login</v-icon>
               </v-btn>
-            
-              
-              <v-btn icon>
-                <v-icon>mdi-account-plus</v-icon>
+
+                <template v-else>
+                    <span>Logged in:<b>{{user}}</b></span>
+                    <v-btn icon>
+                <v-icon v-on:click="onLogout">mdi-logout</v-icon>
               </v-btn>
-              <pre>Logged in as: </pre><b>{{user}}</b>
-              <v-btn icon>
-                <v-icon>mdi-logout</v-icon>
-              </v-btn>
+                </template>
               
             </template>
             <v-btn icon>
@@ -81,7 +83,10 @@
                 
             </v-container>
             <v-container fluid>
-              <AccountPanel v-if="connection & user == 'no current user set'" :usr="user"/>
+              <AccountPanel
+                v-if="connection & user == 'no current user set'"
+                :usr="user"
+              />
               <h2 v-if="!connection" style="ma-2">
                 <v-icon>mdi-alert</v-icon> Warning:<br>
                 You are not connected to the server.<br>
@@ -121,13 +126,17 @@
       data: () => ({
           drawer: null,
           user: 'no current user set',
-          curCourse: 0
+          curCourse: 0,
+          show_login: 'false'
       }),
       methods: {
         updateUser: function() {
           this.getCurrentUser()
             .then(res => this.user = res);
-        }
+        },
+          onLogout: function () {
+            this.user = 'not logged in';
+          }
       },
       provide: function() {
         return {
