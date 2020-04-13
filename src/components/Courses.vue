@@ -14,6 +14,7 @@
 
 
 <script>
+<<<<<<< HEAD
   import CourseItem from "./CourseItem";
   import structure from "../../public/structure.json";
   import api from "../api.js"
@@ -71,6 +72,23 @@
         
       }
   }
+=======
+    import CourseItem from "./CourseItem";
+    import structure from "../../public/structure.json";
+
+    export default {
+        name: `Courses`,
+        components: {
+            CourseItem
+        },
+        props: ['curCourse'],
+        computed: {
+            courses: function () {
+                return structure["modules"];
+            }
+        },
+    }
+>>>>>>> 10c8b47a5b7d6d14d29df5a0edd09f704a144d12
 </script>
 
 <style scoped>

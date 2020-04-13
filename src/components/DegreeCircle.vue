@@ -1,107 +1,15 @@
 <template>
-  <!-- below is the code which generates an easy to use interface for changing root note and mode by hand
-       if you want to use it you will have to cut and paste the div containing the circle into the 
-       marked area in the v-container-->
-  <!--
-  <v-container>
-
-    below is the code which generates an easy to use interface for changing root note and mode by hand
-
-    <v-row align="start">
-      <v-col align="center" cols="3">
-        <v-chip
-          ><b>Root: {{ getRoot() }}, Octave: {{ this.octave }}</b></v-chip
-        >
-      </v-col>
-
-      <v-col align="center">
-        <v-select :items="bases" v-model="root" label="Base note" dense />
-      </v-col>
-
-      <v-col>
-        <v-card>
-          <select v-model="rootMod" multiple>
-            <option value="b"><b>&flat;</b> (flat)</option>
-            <option value="">(natural)</option>
-            <option value="#"># (sharp)</option>
-          </select>
-        </v-card>
-      </v-col>
-
-      <v-col align="start">
-        <v-card>
-          Octave:
-          <v-btn
-            color="primary"
-            rounded
-            x-small
-            fab
-            elevation="1"
-            v-on:click="octave++"
-            ><b>+</b></v-btn
-          ><v-btn
-            color="primary"
-            rounded
-            x-small
-            fab
-            elevation="1"
-            v-on:click="octave--"
-            ><b>-</b></v-btn
-          >
-        </v-card>
-      </v-col>
-    </v-row>
-
-    <v-row align="start">
-      <v-col align="center" cols="3">
-        <v-chip>
-          <b>Mode: {{ this.mode }}</b></v-chip
-        >
-      </v-col>
-
-      <v-col>
-        <v-card
-          class="d-inline-flex px-1 align-start justify-center"
-          elevation="5"
-          width="100%"
-        >
-          <div v-for="(modus) in this.modes" v-bind:key="modus">
-            <v-btn
-              rounded
-              :color="mode == modus.name ? 'primary' : 'secondary'"
-              v-on:click="changeMode(modus)"
-              dark
-              >{{ modus.numeral }}</v-btn
-            >
-          </div>
-        </v-card>
-      </v-col>
-    </v-row>
-
-
-    <v-row>
-      <v-col>
-
-          INSERT DIV FOR CIRCLE HERE
-
-      </v-col>
-    </v-row>
-  </v-container>
--->
   <div class="div-circle">
-    <div ref="background" id="background-circle" />
+    <div id="background-circle" :class="backgroundClass" :style="'backgroundColor: ' + backgroundColor"/>
     <v-btn
-      v-for="i in this.degrees"
-      v-bind:key="i.display"
-      :class="'normal-btn normal-btn--' + (i.degree + 1)"
-      :color="i.enabled ? 'primary' : 'secondary'"
-      :disabled="!i.enabled"
-      x-small
-      fab
-      :elevation="i.degree === 0 ? 5 : 2"
-      v-on:click="noteBt(i)"
-      :ripple="i.degree === solution ? {class: 'green--text' } : { class: 'red--text' }"
-      >{{ i.display }}</v-btn>
+      v-for="btn in this.buttons"
+      v-bind:key="btn.index"
+      v-on:click="onClick(btn)"
+      :class="'normal-btn normal-btn--' + (btn.index + 1) + ' ' + btn.addClass"
+      :disabled="!btn.enabled"
+      x-small fab :elevation="btn.index === 0 ? 5 : 2"
+      :color="btn.enabled ? 'primary' : 'secondary'"
+      >{{ labels[btn.index] }}</v-btn>
     <div id="progress-content">
       <slot name="progress"></slot>
     </div>
@@ -124,13 +32,17 @@ export default {
       type: Function,
       required: true,
     },
-    solution: {
-      type: Number,
-      required: true,
-    },
-    enabledDegrees: {
+    enabledButtons: {
       type: Array,
       required: true,
+    },
+    labels: {
+      type: Array,
+      required: true,
+    },
+    tType: {
+      type: String,
+      required: false,
     }
   },
 
@@ -141,9 +53,6 @@ export default {
       mode: "Major/Ionian",
       root: "C",
       rootMod: "",
-
-      //button which was clicked last, 1P by default
-      lastClicked: 0,
 
       //var to save on which octave the tone is
       octave: 4,
@@ -175,52 +84,52 @@ export default {
         { name: "Locrian", numeral: "VII", halfsteps: { first: 0, second: 5 } }
       ],
 
-      //database for the intervals/degrees, "name" chosen to fit TonalJS, display is the name of
-      //Solfege and shown on btns
-      degrees: [
-        { degree: 0, name: "1P", display: "Do", enabled: true },
-        { degree: 1, name: "2m", display: "Ra", enabled: true },
-        { degree: 2, name: "2M", display: "Re", enabled: true },
-        { degree: 3, name: "3m", display: "Ma", enabled: true },
-        { degree: 4, name: "3M", display: "Mi", enabled: true },
-        { degree: 5, name: "4P", display: "Fa", enabled: true },
-        { degree: 6, name: "4A", display: "Fi", enabled: true },
-        { degree: 7, name: "5P", display: "So", enabled: true },
-        { degree: 8, name: "6m", display: "Le", enabled: true },
-        { degree: 9, name: "6M", display: "La", enabled: true },
-        { degree: 10, name: "7m", display: "Ta", enabled: true },
-        { degree: 11, name: "7M", display: "Ti", enabled: true }
+      buttons: [
+        { index: 0, enabled: true, addClass: ""},
+        { index: 1, enabled: true, addClass: ""},
+        { index: 2, enabled: true, addClass: ""},
+        { index: 3, enabled: true, addClass: ""},
+        { index: 4, enabled: true, addClass: ""},
+        { index: 5, enabled: true, addClass: ""},
+        { index: 6, enabled: true, addClass: ""},
+        { index: 7, enabled: true, addClass: ""},
+        { index: 8, enabled: true, addClass: ""},
+        { index: 9, enabled: true, addClass: ""},
+        { index: 10, enabled: true, addClass: ""},
+        { index: 11, enabled: true, addClass: ""}
       ],
 
       //base notes, like the white tiles to get the root system running
       bases: ["C", "D", "E", "F", "G", "A", "B"],
 
-      // contains enabled degrees of mode
+      backgroundClass: "",
+      backgroundColor: "green",
+      backgroundTimeout: undefined,
+
+      // contains enabled buttons of mode
       modeEnabled: [],
       useMode: false,
     };
   },
 
-  computed: {},
-
   watch: {
     modeEnabled: function (newVal) {
       if (this.useMode) {
-        for (let l=0; l<this.degrees.length; l++) {
-          this.degrees[l].enabled = newVal.indexOf(this.degrees[l].degree) > -1
+        for (let l=0; l<this.buttons.length; l++) {
+          this.buttons[l].enabled = newVal.indexOf(this.buttons[l].index) > -1
         }
       }
     },
-    enabledDegrees: function (newVal) {
-      for (let l=0; l<this.degrees.length; l++) {
-        this.degrees[l].enabled = newVal.indexOf(this.degrees[l].degree) > -1
+    enabledButtons: function (newVal) {
+      for (let l=0; l<this.buttons.length; l++) {
+        this.buttons[l].enabled = newVal.indexOf(this.buttons[l].index) > -1
       }
     }
   },
 
   mounted: function () {
-    for (let l=0; l<this.degrees.length; l++) {
-      this.degrees[l].enabled = this.enabledDegrees.indexOf(this.degrees[l].degree) > -1;
+    for (let l=0; l<this.buttons.length; l++) {
+      this.buttons[l].enabled = this.enabledButtons.indexOf(this.buttons[l].index) > -1;
     }
   },
 
@@ -242,7 +151,7 @@ export default {
       let newEnabled = [];
       let i = 0;
       while (i < this.enabled.length) {
-        newEnabled.push(this.degrees[i].degree);
+        newEnabled.push(this.buttons[i].index);
         if (i === mode.halfsteps.first || i === mode.halfsteps.second) {
           i++;
         } else {
@@ -252,21 +161,36 @@ export default {
       this.modeEnabled = newEnabled;
     },
 
-    //triggers when the indexth btn is clicked
-    noteBt: function(index) {
-      //index ist vom typ "interval" -> Solfege Bez.: index.display
-      //                                Intervallname: index.name (also zB 3m, wie TonalsJS es auch benutzt)
-      //
-      //wenn man die Eingabe des Users speichern will sollte das dann denke ich hier passieren, ich habe auch
-      //schonmal eine Variable "lastClicked" (s.o.) erstellt, weiß nicht ob die hilfreich ist aber die könnte
-      //man ja dann hier ändern oder so
-      // let result = Note.transpose(this.getRoot(), index.name);
-      console.log(this.$refs.background);
-      this.$refs.background.style.backgroundColor = this.solution === index.degree ?"green" : "red";
-      this.$refs.background.className = "fade-in-out";
+    //triggers when the indexth button is clicked
+    onClick: function(button) {
+      const [correct, solution] = this.submitSolution(button.index);
       const self = this;
-      setTimeout(function () {self.$refs.background.className = ""}, 700);
-      this.submitSolution(index.degree);
+      const correctionTime = 500;
+      if (correct) {
+        this.backgroundColor = 'lightgreen';
+      } else {
+        this.backgroundColor = 'lightcoral';
+        for (let i=0; i<solution.length; i++) {
+          const c = i;
+          if (i === 0) {
+            this.buttons[solution[c]].addClass = 'correct-background';
+          } else {
+            setTimeout(function() {
+              self.buttons[solution[c]].addClass = 'correct-background';
+            }, correctionTime * i + 10 * (i-1))
+          }
+          setTimeout(function () {
+            self.buttons[solution[c]].addClass = '';
+          }, correctionTime * (i + 1) + 10 + i);
+        }
+      }
+      if (this.backgroundTimeout !== undefined) {
+        clearTimeout(this.backgroundTimeout);
+      }
+      // fade-in-out could still be set on fast clicks -> reset and timeout
+      this.backgroundClass = "";
+      setTimeout(function () {self.backgroundClass = "fade-in-out"}, 50);
+      this.backgroundTimeout = setTimeout(function () {self.backgroundClass = ""}, 700);
     }
   }
 };
@@ -338,6 +262,9 @@ export default {
 .normal-btn
   text-transform: none !important
   position: absolute
+  transition: background-color 0.35s linear
+.normal-btn:not(.v-btn--text):not(.v-btn--outlined):focus::before
+  opacity: 0
 
   //class which contains the DegreeCircle
 .div-circle
@@ -362,7 +289,10 @@ export default {
     0%
       opacity: 0
     50%
-      opacity: 0.2
+      opacity: 0.4
     100%
       opacity: 0
+
+  .correct-background
+    background-color: #7cd2b6 !important
 </style>
