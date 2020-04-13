@@ -24,7 +24,7 @@
                 <v-icon>{{ playing ? 'mdi-stop' : 'mdi-play' }}</v-icon>
             </v-btn>
             <v-progress-circular class="my-progress-circular ma-1 text-center" :value="progress"
-                                 :color="loaded ? 'primary': 'red'" size="50">
+                                 :color="loaded ? 'primary': 'red'" size="50" :indeterminate="!loaded">
                 <DegreeCirclePictogram :enabled-degrees="chosenDegrees">
                     {{roundSincePlay}}
                 </DegreeCirclePictogram>
