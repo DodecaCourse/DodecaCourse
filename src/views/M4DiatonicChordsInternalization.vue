@@ -12,12 +12,13 @@
                 separate octaves - the octave above the tonic chord and the octave below.
             </p>
             <p>
-                The diagram below shows the internalisation exercise for the ii chord (the chord built on the second scale degree).
+                The diagram below shows the internalisation exercise for the ii chord (the chord built on the second
+                scale degree).
             </p>
             <p>
-                <v-img  contain :class="{'invert-img': $vuetify.theme.dark}" max-height="25ch" max-width="83.5vw"
-                        src="/img/m4_chord_internalisation_ii.svg"
-                        title="Internalisation exercise for the ii chord"/>
+                <v-img contain :class="{'invert-img': $vuetify.theme.dark}" max-height="25ch" max-width="83.5vw"
+                       src="/img/m4_chord_internalisation_ii.svg"
+                       title="Internalisation exercise for the ii chord"/>
             </p>
             <h3>How to use the diatonic chords internalisation exercises</h3>
             <p>
@@ -31,17 +32,27 @@
                     Listen to the sound of the movement from the tonic chord to the target chord in each bar
                 </p></li>
                 <li><p>
-                    Sing the root note of the tonic and the target chord (the root note is always the bass note in these exercises)
+                    Sing the root note of the tonic and the target chord (the root note is always the bass note in these
+                    exercises)
                 </p></li>
             </ol>
             <p>
                 Repeat this in each key throughout the exercise.
             </p>
             <p>
-                If you find it difficult to accurately sing the root/bass notes of the chords, continue practicing with the targeting tones exercises.
+                If you find it difficult to accurately sing the root/bass notes of the chords, continue practicing with
+                the targeting tones exercises.
             </p>
             <p>
-                Practice with each internalisation exercise for 1-2 sessions, then progress onto the diatonic chords recognition exercises. Return to these internalisation exercises if you find a chord difficult in the recognition exercises.
+                Practice with each internalisation exercise for 1-2 sessions, then progress onto the diatonic chords
+                recognition exercises. Return to these internalisation exercises if you find a chord difficult in the
+                recognition exercises.
+            </p>
+            <p>
+                The chords are labeled using the
+                <a href="https://en.wikipedia.org/wiki/Roman_numeral_analysis">roman numeral</a> system.
+                Major chords have large capital numerals (e.g. I, IV, V) and minor chords have small capital
+                numerals (e.g. ii, iii, vi). The diminished chord is indicated by a superscript ° (vii°)
             </p>
             <h3>Diatonic Triads</h3>
             <p>
@@ -83,7 +94,7 @@
                 <InlineConfigurator
                         :config="{degrees: [0, 2, 4, 5, 7, 9, 11], diatonic: 11, count: 3}"
                         :prog-id="7006" t-type="chord-internalization" hide-test>
-                    vii Internalisation
+                    vii° Internalisation
                 </InlineConfigurator>
             </p>
             <h3>Diatonic 7th Chords</h3>
@@ -138,6 +149,7 @@
 
 <script>
     import InlineConfigurator from "../components/InlineConfigurator";
+
     export default {
         name: "M4DiatonicChordsInternalization",
         components: {InlineConfigurator}

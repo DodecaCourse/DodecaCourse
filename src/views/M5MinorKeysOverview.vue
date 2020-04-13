@@ -3,7 +3,7 @@
         <v-flex class="article" xs10>
             <h1>5. Minor Keys</h1>
             <h2>Overview</h2>
-            <h3>Recognising Notes & Melodies</h3>
+            <h3>Recognising Notes, Melodies & Chords</h3>
             <p>
                 Congratulations! You've made it to the fifth and final module of this course!
             </p>

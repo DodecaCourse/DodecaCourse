@@ -310,11 +310,20 @@
                 return -1;
             },
             circleLabels: function () {
-                if (this.useInput === INPUT_CIRCLE_CHORD && this.diatonicCount <= 3) {
-                    return ["I", "bII", "ii", "bIII", "iii", "IV", "bV", "V", "bVI", "vi", "bVII", "vii"]
-                } else if (this.useInput === INPUT_CIRCLE_CHORD && this.diatonicCount > 3) {
-                    return ["IM7", "bII7", "ii7", "bIII7", "iii7", "IVM7",
-                        "bV7", "V7", "bVI7", "vi7", "bVII7", "vii7b5"]
+                if (this.useInput === INPUT_CIRCLE_CHORD && this.diatonicCount <= 3 &&
+                    this.scale === MODE_IONIAN) {
+                    return ["I", "", "ii", "", "iii", "IV", "", "V", "", "vi", "", "vii°"]
+                } else if (this.useInput === INPUT_CIRCLE_CHORD && this.diatonicCount > 3 &&
+                           this.scale === MODE_IONIAN ) {
+                    return ["IM7", "", "ii7", "", "iii7", "IVM7",
+                        "", "V7", "", "vi7", "", "vii7b5"]
+                } else if (this.useInput === INPUT_CIRCLE_CHORD && this.diatonicCount <= 3 &&
+                    this.scale === MODE_AEOLIAN) {
+                    return ["i", "", "ii°", "III", "", "iv", "", "V", "VI", "", "VII", ""]
+                } else if (this.useInput === INPUT_CIRCLE_CHORD && this.diatonicCount > 3 &&
+                    this.scale === MODE_AEOLIAN) {
+                    return ["i7", "", "ii7b5", "IIIM7", "", "iv7",
+                        "", "V7", "VIM7", "", "VII7", ""]
                 }
                 return ["Do", "Ra", "Re", "Me", "Mi", "Fa", "Fi", "So", "Le", "La", "Te", "Ti"]
             }
@@ -412,8 +421,16 @@
                         const curPos = (basePos + 2 * i) % this.degrees.length; // octave independent
                         const it = playOctaves ? 2 : 1;
                         for (let j=0; j<it; j++) {
-                            this.noteOn(0, note + this.degrees[curPos] + 12 * (oct + j), VELOCITY, posOff);
-                            this.noteOff(0, note + this.degrees[curPos] + 12 * (oct + j), posOff + this.quarter * duration);
+                            // raise seventh in minor on dominant chord
+                            let move = 0;
+                            if (this.scale === MODE_AEOLIAN && this.degrees[basePos] === 7 &&
+                                this.degrees[curPos] === 10) {
+                                move = 1;
+                            }
+                            this.noteOn(0,
+                                note + this.degrees[curPos] + 12 * (oct + j) + move, VELOCITY, posOff);
+                            this.noteOff(0,
+                                note + this.degrees[curPos] + 12 * (oct + j) + move, posOff + this.quarter * duration);
                         }
                     }
                 }

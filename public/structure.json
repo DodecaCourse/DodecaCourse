@@ -439,6 +439,91 @@
       "title": "Melodic intervals",
       "levels": 5,
       "chapter_id": 5
+    },
+
+    {
+      "id": 12001,
+      "title": "ii Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 12002,
+      "title": "III Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 12003,
+      "title": "iv Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 12004,
+      "title": "v Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 12005,
+      "title": "V Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 12006,
+      "title": "VI Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 12007,
+      "title": "VII Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 12008,
+      "title": "ii7b5 Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 12009,
+      "title": "IIImaj7 Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 12010,
+      "title": "iv7 Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 12011,
+      "title": "v7 Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 12012,
+      "title": "V7 Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 12013,
+      "title": "VImaj7 Internalisation",
+      "levels": 1,
+      "chapter_id": 5
+    },
+    {
+      "id": 12014,
+      "title": "VII7 Internalisation",
+      "levels": 1,
+      "chapter_id": 5
     }
   ]
 }

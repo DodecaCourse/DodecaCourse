@@ -50,7 +50,7 @@
             </p>
             <p>
                 <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11],
-                diatonics: [2, 4, 5, 7, 9, 11], count: 3}"
+                diatonics: [0, 2, 4, 5, 7, 9, 11], count: 3}"
                                     :prog-id="8001"
                                     t-type="chord-recognition">
                     Diatonic Triads
@@ -58,7 +58,7 @@
             </p>
             <p>
                 <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11],
-                diatonics: [2, 4, 5, 7, 9, 11], count: 4}"
+                diatonics: [0, 2, 4, 5, 7, 9, 11], count: 4}"
                                     :prog-id="8002"
                                     t-type="chord-recognition">
                     Diatonic 7th Chords
