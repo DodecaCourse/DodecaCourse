@@ -8,7 +8,7 @@
                 By now I'm sure you're feeling very familiar with the format of the recognition exercises.
             </p>
             <p>
-                In the recognition exercises for diatonic chords you'll hear the I - IV - V progression at the beginning
+                In the recognition exercises for diatonic chords you'll hear the <i>I - IV - V - I</i> progression at the beginning
                 of the exercise, then you'll hear random diatonic chords played.
             </p>
             <p>
@@ -21,7 +21,7 @@
             </p>
             <ol>
                 <li><p>
-                    Listen to the I - IV - V Progression
+                    Listen to the <i>I - IV - V- I</i> Progression
                 </p></li>
                 <li><p>
                     Listen to the chord played next

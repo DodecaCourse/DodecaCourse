@@ -8,7 +8,7 @@
                 chords.
             </p>
             <p>
-                In the chord quality recognition exercises chords are played on their own (there is no I - IV - V
+                In the chord quality recognition exercises chords are played on their own (there is no <i>I - IV - V</i>
                 progression). After a pause of a few seconds you're told what chord you heard.
             </p>
             <h3>Preparing for the chord quality recognition exercises</h3>
