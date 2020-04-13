@@ -115,6 +115,11 @@
         },
         {
           "id": 5002,
+          "title": "Solfège",
+          "path": "/solfege"
+        },
+        {
+          "id": 5003,
           "title": "Exercises & Tests",
           "path": "/ex-tests"
         }

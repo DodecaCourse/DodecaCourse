@@ -21,6 +21,7 @@ import M4ChordQualityRecognition from "./views/M4ChordQualityRecognition";
 import M4DiatonicChordsInternalization from "./views/M4DiatonicChordsInternalization";
 import M4DiatonicChordsRecognition from "./views/M4DiatonicChordsRecognition";
 import M5MinorKeysOverview from "./views/M5MinorKeysOverview";
+import M5SolfegeMinor from "./views/M5SolfegeMinor";
 import M5MinorKeyExercisesTests from "./views/M5MinorKeyExercisesTests";
 
 
@@ -50,6 +51,7 @@ const router = new VueRouter({
     { path: '/chords/diatonic-chord-internalisation', component: M4DiatonicChordsInternalization },
     { path: '/chords/diatonic-chord-recognition', component: M4DiatonicChordsRecognition },
     { path: '/minor/overview', component: M5MinorKeysOverview },
+    { path: '/minor/solfege', component: M5SolfegeMinor },
     { path: '/minor/ex-tests', component: M5MinorKeyExercisesTests },
     { path: '/*', component: NotFound}
   ],
