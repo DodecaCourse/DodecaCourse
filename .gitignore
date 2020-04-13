@@ -30,6 +30,10 @@ yarn-error.log*
 # Backups
 *backup/
 
+# Databases
+*db/
+*/db.json
+
 # env
 *env/
 

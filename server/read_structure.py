@@ -37,7 +37,7 @@ def insert_structure(structure_file, modules_db, chapters_db, targets_db):
                 'target_id': target['id'],
                 'chapter_id': target['chapter_id']
             })
-    return modules_db, chapters_db, targets_db
+    # return modules_db, chapters_db, targets_db
 
 # if __name__ == "__main__":
 #     read_structure("../public/structure.json")

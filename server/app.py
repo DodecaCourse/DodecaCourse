@@ -20,7 +20,7 @@ from read_structure import insert_structure
 # ø Konfiguration
 
 # → Datenbank
-db = TinyDB("db.json")
+db = TinyDB("db.json", storage=CachingMiddleware(JSONStorage))
 # db.purge()  # Datenbank clearen
 
 db.purge_table('modules')
@@ -40,9 +40,8 @@ chapters = db.table('chapters')
 targets = db.table('targets')
 
 # Modules Chapters und targets aus structure.json lesen
-modules, chapters, targets = insert_structure("../public/structure.json",
-                                              modules, chapters, targets)
-
+insert_structure("../public/structure.json", modules, chapters, targets)
+db.close()
 
 # → Query starten
 # TODO: Sollte man hier jedes mal die Query neu initialisieren oder oben
@@ -113,6 +112,7 @@ def generate_user():
         if not is_user(user):
             with transaction(users) as tr:
                 tr.insert({'user_keyword': user})
+            db.close()
             return redirect('http://localhost:8080/dev/servertest')
     raise Exception("Could not allocate another user. All keywords are taken."
                     " You should increase USER_KEYWORD_LENGTH in settings.")
@@ -258,6 +258,7 @@ def take_chapter(user_id, chapter_id, time_spend):
                                ' chapter_id and user_id have been found.'
                                ' Updating first found instance')
         found[0]['time_spend'] = time_spend
+    db.close()
     return jsonify("User \'" + str(user_id) + "\' succesfully took chapter \'"
                    + str(chapter_id) + "\'")
 
