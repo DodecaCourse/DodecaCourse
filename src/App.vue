@@ -73,19 +73,11 @@
             <v-btn icon>
               <v-icon>mdi-heart</v-icon>
             </v-btn>
-<<<<<<< HEAD
             <v-btn v-on:click="$vuetify.theme.dark = !$vuetify.theme.dark" icon title="Toggle Light/Dark">
                 <v-icon>mdi-invert-colors</v-icon>
             </v-btn>
             <v-btn icon to="/settings">
               <v-icon>mdi-cog</v-icon>
-=======
-            <v-btn icon to="/settings">
-              <v-icon>mdi-cog</v-icon>
-            </v-btn>
-            <v-btn v-on:click="$vuetify.theme.dark = !$vuetify.theme.dark" icon title="Toggle Light/Dark">
-                <v-icon>mdi-invert-colors</v-icon>
->>>>>>> origin/backend-merge
             </v-btn>
         </v-app-bar>
 
