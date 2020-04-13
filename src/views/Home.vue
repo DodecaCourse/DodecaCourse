@@ -102,19 +102,18 @@
 <i18n>
   {
     "en": {
-      "title": "Functional Ear Training",
-      "1h": "The Skill You’ll Learn And The Approach You’ll Use",
-      "1p": "When you first picked up your instrument I’m sure you wanted to jump right in and start playing your favourite tunes. Then you discovered that it’s impossible to play those tunes until you’ve learned the notes and developed a little bit of technique.",
-      "2p": "Ear training is just the same. You might want to jump straight into it so you can begin the wonderful transformation that awaits you (and I want you to as well!) but there are a couple of things you need to understand first, so getting started is nice and easy (and not frustrating!). Fortunately, it will only take a few minutes to learn everything you need to so you can dive in and we’ll cover it all in this short introduction.",
-      "3p": "You’re about to learn about the specific skill you’ll develop with this course (called relative pitch) and the approach you’ll use to develop it (called tonality based ear training). Even if you’re an old hand when it comes to ear training I recommend you give it a quick read as you’ll learn why using a tonality based approach to develop relative pitch is absolutely essential if you want to experience great results with ear training."
-
-    },
+  "title": "Functional Ear Training",
+  "1h": "The Skill You’ll Learn And The Approach You’ll Use",
+  "1p": "When you first picked up your instrument I’m sure you wanted to jump right in and start playing your favourite tunes. Then you discovered that it’s impossible to play those tunes until you’ve learned the notes and developed a little bit of technique.",
+  "2p": "Ear training is just the same. You might want to jump straight into it so you can begin the wonderful transformation that awaits you (and I want you to as well!) but there are a couple of things you need to understand first, so getting started is nice and easy (and not frustrating!). Fortunately, it will only take a few minutes to learn everything you need to so you can dive in and we’ll cover it all in this short introduction.",
+  "3p": "You’re about to learn about the specific skill you’ll develop with this course (called relative pitch) and the approach you’ll use to develop it (called tonality based ear training). Even if you’re an old hand when it comes to ear training I recommend you give it a quick read as you’ll learn why using a tonality based approach to develop relative pitch is absolutely essential if you want to experience great results with ear training."
+  },
     "de": {
       "title": "Funktionale Gehörbildung",
       "1h": "Die Fähigkeit die du erlangen wirst und der Weg dahin",
       "1p": "Als du dein Instrument zum ersten Mal in die Hand genommen hast, wolltest du sicher sofort anfangen, deine Lieblingsmusik zu spielen. Dann hast du bemerkt, dass es unmöglich ist, diese Melodien zu spielen, bevor du die Noten gelernt und ein wenig Technik entwickelt hast.",
       "2p": "Das Gehörtraining ist genau so. Vielleicht möchtest du dich direkt hineinstürzen, damit du die wunderbare Transformation beginnen kannst, die dich erwartet (und ist auch genau richtig), aber es gibt ein paar Dinge, die du zuerst verstehen musst, so dass der Einstieg schön einfach ist (und nicht frustrierend!). Glücklicherweise dauert es nur wenige Minuten, um alles zu lernen, was du brauchst, damit du eintauchen kannst, und wir werden in dieser kurzen Einführung auf alles eingehen.",
-      "3p": "Du wirst gleich die Fähigkeit kennenlernen, die du mit diesem Kurs entwickeln wirst (nämlich relatives Gehör) und den Ansatz, den du für diese Entwicklung verwenden wirst (nämlich tonalitätsbasiertes Gehörtraining). Auch wenn du ein alter Hase in Sachen Gehörbildung bist, empfehle ich dir eine kurze Lektüre, da du lernen wirst, warum die Verwendung eines tonalitätsbasierten Ansatzes zur Entwicklung des relativen Gehörs absolut notwendig ist, wenn du mit der Gehörbildung großartige Ergebnisse erzielen willst."
+      "3p": "Du wirst gleich die Fähigkeit kennenlernen, die du mit diesem Kurs entwickeln wirst (nämlich relatives Gehör) und den Ansatz, den du für diese Entwicklung verwenden wirst (nämlich tonalitätsbasiertes Gehörtraining). Auch wenn du ein alter Hase in Sachen Gehörbildung bist, empfehle ich dir eine kurze Lektüre, da du lernen wirst, warum die Verwendung eines tonalen Ansatzes zur Entwicklung des relativen Gehörs absolut notwendig ist, wenn du mit der Gehörbildung großartige Ergebnisse erzielen willst."
     }
   }
 </i18n>
