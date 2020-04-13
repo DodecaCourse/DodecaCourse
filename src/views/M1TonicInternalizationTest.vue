@@ -12,7 +12,7 @@
                 of a sequence that is repeated throughout the exercise. This time
                 it's an 8 bar sequence:</p>
             <p>
-                <v-img contain
+                <v-img contain :class="{'invert-img': $vuetify.theme.dark}"
                        max-height="10.5ch"
                        max-width="83.5vw" src="/img/m1_c_major_tonic_intern_test.svg"
                        title="The first 8 bars of the tonic internalisation test"/>
@@ -39,7 +39,7 @@
                 The diagram below shows an example of the first 24 bars of the tonic
                 internalisation test:</p>
             <p>
-                <v-img contain
+                <v-img contain :class="{'invert-img': $vuetify.theme.dark}"
                        max-height="55ch"
                        max-width="83.5vw" src="/img/m1_tonic_intern_test_24bars.svg"
                        title="The first 24 bars of the tonic internalisation test"/>
@@ -86,7 +86,8 @@
                 passed the first module! You've taken an
                 incredibly important step on the road to relative pitch and more
                 creativity and confidence with music. Continue to the next module:</p>
-            <v-btn style="float: right" color="secondary" class="mx-3" to="/individual-notes/overview">To Module 2</v-btn>
+            <v-btn style="float: right" color="secondary" class="mx-3"
+                   to="/individual-notes/overview">Next module</v-btn>
             <p><br/>
             <p>If you didn't,
                 there's no need to worry. It takes most students at least a

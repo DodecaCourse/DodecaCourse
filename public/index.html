@@ -5,11 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="preload" href="fonts/roboto-latin-500.020c97dc.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="fonts/roboto-latin-700.2735a3a6.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="fonts/roboto-latin-400.479970ff.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="fonts/materialdesignicons-webfont.7fb0e378.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/soundfont/acoustic_grand_piano-ogg.js" as="fetch" crossorigin="anonymous">
     <title>FETT</title>
     <!-- polyfill -->
-    <script src="/MIDI.js/inc/shim/Base64.js" type="text/javascript"></script>
-    <script src="/MIDI.js/inc/shim/Base64binary.js" type="text/javascript"></script>
-    <script src="/MIDI.js/inc/shim/WebAudioAPI.js" type="text/javascript"></script>
+    <script src="/MIDI.js/inc/shim/Base64.js" type="text/javascript" defer></script>
+    <script src="/MIDI.js/inc/shim/Base64binary.js" type="text/javascript" defer></script>
     <!-- midi.js package -->
     <script src="/MIDI.js/js/midi/audioDetect.js" type="text/javascript"></script>
     <script src="/MIDI.js/js/midi/gm.js" type="text/javascript"></script>
@@ -17,20 +21,9 @@
     <script src="/MIDI.js/js/midi/plugin.audiotag.js" type="text/javascript"></script>
     <script src="/MIDI.js/js/midi/plugin.webaudio.js" type="text/javascript"></script>
     <script src="/MIDI.js/js/midi/plugin.webmidi.js" type="text/javascript"></script>
-    <script src="/MIDI.js/js/midi/player.js" type="text/javascript"></script>
-    <!-- jasmid package -->
-    <script src="/MIDI.js/inc/jasmid/stream.js"></script>
-    <script src="/MIDI.js/inc/jasmid/midifile.js"></script>
-    <script src="/MIDI.js/inc/jasmid/replayer.js"></script>
     <!-- utils -->
-    <script src="/MIDI.js/js/util/dom_request_xhr.js" type="text/javascript"></script>
-    <script src="/MIDI.js/js/util/dom_request_script.js" type="text/javascript"></script>
-    <!-- Google Font: RUBIK, sollen wir die benutzen? Wenn es nicht sein muss würde ich nicht von Google ziehen-->
-    <!--<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">-->
-    <!-- Font Awesome: Symbole etc. -->
-    <script src="https://kit.fontawesome.com/77e35eab55.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+    <script src="/MIDI.js/js/util/dom_request_xhr.js" type="text/javascript" defer></script>
+    <script src="/MIDI.js/js/util/dom_request_script.js" type="text/javascript" defer></script>
 </head>
 <body>
 <noscript>

@@ -17,14 +17,6 @@
             CourseItem
         },
         props: ['curCourse'],
-        data: function () {
-            return {
-                structure: {
-                    "modules": [],
-                    "targets": []
-                }
-            }
-        },
         computed: {
             courses: function () {
                 return structure["modules"];
