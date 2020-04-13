@@ -26,7 +26,7 @@
 
 export default {
   name: 'CourseItem',
-  props: ['course', 'active', 'num', 'visitedLevels', 'completedLevels']
+  props: ['course', 'active', 'num', 'visitedLevels', 'completedLevels', 'user']
 }
 
 </script>

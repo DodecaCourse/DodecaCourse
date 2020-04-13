@@ -15,14 +15,6 @@
                     </v-list-item-content>
                 </v-list-item>
                 <Courses :cur-course="curCourse" :user="user"/>
-                <v-list-item to="/teacher-playground" link>
-                    <v-list-item-action>
-                        <v-icon>mdi-animation-play</v-icon>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                        <v-list-item-title>Playground</v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>
                 <v-list-item to="/dev/servertest" link>
                     <v-list-item-action>
                         <v-icon>mdi-bash</v-icon>
@@ -37,7 +29,6 @@
         
         <v-app-bar
                 flat
-                dark
                 app
                 clipped-left
                 solo
@@ -82,11 +73,19 @@
             <v-btn icon>
               <v-icon>mdi-heart</v-icon>
             </v-btn>
+<<<<<<< HEAD
             <v-btn v-on:click="$vuetify.theme.dark = !$vuetify.theme.dark" icon title="Toggle Light/Dark">
                 <v-icon>mdi-invert-colors</v-icon>
             </v-btn>
             <v-btn icon to="/settings">
               <v-icon>mdi-cog</v-icon>
+=======
+            <v-btn icon to="/settings">
+              <v-icon>mdi-cog</v-icon>
+            </v-btn>
+            <v-btn v-on:click="$vuetify.theme.dark = !$vuetify.theme.dark" icon title="Toggle Light/Dark">
+                <v-icon>mdi-invert-colors</v-icon>
+>>>>>>> origin/backend-merge
             </v-btn>
         </v-app-bar>
 
