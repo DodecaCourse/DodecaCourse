@@ -167,9 +167,9 @@ export default {
       const self = this;
       const correctionTime = 500;
       if (correct) {
-        this.backgroundColor = 'lightcoral';
-      } else {
         this.backgroundColor = 'lightgreen';
+      } else {
+        this.backgroundColor = 'lightcoral';
         for (let i=0; i<solution.length; i++) {
           const c = i;
           if (i === 0) {
