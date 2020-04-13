@@ -49,18 +49,16 @@
               </v-chip>
             </template>
             <template v-if="connection">
-              <v-btn icon>
+              <v-btn v-if="user === 'not logged in'" icon v-on:click="showLogin=!showLogin">
                 <v-icon>mdi-login</v-icon>
               </v-btn>
-            
-              
-              <v-btn icon>
-                <v-icon>mdi-account-plus</v-icon>
+
+                <template v-else>
+                    <span>Logged in:<b>{{user}}</b></span>
+                    <v-btn icon>
+                <v-icon v-on:click="onLogout">mdi-logout</v-icon>
               </v-btn>
-              <pre>Logged in as: </pre><b>{{user}}</b>
-              <v-btn icon>
-                <v-icon>mdi-logout</v-icon>
-              </v-btn>
+                </template>
               
             </template>
             <v-btn icon>
@@ -80,7 +78,7 @@
                 <router-view></router-view>
                 
             </v-container>
-            <LoginPanel :connection="connection" :usr="user"/>
+            <LoginPanel :connection="connection" :usr="user" :show="showLogin"/>
         </v-content>
 
         <v-footer app>
@@ -112,13 +110,17 @@
       data: () => ({
           drawer: null,
           user: 'not logged in',
-          curCourse: 0
+          curCourse: 0,
+          showLogin: false,
       }),
       methods: {
         updateUser: function() {
           this.getCurrentUser()
             .then(res => this.user = res);
-        }
+        },
+          onLogout: function () {
+            this.user = 'not logged in';
+          }
       },
       created: function() {
         this.updateUser();
