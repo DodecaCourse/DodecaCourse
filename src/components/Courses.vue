@@ -3,8 +3,8 @@
         <div v-bind:key="course.id" v-for="(course, num) in courses">
             <CourseItem
               v-bind:course="course"
-              :visitedLevels="visitedLevels"
-              :completedlevels="completedLevels"
+              :visited-levels="visitedLevels"
+              :completed-levels="completedLevels"
               :user="user"
               :num="num"
               :active="$route.path.startsWith(course.path)"/>
