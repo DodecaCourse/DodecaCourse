@@ -2,7 +2,7 @@
   "modules": [
     {
       "id": 1,
-      "title": "Recognising the Tonic",
+      "title": "Tonic",
       "path": "/tonic-internalization",
       "chapters": [
         {
@@ -29,7 +29,7 @@
     },
     {
       "id": 2,
-      "title": "Recognising Individual Notes",
+      "title": "Individual Notes",
       "path": "/individual-notes",
       "chapters": [
         {
@@ -56,7 +56,7 @@
     },
     {
       "id": 3,
-      "title": "Recognising Melodies",
+      "title": "Melodies",
       "path": "/recognising-melodies",
       "chapters": [
         {
@@ -105,7 +105,7 @@
     },
     {
       "id": 5,
-      "title": "Minor keys",
+      "title": "Minor Keys",
       "path": "/minor",
       "chapters": [
         {
