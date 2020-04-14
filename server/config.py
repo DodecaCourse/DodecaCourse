@@ -20,7 +20,8 @@ class Config:
     # Flask-Session
     SESSION_TYPE = os.getenv('SESSION_TYPE')
     SESSION_REDIS = redis.from_url(os.getenv('SESSION_REDIS'))
-
+    if(os.getenv('SESSION_COOKIE_SECURE') == 1):
+        SESSION_COOKIE_SECURE = True
     # User
     USER_KEYWORD_LENGTH = 4
 

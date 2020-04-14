@@ -387,17 +387,18 @@ def logout():
     #     print("hä?")
     #     return jsonify("no current user set")
     # TODO: Fix this trash
-    try:
-        # for key in session.keys():
-        #     session.pop(key)
-        # session.clear()
-        # TODO: extrem hässliches Workaround, aber funktioniert auch noch nicht
-        set_current_user("no current user set")
-        return jsonify('success')
+    # Hat noch keinen Error produziert
+    # try:
+    # for key in session.keys():
+    #     session.pop(key)
+    # session.clear()
+    # TODO: extrem hässliches Workaround, aber funktioniert auch noch nicht
+    session.clear()
+    return jsonify('success')
     # do not use bare except(meme)
-    except:
-        print("an error occured on logout, while trying to delete the session")
-        return jsonify("err")
+    # except:
+    # print("an error occured on logout, while trying to delete the session")
+    # return jsonify("err")
 
 
 # @app.route('/getcurrentuser_withid')
