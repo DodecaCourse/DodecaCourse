@@ -334,36 +334,36 @@ def get_user_settings(user_id):
     return jsonify(returned_settings)
 
 
-# @app.route('/get_takes_by_user_id/<user_id>')
-# def get_user_takes(user_id):
-#     if not is_integer_string(user_id):
-#         app.logger.warning('QUERY: Found invalid user_id \''
-#                            + str(user_id) + '\'. Input integers! ')
-#         return jsonify('Found invalid user_id')
-#     user_id = int(user_id)
-#     if not users.contains(eids=[user_id]):
-#         app.logger.warning("QUERY: Found invalid user_id " + str(user_id)
-#                            + ". User does not exist.")
-#         return jsonify("Found invalid user id " + str(user_id) + "."
-#                        " User does not exist.")
-#     # user_id valid
-#     foundtakes = takes.search(q['user_id'] == user_id)
-#     N = len(foundtakes)
-#     ret_targets = [{}] * N
-#     for i in range(N):
-#         take = foundtakes[i]
-#         # TODO: Add error when eid in target does not exist
-#         # TODO: Add error when take is missing keys
-#         # Using try except for now
-#         tar = targets.get(eid=take['target_id'])
-#         ret_targets[i] = {
-#             'take_id': take.eid,
-#             'target_id': tar.eid,
-#             'target_name': tar['target_name'],
-#             'time_spend': take['time_spend'],
-#             'completed': take['completed']
-#         }
-#     return jsonify(ret_targets)
+@app.route('/get_takes_by_user_id/<user_id>')
+def get_user_takes(user_id):
+    if not is_integer_string(user_id):
+        app.logger.warning('QUERY: Found invalid user_id \''
+                           + str(user_id) + '\'. Input integers! ')
+        return jsonify('Found invalid user_id')
+    user_id = int(user_id)
+    if not users.contains(eids=[user_id]):
+        app.logger.warning("QUERY: Found invalid user_id " + str(user_id)
+                           + ". User does not exist.")
+        return jsonify("Found invalid user id " + str(user_id) + "."
+                       " User does not exist.")
+    # user_id valid
+    foundtakes = takes.search(q['user_id'] == user_id)
+    N = len(foundtakes)
+    ret_targets = {}
+    for i in range(N):
+        take = foundtakes[i]
+        # TODO: Add error when eid in target does not exist
+        # TODO: Add error when take is missing keys
+        # Using try except for now
+        if not take['target_id'] in ret_targets:
+            ret_targets[take['target_id']] = {}
+        ret_targets[take['target_id']][take['level']] = {
+            'take_id': take.eid,
+            'target_id': take['target_id'],
+            # 'time_spend': take['time_spend'],
+            'completed': take['completed']
+        }
+    return jsonify(ret_targets)
 
 @app.route('/get_completed_by_user_id/<user_id>')
 def get_completed_by_user_id(user_id):
