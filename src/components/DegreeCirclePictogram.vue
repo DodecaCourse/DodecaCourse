@@ -1,18 +1,19 @@
 <template>
-    <div :title="description">
-        <div class="div-circle-pict">
-            <v-btn
-                    v-for="i in this.degrees"
-                    v-bind:key="i.display"
-                    :class="'normal-btn normal-btn--' + (i.degree + 1)"
-                    :color="i.enabled ? 'primary' : 'secondary'"
-                    :disabled="!i.enabled"
-                    x-small
-                    fab
-                    :elevation="i.degree === 0 ? 15 : 0"
+    <div :title="description" class="circle-div"
+         :style="'width: ' + (2 * rad + 2 * degrad) + 'px; height: ' + (2 * rad + 2 *degrad) + 'px;'">
+        <svg class="circle-svg" :style="'width: ' + (2 * rad + 2 * degrad) + 'px; height: ' + (2 * rad + 2 *degrad) + 'px;'">
+            <circle v-for="i in this.degrees"
+                    v-bind:key="i.degree"
+                    class="v-btn elevation-1"
+                    :class="{btnEnabled: i.enabled, btnDisabled: !i.enabled}"
+                    :cx="Math.sin(2/12 * Math.PI * i.degree) * rad + rad + degrad"
+                    :cy="-Math.cos(2/12 * Math.PI * i.degree) * rad + rad + degrad" :r="degrad"
+                    :fill="i.enabled ? $vuetify.theme.currentTheme.primary : ($vuetify.theme.dark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.12)')"
+                    :style="'background-color: ' + $vuetify.theme.dark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.12)'"
             />
-        </div>
-        <div id="inner-content">
+        </svg>
+        <div id="inner-content"
+             :style="'width: ' + (2 * rad - 2 * degrad) + 'px; height: ' + (2 * rad - 2 *degrad) + 'px; left: ' + 2 * degrad + 'px; top: ' + 2 * degrad + 'px;'">
             <slot></slot>
         </div>
     </div>
@@ -37,16 +38,18 @@
                     { degree: 0, display: "Do", enabled: true },
                     { degree: 1, display: "Ra", enabled: true },
                     { degree: 2, display: "Re", enabled: true },
-                    { degree: 3, display: "Ma", enabled: true },
+                    { degree: 3, display: "Me", enabled: true },
                     { degree: 4, display: "Mi", enabled: true },
                     { degree: 5, display: "Fa", enabled: true },
                     { degree: 6, display: "Fi", enabled: true },
                     { degree: 7, display: "So", enabled: true },
                     { degree: 8, display: "Le", enabled: true },
                     { degree: 9, display: "La", enabled: true },
-                    { degree: 10, display: "Ta", enabled: true },
+                    { degree: 10, display: "Te", enabled: true },
                     { degree: 11, display: "Ti", enabled: true }
                 ],
+                rad: 16,
+                degrad: 4,
             };
         },
 
@@ -80,48 +83,20 @@
 <style scoped lang="sass">
     @use "sass:math"
     @use "sass:list"
-
-    //parameters for the DegreeCircles' position and size
-    $radius: 62
-    $btnrad: 32
-    $centerX: $radius
-    $centerY: $radius
-    $scale: 1/4
-
-    //math values for computing the respective positions of the btns
-    $sin: 0, 0.5, 0.866, 1, 0.866, 0.5, 0, -0.5, -0.866, -1, -0.866, -0.5
-    $cos: 1, 0.866, 0.5, 0, -0.5, -0.866, -1, -0.866, -0.5, 0, 0.5, 0.866
-
-    //because I was stupid
-    $indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
-
-    //instanciates each individual btn with its position
-    @each $i in $indices
-        .normal-btn--#{$i}
-            left: math.floor(nth($sin, $i) * $radius + $centerX) * 1px
-            top: math.floor(-1 * nth($cos, $i) * $radius + $centerY) * 1px
-
-
     //standard template for the btns
     .normal-btn
         text-transform: none !important
         position: absolute
 
-    //class which contains the DegreeCircle
-    .div-circle-pict
+
+    .circle-div
         position: relative
-        transform: scale($scale, $scale)
-        transform-origin: top left
-        width: (2px * $radius + 1px * $btnrad) * $scale
-        height: (2px * $radius + 1px * $btnrad) * $scale
+
+    .circle-svg
         pointer-events: none
 
     #inner-content
         position: absolute
-        left: (math.floor(nth($sin, 12) * $radius + $centerX) * 2px) * $scale
-        top: (math.floor(-1 * nth($cos, 11) * $radius + $centerY) * 2px) * $scale
-        width: ($radius * 1.2px) * $scale
-        height: ($radius * 1.2px) * $scale
         display: table
 
     #inner-content *

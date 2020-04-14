@@ -26,7 +26,7 @@
             <v-progress-circular class="my-progress-circular ma-1 text-center" :value="progress"
                                  :color="loaded ? 'primary': 'red'" size="50" :indeterminate="!loaded">
                 <DegreeCirclePictogram :enabled-degrees="chosenDegrees">
-                    {{roundSincePlay}}
+                    <span>{{roundSincePlay}}</span>
                 </DegreeCirclePictogram>
             </v-progress-circular>
             <div v-if="useInput === 3 && playing">
