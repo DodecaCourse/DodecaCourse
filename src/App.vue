@@ -14,7 +14,7 @@
                         <v-list-item-title>Introduction</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-                <Courses :cur-course="curCourse" :user="user"/>
+                <Courses :cur-course="curCourse"/>
                 <v-list-item to="/dev/servertest" link>
                     <v-list-item-action>
                         <v-icon>mdi-bash</v-icon>
@@ -49,7 +49,7 @@
               </v-chip>
             </template>
             <template v-if="connection">
-              <template v-if="user == null">
+              <template v-if="userProp == null">
                 <v-btn
                   icon
                   v-on:click="showAccountSnack=!(showAccountSnack || loginBtnDisabled)"
@@ -59,7 +59,7 @@
                 </v-btn>
               </template>
               <template v-else>
-                <span>Logged in as <b>{{user}}</b></span>
+                <span>Logged in as <b>{{userProp.user_keyword}}</b></span>
                 <v-btn icon>
                   <v-icon v-on:click="onLogout">mdi-logout</v-icon>
                 </v-btn>
@@ -94,7 +94,6 @@
             <AccountSnack
               :show="showAccountSnack"
               :on-close="function () {showAccountSnack = false}"
-              :usr="user"
             />
             
         </v-content>
@@ -109,7 +108,7 @@
 <script>
     import Courses from "./components/Courses";
     import Teacher from "./components/Teacher";
-    import AccountSnack from "./components/AccountSnack"
+    import AccountSnack from "./components/AccountSnack";
     import api from "./api.js"
     
     export default {
@@ -127,18 +126,13 @@
       },
       data: () => ({
           drawer: null,
-          user: null,
           curCourse: 0,
           showAccountSnack: false,
           loginBtnDisabled: false, // workaround against login popping up on logout
+          userProp: null,
       }),
       methods: {
-        updateUser: function() {
-          this.getCurrentUser()
-            .then(res => this.user = res);
-        },
           onLogout: function () {
-            this.user = null;
             const self = this;
             setTimeout(function () {
                 self.loginBtnDisabled = false;
@@ -147,17 +141,12 @@
           }
       },
       watch: {
-          user: function (val) {
+          userProp: function (val) {
               if (val != null) this.loginBtnDisabled = true;
           }
       },
-      provide: function() {
-        return {
-          'updateUser': this.updateUser
-        }
-      },
       created: function() {
-        this.updateUser();
+          this.updateCurrentUser();
       }
     };
 </script>

@@ -209,8 +209,8 @@ def get_user_by_key(user_key):
     })
 
 
-@app.route('/complete_target/<user_id>/<chapter_id>')
-def complete_target(user_id, target_id):
+@app.route('/complete_target/<user_id>/<target_id>/<level>')
+def complete_target(user_id, target_id, level):
     # Check if all arguments are valid first
     # → user_id
     # TODO: Same wie oben(get_user_by_key), vllt in Methode packen
@@ -236,6 +236,11 @@ def complete_target(user_id, target_id):
                            + " found. chapter does not exist.")
         return jsonify("Found invalid target_id " + str(user_id) + " found."
                        " chapter does not exist.")
+    if not is_integer_string(level):
+            app.logger.warning('QUERY: Found invalid level\''
+                               + str(target_id) + '\'. Input integers! ')
+            return jsonify('Found invalid level')
+    level = int(level)
     # → time_spend
     # if not is_integer_string(time_spend):
     #     app.logger.warning('QUERY: Found invalid time_spend \''
@@ -244,12 +249,14 @@ def complete_target(user_id, target_id):
     # Magic starts here
     # check if entry already exists
     found = takes.search((q['user_id'] == user_id)
-                         & (q['chapter_id'] == target_id))
+                         & (q['chapter_id'] == target_id)
+                         & q['level'] == level)
     if len(found) == 0:
         with transaction(takes) as tr:
             tr.insert({
                 'user_id': user_id,
                 'target_id': target_id,
+                'level': level,
                 'completed': True
             })
     else:
@@ -260,7 +267,7 @@ def complete_target(user_id, target_id):
         found[0]['completed'] = True
     # db.close()
     return jsonify("User \'" + str(user_id) + "\' succesfully took chapter \'"
-                   + str(target_id) + "\'")
+                   + str(target_id) + "\' on level \'" + str(level) + "\'")
 
 
 @app.route('/getsettings/<user_id>')
@@ -367,9 +374,7 @@ def set_current_user(user_keyword):
     #                 domain='domain.local')
     session['user_keyword'] = user_keyword
     print("Set cookie user_keyword to \'" + user_keyword + "\'")
-    # user_id = get_user_by_key(user_keyword)['user_id']
-    # resp.set_cookie('user_id', user_id)
-    return ret
+    return get_user_by_key(user_keyword)
 
 
 @app.route('/getcurrentuser')
@@ -377,8 +382,8 @@ def get_current_user():
     # print(session)
     if not'user_keyword' in session.keys():
         return jsonify(None)
-    user_key = session['user_keyword']
-    return jsonify(user_key)
+    user_keyword = session['user_keyword']
+    return get_user_by_key(user_keyword)
 
 
 @app.route('/logout')
