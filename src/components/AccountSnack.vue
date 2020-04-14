@@ -2,7 +2,7 @@
     <div>
         <v-container fluid class="cards">
             <v-snackbar
-                    v-model="show"
+                    v-model="showSelf"
                     vertical
                     :timeout="0"
                     color="info"
@@ -61,7 +61,7 @@
                 </v-tabs>
                 <v-btn
                         text
-                        @click="show = false"
+                        @click="onClose"
                 >
                     Close
                 </v-btn>
@@ -85,30 +85,28 @@
           show: {
             type: Boolean,
             required: true
+          },
+          onClose: {
+              type: Function,
+              required: true
           }
         },
-        // computed: {
-          // TODO: Hab hier probiert, mit einer computeten show variable
-          // den Vue Warn zu umgehen:
-          // [Vue warn]: Avoid mutating a prop directly since the value will be
-          // overwritten whenever the parent component re-renders. Instead, use
-          // a data or computed property based on the prop's value.
-          // Prop being mutated: "show"
-          // show: {
-          //   get: function() {
-          //     return this.show_prop;
-          //   },
-          //   set: function(val) {
-          //     this.$parent.show_prop  =val
-          //   }
-          // }
-        // },
         inject: ['updateUser'],
         data: () => ({
-            usr: 'none',
+            usr: '',
             txtfld: '',
-            login_enabled: false
+            login_enabled: false,
         }),
+        computed: {
+            showSelf: {
+                get: function () {
+                    return this.show;
+                },
+                set: function () {
+                    // updates snackbar state -> ignore
+                }
+            }
+        },
         methods: {
           generate: function() {
             this.generateUser()
@@ -130,16 +128,13 @@
               });
           },
           updateEnableLogin: function() {
-            console.log(this.txtfld.length)
-            if(this.txtfld.length == 4){
+            console.log(this.txtfld.length);
+            if(this.txtfld.length === 4){
               this.getUserID(this.txtfld.trim())
                 .then(data => {
                   this.founduser = data;
-                  if (!(this.founduser.user_id == null)) {
-                    this.login_enabled = true;
-                  } else {
-                    this.login_enabled = false;
-                  }
+                  console.log(data);
+                  this.login_enabled = !(this.founduser == null);
                 });
             } else {
               this.login_enabled = false;
@@ -148,7 +143,7 @@
             
           },
           updateParentUsername:function(){
-            this.show = false;
+            this.onClose();
             this.updateUser();
           }
         },

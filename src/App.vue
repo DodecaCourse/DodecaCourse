@@ -49,16 +49,14 @@
               </v-chip>
             </template>
             <template v-if="connection">
-              <template v-if="user === 'no current user set'">
+              <template v-if="user == null">
                 <v-btn
                   icon
-                  disabled
                   v-on:click="show_account_snack=!show_account_snack"
                 >
                   <v-icon>mdi-login</v-icon>
                   
                 </v-btn>
-                <span>Hab den Button mal kurz deaktiviert für den commit!</span>
               </template>
               <template v-else>
                 <span>Logged in as <b>{{user}}</b></span>
@@ -66,8 +64,6 @@
                   <v-icon v-on:click="onLogout">mdi-logout</v-icon>
                 </v-btn>
               </template>
-              
-            
               
             </template>
             <v-btn icon>
@@ -88,11 +84,7 @@
                 
             </v-container>
             <v-container fluid>
-              <AccountPanel
-                v-if="connection & user == 'no current user set'"
-                :usr="user"
-              />
-              <h2 v-if="!connection" style="ma-2">
+              <h2 v-if="!connection" class="ma-2">
                 <v-icon>mdi-alert</v-icon> Warning:<br>
                 You are not connected to the server.<br>
                 Your progress will not be saved!<br>
@@ -100,7 +92,8 @@
               </h2>
             </v-container>
             <AccountSnack
-              :show="show_account_snack"
+              :show="show_account_snack && user === null"
+              :on-close="function () {show_account_snack = false}"
               :usr="user"
             />
             
@@ -116,7 +109,6 @@
 <script>
     import Courses from "./components/Courses";
     import Teacher from "./components/Teacher";
-    import AccountPanel from "./components/AccountPanel"
     import AccountSnack from "./components/AccountSnack"
     import api from "./api.js"
     
@@ -128,7 +120,6 @@
       components: {
         Teacher,
         Courses,
-        AccountPanel,
         AccountSnack
       },
       props: {
@@ -136,7 +127,7 @@
       },
       data: () => ({
           drawer: null,
-          user: 'no current user set',
+          user: null,
           curCourse: 0,
           show_account_snack: false
       }),
@@ -146,7 +137,7 @@
             .then(res => this.user = res);
         },
           onLogout: function () {
-            this.user = 'no current user set';
+            this.user = null;
             this.logout();
           }
       },

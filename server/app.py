@@ -198,7 +198,7 @@ def get_user_by_key(user_key):
     if len(found) == 0:
         app.logger.warning('QUERY: No user with user_keyword=='
                            + str(user_key) + ' has been found.')
-        return jsonify('user with keyword \'' + user_key + '\' was not found')
+        return jsonify(None)
     elif len(found) > 1:
         app.logger.warning('QUERY: Multiple user have the same user_keyword \''
                            + str(user_key) + '\'.\n Returning first found '
@@ -376,7 +376,7 @@ def set_current_user(user_keyword):
 def get_current_user():
     # print(session)
     if not'user_keyword' in session.keys():
-        return jsonify("no current user set")
+        return jsonify(None)
     user_key = session['user_keyword']
     return jsonify(user_key)
 
