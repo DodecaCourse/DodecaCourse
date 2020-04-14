@@ -52,7 +52,7 @@
               <template v-if="user == null">
                 <v-btn
                   icon
-                  v-on:click="show_account_snack=!show_account_snack"
+                  v-on:click="showAccountSnack=!(showAccountSnack || loginBtnDisabled)"
                 >
                   <v-icon>mdi-login</v-icon>
                   
@@ -92,8 +92,8 @@
               </h2>
             </v-container>
             <AccountSnack
-              :show="show_account_snack && user === null"
-              :on-close="function () {show_account_snack = false}"
+              :show="showAccountSnack"
+              :on-close="function () {showAccountSnack = false}"
               :usr="user"
             />
             
@@ -129,7 +129,8 @@
           drawer: null,
           user: null,
           curCourse: 0,
-          show_account_snack: false
+          showAccountSnack: false,
+          loginBtnDisabled: false, // workaround against login popping up on logout
       }),
       methods: {
         updateUser: function() {
@@ -138,7 +139,16 @@
         },
           onLogout: function () {
             this.user = null;
+            const self = this;
+            setTimeout(function () {
+                self.loginBtnDisabled = false;
+            });
             this.logout();
+          }
+      },
+      watch: {
+          user: function (val) {
+              if (val != null) this.loginBtnDisabled = true;
           }
       },
       provide: function() {

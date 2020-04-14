@@ -8,6 +8,7 @@
                     color="info"
             >
                 <h3>Login or generate a new username to save your progress!</h3>
+                <template v-if="!success">
                 <v-tabs>
                     <v-tab>Login</v-tab>
                     <v-tab>Register</v-tab>
@@ -59,6 +60,18 @@
                         </v-card>
                     </v-tab-item>
                 </v-tabs>
+                </template>
+                <template v-else>
+                    <v-card>
+                        <v-card-text>
+                        <p>Success! You are now logged in as <b>{{usr}}</b>.
+                            Your custom url: /?{{usr}}<span></span></p>
+
+                        <p>You can now continue your learning journey! Have fun and remember your
+                            username! </p>
+                        </v-card-text>
+                    </v-card>
+                </template>
                 <v-btn
                         text
                         @click="onClose"
@@ -96,6 +109,7 @@
             usr: '',
             txtfld: '',
             login_enabled: false,
+            success: false
         }),
         computed: {
             showSelf: {
@@ -105,6 +119,12 @@
                 set: function () {
                     // updates snackbar state -> ignore
                 }
+            },
+        },
+        watch: {
+            show: function (val) {
+                console.log("show", val);
+                if (val) this.success = false;
             }
         },
         methods: {
@@ -143,7 +163,7 @@
             
           },
           updateParentUsername:function(){
-            this.onClose();
+            this.success = true;
             this.updateUser();
           }
         },
