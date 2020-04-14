@@ -42,12 +42,9 @@
       },
       methods: {
         getCompletedCourses: function() {
-          var usr;
-          this.getUserID(this.user)
-            .then(u => usr = u);
           
-          if(usr.user_id != null){
-            var id = usr.user_id;
+          if(this.user.user_id != null){
+            var id = this.user.user_id;
             var lvls;
             this.getChapters(id)
               .then(l => lvls = l);
@@ -65,6 +62,7 @@
       
       },
       created: function() {
+        this.updateCurrentUser();
         if(this.user != null){
             this.getCompletedCourses();
         }

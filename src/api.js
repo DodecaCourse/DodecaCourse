@@ -106,6 +106,9 @@ export default {
     logout(){
       this.user = null;
       return this.fetch('logout', true);
+    },
+    completeTarget(target_id, level) {
+      return this.fetch('complete_target/' + this.user['user_id'] + '/' + target_id + '/' + level)
     }
   },
   // TODO: Überlegen ob beim mixin von von Daten "vorgeladen" werden

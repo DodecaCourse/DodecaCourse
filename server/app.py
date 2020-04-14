@@ -231,11 +231,12 @@ def complete_target(user_id, target_id, level):
                            + str(target_id) + '\'. Input integers! ')
         return jsonify('Found invalid target_id')
     target_id = int(target_id)
-    if not users.contains(eids=[target_id]):
+    print(targets.all())
+    if not targets.contains(q['target_id'] == target_id):
         app.logger.warning("QUERY: Found invalid target_id " + str(target_id)
                            + " found. chapter does not exist.")
-        return jsonify("Found invalid target_id " + str(user_id) + " found."
-                       " chapter does not exist.")
+        return jsonify("Found invalid target_id " + str(target_id) + " found."
+                       " target does not exist.")
     if not is_integer_string(level):
             app.logger.warning('QUERY: Found invalid level\''
                                + str(target_id) + '\'. Input integers! ')
@@ -249,8 +250,9 @@ def complete_target(user_id, target_id, level):
     # Magic starts here
     # check if entry already exists
     found = takes.search((q['user_id'] == user_id)
-                         & (q['chapter_id'] == target_id)
-                         & q['level'] == level)
+                         & (q['target_id'] == target_id)
+                         & (q['level'] == level))
+    print(found)
     if len(found) == 0:
         with transaction(takes) as tr:
             tr.insert({

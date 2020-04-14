@@ -18,7 +18,7 @@
         <v-btn v-if="!hideTest" class="ma-1" color="ternary" small elevation="1" v-on:click="onTest">
             Test
         </v-btn>
-            <v-btn v-if="!hideTest" @click="toggleCompleted" icon :style="completed ? 'color: green' : ''">
+            <v-btn v-if="!hideTest && user != null" @click="toggleCompleted" icon :style="completed ? 'color: green' : ''">
                 <v-icon>{{completed ? 'mdi-check-circle' : 'mdi-check-circle-outline'}}</v-icon>
             </v-btn>
         </div>
@@ -141,7 +141,10 @@
             },
             toggleCompleted: function () {
                 this.completed = !this.completed;
-                console.log(this.user, this);
+                if (this.completed) {
+                    this.completeTarget(this.progId, this.level)
+                    .then(res => console.log("result:", res));
+                }
             },
         }
     }
