@@ -24,7 +24,7 @@
       components: {
           CourseItem
       },
-      props: ['curCourse', 'user'],
+      props: ['curCourse'],
       data: function () {
           return {
               structure: {
@@ -32,7 +32,7 @@
                   "targets": []
               },
               visitedLevels: [],
-              completedLevels: []
+              completedLevels: [],
           }
       },
       computed: {

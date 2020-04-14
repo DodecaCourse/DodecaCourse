@@ -22,6 +22,16 @@ export default {
       // tmp: 'no'
     }
   },
+  computed: {
+    user: {
+      get: function () {
+        return this.$root.$children[0].userProp;
+      },
+      set: function (usr) {
+        this.$root.$children[0].userProp = usr;
+      }
+    }
+  },
   methods: {
     fetch(url, cookies=false) {
       const path = this.flask_server + url
@@ -73,26 +83,28 @@ export default {
     // getChaptersOfmodule(module_id) {
     //   return this.fetch('getchapters_bymodule_id/' + module_id, true);
     // },
-    getTakes(user_id){
-      return this.fetch('get_takes_by_user_id/' + user_id);
+    getTakes(){
+      return this.fetch('get_takes_by_user_id/' + this.user['user_id']);
     },
     updateCurrentUser(){
       this.fetch('getcurrentuser', true)
-        .then(usr => this.currentuser = usr);
+        .then(usr => this.user = usr);
     },
     getCurrentUser(){
       return this.fetch('getcurrentuser', true);
     },
     setCurrentUser(user){
       return this.fetch('setcurrentuser/' + user, true)
+          .then(usr => this.user = usr);
     },
-    getSettings(user_id){
-      return this.fetch('getsettings/' + user_id);
+    getSettings(){
+      return this.fetch('getsettings/' + this.user['user_id']);
     },
     generateUser() {
       return this.fetch('generateuser');
     },
     logout(){
+      this.user = null;
       return this.fetch('logout', true);
     }
   },

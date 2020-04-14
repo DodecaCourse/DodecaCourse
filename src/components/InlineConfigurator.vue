@@ -18,6 +18,9 @@
         <v-btn v-if="!hideTest" class="ma-1" color="ternary" small elevation="1" v-on:click="onTest">
             Test
         </v-btn>
+            <v-btn v-if="!hideTest" @click="toggleCompleted" icon :style="completed ? 'color: green' : ''">
+                <v-icon>{{completed ? 'mdi-check-circle' : 'mdi-check-circle-outline'}}</v-icon>
+            </v-btn>
         </div>
     </v-card>
 </template>
@@ -25,6 +28,7 @@
 <script>
     import structure from "../../public/structure.json"
     import DegreeCirclePictogram from "./DegreeCirclePictogram";
+    import api from "../api";
 
     const INTERNALIZATION = 0;
     const RECOGNITION_SINGLE = 1;
@@ -37,6 +41,7 @@
     export default {
         name: "InlineConfigurator",
         components: {DegreeCirclePictogram},
+        mixins: [api],
         props: {
             tType: {
                 type: String,
@@ -57,11 +62,12 @@
             },
             scale: {
                 type: String
-            }
+            },
         },
         data: function () {
             return {
                 level: 1,
+                completed: false,
             }
         },
         computed: {
@@ -132,7 +138,11 @@
                 } else if (this.type === CHORD_RECOGNITION) {
                     this.$teacher.setupChordRecognitionTest(this.config.diatonics, this.config.degrees, this.config.count,true, this.level, this.scale)
                 }
-            }
+            },
+            toggleCompleted: function () {
+                this.completed = !this.completed;
+                console.log(this.user, this);
+            },
         }
     }
 </script>

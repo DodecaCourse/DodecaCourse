@@ -8,7 +8,7 @@
                     color="info"
             >
                 <h3>Login or generate a new username to save your progress!</h3>
-                <template v-if="!success">
+                <template v-if="user == null">
                 <v-tabs>
                     <v-tab>Login</v-tab>
                     <v-tab>Register</v-tab>
@@ -45,7 +45,7 @@
                                 need to keep track if you are not deleting your cookies. Alternatively, you can copy a
                                 link or create a bookmark
                                 ending on "
-                                <b>?usr={{usr}}</b>", that directly logs you in and puts you back to where you stopped.
+                                <b>?usr={{user}}</b>", that directly logs you in and puts you back to where you stopped.
                                 We will not save any personal
                                 data(e.g. names). By checking the below checkmark you allow us to save cookies on your
                                 system.
@@ -64,8 +64,8 @@
                 <template v-else>
                     <v-card>
                         <v-card-text>
-                        <p>Success! You are now logged in as <b>{{usr}}</b>.
-                            Your custom url: /?{{usr}}<span></span></p>
+                        <p>Success! You are now logged in as <b>{{user.user_keyword}}</b>.
+                            Your custom url: /?{{user.user_keyword}}<span></span></p>
 
                         <p>You can now continue your learning journey! Have fun and remember your
                             username! </p>
@@ -104,12 +104,9 @@
               required: true
           }
         },
-        inject: ['updateUser'],
         data: () => ({
-            usr: '',
             txtfld: '',
             login_enabled: false,
-            success: false
         }),
         computed: {
             showSelf: {
@@ -121,12 +118,6 @@
                 }
             },
         },
-        watch: {
-            show: function (val) {
-                console.log("show", val);
-                if (val) this.success = false;
-            }
-        },
         methods: {
           generate: function() {
             this.generateUser()
@@ -134,17 +125,14 @@
                 console.log(u);
                 this.setCurrentUser(u)
                   .then(res => {
-                    console.log(res);
-                    // this.updateCurrentUser();
-                    this.updateParentUsername();
+                    console.log("Result:", res);
                   });
               });
           },
           loginUser: function() {
             this.setCurrentUser(this.txtfld)
               .then(res => {
-                console.log(res);
-                this.updateParentUsername();
+                console.log("Result", res);
               });
           },
           updateEnableLogin: function() {
@@ -159,21 +147,8 @@
             } else {
               this.login_enabled = false;
             }
-            
-            
           },
-          updateParentUsername:function(){
-            this.success = true;
-            this.updateUser();
-          }
         },
-
-        created: function () {
-          this.getCurrentUser()
-            .then(usr => this.usr = usr);
-
-        }
-
     }
 
 </script>
