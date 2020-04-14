@@ -14,7 +14,7 @@
     <v-list-item :key="chapter.id" v-for="chapter in course.chapters" :to="course.path + chapter.path">
       <v-list-item-title>{{ chapter.title }}</v-list-item-title>
       
-      <v-icon v-if:="user != 'not logged in'">
+      <v-icon v-if="user != null">
         {{ completedLevels.some(level => level === chapter.id) ? "mdi-checkbox-marked-circle-outline" : "mdi-checkbox-blank-circle-outline"}}
       </v-icon>
     </v-list-item>

@@ -65,7 +65,7 @@
       
       },
       created: function() {
-        if(this.user != "not logged in"){
+        if(this.user != null){
             this.getCompletedCourses();
         }
         
