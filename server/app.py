@@ -269,7 +269,8 @@ def complete_target(user_id, target_id, level):
     # Magic starts here
     # update if entry exists
     found = takes.search((q['target_id'] == target_id)
-                         & (q['user_id'] == user_id))
+                         & (q['user_id'] == user_id)
+                         & (q['level'] == level))
     if len(found) == 0:
         # create if not
         with transaction(takes) as tr:
