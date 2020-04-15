@@ -279,6 +279,7 @@ def complete_target(user_id, target_id, level):
                            ' target_id, user_id & level have been found.'
                            ' Updating all instances')
     # update if entry exists
+<<<<<<< HEAD
     # found = takes.search((q['target_id'] == target_id)
     #                      & (q['user_id'] == user_id))
     # if len(found) == 0:
@@ -298,6 +299,28 @@ def complete_target(user_id, target_id, level):
     #     takes.update({'completed': True}, (q['user_id'] == user_id)
     #                  & (q['target_id'] == target_id)
     #                  & (q['level'] == level))
+=======
+    found = takes.search((q['target_id'] == target_id)
+                         & (q['user_id'] == user_id)
+                         & (q['level'] == level))
+    if len(found) == 0:
+        # create if not
+        with transaction(takes) as tr:
+            tr.insert({
+                'user_id': user_id,
+                'target_id': target_id,
+                'level': level,
+                'completed': True
+            })
+    else:
+        if len(found) > 1:
+            app.logger.warning('QUERY: Multiple takes entries with same'
+                               ' target_id, user_id & level have been found.'
+                               ' Updating all instances')
+        takes.update({'completed': True}, (q['user_id'] == user_id)
+                     & (q['target_id'] == target_id)
+                     & (q['level'] == level))
+>>>>>>> 2102c746ee362261d224078baa210cbee33eca14
 
     db.storage.flush()
     return jsonify("User \'" + str(user_id) + "\' succesfully took target \'"
