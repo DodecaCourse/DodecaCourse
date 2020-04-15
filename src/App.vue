@@ -14,7 +14,7 @@
                         <v-list-item-title>Introduction</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-                <Courses :cur-course="curCourse"/>
+                <Modules :cur-Module="curModule"/>
                 <v-list-item to="/dev/servertest" link>
                     <v-list-item-action>
                         <v-icon>mdi-bash</v-icon>
@@ -106,7 +106,7 @@
 </template>
 
 <script>
-    import Courses from "./components/Courses";
+    import Modules from "./components/Modules";
     import Teacher from "./components/Teacher";
     import AccountSnack from "./components/AccountSnack";
     import api from "./api.js"
@@ -118,7 +118,7 @@
       ],
       components: {
         Teacher,
-        Courses,
+        Modules,
         AccountSnack
       },
       props: {
@@ -126,7 +126,7 @@
       },
       data: () => ({
           drawer: null,
-          curCourse: 0,
+          curModule: 0,
           showAccountSnack: false,
           loginBtnDisabled: false, // workaround against login popping up on logout
           userProp: null,

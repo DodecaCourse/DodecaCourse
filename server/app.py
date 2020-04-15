@@ -273,9 +273,9 @@ def complete_target(user_id, target_id, level):
         return jsonify("Found invalid target_id " + str(user_id) + " found."
                        " chapter does not exist.")
     if not is_integer_string(level):
-            app.logger.warning('QUERY: Found invalid level\''
-                               + str(target_id) + '\'. Input integers! ')
-            return jsonify('Found invalid level')
+        app.logger.warning('QUERY: Found invalid level\''
+                           + str(target_id) + '\'. Input integers! ')
+        return jsonify('Found invalid level')
     level = int(level)
     # → time_spend
     # if not is_integer_string(time_spend):
@@ -405,7 +405,7 @@ def get_completed_by_user_id(user_id):
 
 @app.route('/setcurrentuser/<user_keyword>')
 def set_current_user(user_keyword):
-    ret = jsonify("Success on setcurrentuser to " + str(user_keyword))
+    # ret = jsonify("Success on setcurrentuser to " + str(user_keyword))
     # resp = make_response(ret)
     # TODO: Fix
     # resp.set_cookie('user_keyword', value=user_keyword,
