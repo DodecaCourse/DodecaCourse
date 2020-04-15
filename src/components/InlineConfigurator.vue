@@ -117,35 +117,13 @@
                         this.takes[this.progId][this.level].completed
                 },
                 set: function (completed) {
-                    if (this.takes[this.progId] === undefined) {
-                        this.takes[this.progId] = {}
-                    }
-                    if (this.takes[this.progId][this.level] === undefined) {
-                        this.takes[this.progId][this.level] = {
-                            completed: false
-                        };
-                    }
-                    this.takes[this.progId][this.level].completed = completed;
-                    // update backend
-                    const self = this;
-                    if (this.takes[this.progId][this.level].completed) {
-                        this.completeTarget(this.progId, this.level)
-                            .then(function (ret) {
-                                console.log(ret);
-                                self.updateTakes()
-                            });
-                    } else {
-                        this.unsetCompleteTarget(this.progId, this.level)
-                            .then(function (ret) {
-                                console.log(ret);
-                                self.updateTakes()
-                            });
-                    }
+                    this.setCompleted(this.level, completed);
                 }
             },
         },
         methods: {
             onPractice: function () {
+                this.$teacher.setConfigurator(this);
                 if (this.type === INTERNALIZATION) {
                     this.$teacher.setupInternalization(this.config.degree, true, this.level, this.scale);
                 } else if (this.type === RECOGNITION_SINGLE) {
@@ -164,6 +142,7 @@
                 }
             },
             onTest: function () {
+                this.$teacher.setConfigurator(this);
                 if (this.type === INTERNALIZATION) {
                     this.$teacher.setupInternalizationTest(this.config.degree, true, this.level, this.scale);
                 } else if (this.type === RECOGNITION_SINGLE) {
@@ -180,6 +159,33 @@
                 } else if (this.type === CHORD_RECOGNITION) {
                     this.$teacher.setupChordRecognitionTest(this.config.diatonics, this.config.degrees, this.config.count,true, this.level, this.scale)
                 }
+            },
+            setCompleted: function (level, completed) {
+                if (this.takes[this.progId] === undefined) {
+                    this.takes[this.progId] = {}
+                }
+                if (this.takes[this.progId][level] === undefined) {
+                    this.takes[this.progId][level] = {
+                        completed: false
+                    };
+                }
+                this.takes[this.progId][level].completed = completed;
+                // update backend
+                const self = this;
+                if (this.takes[this.progId][level].completed) {
+                    this.completeTarget(this.progId, level)
+                        .then(function (ret) {
+                            console.log(ret);
+                            self.updateTakes()
+                        });
+                } else {
+                    this.unsetCompleteTarget(this.progId, level)
+                        .then(function (ret) {
+                            console.log(ret);
+                            self.updateTakes()
+                        });
+                }
+
             },
         },
         create: function () {
