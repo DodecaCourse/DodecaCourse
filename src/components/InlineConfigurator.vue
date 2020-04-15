@@ -154,8 +154,26 @@
                 }
             },
             toggleCompleted: function () {
-                this.completeTarget(this.progId, this.level)
-                .then(res => console.log("result:", res));
+                // change local version first
+                if (this.takes[this.progId] === undefined) {
+                    this.takes[this.progId] = {}
+                }
+                if (this.takes[this.progId][this.level] === undefined) {
+                    console.log("undefined",this.takes[this.progId][this.level]);
+                    this.takes[this.progId][this.level] = {
+                        completed: false
+                    };
+                }
+                this.takes[this.progId][this.level].completed = !this.takes[this.progId][this.level].completed;
+                // update backend
+                console.log(this.takes, this.takes[this.progId][this.level].completed);
+                if (this.takes[this.progId][this.level].completed) {
+                    this.completeTarget(this.progId, this.level)
+                        .then(res => console.log("result:", res));
+                } else {
+                    this.unsetCompleteTarget(this.progId, this.level)
+                        .then(res => console.log("result:", res));
+                }
                 this.getTakes()
                     .then(res => console.log("result:", res));
                 this.updateTakes();

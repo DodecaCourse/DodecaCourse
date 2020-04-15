@@ -122,6 +122,9 @@ export default {
     completeTarget(target_id, level) {
       return this.fetch('complete_target/' + this.user['user_id'] + '/' + target_id + '/' + level)
     },
+    unsetCompleteTarget(target_id, level) {
+      return this.fetch('unset_complete_target/' + this.user['user_id'] + '/' + target_id + '/' + level)
+    }
   },
   // TODO: Überlegen ob beim mixin von von Daten "vorgeladen" werden
   // created() {

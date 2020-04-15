@@ -267,7 +267,6 @@ def complete_target(user_id, target_id, level):
                            + str(target_id) + '\'. Input integers! ')
         return jsonify('Found invalid target_id')
     target_id = int(target_id)
-    print(targets.all())
     if not targets.contains(q['target_id'] == target_id):
         app.logger.warning("QUERY: Found invalid target_id " + str(target_id)
                            + " found. chapter does not exist.")
@@ -285,7 +284,7 @@ def complete_target(user_id, target_id, level):
     #     return jsonify('Found invalid time_spend. Expected integer.')
     # Magic starts here
     # check if entry already exists
-    found = takes.search((q['user_id'] == user_id)
+    found = takes.update({'completed': True}, (q['user_id'] == user_id)
                          & (q['target_id'] == target_id)
                          & (q['level'] == level))
     print(found)
@@ -297,14 +296,60 @@ def complete_target(user_id, target_id, level):
                 'level': level,
                 'completed': True
             })
-    else:
-        if len(found) > 1:
-            app.logger.warning('QUERY: Multiple takes entries with same'
-                               ' target_id and user_id have been found.'
-                               ' Updating first found instance')
-        found[0]['completed'] = True
+    elif len(found) > 1:
+        app.logger.warning('QUERY: Multiple takes entries with same'
+                           ' target_id, user_id & level have been found.'
+                           ' Updating all instances')
     # db.close()
-    return jsonify("User \'" + str(user_id) + "\' succesfully took chapter \'"
+    return jsonify("User \'" + str(user_id) + "\' succesfully took target \'"
+                   + str(target_id) + "\' on level \'" + str(level) + "\'")
+
+
+@app.route('/unset_complete_target/<user_id>/<target_id>/<level>')
+def unset_complete_target(user_id, target_id, level):
+    # Check if all arguments are valid first
+    # → user_id
+    # TODO: Same wie oben(get_user_by_key), vllt in Methode packen
+    # ist nur schwierig, da wir Fehlermeldungen returnen müssen
+    if not is_integer_string(user_id):
+        app.logger.warning('QUERY: Found invalid user_id \''
+                           + str(user_id) + '\'. Input integers! ')
+        return jsonify('Found invalid user_id')
+    user_id = int(user_id)
+    if not users.contains(eids=[user_id]):
+        app.logger.warning("QUERY: Found invalid user_id " + str(user_id)
+                           + " found. User does not exist.")
+        return jsonify("Found invalid user_id " + str(user_id) + " found."
+                       " User does not exist.")
+    # → chapter_id
+    if not is_integer_string(target_id):
+        app.logger.warning('QUERY: Found invalid target_id \''
+                           + str(target_id) + '\'. Input integers! ')
+        return jsonify('Found invalid target_id')
+    target_id = int(target_id)
+    if not targets.contains(q['target_id'] == target_id):
+        app.logger.warning("QUERY: Found invalid target_id " + str(target_id)
+                           + " found. chapter does not exist.")
+        return jsonify("Found invalid target_id " + str(target_id) + " found."
+                       " target does not exist.")
+    if not is_integer_string(level):
+            app.logger.warning('QUERY: Found invalid level\''
+                               + str(target_id) + '\'. Input integers! ')
+            return jsonify('Found invalid level')
+    level = int(level)
+    # → time_spend
+    # if not is_integer_string(time_spend):
+    #     app.logger.warning('QUERY: Found invalid time_spend \''
+    #                        + str(time_spend) + '\'. Input integers! ')
+    #     return jsonify('Found invalid time_spend. Expected integer.')
+    # Magic starts here
+    # check if entry already exists
+    found = takes.update({'completed': False}, (q['user_id'] == user_id)
+                         & (q['target_id'] == target_id)
+                         & (q['level'] == level))
+    print("Updated:",found)
+    # db.close()
+    return jsonify("User \'" + str(user_id) + "\' reset completed on target \'"
                    + str(target_id) + "\' on level \'" + str(level) + "\'")
 
 
