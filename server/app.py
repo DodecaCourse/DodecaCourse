@@ -266,29 +266,38 @@ def get_user_by_key(user_key):
 @check_user_id
 @check_target_id
 def complete_target(user_id, target_id, level):
-    # Magic starts here
-    # update if entry exists
-    found = takes.search((q['target_id'] == target_id)
-                         & (q['user_id'] == user_id)
+    found = takes.upsert({
+                            'completed': True,
+                            'user_id': user_id,
+                            'target_id': target_id,
+                            'level': level
+                         }, (q['user_id'] == user_id)
+                         & (q['target_id'] == target_id)
                          & (q['level'] == level))
-    if len(found) == 0:
-        # create if not
-        with transaction(takes) as tr:
-            tr.insert({
-                'user_id': user_id,
-                'target_id': target_id,
-                'level': level,
-                'completed': True
-            })
-    else:
-        if len(found) > 1:
-            app.logger.warning('QUERY: Multiple takes entries with same'
-                               ' target_id, user_id & level have been found.'
-                               ' Updating all instances')
-        takes.update({'completed': True}, (q['user_id'] == user_id)
-                     & (q['target_id'] == target_id)
-                     & (q['level'] == level))
-
+    if len(found) > 1:
+        app.logger.warning('QUERY: Multiple takes entries with same'
+                           ' target_id, user_id & level have been found.'
+                           ' Updating all instances')
+    # update if entry exists
+    # found = takes.search((q['target_id'] == target_id)
+    #                      & (q['user_id'] == user_id))
+    # if len(found) == 0:
+    #     # create if not
+    #     with transaction(takes) as tr:
+    #         tr.insert({
+    #             'user_id': user_id,
+    #             'target_id': target_id,
+    #             'level': level,
+    #             'completed': True
+    #         })
+    # else:
+    #   if len(found) > 1:
+    #       app.logger.warning('QUERY: Multiple takes entries with same'
+    #                          ' target_id, user_id & level have been found.'
+    #                          ' Updating all instances')
+    #     takes.update({'completed': True}, (q['user_id'] == user_id)
+    #                  & (q['target_id'] == target_id)
+    #                  & (q['level'] == level))
     db.storage.flush()
     return jsonify("User \'" + str(user_id) + "\' succesfully took target \'"
                    + str(target_id) + "\' on level \'" + str(level) + "\'")
@@ -299,9 +308,18 @@ def complete_target(user_id, target_id, level):
 @check_target_id
 def unset_complete_target(user_id, target_id, level):
     # set completed to false if take exists
-    takes.update({'completed': False}, (q['user_id'] == user_id)
-                 & (q['target_id'] == target_id)
-                 & (q['level'] == level))
+    found = takes.upsert({
+                            'completed': False,
+                            'user_id': user_id,
+                            'target_id': target_id,
+                            'level': level
+                         }, (q['user_id'] == user_id)
+                         & (q['target_id'] == target_id)
+                         & (q['level'] == level))
+    if len(found) > 1:
+        app.logger.warning('QUERY: Multiple takes entries with same'
+                           ' target_id, user_id & level have been found.'
+                           ' Updating all instances')
     db.storage.flush()
     return jsonify("User \'" + str(user_id) + "\' reset completed on target \'"
                    + str(target_id) + "\' on level \'" + str(level) + "\'")
