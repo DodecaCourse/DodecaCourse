@@ -64,11 +64,6 @@ def is_user(user_key):
     return not (len(users.search(q['user_keyword'] == user_key)) == 0)
 
 
-def is_integer_string(string):
-    # TODO: elegantere Methode zum herausfilter, von nicht integern
-    return bool(re.match("-?\\d+", string))
-
-
 def get_completed_chapters(completed_targets):
     ret_chapters = []
     for c in chapters.all():
@@ -204,13 +199,8 @@ def get_all_takes():
 #     return jsonify(found_chapters)
 
 
-@app.route('/get_targets_bychapter_id/<chapter_id>')
+@app.route('/get_targets_bychapter_id/<int:chapter_id>')
 def get_targets_by_chapter_id(chapter_id):
-    if not is_integer_string(chapter_id):
-        app.logger.warning('QUERY: Found invalid chapter_id \''
-                           + str(chapter_id) + '\'. Input integers! ')
-        return jsonify('Found invalid chapter_id')
-    chapter_id = int(chapter_id)
     found = targets.search(q['chapter_id'] == chapter_id)
     N = len(found)
     if N == 0:
@@ -245,38 +235,22 @@ def get_user_by_key(user_key):
     })
 
 
-@app.route('/complete_target/<user_id>/<target_id>/<level>')
+@app.route('/complete_target/<int:user_id>/<int:target_id>/<int:level>')
 def complete_target(user_id, target_id, level):
     # Check if all arguments are valid first
     # → user_id
     # TODO: Same wie oben(get_user_by_key), vllt in Methode packen
     # ist nur schwierig, da wir Fehlermeldungen returnen müssen
-    if not is_integer_string(user_id):
-        app.logger.warning('QUERY: Found invalid user_id \''
-                           + str(user_id) + '\'. Input integers! ')
-        return jsonify('Found invalid user_id')
-    user_id = int(user_id)
     if not users.contains(eids=[user_id]):
         app.logger.warning("QUERY: Found invalid user_id " + str(user_id)
                            + " found. User does not exist.")
         return jsonify("Found invalid user_id " + str(user_id) + " found."
                        " User does not exist.")
-    # → chapter_id
-    if not is_integer_string(target_id):
-        app.logger.warning('QUERY: Found invalid target_id \''
-                           + str(target_id) + '\'. Input integers! ')
-        return jsonify('Found invalid target_id')
-    target_id = int(target_id)
     if not targets.contains(q['target_id'] == target_id):
         app.logger.warning("QUERY: Found invalid target_id " + str(target_id)
                            + " found. chapter does not exist.")
         return jsonify("Found invalid target_id " + str(target_id) + " found."
                        " target does not exist.")
-    if not is_integer_string(level):
-            app.logger.warning('QUERY: Found invalid level\''
-                               + str(target_id) + '\'. Input integers! ')
-            return jsonify('Found invalid level')
-    level = int(level)
     # → time_spend
     # if not is_integer_string(time_spend):
     #     app.logger.warning('QUERY: Found invalid time_spend \''
@@ -287,7 +261,6 @@ def complete_target(user_id, target_id, level):
     found = takes.update({'completed': True}, (q['user_id'] == user_id)
                          & (q['target_id'] == target_id)
                          & (q['level'] == level))
-    print(found)
     if len(found) == 0:
         with transaction(takes) as tr:
             tr.insert({
@@ -305,61 +278,39 @@ def complete_target(user_id, target_id, level):
                    + str(target_id) + "\' on level \'" + str(level) + "\'")
 
 
-@app.route('/unset_complete_target/<user_id>/<target_id>/<level>')
+@app.route('/unset_complete_target/<int:user_id>/<int:target_id>/<int:level>')
 def unset_complete_target(user_id, target_id, level):
     # Check if all arguments are valid first
     # → user_id
     # TODO: Same wie oben(get_user_by_key), vllt in Methode packen
     # ist nur schwierig, da wir Fehlermeldungen returnen müssen
-    if not is_integer_string(user_id):
-        app.logger.warning('QUERY: Found invalid user_id \''
-                           + str(user_id) + '\'. Input integers! ')
-        return jsonify('Found invalid user_id')
-    user_id = int(user_id)
     if not users.contains(eids=[user_id]):
         app.logger.warning("QUERY: Found invalid user_id " + str(user_id)
                            + " found. User does not exist.")
         return jsonify("Found invalid user_id " + str(user_id) + " found."
                        " User does not exist.")
-    # → chapter_id
-    if not is_integer_string(target_id):
-        app.logger.warning('QUERY: Found invalid target_id \''
-                           + str(target_id) + '\'. Input integers! ')
-        return jsonify('Found invalid target_id')
-    target_id = int(target_id)
     if not targets.contains(q['target_id'] == target_id):
         app.logger.warning("QUERY: Found invalid target_id " + str(target_id)
                            + " found. chapter does not exist.")
         return jsonify("Found invalid target_id " + str(target_id) + " found."
                        " target does not exist.")
-    if not is_integer_string(level):
-            app.logger.warning('QUERY: Found invalid level\''
-                               + str(target_id) + '\'. Input integers! ')
-            return jsonify('Found invalid level')
-    level = int(level)
     # → time_spend
     # if not is_integer_string(time_spend):
     #     app.logger.warning('QUERY: Found invalid time_spend \''
     #                        + str(time_spend) + '\'. Input integers! ')
     #     return jsonify('Found invalid time_spend. Expected integer.')
     # Magic starts here
-    # check if entry already exists
+    # set completed to false if take exists
     found = takes.update({'completed': False}, (q['user_id'] == user_id)
                          & (q['target_id'] == target_id)
                          & (q['level'] == level))
-    print("Updated:",found)
     # db.close()
     return jsonify("User \'" + str(user_id) + "\' reset completed on target \'"
                    + str(target_id) + "\' on level \'" + str(level) + "\'")
 
 
-@app.route('/getsettings/<user_id>')
+@app.route('/getsettings/<int:user_id>')
 def get_user_settings(user_id):
-    if not is_integer_string(user_id):
-        app.logger.warning('QUERY: Found invalid user_id \''
-                           + str(user_id) + '\'. Input integers! ')
-        return jsonify('Found invalid user_id')
-    user_id = int(user_id)
     if not users.contains(eids=[user_id]):
         app.logger.warning("QUERY: Found invalid user_id " + str(user_id)
                            + ". User does not exist.")
@@ -379,13 +330,8 @@ def get_user_settings(user_id):
     return jsonify(returned_settings)
 
 
-@app.route('/get_takes_by_user_id/<user_id>')
+@app.route('/get_takes_by_user_id/<int:user_id>')
 def get_user_takes(user_id):
-    if not is_integer_string(user_id):
-        app.logger.warning('QUERY: Found invalid user_id \''
-                           + str(user_id) + '\'. Input integers! ')
-        return jsonify('Found invalid user_id')
-    user_id = int(user_id)
     if not users.contains(eids=[user_id]):
         app.logger.warning("QUERY: Found invalid user_id " + str(user_id)
                            + ". User does not exist.")
@@ -410,18 +356,13 @@ def get_user_takes(user_id):
         }
     return jsonify(ret_targets)
 
-@app.route('/get_completed_by_user_id/<user_id>')
+@app.route('/get_completed_by_user_id/<int:user_id>')
 def get_completed_by_user_id(user_id):
     """
     Returns lists of
         completed_modules, completed_chapters and completed_targets
     by analyzing the structure and takes matching the user_id
     """
-    if not is_integer_string(user_id):
-        app.logger.warning('QUERY: Found invalid user_id \''
-                           + str(user_id) + '\'. Input integers! ')
-        return jsonify('Found invalid user_id')
-    user_id = int(user_id)
     if not users.contains(eids=[user_id]):
         app.logger.warning("QUERY: Found invalid user_id " + str(user_id)
                            + ". User does not exist.")
