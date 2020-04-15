@@ -43,7 +43,7 @@ targets = db.table('targets')
 
 # Modules Chapters und targets aus structure.json lesen
 insert_structure("../public/structure.json", modules, chapters, targets)
-db.close()  # close after inserting data
+db.storage.flush()  # close after inserting data
 
 # → Query starten
 # TODO: Sollte man hier jedes mal die Query neu initialisieren oder oben
@@ -281,7 +281,7 @@ def complete_target(user_id, target_id, level):
         app.logger.warning('QUERY: Multiple takes entries with same'
                            ' target_id, user_id & level have been found.'
                            ' Updating all instances')
-    # db.close()
+    db.storage.flush()
     return jsonify("User \'" + str(user_id) + "\' succesfully took target \'"
                    + str(target_id) + "\' on level \'" + str(level) + "\'")
 
@@ -294,7 +294,7 @@ def unset_complete_target(user_id, target_id, level):
     found = takes.update({'completed': False}, (q['user_id'] == user_id)
                          & (q['target_id'] == target_id)
                          & (q['level'] == level))
-    # db.close()
+    db.storage.flush()
     return jsonify("User \'" + str(user_id) + "\' reset completed on target \'"
                    + str(target_id) + "\' on level \'" + str(level) + "\'")
 
@@ -394,38 +394,11 @@ def get_current_user():
 
 @app.route('/logout')
 def logout():
-    # if not'user_keyword' in session.keys():
-    #     print("hä?")
-    #     return jsonify("no current user set")
-    # TODO: Fix this trash
-    # Hat noch keinen Error produziert
-    # try:
-    # for key in session.keys():
-    #     session.pop(key)
-    # session.clear()
-    # TODO: extrem hässliches Workaround, aber funktioniert auch noch nicht
     session.clear()
     return jsonify('success')
-    # do not use bare except(meme)
-    # except:
-    # print("an error occured on logout, while trying to delete the session")
-    # return jsonify("err")
 
-
-# @app.route('/getcurrentuser_withid')
-# def get_current_user_with_id():
-#     user_key = request.cookies.get('user_keyword')
-#     if user_key is None:
-#         return jsonify("no current user set")
-#     user = {
-#         'user_keyword': user_key,
-#         'user_id': request.cookies.get('user_id')
-#     }
-#     return jsonify(user)
 
 #   * Extra Testing Stuff
-
-
 @app.route('/random')
 def rand():
     """
