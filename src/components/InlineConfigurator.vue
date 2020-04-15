@@ -121,6 +121,15 @@
                 }
             },
         },
+        watch: {
+            takes: function (newval, oldval) {
+                if (newval != null) {
+                    console.log(newval, oldval);
+                    if (Object.keys(oldval).length === 0 && oldval.constructor === Object)
+                        this.setLevelByTakes()
+                }
+            },
+        },
         methods: {
             onPractice: function () {
                 this.$teacher.setConfigurator(this);
@@ -185,14 +194,24 @@
                             self.updateTakes()
                         });
                 }
-
             },
+            setLevelByTakes: function () {
+                for (let i = 0; i < this.levels; i++) {
+                    if (this.takes[this.progId] !== undefined &&
+                        this.takes[this.progId][i + 1] !== undefined &&
+                        this.takes[this.progId][i + 1].completed) {
+                        if (this.levels >= i + 2) {
+                            this.level = i + 2;
+                        } else {
+                            this.level = i + 1;
+                        }
+                    }
+                }
+            }
         },
-        create: function () {
-            if (this.user != null)
-                this.updateTakes();
-            console.log(this.takes);
-        },
+        created: function () {
+            this.setLevelByTakes();
+        }
     }
 </script>
 
