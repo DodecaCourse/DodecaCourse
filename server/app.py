@@ -1,5 +1,5 @@
 # dependencies: tinyDB flask flask-cors tinyrecord
-from flask import Flask, jsonify, request, redirect, session
+from flask import Flask, jsonify, session
 from flask_cors import CORS
 
 from tinydb import TinyDB, Query
@@ -10,7 +10,8 @@ from tinyrecord import transaction
 from random import randint
 import string
 import random
-import re
+# decorators
+from functools import wraps
 # files
 import config
 from read_structure import insert_structure
@@ -41,7 +42,7 @@ targets = db.table('targets')
 
 # Modules Chapters und targets aus structure.json lesen
 insert_structure("../public/structure.json", modules, chapters, targets)
-db.close()  # close after inserting data
+db.storage.flush()  # close after inserting data
 
 # → Query starten
 # TODO: Sollte man hier jedes mal die Query neu initialisieren oder oben
@@ -57,16 +58,37 @@ app.config.from_object(config.Config)
 CORS(app, origins=["http://localhost:8080"], headers=['Content-Type'],
      expose_headers=['Access-Control-Allow-Origin'], supports_credentials=True)
 
-# ø Utility Funktionen
+
+# Decorators to check input
+def check_user_id(func):
+    @wraps(func)
+    def decorated(*args, **kwargs):
+        if not users.contains(eids=[kwargs['user_id']]):
+            app.logger.warning("QUERY: Found invalid user_id "
+                               + str(kwargs['user_id'])
+                               + ". User does not exist.")
+            return jsonify("Found invalid user_id " + str(kwargs['user_id'])
+                           + ". User does not exist.")
+        return func(*args, **kwargs)
+    return decorated
+
+
+def check_target_id(func):
+    @wraps(func)
+    def decorated(*args, **kwargs):
+        if not targets.contains(q['target_id'] == kwargs['target_id']):
+            app.logger.warning("QUERY: Found invalid target_id "
+                               + str(kwargs['target_id'])
+                               + ". chapter does not exist.")
+            return jsonify("Found invalid target_id "
+                           + str(kwargs['target_id'])
+                           + ". Target does not exist.")
+        return func(*args, **kwargs)
+    return decorated
 
 
 def is_user(user_key):
     return not (len(users.search(q['user_keyword'] == user_key)) == 0)
-
-
-def is_integer_string(string):
-    # TODO: elegantere Methode zum herausfilter, von nicht integern
-    return bool(re.match("-?\\d+", string))
 
 
 def get_completed_chapters(completed_targets):
@@ -109,17 +131,17 @@ def get_completed_modules(completed_chapters):
 
 #   * Datenbank Stuff
 
-@app.route('/adduser', methods=['POST'])
-def adduser():
-    user = request.form['nm']
-    # session['userID'] = user
-    # print("POST: Set session['userID'] to " + user)
-    if not is_user(user):
-        with transaction(users) as tr:
-            tr.insert({'user_keyword': user})
-        return redirect('http://localhost:8080/dev/servertest')
-    else:
-        return jsonify('user with keyword ' + user + ' already exists.')
+# @app.route('/adduser', methods=['POST'])
+# def adduser():
+#     user = request.form['nm']
+#     # session['userID'] = user
+#     # print("POST: Set session['userID'] to " + user)
+#     if not is_user(user):
+#         with transaction(users) as tr:
+#             tr.insert({'user_keyword': user})
+#         return redirect('http://localhost:8080/dev/servertest')
+#     else:
+#         return jsonify('user with keyword ' + user + ' already exists.')
 
 
 @app.route('/generateuser')
@@ -204,13 +226,8 @@ def get_all_takes():
 #     return jsonify(found_chapters)
 
 
-@app.route('/get_targets_bychapter_id/<chapter_id>')
+@app.route('/get_targets_bychapter_id/<int:chapter_id>')
 def get_targets_by_chapter_id(chapter_id):
-    if not is_integer_string(chapter_id):
-        app.logger.warning('QUERY: Found invalid chapter_id \''
-                           + str(chapter_id) + '\'. Input integers! ')
-        return jsonify('Found invalid chapter_id')
-    chapter_id = int(chapter_id)
     found = targets.search(q['chapter_id'] == chapter_id)
     N = len(found)
     if N == 0:
@@ -245,49 +262,18 @@ def get_user_by_key(user_key):
     })
 
 
-@app.route('/complete_target/<user_id>/<target_id>/<level>')
+@app.route('/complete_target/<int:user_id>/<int:target_id>/<int:level>')
+@check_user_id
+@check_target_id
 def complete_target(user_id, target_id, level):
-    # Check if all arguments are valid first
-    # → user_id
-    # TODO: Same wie oben(get_user_by_key), vllt in Methode packen
-    # ist nur schwierig, da wir Fehlermeldungen returnen müssen
-    if not is_integer_string(user_id):
-        app.logger.warning('QUERY: Found invalid user_id \''
-                           + str(user_id) + '\'. Input integers! ')
-        return jsonify('Found invalid user_id')
-    user_id = int(user_id)
-    if not users.contains(eids=[user_id]):
-        app.logger.warning("QUERY: Found invalid user_id " + str(user_id)
-                           + " found. User does not exist.")
-        return jsonify("Found invalid user_id " + str(user_id) + " found."
-                       " User does not exist.")
-    # → chapter_id
-    if not is_integer_string(target_id):
-        app.logger.warning('QUERY: Found invalid target_id \''
-                           + str(target_id) + '\'. Input integers! ')
-        return jsonify('Found invalid target_id')
-    target_id = int(target_id)
-    if not users.contains(eids=[target_id]):
-        app.logger.warning("QUERY: Found invalid target_id " + str(target_id)
-                           + " found. chapter does not exist.")
-        return jsonify("Found invalid target_id " + str(user_id) + " found."
-                       " chapter does not exist.")
-    if not is_integer_string(level):
-        app.logger.warning('QUERY: Found invalid level\''
-                           + str(target_id) + '\'. Input integers! ')
-        return jsonify('Found invalid level')
-    level = int(level)
-    # → time_spend
-    # if not is_integer_string(time_spend):
-    #     app.logger.warning('QUERY: Found invalid time_spend \''
-    #                        + str(time_spend) + '\'. Input integers! ')
-    #     return jsonify('Found invalid time_spend. Expected integer.')
     # Magic starts here
-    # check if entry already exists
-    found = takes.search((q['user_id'] == user_id)
-                         & (q['chapter_id'] == target_id)
-                         & q['level'] == level)
+    # update if entry exists
+    with transaction(takes) as tr:
+        found = tr.update({'completed': True}, (q['user_id'] == user_id)
+                          & (q['target_id'] == target_id)
+                          & (q['level'] == level))
     if len(found) == 0:
+        # create if not
         with transaction(takes) as tr:
             tr.insert({
                 'user_id': user_id,
@@ -295,30 +281,33 @@ def complete_target(user_id, target_id, level):
                 'level': level,
                 'completed': True
             })
-    else:
-        if len(found) > 1:
-            app.logger.warning('QUERY: Multiple takes entries with same'
-                               ' target_id and user_id have been found.'
-                               ' Updating first found instance')
-        found[0]['completed'] = True
-    # db.close()
-    return jsonify("User \'" + str(user_id) + "\' succesfully took chapter \'"
+    elif len(found) > 1:
+        app.logger.warning('QUERY: Multiple takes entries with same'
+                           ' target_id, user_id & level have been found.'
+                           ' Updating all instances')
+    db.storage.flush()
+    return jsonify("User \'" + str(user_id) + "\' succesfully took target \'"
                    + str(target_id) + "\' on level \'" + str(level) + "\'")
 
 
-@app.route('/getsettings/<user_id>')
+@app.route('/unset_complete_target/<int:user_id>/<int:target_id>/<int:level>')
+@check_user_id
+@check_target_id
+def unset_complete_target(user_id, target_id, level):
+    # set completed to false if take exists
+    with transaction(takes) as tr:
+        found = tr.update({'completed': False}, (q['user_id'] == user_id)
+                          & (q['target_id'] == target_id)
+                          & (q['level'] == level))
+    print(found)
+    db.storage.flush()
+    return jsonify("User \'" + str(user_id) + "\' reset completed on target \'"
+                   + str(target_id) + "\' on level \'" + str(level) + "\'")
+
+
+@app.route('/getsettings/<int:user_id>')
+@check_user_id
 def get_user_settings(user_id):
-    if not is_integer_string(user_id):
-        app.logger.warning('QUERY: Found invalid user_id \''
-                           + str(user_id) + '\'. Input integers! ')
-        return jsonify('Found invalid user_id')
-    user_id = int(user_id)
-    if not users.contains(eids=[user_id]):
-        app.logger.warning("QUERY: Found invalid user_id " + str(user_id)
-                           + ". User does not exist.")
-        return jsonify("Found invalid user id " + str(user_id) + "."
-                       " User does not exist.")
-    # user_id valid
     usr = users.get(eid=user_id)
     setting_names = [*config.Config.DEFAULT_SETTINGS.keys()]
     N = len(setting_names)
@@ -332,49 +321,35 @@ def get_user_settings(user_id):
     return jsonify(returned_settings)
 
 
-# @app.route('/get_takes_by_user_id/<user_id>')
-# def get_user_takes(user_id):
-#     if not is_integer_string(user_id):
-#         app.logger.warning('QUERY: Found invalid user_id \''
-#                            + str(user_id) + '\'. Input integers! ')
-#         return jsonify('Found invalid user_id')
-#     user_id = int(user_id)
-#     if not users.contains(eids=[user_id]):
-#         app.logger.warning("QUERY: Found invalid user_id " + str(user_id)
-#                            + ". User does not exist.")
-#         return jsonify("Found invalid user id " + str(user_id) + "."
-#                        " User does not exist.")
-#     # user_id valid
-#     foundtakes = takes.search(q['user_id'] == user_id)
-#     N = len(foundtakes)
-#     ret_targets = [{}] * N
-#     for i in range(N):
-#         take = foundtakes[i]
-#         # TODO: Add error when eid in target does not exist
-#         # TODO: Add error when take is missing keys
-#         # Using try except for now
-#         tar = targets.get(eid=take['target_id'])
-#         ret_targets[i] = {
-#             'take_id': take.eid,
-#             'target_id': tar.eid,
-#             'target_name': tar['target_name'],
-#             'time_spend': take['time_spend'],
-#             'completed': take['completed']
-#         }
-#     return jsonify(ret_targets)
+@app.route('/get_takes_by_user_id/<int:user_id>')
+@check_user_id
+def get_user_takes(user_id):
+    foundtakes = takes.search(q['user_id'] == user_id)
+    N = len(foundtakes)
+    ret_targets = {}
+    for i in range(N):
+        take = foundtakes[i]
+        # TODO: Add error when eid in target does not exist
+        # TODO: Add error when take is missing keys
+        # Using try except for now
+        if not take['target_id'] in ret_targets:
+            ret_targets[take['target_id']] = {}
+        ret_targets[take['target_id']][take['level']] = {
+            'take_id': take.eid,
+            'target_id': take['target_id'],
+            # 'time_spend': take['time_spend'],
+            'completed': take['completed']
+        }
+    return jsonify(ret_targets)
 
-@app.route('/get_completed_by_user_id/<user_id>')
+
+@app.route('/get_completed_by_user_id/<int:user_id>')
 def get_completed_by_user_id(user_id):
     """
     Returns lists of
         completed_modules, completed_chapters and completed_targets
     by analyzing the structure and takes matching the user_id
     """
-    if not is_integer_string(user_id):
-        app.logger.warning('QUERY: Found invalid user_id \''
-                           + str(user_id) + '\'. Input integers! ')
-        return jsonify('Found invalid user_id')
-    user_id = int(user_id)
     if not users.contains(eids=[user_id]):
         app.logger.warning("QUERY: Found invalid user_id " + str(user_id)
                            + ". User does not exist.")
@@ -426,38 +401,11 @@ def get_current_user():
 
 @app.route('/logout')
 def logout():
-    # if not'user_keyword' in session.keys():
-    #     print("hä?")
-    #     return jsonify("no current user set")
-    # TODO: Fix this trash
-    # Hat noch keinen Error produziert
-    # try:
-    # for key in session.keys():
-    #     session.pop(key)
-    # session.clear()
-    # TODO: extrem hässliches Workaround, aber funktioniert auch noch nicht
     session.clear()
     return jsonify('success')
-    # do not use bare except(meme)
-    # except:
-    # print("an error occured on logout, while trying to delete the session")
-    # return jsonify("err")
 
-
-# @app.route('/getcurrentuser_withid')
-# def get_current_user_with_id():
-#     user_key = request.cookies.get('user_keyword')
-#     if user_key is None:
-#         return jsonify("no current user set")
-#     user = {
-#         'user_keyword': user_key,
-#         'user_id': request.cookies.get('user_id')
-#     }
-#     return jsonify(user)
 
 #   * Extra Testing Stuff
-
-
 @app.route('/random')
 def rand():
     """

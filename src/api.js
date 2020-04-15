@@ -30,6 +30,14 @@ export default {
       set: function (usr) {
         this.$root.$children[0].userProp = usr;
       }
+    },
+    takes: {
+      get: function () {
+        return this.$root.$children[0].takesProp;
+      },
+      set: function (usr) {
+        this.$root.$children[0].takesProp = usr;
+      }
     }
   },
   methods: {
@@ -95,7 +103,11 @@ export default {
     },
     setCurrentUser(user){
       return this.fetch('setcurrentuser/' + user, true)
-          .then(usr => this.user = usr);
+          .then(usr => this.user = usr).then(this.updateTakes);
+    },
+    updateTakes(){
+      return this.fetch('get_takes_by_user_id/' + this.user['user_id'])
+          .then(takes => this.takes = takes);
     },
     getSettings(){
       return this.fetch('getsettings/' + this.user['user_id']);
@@ -106,6 +118,12 @@ export default {
     logout(){
       this.user = null;
       return this.fetch('logout', true);
+    },
+    completeTarget(target_id, level) {
+      return this.fetch('complete_target/' + this.user['user_id'] + '/' + target_id + '/' + level)
+    },
+    unsetCompleteTarget(target_id, level) {
+      return this.fetch('unset_complete_target/' + this.user['user_id'] + '/' + target_id + '/' + level)
     }
   },
   // TODO: Überlegen ob beim mixin von von Daten "vorgeladen" werden

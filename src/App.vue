@@ -130,6 +130,7 @@
           showAccountSnack: false,
           loginBtnDisabled: false, // workaround against login popping up on logout
           userProp: null,
+          takesProp: {},
       }),
       methods: {
           onLogout: function () {
@@ -142,7 +143,10 @@
       },
       watch: {
           userProp: function (val) {
-              if (val != null) this.loginBtnDisabled = true;
+              if (val != null) {
+                  this.loginBtnDisabled = true;
+                  this.updateTakes();
+              }
           }
       },
       created: function() {

@@ -43,7 +43,6 @@
       methods: {
         getCompletedCourses: function() {
         
-          
           if(this.user.user_id != null){
             var id = this.user.user_id;
             var lvls;
@@ -63,6 +62,7 @@
       
       },
       created: function() {
+        this.updateCurrentUser();
         if(this.user != null){
             this.getCompletedCourses();
         }

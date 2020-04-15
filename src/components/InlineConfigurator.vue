@@ -5,8 +5,16 @@
         <DegreeCirclePictogram v-show="enabledDegrees !== undefined" :enabled-degrees="enabledDegrees">
         </DegreeCirclePictogram>
         <div>
-        <v-btn v-show="levels > 1" :class="i === 0 ? 'mx-1' : 'mr-1'" v-for="(lvl, i) in this.levels" :key="i + 1"
-               @click="level = i + 1" :color="level === i + 1 ? 'primary' : 'secondary'" fab x-small depressed
+        <v-btn v-show="levels > 1" v-for="(lvl, i) in this.levels" :key="i + 1"
+               @click="level = i + 1"
+               :class="{
+                   'finished': takes[progId] !== undefined &&
+                   takes[progId][i+1] !== undefined && takes[progId][i+1].completed,
+                   'mx-1': i === 0,
+                   'mr-1': i > 0
+               }"
+               :color="level === i + 1 ? 'primary' : 'secondary'"
+               fab x-small depressed
         class="level">
             {{i + 1}}
         </v-btn>
@@ -18,7 +26,9 @@
         <v-btn v-if="!hideTest" class="ma-1" color="ternary" small elevation="1" v-on:click="onTest">
             Test
         </v-btn>
-            <v-btn v-if="!hideTest" @click="toggleCompleted" icon :style="completed ? 'color: green' : ''">
+            <v-btn v-if="!hideTest && user != null"
+                   title="Mark as completed"
+                   @click="completed = !completed" icon :style="completed ? 'color: green' : ''">
                 <v-icon>{{completed ? 'mdi-check-circle' : 'mdi-check-circle-outline'}}</v-icon>
             </v-btn>
         </div>
@@ -67,7 +77,6 @@
         data: function () {
             return {
                 level: 1,
-                completed: false,
             }
         },
         computed: {
@@ -100,7 +109,40 @@
                 } else {
                     return this.config.degrees || [0, 2, 4, 5, 7, 9, 11];
                 }
-            }
+            },
+            completed: {
+                get: function () {
+                    return this.takes[this.progId] !== undefined &&
+                        this.takes[this.progId][this.level] !== undefined &&
+                        this.takes[this.progId][this.level].completed
+                },
+                set: function (completed) {
+                    if (this.takes[this.progId] === undefined) {
+                        this.takes[this.progId] = {}
+                    }
+                    if (this.takes[this.progId][this.level] === undefined) {
+                        this.takes[this.progId][this.level] = {
+                            completed: false
+                        };
+                    }
+                    this.takes[this.progId][this.level].completed = completed;
+                    // update backend
+                    const self = this;
+                    if (this.takes[this.progId][this.level].completed) {
+                        this.completeTarget(this.progId, this.level)
+                            .then(function (ret) {
+                                console.log(ret);
+                                self.updateTakes()
+                            });
+                    } else {
+                        this.unsetCompleteTarget(this.progId, this.level)
+                            .then(function (ret) {
+                                console.log(ret);
+                                self.updateTakes()
+                            });
+                    }
+                }
+            },
         },
         methods: {
             onPractice: function () {
@@ -139,15 +181,19 @@
                     this.$teacher.setupChordRecognitionTest(this.config.diatonics, this.config.degrees, this.config.count,true, this.level, this.scale)
                 }
             },
-            toggleCompleted: function () {
-                this.completed = !this.completed;
-                console.log(this.user, this);
-            },
-        }
+        },
+        create: function () {
+            if (this.user != null)
+                this.updateTakes();
+            console.log(this.takes);
+        },
     }
 </script>
 
 <style lang="sass" scoped>
     .level:not(.v-btn--text):not(.v-btn--outlined):focus::before
         opacity: 0
+
+    .level.finished
+        box-shadow: 0 0 8px #00a802 !important
 </style>
