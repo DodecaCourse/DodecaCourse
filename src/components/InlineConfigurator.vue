@@ -11,7 +11,8 @@
                    'finished': takes[progId] !== undefined &&
                    takes[progId][i+1] !== undefined && takes[progId][i+1].completed,
                    'mx-1': i === 0,
-                   'mr-1': i > 0
+                   'mr-1': i > 0,
+                   'dark': $vuetify.theme.dark
                }"
                :color="level === i + 1 ? 'primary' : 'secondary'"
                fab x-small depressed
@@ -124,7 +125,6 @@
         watch: {
             takes: function (newval, oldval) {
                 if (newval != null) {
-                    console.log(newval, oldval);
                     if (Object.keys(oldval).length === 0 && oldval.constructor === Object)
                         this.setLevelByTakes()
                 }
@@ -220,5 +220,7 @@
         opacity: 0
 
     .level.finished
-        box-shadow: 0 0 8px #00a802 !important
+        box-shadow: 0 0 9px #00a802 !important
+    .level.finished.dark
+        box-shadow: 0 0 9px #00ff03 !important
 </style>

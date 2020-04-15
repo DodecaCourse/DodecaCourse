@@ -146,6 +146,8 @@
               if (val != null) {
                   this.loginBtnDisabled = true;
                   this.updateTakes();
+              } else {
+                  this.takes = {};
               }
           }
       },
