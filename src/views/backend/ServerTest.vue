@@ -90,7 +90,7 @@
           this.getUserID(this.search.trim())
             .then(data => {
               this.founduser = data;
-              if (!(this.founduser.user_id == null)) {
+              if (!(this.founduser == null)) {
                 this.getSettings(this.founduser.user_id)
                   .then(data => (this.foundsettings = data));
                 this.getTakes(this.founduser.user_id)

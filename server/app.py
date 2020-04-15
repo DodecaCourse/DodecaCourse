@@ -1,5 +1,5 @@
 # dependencies: tinyDB flask flask-cors tinyrecord
-from flask import Flask, jsonify, request, redirect, session
+from flask import Flask, jsonify, session
 from flask_cors import CORS
 
 from tinydb import TinyDB, Query
@@ -10,7 +10,6 @@ from tinyrecord import transaction
 from random import randint
 import string
 import random
-import re
 # decorators
 from functools import wraps
 # files
@@ -59,15 +58,17 @@ app.config.from_object(config.Config)
 CORS(app, origins=["http://localhost:8080"], headers=['Content-Type'],
      expose_headers=['Access-Control-Allow-Origin'], supports_credentials=True)
 
+
 # Decorators to check input
 def check_user_id(func):
     @wraps(func)
     def decorated(*args, **kwargs):
         if not users.contains(eids=[kwargs['user_id']]):
-            app.logger.warning("QUERY: Found invalid user_id " + str(kwargs['user_id'])
+            app.logger.warning("QUERY: Found invalid user_id "
+                               + str(kwargs['user_id'])
                                + ". User does not exist.")
-            return jsonify("Found invalid user_id " + str(kwargs['user_id']) +
-                           ". User does not exist.")
+            return jsonify("Found invalid user_id " + str(kwargs['user_id'])
+                           + ". User does not exist.")
         return func(*args, **kwargs)
     return decorated
 
@@ -76,10 +77,12 @@ def check_target_id(func):
     @wraps(func)
     def decorated(*args, **kwargs):
         if not targets.contains(q['target_id'] == kwargs['target_id']):
-            app.logger.warning("QUERY: Found invalid target_id " + str(kwargs['target_id'])
+            app.logger.warning("QUERY: Found invalid target_id "
+                               + str(kwargs['target_id'])
                                + ". chapter does not exist.")
-            return jsonify("Found invalid target_id " + str(kwargs['target_id']) +
-                           ". Target does not exist.")
+            return jsonify("Found invalid target_id "
+                           + str(kwargs['target_id'])
+                           + ". Target does not exist.")
         return func(*args, **kwargs)
     return decorated
 
@@ -128,17 +131,17 @@ def get_completed_modules(completed_chapters):
 
 #   * Datenbank Stuff
 
-@app.route('/adduser', methods=['POST'])
-def adduser():
-    user = request.form['nm']
-    # session['userID'] = user
-    # print("POST: Set session['userID'] to " + user)
-    if not is_user(user):
-        with transaction(users) as tr:
-            tr.insert({'user_keyword': user})
-        return redirect('http://localhost:8080/dev/servertest')
-    else:
-        return jsonify('user with keyword ' + user + ' already exists.')
+# @app.route('/adduser', methods=['POST'])
+# def adduser():
+#     user = request.form['nm']
+#     # session['userID'] = user
+#     # print("POST: Set session['userID'] to " + user)
+#     if not is_user(user):
+#         with transaction(users) as tr:
+#             tr.insert({'user_keyword': user})
+#         return redirect('http://localhost:8080/dev/servertest')
+#     else:
+#         return jsonify('user with keyword ' + user + ' already exists.')
 
 
 @app.route('/generateuser')
@@ -265,9 +268,10 @@ def get_user_by_key(user_key):
 def complete_target(user_id, target_id, level):
     # Magic starts here
     # update if entry exists
-    found = takes.update({'completed': True}, (q['user_id'] == user_id)
-                         & (q['target_id'] == target_id)
-                         & (q['level'] == level))
+    with transaction(takes) as tr:
+        found = tr.update({'completed': True}, (q['user_id'] == user_id)
+                          & (q['target_id'] == target_id)
+                          & (q['level'] == level))
     if len(found) == 0:
         # create if not
         with transaction(takes) as tr:
@@ -291,9 +295,11 @@ def complete_target(user_id, target_id, level):
 @check_target_id
 def unset_complete_target(user_id, target_id, level):
     # set completed to false if take exists
-    found = takes.update({'completed': False}, (q['user_id'] == user_id)
-                         & (q['target_id'] == target_id)
-                         & (q['level'] == level))
+    with transaction(takes) as tr:
+        found = tr.update({'completed': False}, (q['user_id'] == user_id)
+                          & (q['target_id'] == target_id)
+                          & (q['level'] == level))
+    print(found)
     db.storage.flush()
     return jsonify("User \'" + str(user_id) + "\' reset completed on target \'"
                    + str(target_id) + "\' on level \'" + str(level) + "\'")
@@ -336,6 +342,7 @@ def get_user_takes(user_id):
         }
     return jsonify(ret_targets)
 
+
 @app.route('/get_completed_by_user_id/<int:user_id>')
 def get_completed_by_user_id(user_id):
     """
@@ -373,7 +380,7 @@ def get_completed_by_user_id(user_id):
 
 @app.route('/setcurrentuser/<user_keyword>')
 def set_current_user(user_keyword):
-    ret = jsonify("Success on setcurrentuser to " + str(user_keyword))
+    # ret = jsonify("Success on setcurrentuser to " + str(user_keyword))
     # resp = make_response(ret)
     # TODO: Fix
     # resp.set_cookie('user_keyword', value=user_keyword,

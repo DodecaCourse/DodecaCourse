@@ -1,11 +1,9 @@
 <template>
     <div>
         <div v-bind:key="course.id" v-for="(course, num) in courses">
-            <CourseItem
+            <ModuleItem
               v-bind:course="course"
-              :visited-levels="visitedLevels"
-              :completed-levels="completedLevels"
-              :user="user"
+              :completed_levels="completedLevels"
               :num="num"
               :active="$route.path.startsWith(course.path)"/>
         </div>
@@ -14,15 +12,15 @@
 
 
 <script>
-  import CourseItem from "./CourseItem";
+  import ModuleItem from "./ModuleItem";
   import structure from "../../public/structure.json";
   import api from "../api.js"
   
   export default {
-      name: `Courses`,
+      name: `Modules`,
       mixins: [api],
       components: {
-          CourseItem
+          ModuleItem
       },
       props: ['curCourse'],
       data: function () {
@@ -31,8 +29,10 @@
                   "modules": [],
                   "targets": []
               },
-              visitedLevels: [],
-              completedLevels: [],
+              
+              completed_modules: [],
+              completed_chapters: [],
+              completed_targets: []
           }
       },
       computed: {
@@ -42,7 +42,7 @@
       },
       methods: {
         getCompletedCourses: function() {
-          
+        
           if(this.user.user_id != null){
             var id = this.user.user_id;
             var lvls;

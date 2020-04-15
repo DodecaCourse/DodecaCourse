@@ -25,8 +25,15 @@
 <script>
 
 export default {
-  name: 'CourseItem',
-  props: ['course', 'active', 'num', 'visitedLevels', 'completedLevels', 'user']
+  name: 'ModuleItem',
+  props: [
+    'course',
+    'active',
+    'num',
+    'visitedLevels',
+    'completedLevels',
+    'user'
+  ]
 }
 
 </script>
