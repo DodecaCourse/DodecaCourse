@@ -11,7 +11,7 @@
                    'finished': takes[progId] !== undefined &&
                    takes[progId][i+1] !== undefined && takes[progId][i+1].completed,
                    'mx-1': i === 0,
-                   'mr-1': i < 0
+                   'mr-1': i > 0
                }"
                :color="level === i + 1 ? 'primary' : 'secondary'"
                fab x-small depressed
@@ -28,7 +28,7 @@
         </v-btn>
             <v-btn v-if="!hideTest && user != null"
                    title="Mark as completed"
-                   @click="toggleCompleted" icon :style="completed ? 'color: green' : ''">
+                   @click="completed = !completed" icon :style="completed ? 'color: green' : ''">
                 <v-icon>{{completed ? 'mdi-check-circle' : 'mdi-check-circle-outline'}}</v-icon>
             </v-btn>
         </div>
@@ -110,10 +110,38 @@
                     return this.config.degrees || [0, 2, 4, 5, 7, 9, 11];
                 }
             },
-            completed: function () {
-                return this.takes[this.progId] !== undefined &&
-                    this.takes[this.progId][this.level] !== undefined &&
-                    this.takes[this.progId][this.level].completed
+            completed: {
+                get: function () {
+                    return this.takes[this.progId] !== undefined &&
+                        this.takes[this.progId][this.level] !== undefined &&
+                        this.takes[this.progId][this.level].completed
+                },
+                set: function (completed) {
+                    if (this.takes[this.progId] === undefined) {
+                        this.takes[this.progId] = {}
+                    }
+                    if (this.takes[this.progId][this.level] === undefined) {
+                        this.takes[this.progId][this.level] = {
+                            completed: false
+                        };
+                    }
+                    this.takes[this.progId][this.level].completed = completed;
+                    // update backend
+                    const self = this;
+                    if (this.takes[this.progId][this.level].completed) {
+                        this.completeTarget(this.progId, this.level)
+                            .then(function (ret) {
+                                console.log(ret);
+                                self.updateTakes()
+                            });
+                    } else {
+                        this.unsetCompleteTarget(this.progId, this.level)
+                            .then(function (ret) {
+                                console.log(ret);
+                                self.updateTakes()
+                            });
+                    }
+                }
             },
         },
         methods: {
@@ -151,34 +179,6 @@
                     console.error("No chord internalization test available");
                 } else if (this.type === CHORD_RECOGNITION) {
                     this.$teacher.setupChordRecognitionTest(this.config.diatonics, this.config.degrees, this.config.count,true, this.level, this.scale)
-                }
-            },
-            toggleCompleted: function () {
-                // change local version first
-                if (this.takes[this.progId] === undefined) {
-                    this.takes[this.progId] = {}
-                }
-                if (this.takes[this.progId][this.level] === undefined) {
-                    this.takes[this.progId][this.level] = {
-                        completed: false
-                    };
-                }
-                this.takes[this.progId][this.level].completed = !this.takes[this.progId][this.level].completed;
-                // update backend
-                console.log(this.takes, this.takes[this.progId][this.level].completed);
-                const self = this;
-                if (this.takes[this.progId][this.level].completed) {
-                    this.completeTarget(this.progId, this.level)
-                        .then(function (ret) {
-                            console.log(ret);
-                            self.updateTakes()
-                        });
-                } else {
-                    this.unsetCompleteTarget(this.progId, this.level)
-                        .then(function (ret) {
-                            console.log(ret);
-                            self.updateTakes()
-                        });
                 }
             },
         },
