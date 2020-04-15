@@ -268,23 +268,23 @@ def get_user_by_key(user_key):
 def complete_target(user_id, target_id, level):
     # Magic starts here
     # update if entry exists
-    with transaction(takes) as tr:
-        found = tr.update({'completed': True}, (q['user_id'] == user_id)
-                          & (q['target_id'] == target_id)
-                          & (q['level'] == level))
-    if len(found) == 0:
-        # create if not
-        with transaction(takes) as tr:
-            tr.insert({
-                'user_id': user_id,
-                'target_id': target_id,
-                'level': level,
-                'completed': True
-            })
-    elif len(found) > 1:
-        app.logger.warning('QUERY: Multiple takes entries with same'
-                           ' target_id, user_id & level have been found.'
-                           ' Updating all instances')
+
+    takes.upsert({'completed': True}, (q['user_id'] == user_id)
+                 & (q['target_id'] == target_id)
+                 & (q['level'] == level))
+    # if len(found) == 0:
+    #     # create if not
+    #     with transaction(takes) as tr:
+    #         tr.insert({
+    #             'user_id': user_id,
+    #             'target_id': target_id,
+    #             'level': level,
+    #             'completed': True
+    #         })
+    # elif len(found) > 1:
+    #     app.logger.warning('QUERY: Multiple takes entries with same'
+    #                        ' target_id, user_id & level have been found.'
+    #                        ' Updating all instances')
     db.storage.flush()
     return jsonify("User \'" + str(user_id) + "\' succesfully took target \'"
                    + str(target_id) + "\' on level \'" + str(level) + "\'")
@@ -295,11 +295,9 @@ def complete_target(user_id, target_id, level):
 @check_target_id
 def unset_complete_target(user_id, target_id, level):
     # set completed to false if take exists
-    with transaction(takes) as tr:
-        found = tr.update({'completed': False}, (q['user_id'] == user_id)
-                          & (q['target_id'] == target_id)
-                          & (q['level'] == level))
-    print(found)
+    takes.upsert({'completed': False}, (q['user_id'] == user_id)
+                 & (q['target_id'] == target_id)
+                 & (q['level'] == level))
     db.storage.flush()
     return jsonify("User \'" + str(user_id) + "\' reset completed on target \'"
                    + str(target_id) + "\' on level \'" + str(level) + "\'")
