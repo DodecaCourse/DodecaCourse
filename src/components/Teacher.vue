@@ -100,6 +100,8 @@
                 fullCadenceEvery: 8,
                 level: 1,
                 scale: MODE_AEOLIAN,
+
+                curConfigurator: null,
                 // Recognition interval
                 intervals: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
                 // Targeting tone
@@ -112,6 +114,7 @@
 
                 // exercise state
                 roundSincePlay: 0,
+                correctSincePlay: 0,
                 key: "", // ['C', 'C#', 'D', ...]
                 progress: 0, // progress in percent
                 roundDuration: 0,
@@ -305,8 +308,15 @@
                 else if (this.type === RECOGNITION_SINGLE_TEST) return 32;
                 else if (this.type === RECOGNITION_INTERVAL_TEST) return 32;
                 else if (this.type === TARGET_TONE_TEST) return 12;
-                else if (this.type === CHORD_QUALITY_TEST) return 12;
+                else if (this.type === CHORD_QUALITY_TEST) return 16;
                 else if (this.type === CHORD_RECOGNITION_TEST) return 32;
+                return -1;
+            },
+            correctToSucceed: function () {
+                if (this.type === RECOGNITION_SINGLE_TEST) return 27;
+                else if (this.type === RECOGNITION_INTERVAL_TEST) return 27;
+                else if (this.type === CHORD_QUALITY_TEST) return 13;
+                else if (this.type === CHORD_RECOGNITION_TEST) return 27;
                 return -1;
             },
             circleLabels: function () {
@@ -654,6 +664,7 @@
                     if (this.inputPos === this.solution.length) {
                         // finished round
                         let posOff = this.rest(0, 2);
+                        this.correctSincePlay++;
                         this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
                     }
                     return [true, curSolution];
@@ -671,10 +682,17 @@
                 this.stopAllNotes();
                 this.clearTimeouts();
                 if ( 0 < this.stopAfterRounds && this.stopAfterRounds <= this.roundSincePlay) {
-                    // autostop for tests
+                    // autostop for tests -> test finished
                     this.playing = false;
+                    if (this.correctToSucceed > -1 && this.curConfigurator != null) {
+                        this.curConfigurator.setCompleted(this.level,
+                            this.correctSincePlay >= this.correctToSucceed);
+                    }
                 }
                 if (this.playing) this.playRound();
+            },
+            setConfigurator: function (configurator) {
+                this.curConfigurator = configurator;
             },
             // setup functions for different practice/test scenarios
             setupInternalization: function(degree, autoplay, level, scale) {

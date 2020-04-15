@@ -54,6 +54,7 @@
                 If you are unsure whether you are identifying the root note accurately, return to the targeting tones
                 exercises to focus on this.
             </p>
+            <p>You pass the test if you complete it with 3 or less mistakes.</p>
             <p>
                 <InlineConfigurator :config="{degrees: [0, 2, 4, 5, 7, 9, 11], chordTypes: ['maj', 'min', 'dim']}"
                                     :prog-id="6001"
