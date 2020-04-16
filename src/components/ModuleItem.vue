@@ -27,9 +27,9 @@
       <v-list-item-title>{{ chapter.title }}</v-list-item-title>
       
       <v-icon
-        v-if="user != null && display_check"
+        v-if="display_check && !(empty_chapters.some(c => c === chapter.id))"
       >
-        {{ completed_chapters.some(chapter => chapter === chapter.id) ? "mdi-checkbox-marked-circle-outline" : "mdi-checkbox-blank-circle-outline"}}
+        {{ completed_chapters.some(c => c === chapter.id) ? "mdi-checkbox-marked-circle-outline" : "mdi-checkbox-blank-circle-outline"}}
       </v-icon>
     </v-list-item>
   </v-list-group>
