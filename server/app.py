@@ -90,41 +90,53 @@ def check_target_id(func):
 def is_user(user_key):
     return not (len(users.search(q['user_keyword'] == user_key)) == 0)
 
+# currently unused, will delete later
+# def get_completed_chapters(completed_targets):
+#     ret_chapters = []
+#     empty_chapters = []
+#     for c in chapters.all():
+#         id = int(c['chapter_id'])
+#         chapter_targets = targets.search(q['chapter_id'] == id)
+#         print(id, chapter_targets)
+#         if len(chapter_targets) == 0:
+#             empty_chapters.append(id)
+#             # return jsonify("error on searching for targets, chaper emtpy?")
+#         else:
+#             completed_chapter = True
+#             for t in chapter_targets:
+#                 if not t['target_id'] in completed_targets:
+#                     completed_chapter = False
+#                     break
+#
+#             if completed_chapter:
+#                 ret_chapters.append(id)
+#     return ret_chapters, empty_chapters
 
-def get_completed_chapters(completed_targets):
-    ret_chapters = []
-    for c in chapters.all():
-        id = c['chapter_id']
-        chapter_targets = targets.search(q['chapter_id'] == id)
-        if len(chapter_targets) == 0:
-            return jsonify("error on searching for targets, chaper emtpy?")
-        completed_chapter = True
-        for t in chapter_targets:
-            if not t['target_id'] in completed_targets:
-                completed_chapter = False
-                break
 
-        if completed_chapter:
-            ret_chapters.append(id)
-    return ret_chapters
-
-
-def get_completed_modules(completed_chapters):
-    ret_modules = []
-    for m in modules.all():
-        id = m['module_id']
-        module_chapters = chapters.search(q['module_id'] == id)
-        if len(module_chapters) == 0:
-            return jsonify("error on searching for chapters, module emtpy?")
-        completed_module = True
-        for c in module_chapters:
-            if not c['chapter_id'] in completed_chapters:
-                completed_module = False
-                break
-
-        if completed_module:
-            ret_modules.append(id)
-    return ret_modules
+# def get_completed_modules(completed_chapters, empty_chapters):
+#     ret_modules = []
+#     no_test_modules = []
+#     for m in modules.all():
+#         id = int(m['module_id'])
+#         module_chapters = chapters.search(q['module_id'] == id)
+#         if len(module_chapters) == 0:
+#             return jsonify("error on searching for chapters, module emtpy?")
+#         completed_module = True
+#         no_test_module = True
+#         for c in module_chapters:
+#             if not c['chapter_id'] in completed_chapters:
+#                 if not c['chapter_id'] in empty_chapters:
+#                     completed_module = False
+#                     break
+#             if no_test_module:
+#                 if c['chapter_id'] in empty_chapters:
+#                     no_test_module = False
+#
+#         if completed_module:
+#             ret_modules.append(id)
+#         if no_test_module:
+#             no_test_modules.append(id)
+#     return ret_modules, no_test_modules
 
 
 # ø App Routes
@@ -362,38 +374,38 @@ def get_user_takes(user_id):
         }
     return jsonify(ret_targets)
 
-
-@app.route('/get_completed_by_user_id/<int:user_id>')
-def get_completed_by_user_id(user_id):
-    """
-    Returns lists of
-        completed_modules, completed_chapters and completed_targets
-    by analyzing the structure and takes matching the user_id
-    """
-    if not users.contains(eids=[user_id]):
-        app.logger.warning("QUERY: Found invalid user_id " + str(user_id)
-                           + ". User does not exist.")
-        return jsonify("Found invalid user id " + str(user_id) + "."
-                       " User does not exist.")
-    # user_id valid
-    # search all takes
-    foundtakes = takes.search(q['user_id'] == user_id)
-    N = len(foundtakes)
-    ret_targets = [{}] * N
-    for i in range(N):
-        take = foundtakes[i]
-        tar = targets.search(q['target_id'] == take['target_id'])
-        if not len(tar) == 1:
-            return jsonify("error on searching for targets")
-        ret_targets[i] = tar['target_id']
-    ret_chapters = get_completed_chapters(ret_targets)
-    ret_modules = get_completed_modules(ret_chapters)
-
-    return jsonify({
-                    "targets": ret_targets,
-                    "chapters": ret_chapters,
-                    "modules": ret_modules
-                   })
+# currently unused, will delete later
+# @app.route('/get_completed_by_user_id/<int:user_id>')
+# @check_user_id
+# def get_completed_by_user_id(user_id):
+#     """
+#     Returns lists of
+#         completed_modules, completed_chapters and completed_targets
+#     by analyzing the structure and takes matching the user_id
+#     """
+#     # search all takes
+#     foundtakes = takes.search(q['user_id'] == user_id)
+#     N = len(foundtakes)
+#     ret_targets = [0] * N
+#     for i in range(N):
+#         take = foundtakes[i]
+#         tar = targets.search(q['target_id'] == take['target_id'])
+#         if not len(tar) == 1:
+#             return jsonify("error on searching for targets")
+#         ret_targets[i] = tar[0]['target_id']
+#     ret_chapters, empty_chapters = get_completed_chapters(ret_targets)
+#     print(ret_chapters, empty_chapters)
+#     ret_modules, no_test_modules = get_completed_modules(ret_chapters,
+#                                                          empty_chapters)
+#     print(ret_modules, no_test_modules)
+#
+#     return jsonify({
+#                     "targets": ret_targets,
+#                     "chapters": ret_chapters,
+#                     "empty_chapters": empty_chapters,
+#                     "modules": ret_modules,
+#                     "no_test_modules": no_test_modules
+#                    })
 
 #   * Cookie Stuff
 

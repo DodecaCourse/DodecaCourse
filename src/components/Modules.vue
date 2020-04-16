@@ -1,13 +1,19 @@
 <template>
-    <div>
-        <div v-bind:key="course.id" v-for="(course, num) in courses">
-            <ModuleItem
-              v-bind:course="course"
-              :completed_levels="completedLevels"
-              :num="num"
-              :active="$route.path.startsWith(course.path)"/>
-        </div>
+  <div>
+    {{completed_chapters}}, {{completed_modules}}<br>
+    {{empty_chapters}}, {{empty_modules}}
+    <div v-bind:key="module.id" v-for="(module, num) in modules">
+        <ModuleItem
+          v-bind:module="module"
+          :completed_chapters="completed_chapters"
+          :empty_chapters="empty_chapters"
+          :completed_modules="completed_modules"
+          :empty_modules="empty_modules"
+          :num="num"
+          :display_check="display_check"
+          :active="$route.path.startsWith(module.path)"/>
     </div>
+  </div>
 </template>
 
 
@@ -27,44 +33,46 @@
           return {
               structure: {
                   "modules": [],
+                  "chapters": [],
                   "targets": []
               },
-              
-              completed_modules: [],
+              display_check: false,
               completed_chapters: [],
-              completed_targets: []
+              empty_chapters: [],
+              completed_modules: [],
+              empty_modules: []
+              
           }
       },
       computed: {
-          courses: function () {
+          modules: function () {
               return structure["modules"];
           }
       },
       methods: {
-        getCompletedCourses: function() {
-        
-          if(this.user.user_id != null){
-            var id = this.user.user_id;
-            var lvls;
-            this.getChapters(id)
-              .then(l => lvls = l);
-            lvls.forEach( lvl => {
-              this.visitedLevels = this.visitedLevels + lvl.level_id;
-              if(lvl.completed){
-                this.completedLevels = this.completedLevels + lvl.level_id;
-              }
-            });
-            console.log(this.visitedLevels);
-            
-          }
+        updateCompleted: function() {
           
+          // this.structure.targets.forEach(target => {
+          //   var take = this.takes[target.id];
+          //   console.log(take);
+          //   this.structure.chapters.forEach(chapter => {
+          //     console.log(chapter);
+          //   });
+          // });
         }
       
       },
-      created: function() {
-        this.updateCurrentUser();
-        if(this.user != null){
-            this.getCompletedCourses();
+      watch: {
+        user: function () {
+          if(this.user != null){
+            this.display_check = true;
+            this.updateCompleted();
+          } else {
+            this.display_check = false;
+          }
+        },
+        takes: function() {
+          this.updateCompleted();
         }
         
       }

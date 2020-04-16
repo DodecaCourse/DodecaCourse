@@ -72,6 +72,21 @@ const router = new VueRouter({
   }
 });
 
+function hasUserQuery(route) {
+  return route.query.usr != null;
+}
+
+router.beforeEach((to, from, next) => {
+  console.log(from)
+  if(!hasUserQuery(to) && hasUserQuery(from)){
+    next({name: to.name, query: from.query});
+  } else {
+    next();
+  }
+});
+
+
+
 new Vue({
   router,
   vuetify,

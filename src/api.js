@@ -95,9 +95,23 @@ export default {
       return this.fetch('get_takes_by_user_id/' + this.user['user_id']);
     },
     updateCurrentUser(){
+      // try gettin from session
       this.fetch('getcurrentuser', true)
         .then(usr => this.user = usr);
+      // try getting from query params
+      if(this.user == null) {
+        // Check if user with query params exists
+        // and update
+        this.getUserID(this.$route.query.usr)
+          .then(usr => {
+            this.user = usr;
+          });
+      }
     },
+    // unused
+    // getCompletedLists(){
+    //   return this.fetch('get_completed_by_user_id/' + this.user['user_id'])
+    // },
     getCurrentUser(){
       return this.fetch('getcurrentuser', true);
     },

@@ -158,18 +158,24 @@
 </script>
 
 <style lang="sass">
-    @import '../node_modules/typeface-roboto/index.css'
-    .article
-        max-width: 43em!important
+  @import '../node_modules/typeface-roboto/index.css'
+  .article
+    max-width: 43em!important
 
-    #player_banner .v-banner__text
-        width: 100%
+  #player_banner .v-banner__text
+    width: 100%
 
-    #player_banner .v-banner__wrapper
-        padding-bottom: 0
-        padding-top: 0
+  #player_banner .v-banner__wrapper
+    padding-bottom: 0
+    padding-top: 0
 
-    .invert-img .v-image__image
-        filter: invert(100%)
+      
+  .theme--dark
+    .v-banner__wrapper
+      background-color: #121212
+    .v-banner__wrapper .v-sheet
+      background-color: #121212
 
+  .invert-img .v-image__image
+    filter: invert(100%)
 </style>
