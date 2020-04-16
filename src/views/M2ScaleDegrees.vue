@@ -59,7 +59,7 @@
                 complicated chromatic music. A minor third can be labelled as »Me« (or b3) or a
                 raised fourth scale degree can labelled as »Fi« (or #4) for example.</p>
             <p>However, we must
-                walk before we can run so in this course we focus
+                walk before we can run so in the Dodeca course we focus
                 specifically on the scale degrees of the major and minor scales (the
                 minor scale is introduced in Module 5). These two scales form the
                 backbone of so many styles of music so they’re the perfect place to

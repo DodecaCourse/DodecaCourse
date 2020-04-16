@@ -138,7 +138,7 @@
         {
           "id": 5002,
           "title": "Get Playing",
-          "path": "/playing"
+          "path": "/play"
         }
       ]
     }

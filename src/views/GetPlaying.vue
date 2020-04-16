@@ -4,7 +4,7 @@
             <h1>What's next?</h1>
             <h2>Get Playing</h2>
             <p>
-                Having finished this course, you probably acquired a whole new feeling
+                Having finished the Dodeca course, you probably acquired a whole new feeling
                 for each scale degree. You've come far already, but you're still at the
                 beginning of your journey, as there's a lot more to discover. How does the feeling
                 of a scale degree change when you hold it over a chord progression? Do you feel
