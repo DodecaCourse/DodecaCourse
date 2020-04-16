@@ -19,6 +19,7 @@
                               <v-text-field
                                 label="Username"
                                 name="txtfld"
+                                autofocus
                                 v-model="txtfld"
                                 @input="updateEnableLogin"
                                 append-icon="mdi-account"
