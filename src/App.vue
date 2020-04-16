@@ -6,7 +6,7 @@
                 clipped
         >
             <v-layout align-center justify-space-between column fill-height>
-            <v-list dense>
+            <v-list dense width="100%">
                 <v-list-item to="/" link>
                     <v-list-item-action>
                         <v-icon>mdi-book-music</v-icon>
