@@ -57,7 +57,7 @@
             <ol>
                 <li><p><b>Listen to the
                     <i>I - IV - V - I</i> Progression:</b> Like with the internalisation exercises (and
-                    all other exercises in the course) just listen to the <i>I - IV - V - I</i>
+                    all other exercises in the Dodeca course) just listen to the <i>I - IV - V - I</i>
                     progression while it outlines the key.</p>
                 </li>
                 <li><p><b>Listen for

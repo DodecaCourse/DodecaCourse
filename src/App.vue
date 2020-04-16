@@ -5,6 +5,7 @@
                 app
                 clipped
         >
+            <v-layout align-center justify-space-between column fill-height>
             <v-list dense>
                 <v-list-item to="/" link>
                     <v-list-item-action>
@@ -24,6 +25,10 @@
                     </v-list-item-content>
                 </v-list-item>
             </v-list>
+            <div class="justify-end v-footer" style="text-align: center" :class="$vuetify.theme.dark ? 'theme--dark' : 'theme--light'">
+                <span>Structure & Content based on <a href="https://eartraininghq.com/">Ear Training HQ</a></span>
+            </div>
+            </v-layout>
         </v-navigation-drawer>
 
         
@@ -35,7 +40,8 @@
                 dense
         >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-            <v-toolbar-title><b>FETT</b></v-toolbar-title>
+            <v-toolbar-title><b>Dodeca</b></v-toolbar-title>
+            <i class="mx-2 hidden-xs-only">Hearing is Relative!</i>
             <v-spacer></v-spacer>
             <template v-if="!connection">
               <v-chip
@@ -99,8 +105,8 @@
         </v-content>
 
         <v-footer app>
-            <span><router-link to="/impressum.html" class="pr-1">Impressum & Datenschutz</router-link>
-                &copy; 2020, Structure & Content based on <a href="https://eartraininghq.com/">Ear Training HQ</a></span>
+            <span>&copy;2020 <router-link to="/impressum.html" class="pr-1">Impressum & Datenschutz</router-link>
+                </span>
         </v-footer>
     </v-app>
 </template>

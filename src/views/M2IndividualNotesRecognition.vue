@@ -5,7 +5,7 @@
             <h2>Individual Note Recognition Exercises</h2>
             <h3></h3>
             <p>
-                You'll find recognition exercises in every module of this course
+                You'll find recognition exercises in every module of the Dodeca course
                 from here on. The idea behind recognition exercises is
                 simple: listen to a sound that you've internalised and try to
                 recognise what it is. After you've heard it played you can

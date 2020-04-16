@@ -7,7 +7,7 @@
                 you the tools you need to identify any given note. You’ll:</p>
             <ul>
                 <li>discover the
-                    system that we use in this course - called scale degrees - to
+                    system that we use in the Dodeca course - called scale degrees - to
                     identify any note we hear
                 </li>
                 <li>

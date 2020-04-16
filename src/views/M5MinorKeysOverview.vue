@@ -5,7 +5,7 @@
             <h2>Overview</h2>
             <h3>Recognising Notes, Melodies & Chords</h3>
             <p>
-                Congratulations! You've made it to the fifth and final module of this course!
+                Congratulations! You've made it to the fifth and final module of the Dodeca course!
             </p>
             <p>
                 Having completed the first four you've done all the hard work. You've laid the foundation that all

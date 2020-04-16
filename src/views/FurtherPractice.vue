@@ -4,7 +4,7 @@
             <h1>What's next?</h1>
             <h2>Further Practice</h2>
             <p>
-                Working through this course, you built a great foundation for your
+                Working through the Dodeca course, you built a great foundation for your
                 future ear training. You learned the basic concepts and have
                 recognized why relating your ear training exercises to a
                 tonic is so important.
