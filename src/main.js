@@ -1,7 +1,8 @@
-import Vue from 'vue'
-import Home from './views/Home.vue'
-import App from './App.vue'
-import About from './views/About.vue'
+import Vue from 'vue';
+import Introduction from './views/Introduction.vue';
+import Home from './views/Home.vue';
+import App from './App.vue';
+import About from './views/About.vue';
 import VueRouter from "vue-router";
 import vuetify from './plugins/vuetify';
 import M1TonicInternalizationOverview from "./views/M1TonicInternalizationOverview";
@@ -36,7 +37,8 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/', component: Home },
+    { path: '/', component: Introduction },
+    { path: '/home', component: Home},
     { path: '/about', component: About },
     { path: '/tonic-internalization/overview', component: M1TonicInternalizationOverview},
     { path: '/tonic-internalization/tonic', component: M1TheTonic},
@@ -72,12 +74,14 @@ const router = new VueRouter({
   }
 });
 
+
 function hasUserQuery(route) {
   return route.query.usr != null;
 }
 
+// Code to keep User Query Parameter
 router.beforeEach((to, from, next) => {
-  console.log(from)
+  // console.log(from)
   if(!hasUserQuery(to) && hasUserQuery(from)){
     var toWithQuery = Object.assign({}, to, {query: from.query});
     next(toWithQuery);

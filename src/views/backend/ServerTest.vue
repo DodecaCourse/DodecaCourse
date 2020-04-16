@@ -1,7 +1,7 @@
 <template>
 
   <div class="article">
-    <h1>Hello World</h1>
+    <h1>Hello World 👂</h1>
     <v-chip
       v-if="connection"
       class="ma-2"
