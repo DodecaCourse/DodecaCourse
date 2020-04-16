@@ -104,12 +104,15 @@ export default {
         // and update
         this.getUserID(this.$route.query.usr)
           .then(usr => {
-            this.setCurrentUser(usr.user_keyword);
-            this.user = usr;
+            if(usr != null){
+              this.setCurrentUser(usr.user_keyword);
+              this.user = usr;
+            }
           });
       }
     },
     // unused
+    // Test12
     // getCompletedLists(){
     //   return this.fetch('get_completed_by_user_id/' + this.user['user_id'])
     // },
@@ -123,6 +126,9 @@ export default {
     updateTakes(){
       return this.fetch('get_takes_by_user_id/' + this.user['user_id'])
           .then(takes => this.takes = takes);
+    },
+    setLogoffChapter(chapter_id){
+      return this.fetch('set_logoff_chapter/' + this.user['user_id'] + "/" + chapter_id);
     },
     getSettings(){
       return this.fetch('getsettings/' + this.user['user_id']);

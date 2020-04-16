@@ -52,7 +52,7 @@
       },
       methods: {
         updateCompleted: function() {
-          console.log("updating completed chapters and modules. this may take a while...");
+          // console.log("updating completed chapters and modules. this may take a while...");
           
           // reset
           this.completed_chapters = [];

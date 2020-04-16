@@ -12,8 +12,12 @@
         <h2>{{progress.completed}} \ {{progress.all}}</h2>
         <p>You are <b>{{percent.toFixed(1)}}%</b> through! Keep on training!</p>
         <p><i>TODO: Styling </i></p>
-        <v-btn>
-          Continue chapter 3
+        
+        <v-btn v-if="this.user.logoff_chapter == null" to="/introduction">
+          start learning
+        </v-btn>
+        <v-btn v-else to="/introduction">
+          continue chapter {{this.user.logoff_chapter}}
         </v-btn>
       </v-flex>
     </template>
@@ -52,11 +56,10 @@ export default {
   },
   methods: {
     createEarBackgroundString() {
-      console.log("was called")
       var upper = this.percent.toFixed(1);
       var lower = (this.percent + 0.2).toFixed(1);
       var str = `linear-gradient(0deg, ${this.filled_color} ${lower}%, ${this.empty_color} ${upper}%)`;
-      console.log(str);
+      // console.log(str);
       return str;
     },
     getProgress: function() {
@@ -84,10 +87,9 @@ export default {
       };
     }
   },
-  // created: function() {
-  //   this.progress = this.getProgress();
-  //   console.log(this.progress);
-  // },
+  created: function() {
+    this.progress = this.getProgress();
+  },
   watch: {
     takes: function() {
       if(this.user != null){

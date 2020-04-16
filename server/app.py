@@ -79,10 +79,24 @@ def check_target_id(func):
         if not targets.contains(q['target_id'] == kwargs['target_id']):
             app.logger.warning("QUERY: Found invalid target_id "
                                + str(kwargs['target_id'])
-                               + ". chapter does not exist.")
+                               + ". Target does not exist.")
             return jsonify("Found invalid target_id "
                            + str(kwargs['target_id'])
                            + ". Target does not exist.")
+        return func(*args, **kwargs)
+    return decorated
+
+
+def check_chapter_id(func):
+    @wraps(func)
+    def decorated(*args, **kwargs):
+        if not chapters.contains(q['chapter_id'] == kwargs['chapter_id']):
+            app.logger.warning("QUERY: Found invalid chapter_id "
+                               + str(kwargs['chapter_id'])
+                               + ". Chapter does not exist.")
+            return jsonify("Found invalid chapter_id "
+                           + str(kwargs['chapter_id'])
+                           + ". Chapter does not exist.")
         return func(*args, **kwargs)
     return decorated
 
@@ -183,6 +197,7 @@ def generate_user():
             with transaction(users) as tr:
                 tr.insert({'user_keyword': user})
             # db.close()
+            db.storage.flush()
             return jsonify(user)
     raise Exception("Could not allocate another user. All keywords are taken."
                     " You should increase USER_KEYWORD_LENGTH in settings.")
@@ -268,10 +283,29 @@ def get_user_by_key(user_key):
         app.logger.warning('QUERY: Multiple user have the same user_keyword \''
                            + str(user_key) + '\'.\n Returning first found '
                            'instance')
+    lchap = None
+    if 'logoff_chapter' in found[0].keys():
+        lchap = found[0]['logoff_chapter']
     return jsonify({
         'user_id': found[0].eid,
-        'user_keyword': found[0]['user_keyword']
+        'user_keyword': found[0]['user_keyword'],
+        'logoff_chapter': lchap
     })
+
+
+@app.route('/set_logoff_chapter/<int:user_id>/<int:chapter_id>')
+@check_user_id
+@check_chapter_id
+def set_logoff_chapter(user_id, chapter_id):
+    found = users.update({
+                         'logoff_chapter': chapter_id
+                         }, (q['user_id'] == user_id))
+    if len(found) == 0:
+        app.logger.error('QUERY: No user found with user_id ' + str(user_id))
+        return None
+#   return jsonify("success on setting logoff_chapter on user " + str(user_id)
+#                  + " to " + str(chapter_id))
+    db.storage.flush()
 
 
 @app.route('/complete_target/<int:user_id>/<int:target_id>/<int:level>')
