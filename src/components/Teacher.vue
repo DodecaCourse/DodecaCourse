@@ -25,7 +25,7 @@
             </v-btn>
             <v-progress-circular class="my-progress-circular ma-1 text-center" :value="progress"
                                  :color="loaded ? 'primary': 'red'" size="50" :indeterminate="!loaded">
-                <DegreeCirclePictogram :enabled-degrees="chosenDegrees">
+                <DegreeCirclePictogram :enabled-degrees="chosenDegrees" v-show="loaded">
                     <span>{{roundSincePlay}}</span>
                 </DegreeCirclePictogram>
             </v-progress-circular>
