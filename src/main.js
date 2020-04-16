@@ -79,7 +79,8 @@ function hasUserQuery(route) {
 router.beforeEach((to, from, next) => {
   console.log(from)
   if(!hasUserQuery(to) && hasUserQuery(from)){
-    next({name: to.name, query: from.query});
+    var toWithQuery = Object.assign({}, to, {query: from.query});
+    next(toWithQuery);
   } else {
     next();
   }

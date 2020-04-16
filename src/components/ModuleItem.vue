@@ -6,11 +6,16 @@
     <template v-slot:activator>
     
       <v-list-item-action
-        v-if="display_check && !(empty_modules.some(m => m === module.id))"
+        v-if="display_check "
       >
-        <v-icon>
+        <v-icon v-if="!(empty_modules.some(m => m === module.id))">
           {{ completed_modules.some(m => m === module.id) ?
              "mdi-checkbox-marked-outline" : "mdi-checkbox-blank-outline" }}
+        </v-icon>
+        
+        <v-icon v-else>
+          <!-- also looks good without any icons -->
+          mdi-chevron-right
         </v-icon>
       </v-list-item-action>
       <v-list-item-content>
@@ -26,11 +31,14 @@
     >
       <v-list-item-title>{{ chapter.title }}</v-list-item-title>
       
-      <v-icon
-        v-if="display_check && !(empty_chapters.some(c => c === chapter.id))"
+      <v-list-item-action
+        v-if="display_check && !empty_chapters.some(c => c === chapter.id)"
       >
-        {{ completed_chapters.some(c => c === chapter.id) ? "mdi-checkbox-marked-circle-outline" : "mdi-checkbox-blank-circle-outline"}}
-      </v-icon>
+        <v-icon>
+          {{ completed_chapters.some(c => c === chapter.id) ? "mdi-checkbox-marked-circle-outline" : "mdi-checkbox-blank-circle-outline"}}
+        </v-icon>
+        
+      </v-list-item-action>
     </v-list-item>
   </v-list-group>
 

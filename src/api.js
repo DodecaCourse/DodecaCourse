@@ -104,6 +104,7 @@ export default {
         // and update
         this.getUserID(this.$route.query.usr)
           .then(usr => {
+            this.setCurrentUser(usr.user_keyword);
             this.user = usr;
           });
       }
