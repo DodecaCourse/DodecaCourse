@@ -81,10 +81,11 @@ export default {
         var take = this.takes[target.id];
         if (take != null){
           //console.log(take);
-          for(var i=1; i<=target.levels; i++) {
+          for(var i=target.levels; i>=0; i--) {
             if(take[i] != null){
               if (take[i].completed) {
-                count_completed++;
+                count_completed+=i;
+                break;
               }
             }
           }
