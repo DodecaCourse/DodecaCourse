@@ -133,8 +133,11 @@ export default {
           if (self.user.logoff_chapter != null) {
             self.updateChapterInfo(self.user.logoff_chapter)
           }
-        } else
-          self.$router.push("/");
+        } else {
+          if(self.$route.query.usr == null){
+            self.$router.push("/");
+          }
+        }
       });
     
   },
