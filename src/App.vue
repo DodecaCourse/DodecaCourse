@@ -56,10 +56,14 @@
                 <template v-if="userProp == null">
                   <v-btn
                     icon
-                    v-on:click="showAccountSnack=!(showAccountSnack || loginBtnDisabled)"
+                    title="Login with your keyword"
+                    v-on:click="showLoginSnack=!(showLoginSnack || loginBtnDisabled)"
                   >
                     <v-icon>mdi-login</v-icon>
                   
+                  </v-btn>
+                  <v-btn icon title="Get your keyword">
+                    <v-icon>mdi-account-plus</v-icon>
                   </v-btn>
                 </template>
       <template v-else>
@@ -95,8 +99,8 @@
           contact an admin.
         </h2>
       </v-container>
-      <AccountSnack :show="showAccountSnack"
-                    :on-close="function () {showAccountSnack = false}" />
+      <AccountSnack :show="showLoginSnack"
+                    :on-close="function () {showLoginSnack = false}" />
 
     </v-content>
 
@@ -112,7 +116,7 @@
 
   import Modules from './components/Modules'
   import Teacher from './components/Teacher'
-  import AccountSnack from './components/AccountSnack'
+  import LoginSnack from './components/LoginSnack'
   import api from './api.js'
 
   import structure from "../public/structure.json";
@@ -123,7 +127,7 @@
     components: {
       Teacher,
       Modules,
-      AccountSnack
+      AccountSnack: LoginSnack
     },
     props: {
       source: String
@@ -131,7 +135,7 @@
     data: () => ({
       drawer: null,
       curModule: 0,
-      showAccountSnack: false,
+      showLoginSnack: false,
       loginBtnDisabled: false, // workaround against login popping up on logout
       userProp: null,
       takesProp: {}
