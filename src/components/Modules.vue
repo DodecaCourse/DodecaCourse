@@ -59,37 +59,41 @@
                 if (chapter.id === target.chapter_id){
                   
                   var take = this.takes[target.id];
-                  c_empty = false;
-                  m_empty = false;
-                  // does take exist?
-                  if (take != null){
-                    //console.log(take)
-                    if (target.levels === 1) {
-                      if (take[1].completed === false) {
-                        // console.log(target.id, " not completed")
-                        c_compd = false;
-                      }
-                    } else {
-                      // At the moment a target is counted as completed, if at
-                      // least one level is completed
-                      // TODO: Change this behaviour
-                      var t_compd = false;
-                      for (var i=1; i<=target.levels;i++){
-                        if (take[i] != null){
-                          if (take[i].completed === true){
-                            t_compd = true;
-                            break;
+                  
+                  if(target.levels !== 0){
+                    c_empty = false;
+                    m_empty = false;
+                  
+                    // does take exist?
+                    if (take != null){
+                      //console.log(take)
+                      if (target.levels === 1) {
+                        if (take[1].completed === false) {
+                          // console.log(target.id, " not completed")
+                          c_compd = false;
+                        }
+                      } else {
+                        // At the moment a target is counted as completed, if at
+                        // least one level is completed
+                        // TODO: Change this behaviour
+                        var t_compd = false;
+                        for (var i=1; i<=target.levels;i++){
+                          if (take[i] != null){
+                            if (take[i].completed === true){
+                              t_compd = true;
+                              break;
+                            }
                           }
                         }
+                        if (!t_compd){
+                          c_compd = false;
+                        }
                       }
-                      if (!t_compd){
-                        c_compd = false;
-                      }
+                      
+                    } else {
+                      // console.log(target.id, " missing")
+                      c_compd = false;
                     }
-                    
-                  } else {
-                    // console.log(target.id, " missing")
-                    c_compd = false;
                   }
                 }
               });
