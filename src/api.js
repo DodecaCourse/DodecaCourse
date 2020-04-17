@@ -6,20 +6,6 @@ export default {
       debug: true,
       flask_server: 'http://localhost:5000/',
       connection: true,
-      
-      // TODO: Siehe unten
-      // currentuser: 'no current user requested',
-      // allusers: 'no list of all users requested',
-      // allmodules: 'no list of all modules requested',
-      // allchapters: 'no list of all chapters requested',
-      // alltakes: 'no list of all takes requested',
-      // founduser: 'not found',
-      // foundsettings: 'no settings found',
-      // foundchapters: 'no chapters found',
-      // search: '',
-      // cookie: '',
-      // random: 0,
-      // tmp: 'no'
     }
   },
   computed: {
@@ -96,23 +82,25 @@ export default {
     },
     updateCurrentUser(){
       // try gettin from session
-      this.fetch('getcurrentuser', true)
-        .then(usr => this.user = usr);
-      // try getting from query params
-      if(this.user == null) {
-        // Check if user with query params exists
-        // and update
-        this.getUserID(this.$route.query.usr)
-          .then(usr => {
-            if(usr != null){
-              this.setCurrentUser(usr.user_keyword);
-              this.user = usr;
-            }
-          });
-      }
+      return this.fetch('getcurrentuser', true)
+        .then(usr => {
+          this.user = usr
+          // try getting from query params
+          if(this.user == null) {
+            // Check if user with query params exists
+            // and update
+            this.getUserID(this.$route.query.usr)
+              .then(usr => {
+                if(usr != null){
+                  this.setCurrentUser(usr.user_keyword);
+                  this.user = usr;
+                }
+              });
+          }
+      });
+      
     },
-    // unused
-    // Test12
+    // unused // Test
     // getCompletedLists(){
     //   return this.fetch('get_completed_by_user_id/' + this.user['user_id'])
     // },
@@ -147,27 +135,4 @@ export default {
       return this.fetch('unset_complete_target/' + this.user['user_id'] + '/' + target_id + '/' + level)
     }
   },
-  // TODO: Überlegen ob beim mixin von von Daten "vorgeladen" werden
-  // created() {
-  //   // Testing getUserID for user_keyword test
-  //   this.getUserID('test')
-  //     .then(data => (this.founduser = data));
-  //   // Testing allUsers
-  //   this.getAllUsers()
-  //     .then(data => (this.allusers = data));
-  //   // Testing random functionality
-  //   this.getRandom()
-  //     .then(data => (this.random = data.rand));
-  //   // Testing allmodules
-  //   this.getAllmodules()
-  //     .then(data => (this.allmodules = data));
-  //   // Testing allchapters
-  //   this.getAllChapters()
-  //     .then(data => (this.allchapters = data));
-  //   // Testing allchapters
-  //   this.getAllTakes()
-  //     .then(data => (this.alltakes = data));
-  //
-  //   this.updateCurrentUser();
-  // }
 }

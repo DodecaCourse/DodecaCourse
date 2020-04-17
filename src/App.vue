@@ -115,6 +115,8 @@
   import AccountSnack from './components/AccountSnack'
   import api from './api.js'
 
+  import structure from "../public/structure.json";
+  
   export default {
     name: 'Dodeca',
     mixins: [api],
@@ -151,11 +153,42 @@
         } else {
           this.takes = {}
         }
+      },
+      $route: function()  {
+        var logoff_id = null;
+        // console.log(this.$route.path);
+        structure["modules"].forEach(module => {
+          module.chapters.forEach(chapter => {
+            // console.log(module.path + chapter.path);
+            if (this.$route.path.startsWith(module.path + chapter.path)) {
+              logoff_id = chapter.id;
+            }
+          });
+        });
+        if(logoff_id != null){
+          //alert(logoff_id);
+          // Problem: user is not defined anymore on beforeDetroy
+          // issue an extra updateCurrentUser()?
+          // this.updateCurrentUser(); doesnt Work
+          // maybe run this inside App.vue?
+          // (was inside ModuleItem before)
+          
+          // Problem: The view function did not return a valid response.
+          // The function either returned None or ended without a return statement.
+          // Meaning that the flask app cant build a response to a destroyed
+          // application
+          // Tried removing return statements
+          
+          // For now, trying with a watch on route!
+          // (was inside beforeDestroy before)
+          this.userProp.logoff_chapter = logoff_id;
+          this.setLogoffChapter(logoff_id);
+        }
       }
     },
     created: function() {
       this.updateCurrentUser()
-    }
+    },
   }
 
 </script>

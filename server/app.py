@@ -286,6 +286,7 @@ def get_user_by_key(user_key):
     lchap = None
     if 'logoff_chapter' in found[0].keys():
         lchap = found[0]['logoff_chapter']
+        print("no logoff chapter found")
     return jsonify({
         'user_id': found[0].eid,
         'user_keyword': found[0]['user_keyword'],
@@ -299,13 +300,13 @@ def get_user_by_key(user_key):
 def set_logoff_chapter(user_id, chapter_id):
     found = users.update({
                          'logoff_chapter': chapter_id
-                         }, (q['user_id'] == user_id))
+                         }, eids=[user_id])
     if len(found) == 0:
         app.logger.error('QUERY: No user found with user_id ' + str(user_id))
-        return None
-#   return jsonify("success on setting logoff_chapter on user " + str(user_id)
-#                  + " to " + str(chapter_id))
+        return jsonify(None)
     db.storage.flush()
+    return jsonify("success on setting logoff_chapter on user " + str(user_id)
+                   + " to " + str(chapter_id))
 
 
 @app.route('/complete_target/<int:user_id>/<int:target_id>/<int:level>')

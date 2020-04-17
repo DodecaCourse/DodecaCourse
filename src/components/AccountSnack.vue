@@ -123,7 +123,7 @@
           generate: function() {
             this.generateUser()
               .then(u => {
-                console.log(u);
+                //console.log(u);
                 this.setCurrentUser(u)
                   .then(res => {
                     console.log("Result:", res);

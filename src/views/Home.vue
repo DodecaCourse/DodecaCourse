@@ -5,19 +5,19 @@
         👂 <!-- TODO: Icon finden -->
       </div>
       <v-flex class="article" xs20>
-    
-        
-        <h1>Hi!</h1>
+        <h1>{{this.progress.completed === 0 ? "Welcome!" : "Welcome back!"}}</h1>
         <p>You are logged in as <b>{{user.user_keyword}}</b>!</p>
-        <h2>{{progress.completed}} \ {{progress.all}}</h2>
-        <p>You are <b>{{percent.toFixed(1)}}%</b> through! Keep on training!</p>
+        <template v-if="this.progress.completed !== 0">
+          <h2>{{progress.completed}} \ {{progress.all}}</h2>
+          <p>You are <b>{{percent.toFixed(1)}}%</b> through! Keep on training!</p>
+        </template>
         <p><i>TODO: Styling </i></p>
         
-        <v-btn v-if="this.user.logoff_chapter == null" to="/introduction">
+        <v-btn v-if="this.user.logoff_chapter == null || this.chap == null" to="/">
           start learning
         </v-btn>
-        <v-btn v-else to="/introduction">
-          continue chapter {{this.user.logoff_chapter}}
+        <v-btn v-else :to="this.chap.path">
+          continue chapter <b>{{this.chap.num}}</b>: {{this.chap.title}}
         </v-btn>
       </v-flex>
     </template>
@@ -42,13 +42,18 @@ export default {
       },
       empty_color: "#E5E5E5",
       filled_color: "#2B81D6",
-      
-      
+      // TODO: Modify, if character changes
+      offset_top: 15,
+      offset_bot: 15,
+      chap: null
     };
   },
   computed: {
       targets: function() {
         return structure["targets"];
+      },
+      modules: function() {
+        return structure["modules"];
       },
       percent: function() {
         return this.progress.ratio*100;
@@ -56,8 +61,9 @@ export default {
   },
   methods: {
     createEarBackgroundString() {
-      var upper = this.percent.toFixed(1);
-      var lower = (this.percent + 0.2).toFixed(1);
+      var left = 100-this.offset_top-this.offset_bot;
+      var upper = this.percent.toFixed(1)*left/100 + this.offset_bot;
+      var lower = (this.percent + 0.2).toFixed(1)*left/100 + this.offset_bot;
       var str = `linear-gradient(0deg, ${this.filled_color} ${lower}%, ${this.empty_color} ${upper}%)`;
       // console.log(str);
       return str;
@@ -85,10 +91,45 @@ export default {
         completed: count_completed,
         ratio: count_completed/count
       };
+    },
+    updateChapterInfo: function(chapter_id){
+      var num = `${Math.floor(chapter_id/1000)}.${chapter_id%1000}`;
+      this.chap = null;
+      this.modules.forEach(module => {
+        module.chapters.forEach(chapter => {
+          if(chapter.id === chapter_id){
+            this.chap = this.copy(chapter);
+            // modify path and title to also include module
+            this.chap["path"] = module.path + chapter.path;
+            this.chap["title"] = module.title + " / " + chapter.title;
+          }
+        });
+      });
+      
+      if(this.chap != null){
+        this.chap["num"] = num;
+        return this.chap;
+      } else {
+        console.error("no chapter with chapter_id " + chapter_id + " was found");
+        return null;
+      }
+    },
+    copy: function(src) {
+      return Object.assign({}, src);
     }
   },
   created: function() {
     this.progress = this.getProgress();
+    var self = this;
+    this.updateCurrentUser()
+      .then( function() {
+        if (self.user != null) {
+          if (self.user.logoff_chapter != null) {
+            self.updateChapterInfo(self.user.logoff_chapter)
+          }
+        }
+      });
+    
   },
   watch: {
     takes: function() {
