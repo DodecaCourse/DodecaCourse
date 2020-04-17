@@ -5,13 +5,25 @@
       <template v-if="user != null">
           <h1>{{this.progress.completed === 0 ? "Welcome!" : "Welcome back!"}}</h1>
           <p>You are logged in as <b>{{user.user_keyword}}</b>!</p>
-          <v-img src="/img/ear.svg"></v-img>
-          <div id="ear" :style="{ 'background-image': this.createEarBackgroundString() }">
+          <object
+            type="image/svg+xml"
+            id="ear"
+            height="400"
+            :style="{ 'background-image': this.createEarBackgroundString() }"
+          >
+            Ear
+          </object>
+          <!-- <div id="ear" :style="{ 'background-image': this.createEarBackgroundString() }"> -->
             <!-- TODO: Icon finden 👂 -->
-          </div>
+          <!-- </div> -->
+          <br>
+          <br>
           <template v-if="this.progress.completed !== 0">
             <h2>{{progress.completed}} \ {{progress.all}}</h2>
-            <p>You are <b>{{percent.toFixed(1)}}%</b> through! Keep on training!</p>
+            <p>You are <b>{{percent.toFixed(1)}}%</b> through!</p>
+            <p v-if="ratio !== 1">Keep on training!</p>
+            <p v-else>Well done!</p>
+            <!-- TODO: funktioniert noch nicht -->
           </template>
 
           <v-btn v-if="this.user.logoff_chapter == null || this.chap == null" to="/">
@@ -64,8 +76,8 @@ export default {
   methods: {
     createEarBackgroundString() {
       // TODO: Modify, if character changes
-      const offset_bottom_percent = 24;
-      const offset_top_percent = 80.3;
+      const offset_bottom_percent = 4.5;
+      const offset_top_percent = 95.2;
       const to_set = offset_top_percent - offset_bottom_percent;
       const lower = (this.percent * to_set / 100 + offset_bottom_percent).toFixed(1);
       let upper;
@@ -160,11 +172,21 @@ export default {
 
 <style scoped>
   #ear {
-    /*background-image: linear-gradient(180deg, #E5E5E5 41.3%, #2B81D6 41.4%);*/
-    /* */
+    /* fill: linear-gradient(180deg, #E5E5E5 41.3%, #2B81D6 41.4%);
+    height: 50%;
+    
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
+    /* height: 100px; */
+    mask: url(/img/ear.svg);
+    background: black;
+    mask-size: 100% 100%;
   }
+  
+  /* .icon {
+    fill: url("data:image/svg+xml,<svg xmlns='img/ear.svg'><linearGradient id='grad'><stop offset='0%' stop-color='%23ff00cc'/><stop offset='100%' stop-color='%23333399'/></linearGradient></svg>#grad") purple;
+
+  } */
   /* TODO: Support dark-theme */
   /* #ear .theme--dark {
     background-image:linear-gradient(180deg, #363636 49.9%, rgba(43,129,214) 50.1%);
