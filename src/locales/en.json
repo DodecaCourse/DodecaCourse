@@ -1,6 +1,9 @@
 {
   "course-name": "DODECA",
-  "home": {
+  "app": {
+
+  },
+  "introduction": {
     "100h1": {
       "101b": "@:course-name",
       "102n": "Functinal Ear Training Course"
@@ -34,5 +37,49 @@
     "2800p": "Over the coming weeks and months you’re going to transform your playing using a tonality based approach to ear training. You’ll develop a fast and accurate sense of relative pitch that will allow you to quickly and easily recognise any notes or chords you hear or wish to play. ",
     "2900p": "If that all makes sense, it’s time to dive in. Click the link below to continue onto the first module where you’ll learn to recognise the tonic (so you have your reference point for all future ear training). ",
     "3000v-btn": "Start module 1"
+  },
+  "m1": {
+    "overview": {
+      "100h1": "1. Recognising the Tonic",
+      "200h2": "Overview",
+      "300p": "In this module we’ll lay the foundation for fast, effective ear training. You’ll:",
+      "400ul": {
+        "500li": "discover the note that acts as the focal point of this entire approach to ear training (and the focal point of all effective ear training approaches) - called the tonic. ",
+        "600li": "begin training your ears by memorising the sound of the tonic so you are able to identify it in music. "
+      },
+      "700h2": "Method",
+      "800ol": {
+        "900li": {
+          "1000p": "Read through the lesson on the tonic to find out what the tonic is and why it’s at the centre of an effective ear training approach."
+        },
+        "1100li": {
+          "1200p": "Read the exercise explanations for internalisation exercises."
+        },
+        "1300li": {
+          "1400p": "Start with the tonic internalisation exercise."
+        },
+        "1500li": {
+          "1600p": "Repeat until you feel ready to attempt the tonic internalisation test."
+        },
+        "1700li": {
+          "1800p": "Attempt the tonic internalisation test."
+        },
+        "1900li": {
+          "2000p": "If you pass the test, continue on to module 2. If you do not, refer to the troubleshooting section"
+        }
+      },
+      "2100v-btn": "Next Chapter"
+    },
+    "the-tonic": {
+      "100h1":"1. Recognising the Tonic",
+      "200h2":"The Tonic",
+      "300p":" The tonic is the central note of a piece of music. It sounds the most stable and at rest. The tonic is generally played at the end of a piece of music to give it a sense of resolution and acts as the reference point for the key of a piece of music: the tonic of a piece in the key of A major is A. ",
+      "400p":"The tonic is the essential starting point for ear training because of that stable sound it has. With a little practice we can learn to identify the tonic when we hear it in music and then we can use it as a reference point to identify every other note and chord we hear. ",
+      "500p":"Once you’re able to identify the tonic you can start learning to identify other notes and chords based on the interval that separates them from the tonic. But we’ll get to that in the next module. ",
+      "600p":"First we need to be able to confidently identify which note is the tonic. And that’s precisely the goal of this first module.",
+      "700p":"We’ll do that with an exercise called an internalisation exercise. ",
+      "800v-btn":"Next Chapter"
+    }
   }
+
 }

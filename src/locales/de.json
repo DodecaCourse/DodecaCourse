@@ -1,9 +1,9 @@
 {
   "course-name": "DODECA",
-  "home": {
+  "introduction": {
     "100h1": {
       "101b": "@:course-name",
-      "102n": "Kurs Funktionale Gehörbildung"
+      "102n": "Funktionale Gehörbildung Kurs"
     },
     "200h2": "Die Fähigkeit die du erlangen wirst und der Weg dahin",
     "300p": "Als du dein Instrument zum ersten Mal in die Hand genommen hast, wolltest du sicher sofort anfangen, deine Lieblingsmusik zu spielen. Dann hast du bemerkt, dass es unmöglich ist, diese Melodien zu spielen, bevor du die Noten gelernt und ein wenig Technik entwickelt hast.",
@@ -36,5 +36,48 @@
     "2800p": "In den kommenden Wochen und Monaten werden Sie Ihr Spiel durch einen auf Tonalität basierenden Ansatz für das Gehörtraining verändern. Sie werden einen schnellen und genauen Sinn für die relative Tonhöhe entwickeln, der es Ihnen erlaubt, schnell und einfach.",
     "2900p": "Wenn das geklärt ist, kann es endlich losgehen. Drücke den Knopf und fange mit dem ersten Modul an, in dem du lernen wirst die Tonika zu erkennen. Sie ist der Bezugspunkt für alle folgenden Gehörübungen.",
     "3000v-btn": "Starte Modul 1"
+  },
+  "m1": {
+    "overview": {
+      "100h1": "1. die Tonika erkennen",
+      "200h2": "Überblick",
+      "300p": "In diesem Modul legen wir den Grundstein für ein schnelles, effektives Gehörtraining. Sie werden:",
+      "400ul": {
+        "500li": "Entdecken Sie die Note, die den Mittelpunkt dieses gesamten Ansatzes für das Gehörtraining (und den Mittelpunkt aller effektiven Ansätze für das Gehörtraining) bildet - das so genannte Tonikum. ",
+        "600li": "Beginnen Sie mit dem Training Ihrer Ohren, indem Sie sich den Klang der Tonika einprägen, damit Sie ihn in der Musik identifizieren können. "
+      },
+      "700h2": "Methode",
+      "800ol": {
+        "900li": {
+          "1000p": "Lesen Sie sich die Lektion über den Toniker durch, um herauszufinden, was der Toniker ist und warum er im Mittelpunkt eines effektiven Gehörbildungsansatzes steht."
+        },
+        "1100li": {
+          "1200p": "Lesen Sie die Übungserklärungen zu den Internalisierungsübungen."
+        },
+        "1300li": {
+          "1400p": "Beginnen Sie mit der Tonika-Internalisierungsübung."
+        },
+        "1500li": {
+          "1600p": "Wiederholen Sie dies, bis Sie sich bereit fühlen, den Tonika-Internalisierungstest zu versuchen."
+        },
+        "1700li": {
+          "1800p": "Versuchen Sie den Tonika-Internalisierungstest."
+        },
+        "1900li": {
+          "2000p": "Wenn Sie die Prüfung bestehen, fahren Sie mit Modul 2 fort. Wenn Sie die Prüfung nicht bestehen, lesen Sie den Abschnitt zur Fehlerbehebung."
+        }
+      },
+      "2100v-btn": "Nächstes Kapitel"
+    },
+    "the-tonic": {
+      "100h1": "1. Die Tonika erkennen",
+      "200h2": "Die Tonika",
+      "300p": " Die Tonika ist die zentrale Note eines Musikstücks. Er klingt am stabilsten und in Ruhe. Die Tonika wird im Allgemeinen am Ende eines Musikstücks gespielt, um ihm ein Gefühl der Auflösung zu geben, und dient als Bezugspunkt für die Tonart eines Musikstücks: Die Tonika eines Stücks in der Tonart A-Dur ist A. ",
+      "400p": "Die Tonika ist aufgrund ihres stabilen Klangs der wesentliche Ausgangspunkt für das Gehörtraining. Mit ein wenig Übung können wir lernen, die Tonika zu identifizieren, wenn wir sie in der Musik hören, und dann können wir sie als Bezugspunkt verwenden, um jede andere Note und jeden anderen Akkord, den wir hören, zu identifizieren. ",
+      "500p": "Sobald Sie in der Lage sind, die Tonika zu identifizieren, können Sie damit beginnen, zu lernen, andere Noten und Akkorde anhand des Intervalls, das sie von der Tonika trennt, zu identifizieren. Aber dazu kommen wir im nächsten Modul. ",
+      "600p": "Zuerst müssen wir in der Lage sein, sicher zu erkennen, welcher Ton die Tonika ist. Und genau das ist das Ziel dieses ersten Moduls",
+      "700p": "Wir machen das mit einer Übung, die Internalisierungsübung genannt wird. ",
+      "800v-btn": "Nächstes Kapitel"
+    }
   }
 }
