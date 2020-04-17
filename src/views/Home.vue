@@ -1,9 +1,7 @@
 <template>
   <v-layout align-center justify-center row>
     <template v-if="user != null">
-      <div id="ear" :style="{ 'background-image': this.createEarBackgroundString() }">
-        👂 <!-- TODO: Icon finden -->
-      </div>
+      <div class="mdi mdi-ear-hearing" id="ear" :style="{ 'background-image': this.createEarBackgroundString() }" />
       <v-flex class="article" xs20>
     
         
@@ -56,8 +54,11 @@ export default {
   },
   methods: {
     createEarBackgroundString() {
-      var upper = this.percent.toFixed(1);
-      var lower = (this.percent + 0.2).toFixed(1);
+      const offset_bottom_percent = 24;
+      const offset_top_percent = 80.3;
+      const to_set = offset_top_percent - offset_bottom_percent;
+      var upper = (this.percent * to_set / 100 + offset_bottom_percent).toFixed(1);
+      var lower = (this.percent * to_set / 100 + offset_bottom_percent+ 0.2).toFixed(1);
       var str = `linear-gradient(0deg, ${this.filled_color} ${lower}%, ${this.empty_color} ${upper}%)`;
       // console.log(str);
       return str;
