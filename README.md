@@ -32,8 +32,13 @@ pip install -r reqs.txt
 cp server/.env.example .env
 ```
 Change the `SECRET_KEY` if you want to run in production.
-### Run the development server
+### Running the development server
 ```
 cd server
 python app.py
+```
+### Running the production server
+```
+cd server
+gunicorn --bind 0.0.0.0:5000 wsgi
 ```
