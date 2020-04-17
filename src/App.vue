@@ -118,12 +118,10 @@
 
 <script>
 
-  import Modules from './components/Modules'
-  import Teacher from './components/Teacher'
-  import LoginSnack from './components/LoginSnack'
-  import api from './api.js'
-
-  import structure from "../public/structure.json";
+  import Modules from './components/Modules';
+  import Teacher from './components/Teacher';
+  import LoginSnack from './components/LoginSnack';
+  import api from './api.js';
   import RegisterSnack from "./components/RegisterSnack";
   
   export default {
@@ -169,7 +167,7 @@
         if(this.userProp != null){
           var logoff_id = null;
           // console.log(this.$route.path);
-          structure["modules"].forEach(module => {
+          this.modules.forEach(module => {
             module.chapters.forEach(chapter => {
               // console.log(module.path + chapter.path);
               if (this.$route.path.startsWith(module.path + chapter.path)) {

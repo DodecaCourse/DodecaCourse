@@ -22,7 +22,7 @@
           <template v-if="this.progress.completed !== 0">
             <h2>{{progress.completed}} \ {{progress.all}}</h2>
             <p>You are <b>{{percent.toFixed(1)}}%</b> through!</p>
-            <p v-if="ratio !== 1">Keep on training!</p>
+            <p v-if="this.progress.ratio !== 1">Keep on training!</p>
             <p v-else>Well done!</p>
             <!-- TODO: funktioniert noch nicht -->
           </template>
@@ -44,7 +44,7 @@
 
 <script>
 import api from "../api.js";
-import structure from "../../public/structure.json";
+
 export default {
   name: 'Home',
   mixins: [api],
@@ -64,12 +64,6 @@ export default {
     };
   },
   computed: {
-      targets: function() {
-        return structure["targets"];
-      },
-      modules: function() {
-        return structure["modules"];
-      },
       percent: function() {
         return this.progress.ratio*100;
       }
