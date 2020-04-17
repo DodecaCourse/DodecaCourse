@@ -1,7 +1,8 @@
-import Vue from 'vue'
-import Home from './views/Introduction.vue'
-import App from './App.vue'
-import About from './views/About.vue'
+import Vue from 'vue';
+import Introduction from './views/Introduction.vue';
+import Home from './views/Home.vue';
+import App from './App.vue';
+import About from './views/About.vue';
 import VueRouter from "vue-router";
 import vuetify from './plugins/vuetify';
 import M1TonicInternalizationOverview from "./views/M1TonicInternalizationOverview";
@@ -28,7 +29,6 @@ import GetPlaying from "./views/GetPlaying";
 import i18n from './i18n'
 
 
-
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
@@ -37,7 +37,8 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/', component: Home },
+    { path: '/', component: Introduction },
+    { path: '/home', component: Home},
     { path: '/about', component: About },
     { path: '/tonic-internalization/overview', component: M1TonicInternalizationOverview},
     { path: '/tonic-internalization/tonic', component: M1TheTonic},
@@ -71,6 +72,25 @@ const router = new VueRouter({
     }
   }
 });
+
+
+// uncomment if you want to keep query params after leaving the site
+// function hasUserQuery(route) {
+//   return route.query.usr != null;
+// }
+
+// Code to keep User Query Parameter
+// router.beforeEach((to, from, next) => {
+//   // console.log(from)
+//   if(!hasUserQuery(to) && hasUserQuery(from)){
+//     var toWithQuery = Object.assign({}, to, {query: from.query});
+//     next(toWithQuery);
+//   } else {
+//     next();
+//   }
+// });
+
+
 
 new Vue({
   router,

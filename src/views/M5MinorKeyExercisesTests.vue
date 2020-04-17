@@ -1,7 +1,7 @@
 <template>
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
-            <h1>5. Minor Keys</h1>
+            <h1 class="hidden-xs-only">5. Minor Keys</h1>
             <h2>Scale Degrees</h2>
             <h3>Internalisation</h3>
             <p>
@@ -205,7 +205,7 @@
             <p>
                 <InlineConfigurator :config="{degrees: [0, 2, 3, 5, 7, 8, 10],
                 diatonics: [0, 2, 3, 5, 7, 8, 10], count: 3}"
-                                    :prog-id="8001"
+                                    :prog-id="13001"
                                     t-type="chord-recognition" scale="aeolian">
                     Diatonic Triads
                 </InlineConfigurator>
@@ -213,7 +213,7 @@
             <p>
                 <InlineConfigurator :config="{degrees: [0, 2, 3, 5, 7, 8, 10],
                 diatonics: [0, 2, 3, 5, 7, 8, 10], count: 4}"
-                                    :prog-id="8002"
+                                    :prog-id="13002"
                                     t-type="chord-recognition" scale="aeolian">
                     Diatonic 7th Chords
                 </InlineConfigurator>

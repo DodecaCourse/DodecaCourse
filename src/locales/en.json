@@ -1,10 +1,14 @@
 {
+  "course-name": "DODECA",
   "home": {
-    "100h1": "Functional Ear Training",
+    "100h1": {
+      "101b": "@:course-name",
+      "102n": "Functinal Ear Training Course"
+    },
     "200h2": "The Skill You’ll Learn And The Approach You’ll Use",
     "300p": "When you first picked up your instrument I’m sure you wanted to jump right in and start playing your favourite tunes. Then you discovered that it’s impossible to play those tunes until you’ve learned the notes and developed a little bit of technique.",
     "400p": "Ear training is just the same. You might want to jump straight into it so you can begin the wonderful transformation that awaits you (and I want you to as well!) but there are a couple of things you need to understand first, so getting started is nice and easy (and not frustrating!). Fortunately, it will only take a few minutes to learn everything you need to so you can dive in and we’ll cover it all in this short introduction. ",
-    "500p": "You’re about to learn about the specific skill you’ll develop in the »Dodeca - Hearing is Relative« course (called relative pitch) and the approach you’ll use to develop it (called tonality based ear training). Even if you’re an old hand when it comes to ear training I recommend you give it a quick read as you’ll learn why using a tonality based approach to develop relative pitch is absolutely essential if you want to experience great results with ear training. ",
+    "500p": "You’re about to learn about the specific skill you’ll develop in the »@:course-name - Hearing is Relative« course (called relative pitch) and the approach you’ll use to develop it (called tonality based ear training). Even if you’re an old hand when it comes to ear training I recommend you give it a quick read as you’ll learn why using a tonality based approach to develop relative pitch is absolutely essential if you want to experience great results with ear training. ",
     "600h3": "What is relative pitch?",
     "700p": "For those new to ear training relative pitch can appear a little counterintuitive. ",
     "800p": "With relative pitch you won’t learn to recognise the notes in music themselves. Instead you’ll learn to recognise the relationships between them (relative pitch - relationships, makes sense right?). ",

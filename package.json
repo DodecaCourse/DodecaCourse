@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tonaljs/tonal": "^3.6.0",
+    "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
     "vue-i18n": "^8.0.0",
@@ -38,6 +39,9 @@
     "env": {
       "node": true
     },
+    "plugins": [
+      "vue"
+    ],
     "extends": [
       "plugin:vue/essential",
       "eslint:recommended"

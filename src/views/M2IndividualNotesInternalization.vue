@@ -1,7 +1,7 @@
 <template>
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
-            <h1>2. Recognising Individual Notes</h1>
+            <h1 class="hidden-xs-only">2. Recognising Individual Notes</h1>
             <h2>Internalisation</h2>
             <h3>Exercise Description</h3>
             <p>
@@ -95,7 +95,7 @@
             <ol>
                 <li><p><b>Listen to the
                     <i>I - IV - V</i> Progression:</b> Like with the internalisation exercises (and
-                    all other exercises in the course) just listen to the <i>I - IV - V</i>
+                    all other exercises in the Dodeca course) just listen to the <i>I - IV - V</i>
                     progression while it outlines the key.</p></li>
                 <li><p><b>Listen for
                     the sound of the target scale degree and hear it clearly in your
@@ -131,7 +131,7 @@
             <ol>
                 <li><p><b>Listen to the
                     <i>I - IV - V</i> Progression:</b> Like with the internalisation exercises (and
-                    all other exercises in the course) just listen to the <i>I - IV - V</i>
+                    all other exercises in the Dodeca course) just listen to the <i>I - IV - V</i>
                     progression while it outlines the key.</p></li>
                 <li><p><b>Listen for
                     the sound of the tonic and hear it clearly in your head:</b> wait until

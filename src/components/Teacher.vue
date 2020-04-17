@@ -25,7 +25,7 @@
             </v-btn>
             <v-progress-circular class="my-progress-circular ma-1 text-center" :value="progress"
                                  :color="loaded ? 'primary': 'red'" size="50" :indeterminate="!loaded">
-                <DegreeCirclePictogram :enabled-degrees="chosenDegrees">
+                <DegreeCirclePictogram :enabled-degrees="chosenDegrees" v-show="loaded">
                     <span>{{roundSincePlay}}</span>
                 </DegreeCirclePictogram>
             </v-progress-circular>
@@ -87,7 +87,7 @@
                 hidden: false,
                 loaded: false,
                 playing: false,
-
+                
                 // references to cancel setTimeout
                 timeoutRef: null,
                 progressRef: null,
@@ -100,6 +100,8 @@
                 fullCadenceEvery: 8,
                 level: 1,
                 scale: MODE_AEOLIAN,
+
+                curConfigurator: null,
                 // Recognition interval
                 intervals: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
                 // Targeting tone
@@ -109,9 +111,13 @@
                 diatonic: 0,
                 diatonics: [0],
                 diatonicCount: 3,
-
+                
+                // Set to true when debugging
+                debug: false,
+                
                 // exercise state
                 roundSincePlay: 0,
+                correctSincePlay: 0,
                 key: "", // ['C', 'C#', 'D', ...]
                 progress: 0, // progress in percent
                 roundDuration: 0,
@@ -305,8 +311,15 @@
                 else if (this.type === RECOGNITION_SINGLE_TEST) return 32;
                 else if (this.type === RECOGNITION_INTERVAL_TEST) return 32;
                 else if (this.type === TARGET_TONE_TEST) return 12;
-                else if (this.type === CHORD_QUALITY_TEST) return 12;
+                else if (this.type === CHORD_QUALITY_TEST) return 16;
                 else if (this.type === CHORD_RECOGNITION_TEST) return 32;
+                return -1;
+            },
+            correctToSucceed: function () {
+                if (this.type === RECOGNITION_SINGLE_TEST) return 27;
+                else if (this.type === RECOGNITION_INTERVAL_TEST) return 27;
+                else if (this.type === CHORD_QUALITY_TEST) return 13;
+                else if (this.type === CHORD_RECOGNITION_TEST) return 27;
                 return -1;
             },
             circleLabels: function () {
@@ -528,7 +541,9 @@
                 this.solution = [this.normalizeDegree(degree), this.normalizeDegree(secondDegree)];
 
                 if (this.useInput !== NO_INPUT) {
-                    console.log("USE_INPUT");
+                    if(this.debug) {
+                      console.log("USE_INPUT");
+                    }
                     this.roundDuration = posOff;
                 } else {
                     posOff = this.rest(posOff, 2 * 4);
@@ -567,7 +582,9 @@
                 this.solution = [chordType];
 
                 if (this.useInput !== NO_INPUT) {
-                    console.log("USE_INPUT");
+                    if(this.debug){
+                      console.log("USE_INPUT");
+                    }
                     this.roundDuration = posOff;
                 } else {
                     posOff = this.rest(posOff, 2 * 4);
@@ -597,7 +614,9 @@
 
                 this.solution = [diatonic];
                 if (this.useInput !== NO_INPUT) {
-                    console.log("USE_INPUT");
+                    if(this.debug){
+                      console.log("USE_INPUT");
+                    }
                     this.roundDuration = posOff;
                 } else {
                     posOff = this.rest(posOff, 2 * 4);
@@ -637,7 +656,7 @@
             },
             solutionNoInput: function() {
                 /* TODO: Output solution via audio for the user to compare */
-                console.log("SOLUTION_NO_INPUT: ",this.solution);
+                if(this.debug) console.log("SOLUTION_NO_INPUT: ",this.solution);
                 let posOff = this.rest(0,  4);
                 this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
             },
@@ -648,12 +667,13 @@
                     return;
                 }
                 const curSolution = this.solution[this.inputPos];
-                console.log("SOLUTION_INPUT: ",input,curSolution,curSolution === input);
+                if(this.debug) console.log("SOLUTION_INPUT: ",input,curSolution,curSolution === input);
                 if (curSolution === input) {
                     this.inputPos++;
                     if (this.inputPos === this.solution.length) {
                         // finished round
                         let posOff = this.rest(0, 2);
+                        this.correctSincePlay++;
                         this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
                     }
                     return [true, curSolution];
@@ -671,34 +691,41 @@
                 this.stopAllNotes();
                 this.clearTimeouts();
                 if ( 0 < this.stopAfterRounds && this.stopAfterRounds <= this.roundSincePlay) {
-                    // autostop for tests
+                    // autostop for tests -> test finished
                     this.playing = false;
+                    if (this.correctToSucceed > -1 && this.curConfigurator != null) {
+                        this.curConfigurator.setCompleted(this.level,
+                            this.correctSincePlay >= this.correctToSucceed);
+                    }
                 }
                 if (this.playing) this.playRound();
             },
+            setConfigurator: function (configurator) {
+                this.curConfigurator = configurator;
+            },
             // setup functions for different practice/test scenarios
             setupInternalization: function(degree, autoplay, level, scale) {
-                console.log("setupInternalization", degree);
+                if(this.debug) console.log("setupInternalization", degree);
                 this.type = INTERNALIZATION;
                 this.chosenDegrees = [degree];
                 this.finishSetup(autoplay, level, scale);
             },
             setupInternalizationTest: function(degree, autoplay, level, scale) {
-                console.log("setupInternalizationTest", degree);
+                if(this.debug) console.log("setupInternalizationTest", degree);
                 this.type = INTERNALIZATION_TEST;
                 this.chosenDegrees = [degree];
                 this.finishSetup(autoplay, level, scale);
             },
 
             setupRecognitionSingle: function(degrees, autoplay, level, scale) {
-                console.log("setupRecognitionSingle", degrees);
+                if(this.debug) console.log("setupRecognitionSingle", degrees);
                 this.type = RECOGNITION_SINGLE;
                 this.chosenDegrees = degrees;
                 this.changeKeyEvery = this.fullCadenceEvery;
                 this.finishSetup(autoplay, level, scale);
             },
             setupRecognitionSingleTest: function(degrees, autoplay, level, scale) {
-                console.log("setupRecognitionSingleTest", degrees);
+                if(this.debug) console.log("setupRecognitionSingleTest", degrees);
                 this.type = RECOGNITION_SINGLE_TEST;
                 this.chosenDegrees = degrees;
                 this.changeKeyEvery = this.fullCadenceEvery;
@@ -706,7 +733,7 @@
             },
 
             setupRecognitionInterval: function(degrees, intervals, autoplay, level, scale) {
-                console.log("setupRecognitionInterval", degrees);
+                if(this.debug) console.log("setupRecognitionInterval", degrees);
                 this.type = RECOGNITION_INTERVAL;
                 this.chosenDegrees = degrees;
                 this.intervals = intervals;
@@ -714,7 +741,7 @@
                 this.finishSetup(autoplay, level, scale);
             },
             setupRecognitionIntervalTest: function(degrees, intervals, autoplay, level, scale) {
-                console.log("setupRecognitionIntervalTest", degrees);
+                if(this.debug) console.log("setupRecognitionIntervalTest", degrees);
                 this.type = RECOGNITION_INTERVAL_TEST;
                 this.chosenDegrees = degrees;
                 this.intervals = intervals;
@@ -723,14 +750,14 @@
             },
 
             setupTargetTone(chordTypes, autoplay, level, scale) {
-                console.log("setupTargetTone", chordTypes);
+                if(this.debug) console.log("setupTargetTone", chordTypes);
                 this.type = TARGET_TONE;
                 this.chosenDegrees = [];
                 this.chordTypes = chordTypes;
                 this.finishSetup(autoplay, level, scale);
             },
             setupTargetToneTest(chordTypes, autoplay, level, scale) {
-                console.log("setupTargetToneTest", chordTypes);
+                if(this.debug) console.log("setupTargetToneTest", chordTypes);
                 this.type = TARGET_TONE_TEST;
                 this.chosenDegrees = [];
                 this.chordTypes = chordTypes;
@@ -738,14 +765,14 @@
             },
 
             setupChordQuality(chordTypes, autoplay, level, scale) {
-                console.log("setupChordQuality", chordTypes);
+                if(this.debug) console.log("setupChordQuality", chordTypes);
                 this.type = CHORD_QUALITY;
                 this.chosenDegrees = [];
                 this.chordTypes = chordTypes;
                 this.finishSetup(autoplay, level, scale);
             },
             setupChordQualityTest(chordTypes, autoplay, level, scale) {
-                console.log("setupChordQualityTest", chordTypes);
+                if(this.debug) console.log("setupChordQualityTest", chordTypes);
                 this.type = CHORD_QUALITY_TEST;
                 this.chosenDegrees = [];
                 this.chordTypes = chordTypes;
@@ -754,7 +781,7 @@
 
             setupChordInternalization(diatonic, degrees, count, autoplay, level, scale) {
                 this.type = CHORD_INTERNALIZATION;
-                console.log("setupChordInternalization", diatonic);
+                if(this.debug) console.log("setupChordInternalization", diatonic);
                 this.chosenDegrees = degrees;
                 this.diatonic = diatonic;
                 this.diatonicCount = count;
@@ -762,7 +789,7 @@
             },
             setupChordRecognition(diatonics, degrees, count, autoplay, level, scale) {
                 this.type = CHORD_RECOGNITION;
-                console.log("setupChordRecognition", diatonics);
+                if(this.debug) console.log("setupChordRecognition", diatonics);
                 this.chosenDegrees = degrees;
                 this.diatonics = diatonics;
                 this.diatonicCount = count;
@@ -771,7 +798,7 @@
             },
             setupChordRecognitionTest(diatonics, degrees, count, autoplay, level, scale) {
                 this.type = CHORD_RECOGNITION_TEST;
-                console.log("setupChordRecognitionTest", diatonics);
+                if(this.debug) console.log("setupChordRecognitionTest", diatonics);
                 this.chosenDegrees = degrees;
                 this.diatonics = diatonics;
                 this.diatonicCount = count;
@@ -843,7 +870,7 @@
                 try {
                     MIDI.stopAllNotes();
                 } catch (e) {
-                    console.log('MIDI.stopAllNotes failed:');
+                    if(this.debug) console.log('MIDI.stopAllNotes failed:');
                 }
             },
             noteOn: function(channel, note, velocity, delay) {
@@ -871,7 +898,7 @@
                     soundfontUrl: "/soundfont/",
                     instrument: "acoustic_grand_piano",
                     onprogress: function (state, progress) {
-                        console.log(state, progress);
+                        if(self.debug) console.log(state, progress);
                         self.progress = progress * 100;
                     },
                     onsuccess: function () {

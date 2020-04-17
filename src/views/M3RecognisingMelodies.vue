@@ -1,7 +1,7 @@
 <template>
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
-            <h1>3. Recognising Melodies</h1>
+            <h1 class="hidden-xs-only">3. Recognising Melodies</h1>
             <h2>2 Note Melody Recognition</h2>
             <p>
                 These exercises are just like the internalisation exercise from the

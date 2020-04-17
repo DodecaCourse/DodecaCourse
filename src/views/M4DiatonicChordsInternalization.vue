@@ -1,7 +1,7 @@
 <template>
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
-            <h1>4. Recognising Chords</h1>
+            <h1 class="hidden-xs-only">4. Recognising Chords</h1>
             <h2>Diatonic Chords Internalisation</h2>
             <p>
                 There is an internalisation exercise for each diatonic triad.

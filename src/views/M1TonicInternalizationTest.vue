@@ -1,7 +1,7 @@
 <template>
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
-            <h1>1. Recognising the Tonic</h1>
+            <h1 class="hidden-xs-only">1. Recognising the Tonic</h1>
             <h2>Test</h2>
             <p>
                 The tonic internalisation test gives you a way to easily tell when
@@ -57,7 +57,7 @@
             <ol>
                 <li><p><b>Listen to the
                     <i>I - IV - V - I</i> Progression:</b> Like with the internalisation exercises (and
-                    all other exercises in the course) just listen to the <i>I - IV - V - I</i>
+                    all other exercises in the Dodeca course) just listen to the <i>I - IV - V - I</i>
                     progression while it outlines the key.</p>
                 </li>
                 <li><p><b>Listen for

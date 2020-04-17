@@ -5,8 +5,17 @@
         <DegreeCirclePictogram v-show="enabledDegrees !== undefined" :enabled-degrees="enabledDegrees">
         </DegreeCirclePictogram>
         <div>
-        <v-btn v-show="levels > 1" :class="i === 0 ? 'mx-1' : 'mr-1'" v-for="(lvl, i) in this.levels" :key="i + 1"
-               @click="level = i + 1" :color="level === i + 1 ? 'primary' : 'secondary'" fab x-small depressed
+        <v-btn v-show="levels > 1" v-for="(lvl, i) in this.levels" :key="i + 1"
+               @click="level = i + 1"
+               :class="{
+                   'finished': takes[progId] !== undefined &&
+                   takes[progId][i+1] !== undefined && takes[progId][i+1].completed,
+                   'mx-1': i === 0,
+                   'mr-1': i > 0,
+                   'dark': $vuetify.theme.dark
+               }"
+               :color="level === i + 1 ? 'primary' : 'secondary'"
+               fab x-small depressed
         class="level">
             {{i + 1}}
         </v-btn>
@@ -18,13 +27,18 @@
         <v-btn v-if="!hideTest" class="ma-1" color="ternary" small elevation="1" v-on:click="onTest">
             Test
         </v-btn>
+            <v-btn v-if="!hideTest && user != null"
+                   title="Mark as completed"
+                   @click="completed = !completed" icon :style="completed ? 'color: green' : ''">
+                <v-icon>{{completed ? 'mdi-check-circle' : 'mdi-check-circle-outline'}}</v-icon>
+            </v-btn>
         </div>
     </v-card>
 </template>
 
 <script>
-    import structure from "../../public/structure.json"
     import DegreeCirclePictogram from "./DegreeCirclePictogram";
+    import api from "../api";
 
     const INTERNALIZATION = 0;
     const RECOGNITION_SINGLE = 1;
@@ -37,6 +51,7 @@
     export default {
         name: "InlineConfigurator",
         components: {DegreeCirclePictogram},
+        mixins: [api],
         props: {
             tType: {
                 type: String,
@@ -57,7 +72,7 @@
             },
             scale: {
                 type: String
-            }
+            },
         },
         data: function () {
             return {
@@ -66,8 +81,8 @@
         },
         computed: {
             target: function () {
-                for (let i=0;i<structure.targets.length;i++)
-                    if (structure.targets[i].id === this.progId) return structure.targets[i];
+                for (let i=0;i<this.targets.length;i++)
+                    if (this.targets[i].id === this.progId) return this.targets[i];
                 return undefined;
             },
             type: function () {
@@ -94,10 +109,29 @@
                 } else {
                     return this.config.degrees || [0, 2, 4, 5, 7, 9, 11];
                 }
-            }
+            },
+            completed: {
+                get: function () {
+                    return this.takes[this.progId] !== undefined &&
+                        this.takes[this.progId][this.level] !== undefined &&
+                        this.takes[this.progId][this.level].completed
+                },
+                set: function (completed) {
+                    this.setCompleted(this.level, completed);
+                }
+            },
+        },
+        watch: {
+            takes: function (newval, oldval) {
+                if (newval != null) {
+                    if (Object.keys(oldval).length === 0 && oldval.constructor === Object)
+                        this.setLevelByTakes()
+                }
+            },
         },
         methods: {
             onPractice: function () {
+                this.$teacher.setConfigurator(this);
                 if (this.type === INTERNALIZATION) {
                     this.$teacher.setupInternalization(this.config.degree, true, this.level, this.scale);
                 } else if (this.type === RECOGNITION_SINGLE) {
@@ -116,6 +150,7 @@
                 }
             },
             onTest: function () {
+                this.$teacher.setConfigurator(this);
                 if (this.type === INTERNALIZATION) {
                     this.$teacher.setupInternalizationTest(this.config.degree, true, this.level, this.scale);
                 } else if (this.type === RECOGNITION_SINGLE) {
@@ -132,7 +167,43 @@
                 } else if (this.type === CHORD_RECOGNITION) {
                     this.$teacher.setupChordRecognitionTest(this.config.diatonics, this.config.degrees, this.config.count,true, this.level, this.scale)
                 }
+            },
+            setCompleted: function (level, completed) {
+                if (this.takes[this.progId] === undefined) {
+                    this.takes[this.progId] = {}
+                }
+                if (this.takes[this.progId][level] === undefined) {
+                    this.takes[this.progId][level] = {
+                        completed: false
+                    };
+                }
+                this.takes[this.progId][level].completed = completed;
+                // update backend
+                const self = this;
+                if (this.takes[this.progId][level].completed) {
+                    this.completeTarget(this.progId, level)
+                        .then(self.updateTakes);
+                } else {
+                    this.unsetCompleteTarget(this.progId, level)
+                        .then(self.updateTakes);
+                }
+            },
+            setLevelByTakes: function () {
+                for (let i = 0; i < this.levels; i++) {
+                    if (this.takes[this.progId] !== undefined &&
+                        this.takes[this.progId][i + 1] !== undefined &&
+                        this.takes[this.progId][i + 1].completed) {
+                        if (this.levels >= i + 2) {
+                            this.level = i + 2;
+                        } else {
+                            this.level = i + 1;
+                        }
+                    }
+                }
             }
+        },
+        created: function () {
+            this.setLevelByTakes();
         }
     }
 </script>
@@ -140,4 +211,9 @@
 <style lang="sass" scoped>
     .level:not(.v-btn--text):not(.v-btn--outlined):focus::before
         opacity: 0
+
+    .level.finished
+        box-shadow: 0 0 9px #00a802 !important
+    .level.finished.dark
+        box-shadow: 0 0 9px #00ff03 !important
 </style>

@@ -1,10 +1,14 @@
 {
+  "course-name": "DODECA",
   "home": {
-    "100h1": "Funktionale Gehörbildung",
+    "100h1": {
+      "101b": "@:course-name",
+      "102n": "Kurs Funktionale Gehörbildung"
+    },
     "200h2": "Die Fähigkeit die du erlangen wirst und der Weg dahin",
     "300p": "Als du dein Instrument zum ersten Mal in die Hand genommen hast, wolltest du sicher sofort anfangen, deine Lieblingsmusik zu spielen. Dann hast du bemerkt, dass es unmöglich ist, diese Melodien zu spielen, bevor du die Noten gelernt und ein wenig Technik entwickelt hast.",
     "400p": "Das Gehörtraining ist genau so. Vielleicht möchtest du dich direkt hineinstürzen, damit du die wunderbare Transformation beginnen kannst, die dich erwartet (und ist auch genau richtig), aber es gibt ein paar Dinge, die du zuerst verstehen musst, so dass der Einstieg schön einfach ist (und nicht frustrierend!). Glücklicherweise dauert es nur wenige Minuten, um alles zu lernen, was du brauchst, damit du eintauchen kannst, und wir werden in dieser kurzen Einführung auf alles eingehen.",
-    "500p": "Du wirst gleich die Fähigkeit kennenlernen, die du mit dem »Dodeca - Hören Ist Relativ« Kurs entwickeln wirst (nämlich relatives Gehör) und den Ansatz, den du für diese Entwicklung verwenden wirst (nämlich tonalitätsbasiertes Gehörtraining). Auch wenn du ein alter Hase in Sachen Gehörbildung bist, empfehle ich dir eine kurze Lektüre, da du lernen wirst, warum die Verwendung eines tonalen Ansatzes zur Entwicklung des relativen Gehörs absolut notwendig ist, wenn du mit der Gehörbildung großartige Ergebnisse erzielen willst.",
+    "500p": "Du wirst gleich die Fähigkeit kennenlernen, die du mit dem »@:course-name - Hören Ist Relativ« Kurs entwickeln wirst (nämlich relatives Gehör) und den Ansatz, den du für diese Entwicklung verwenden wirst (nämlich tonalitätsbasiertes Gehörtraining). Auch wenn du ein alter Hase in Sachen Gehörbildung bist, empfehle ich dir eine kurze Lektüre, da du lernen wirst, warum die Verwendung eines tonalen Ansatzes zur Entwicklung des relativen Gehörs absolut notwendig ist, wenn du mit der Gehörbildung großartige Ergebnisse erzielen willst.",
 
     "_comment": "TODO: go over wording of machine translation below",
     "600h3": "Was ist die relative Tonhöhe?",
