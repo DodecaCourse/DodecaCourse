@@ -39,7 +39,7 @@
 
     <v-app-bar flat app clipped-left solo dense>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title><b>Dodeca</b></v-toolbar-title>
+      <v-toolbar-title :class="{'hidden-xs-only': user != null}"><b>Dodeca</b></v-toolbar-title>
       <i class="mx-2 hidden-xs-only">Hearing is Relative!</i>
       <v-spacer></v-spacer>
       <template v-if="!connection">
