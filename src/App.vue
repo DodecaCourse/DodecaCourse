@@ -8,7 +8,7 @@
             <v-list-item-action>
               <!-- TODO: an 👂 anpassen -->
               <!-- <v-icon>mdi-ear-hearing</v-icon> -->
-              <v-img src="/img/ear.svg" height="35px" width="10px"></v-img>
+              <v-img class="ear-action" src="img/ear_mask.svg" height="35px" width="10px"></v-img>
             </v-list-item-action>
             <v-list-item-content>
               <v-list-item-title>Your Ear</v-list-item-title>
@@ -224,7 +224,8 @@
       background-color: #121212
     .v-banner__wrapper .v-sheet
       background-color: #121212
-    
+    .ear-action
+      filter: invert(100%)
   .invert-img .v-image__image
     filter: invert(100%)
 
