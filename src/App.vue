@@ -232,5 +232,6 @@
       filter: invert(0%)!important
   .invert-img .v-image__image
     filter: invert(100%)
-
+  .v-list
+    padding: 0px
 </style>
