@@ -1,7 +1,7 @@
 <template>
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
-            <h1>4. Recognising Chords</h1>
+            <h1 class="hidden-xs-only">4. Recognising Chords</h1>
             <h2>Chord Quality Recognition</h2>
             <p>
                 The aim of the chord quality recognition exercises is to practice identifying common triads and seventh

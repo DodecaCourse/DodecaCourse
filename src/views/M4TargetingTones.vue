@@ -1,7 +1,7 @@
 <template>
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
-            <h1>4. Recognising Chords</h1>
+            <h1 class="hidden-xs-only">4. Recognising Chords</h1>
             <h2>Targeting Tones</h2>
             <h3>Exercises</h3>
             <p>

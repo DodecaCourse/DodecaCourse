@@ -1,8 +1,8 @@
 <template>
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
-            <h1>1. Recognising the Tonic</h1>
-            <h2>The tonic</h2>
+            <h1 class="hidden-xs-only">1. Recognising the Tonic</h1>
+            <h2>The Tonic</h2>
             <p>
                 The tonic is the central note of a piece of music. It sounds the most
                 stable and at rest. The tonic is generally played at the end of a

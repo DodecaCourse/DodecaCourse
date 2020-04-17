@@ -1,7 +1,7 @@
 <template>
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
-            <h1>What's next?</h1>
+            <h1 class="hidden-xs-only">What's next?</h1>
             <h2>Get Playing</h2>
             <p>
                 Having finished the Dodeca course, you probably acquired a whole new feeling
