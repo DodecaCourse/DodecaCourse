@@ -4,7 +4,7 @@ import structure from '../public/structure.json';
 export default {
   data() {
     return {
-      debug: true,
+      debug: false,
       flask_server: 'http://localhost:5000/',
       connection: true,
     }
