@@ -6,8 +6,6 @@
         <v-list dense width="100%">
           <v-list-item v-if="this.userProp != null" to="/home" link>
             <v-list-item-action>
-              <!-- TODO: an 👂 anpassen -->
-              <!-- <v-icon>mdi-ear-hearing</v-icon> -->
               <v-img class="ear-action" src="img/ear_mask.svg" height="35px" width="10px"></v-img>
             </v-list-item-action>
             <v-list-item-content>
@@ -226,6 +224,12 @@
       background-color: #121212
     .ear-action
       filter: invert(100%)
+  
+  .ear-action
+    filter: invert(30%)
+  .v-list-item--active
+    .ear-action
+      filter: invert(0%)!important
   .invert-img .v-image__image
     filter: invert(100%)
 
