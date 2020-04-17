@@ -10,7 +10,7 @@
                 <v-card flat>
                 <template v-if="user == null">
                     <v-card-text>
-                        <h3>Log in with an existing username</h3>
+                        <h3 class="mb-1">Log in with an existing username</h3>
                               <v-text-field
                                 label="Username"
                                 name="txtfld"
@@ -30,6 +30,7 @@
                           <v-icon>mdi-login</v-icon>
                           Login
                       </v-btn>
+                      <v-spacer />
                       <v-btn
                               @click="onClose"
                               primary
@@ -41,8 +42,8 @@
                 </template>
                 <template v-else>
                         <v-card-text>
-                            <h3>Log in to continue where you left off!</h3>
-                                Success! You are now logged in as <b>{{user.user_keyword}}</b>. Your custom url:
+                            <h3 class="mb-1">Success!</h3>
+                                You are now logged in as <b>{{user.user_keyword}}</b>. Your custom url:
                                 <v-text-field
                                     readonly
                                     solo
@@ -54,6 +55,7 @@
                                 username!
                         </v-card-text>
                         <v-card-actions>
+                            <v-spacer />
                             <v-btn
                                     @click="onClose"
                                     primary
@@ -74,7 +76,7 @@
     import api from "../api.js"
 
     export default {
-        name: 'AccountSnack',
+        name: 'LoginSnack',
         mixins: [api],
         props: {
             connected: {

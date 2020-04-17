@@ -62,7 +62,9 @@
                     <v-icon>mdi-login</v-icon>
                   
                   </v-btn>
-                  <v-btn icon title="Get your keyword">
+                  <v-btn icon title="Get your keyword"
+                         v-on:click="showRegisterSnack=!(showRegisterSnack || loginBtnDisabled)"
+                  >
                     <v-icon>mdi-account-plus</v-icon>
                   </v-btn>
                 </template>
@@ -99,8 +101,10 @@
           contact an admin.
         </h2>
       </v-container>
-      <AccountSnack :show="showLoginSnack"
+      <LoginSnack :show="showLoginSnack"
                     :on-close="function () {showLoginSnack = false}" />
+      <RegisterSnack :show="showRegisterSnack"
+                    :on-close="function () {showRegisterSnack = false}" />
 
     </v-content>
 
@@ -120,14 +124,16 @@
   import api from './api.js'
 
   import structure from "../public/structure.json";
+  import RegisterSnack from "./components/RegisterSnack";
   
   export default {
     name: 'Dodeca',
     mixins: [api],
     components: {
+      RegisterSnack,
       Teacher,
       Modules,
-      AccountSnack: LoginSnack
+      LoginSnack,
     },
     props: {
       source: String
@@ -136,6 +142,7 @@
       drawer: null,
       curModule: 0,
       showLoginSnack: false,
+      showRegisterSnack: false,
       loginBtnDisabled: false, // workaround against login popping up on logout
       userProp: null,
       takesProp: {}
