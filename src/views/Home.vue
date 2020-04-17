@@ -8,7 +8,8 @@
           <object
             type="image/svg+xml"
             id="ear"
-            height="400"
+            :height="$vuetify.breakpoint.xsOnly ? 200 : 300"
+            data="/img/ear.svg"
             :style="{ 'background-image': this.createEarBackgroundString() }"
           >
             Ear
@@ -113,7 +114,7 @@ export default {
             this.chap = this.copy(chapter);
             // modify path and title to also include module
             this.chap["path"] = module.path + chapter.path;
-            this.chap["title"] = module.title + " / " + chapter.title;
+            this.chap["title"] = this.$vuetify.breakpoint.xsOnly ? chapter.title : module.title + " / " + chapter.title;
           }
         });
       });
@@ -172,7 +173,7 @@ export default {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; */
     /* height: 100px; */
-    mask: url(/img/ear.svg);
+    mask: url(/img/ear_mask.svg);
     background: black;
     mask-size: 100% 100%;
   }
