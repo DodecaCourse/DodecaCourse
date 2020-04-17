@@ -1,0 +1,36 @@
+{
+  "home": {
+    "100h1": "Funktionale Gehörbildung",
+    "200h2": "Die Fähigkeit die du erlangen wirst und der Weg dahin",
+    "300p": "Als du dein Instrument zum ersten Mal in die Hand genommen hast, wolltest du sicher sofort anfangen, deine Lieblingsmusik zu spielen. Dann hast du bemerkt, dass es unmöglich ist, diese Melodien zu spielen, bevor du die Noten gelernt und ein wenig Technik entwickelt hast.",
+    "400p": "Das Gehörtraining ist genau so. Vielleicht möchtest du dich direkt hineinstürzen, damit du die wunderbare Transformation beginnen kannst, die dich erwartet (und ist auch genau richtig), aber es gibt ein paar Dinge, die du zuerst verstehen musst, so dass der Einstieg schön einfach ist (und nicht frustrierend!). Glücklicherweise dauert es nur wenige Minuten, um alles zu lernen, was du brauchst, damit du eintauchen kannst, und wir werden in dieser kurzen Einführung auf alles eingehen.",
+    "500p": "Du wirst gleich die Fähigkeit kennenlernen, die du mit dem »Dodeca - Hören Ist Relativ« Kurs entwickeln wirst (nämlich relatives Gehör) und den Ansatz, den du für diese Entwicklung verwenden wirst (nämlich tonalitätsbasiertes Gehörtraining). Auch wenn du ein alter Hase in Sachen Gehörbildung bist, empfehle ich dir eine kurze Lektüre, da du lernen wirst, warum die Verwendung eines tonalen Ansatzes zur Entwicklung des relativen Gehörs absolut notwendig ist, wenn du mit der Gehörbildung großartige Ergebnisse erzielen willst.",
+
+    "_comment": "TODO: go over wording of machine translation below",
+    "600h3": "Was ist die relative Tonhöhe?",
+    "700p": "Für diejenigen, die neu am Gehörtraining teilnehmen, kann die relative Tonhöhe ein wenig unintuitiv erscheinen. ",
+    "800p": " Mit relativer Tonhöhe werden Sie nicht lernen, die Noten in der Musik selbst zu erkennen. Stattdessen werden Sie lernen, die Beziehungen zwischen ihnen zu erkennen (relative Tonhöhe - Beziehungen, macht Sinn, richtig?). ",
+    "900p": " Wenn Sie eine einzelne gespielte Note hören würden, könnten Sie sie nicht mehr mit der relativen Tonhöhe erkennen. Wenn dann aber eine zweite Note gespielt wird, wüssten Sie, was sie im Verhältnis zur ersten Note ist. Das bedeutet, dass Sie, wenn Sie wissen, was eine einzelne Note ist, jede andere Note (oder Gruppe von Noten) leicht erkennen können, indem Sie einfach die erste Note als Bezugspunkt verwenden. ",
+    "1000h3": "Warum konzentrieren wir uns auf die relative Tonhöhe?",
+    "1100p": "Die relative Tonhöhe ist nicht die einzige Möglichkeit für Musiker, Musik nach Gehör zu erkennen und zu spielen.",
+    "1200p": "Der andere Ansatz heißt perfekte (oder absolute) Tonhöhe.",
+    "1300p": "Bei perfekter Tonhöhe erkennt ein Musiker jede Note selbst. Wenn also eine einzelne Note gespielt wird, könnte man sie sofort erkennen, wenn man die perfekte Tonhöhe hat. Sie bräuchten keinen Referenzpunkt. ",
+    "1400p": "Das klingt ideal, aber es gibt ein Problem: Sie werden es nicht entwickeln",
+    "1500p": "Das perfekte Gehör ist unter Musikern ein heiß diskutiertes Thema, und ich möchte mich hier nicht einmischen (weil ich die Debatten hinter mir lassen und in das Gehörtraining einsteigen möchte), aber es gibt viele Belege dafür, dass das perfekte Gehör nur in der Kindheit entwickelt werden kann. ",
+    "1600p": "Wenn Sie es noch nicht haben, ist es besser, wenn Sie die perfekte Tonhöhe vergessen (lesen Sie mehr über relative Tonhöhe vs. perfekte Tonhöhe) ",
+    "1700p": "Die gute (und sogar großartige!) Nachricht ist, dass die relative Tonhöhe von jedem in jedem Alter entwickelt werden kann, und wenn man sich ihr auf die richtige Weise nähert, kann man sie schnell und schmerzlos entwickeln, und die Vorteile sind die gleichen (und manche würden sagen, sogar noch größer) als bei einer perfekten Tonhöhe. ",
+    "1800p": "Wie geht man also auf die richtige Weise vor? ",
+    "1900p": " Mit einem auf Tonalität basierenden Ansatz. ",
+    "2000h3": "Was ist ein auf Tonalität basierender Ansatz für das Gehörtraining?",
+    "2100p": "Ein tonalitätsbasierter Ansatz für das Gehörtraining basiert auf einem einzelnen Ton, der Tonika genannt wird.",
+    "2200p": "Die Tonika ist der zentrale Ton in einem Musikstück. Sie klingt am stabilsten und am ruhigsten, und es ist die Note, zu der sich jede andere Note wieder auflöst. Fast jedes Musikstück endet auf der Tonika. ",
+    "2300h3": "Warum verwenden wir einen auf Tonalität basierenden Ansatz?",
+    "2400p": "Der Grund, warum ein auf Tonalität basierender Ansatz für das Gehörtraining so effektiv ist, liegt darin, dass die Tonika die am leichtesten zu erkennende Note ist und sehr stabil ist. Dadurch ist sie der perfekte Ton, den wir als Bezugspunkt verwenden können (den wir brauchen, wenn wir Musik nach Gehör mit relativer Tonhöhe spielen wollen). ",
+    "2500p": "Dieser Ansatz unterscheidet sich stark von dem anderen gebräuchlichen Ansatz für das Gehörtraining, dem sogenannten intervallbasierten Ansatz. Ein intervallbasierter Ansatz konzentriert sich auf den Unterschied in der Tonhöhe zwischen jeder einzelnen Note (Intervall genannt). Obwohl es sinnvoll ist, sich auf diese Intervalle zu konzentrieren, ist es in der Praxis nutzlos. Sie werden lernen, die Intervalle in den Übungen zu erkennen, aber es wird Ihnen überhaupt nicht helfen, wenn Sie echte Musik hören oder spielen, weil Sie keinen stabilen Bezugspunkt haben, auf den Sie sich verlassen können (lesen Sie mehr über tonales Gehörtraining vs. Intervallohrtraining) ",
+    "2600h3": "Zusammenfassung",
+    "2700p": "Um es zusammenzufassen: ",
+    "2800p": "In den kommenden Wochen und Monaten werden Sie Ihr Spiel durch einen auf Tonalität basierenden Ansatz für das Gehörtraining verändern. Sie werden einen schnellen und genauen Sinn für die relative Tonhöhe entwickeln, der es Ihnen erlaubt, schnell und einfach.",
+    "2900p": "Wenn das geklärt ist, kann es endlich losgehen. Drücke den Knopf und fange mit dem ersten Modul an, in dem du lernen wirst die Tonika zu erkennen. Sie ist der Bezugspunkt für alle folgenden Gehörübungen.",
+    "3000v-btn": "Starte Modul 1"
+  }
+}
