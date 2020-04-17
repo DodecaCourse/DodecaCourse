@@ -24,6 +24,7 @@ class Config:
         SESSION_COOKIE_SECURE = True
     # User
     USER_KEYWORD_LENGTH = 4
+    FRONTEND_SERVER = os.getenv('FRONTEND_SERVER', 'http://localhost:8080')
 
     # ø User Settings
     # TODO: Expand

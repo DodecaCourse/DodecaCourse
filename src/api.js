@@ -5,7 +5,7 @@ export default {
   data() {
     return {
       debug: false,
-      flask_server: 'http://localhost:5000/',
+      flask_server: process.env.BACKEND_SERVER,
       connection: true,
     }
   },

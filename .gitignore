@@ -7,8 +7,8 @@ public/impressum.html
 lilypond/*.svg
 server/.env
 # local env files
-# .env.local
-# .env.*.local
+.env.local
+.env.*.local
 server/db.json
 # Log files
 npm-debug.log*

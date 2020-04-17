@@ -54,7 +54,7 @@ app = Flask(__name__)
 app.config.from_object(config.Config)
 # CORS ermöglicht es, Regeln für den Zugriff festzulegen.
 # Wir wollen hier alle Zugriffe erlauben.
-CORS(app, origins=["http://localhost:8080"], headers=['Content-Type'],
+CORS(app, origins=[config.Config.FRONTEND_SERVER], headers=['Content-Type'],
      expose_headers=['Access-Control-Allow-Origin'], supports_credentials=True)
 
 
