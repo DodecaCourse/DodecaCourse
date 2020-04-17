@@ -1,7 +1,7 @@
 <template>
   <v-layout align-center justify-center row>
     <v-flex class="article" xs10>
-      <h1><b>Dodeca</b> Functional Ear Training</h1>
+      <h1><b>Dodeca - </b> Functional Ear Training Course</h1>
       <h2>The Skill You’ll Learn And The Approach You’ll Use</h2>
       <p>When you first picked up your instrument I’m sure you wanted to jump right in and start playing
         your favourite tunes. Then you discovered that it’s impossible to play those tunes until you’ve
