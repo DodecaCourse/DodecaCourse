@@ -5,6 +5,7 @@ node_modules
 /public/robots.txt
 public/impressum.html
 lilypond/*.svg
+server/.env
 # local env files
 # .env.local
 # .env.*.local

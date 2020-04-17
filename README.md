@@ -27,7 +27,13 @@ python3 -m venv env
 source env/bin/activate
 pip install -r reqs.txt
 ```
+### Configuration
+```
+cp server/.env.example .env
+```
+Change the `SECRET_KEY` if you want to run in production.
 ### Run the development server
 ```
+cd server
 python app.py
 ```
