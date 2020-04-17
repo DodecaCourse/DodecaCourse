@@ -67,9 +67,9 @@
                 </template>
 
       </template>
-      <v-btn icon>
+      <!-- <v-btn icon>
         <v-icon>mdi-heart</v-icon>
-      </v-btn>
+      </v-btn> -->
       <v-btn v-on:click="$vuetify.theme.dark = !$vuetify.theme.dark" icon title="Toggle Light/Dark">
         <v-icon>mdi-invert-colors</v-icon>
       </v-btn>
