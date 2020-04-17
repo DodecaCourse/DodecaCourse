@@ -43,14 +43,10 @@
                 <template v-else>
                         <v-card-text>
                             <h3 class="mb-1">Success!</h3>
-                                You are now logged in as <b>{{user.user_keyword}}</b>. Your custom url:
-                                <v-text-field
-                                    readonly
-                                    solo
-                                    dense
-                                    hide-details
-                                    :value="'https://dodeca.wavel.de/home?usr=' + user.user_keyword"
-                                ></v-text-field>
+                                You are now logged in as <b>{{user.user_keyword}}</b>. Your custom url:<br/>
+                                    <a :href="'https://dodeca.wavel.de/home?usr=' + user.user_keyword">
+                                        https://dodeca.wavel.de/home?usr={{user.user_keyword}}
+                                    </a><br />
                             You can now continue your learning journey. Have fun and remember your
                                 username!
                         </v-card-text>

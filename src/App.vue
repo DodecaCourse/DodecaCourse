@@ -6,7 +6,7 @@
         <v-list dense width="100%">
           <v-list-item v-if="this.userProp != null" to="/home" link>
             <v-list-item-action>
-              <v-img class="ear-action" src="img/ear_mask.svg" height="35px" width="10px"></v-img>
+              <v-img class="ear-action" src="/img/ear_mask.svg" height="35px" width="10px"></v-img>
             </v-list-item-action>
             <v-list-item-content>
               <v-list-item-title>Your Ear</v-list-item-title>
