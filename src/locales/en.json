@@ -1,7 +1,56 @@
 {
   "course-name": "DODECA",
-  "app": {
-
+  "modules": {
+    "1": {
+      "title": "Tonic",
+      "chapters": {
+        "1001": "Overview",
+        "1002": "The Tonic",
+        "1003": "Exercise",
+        "1004": "Test"
+      }
+    },
+    "2": {
+      "title": "Individual Notes",
+      "chapters": {
+        "2001": "Overview",
+        "2002": "Scale Degrees",
+        "2003": "Internalization",
+        "2004": "Recognition"
+      }
+    },
+    "3": {
+      "title": "Melodies",
+      "chapters": {
+        "3001": "Overview",
+        "3002": "Exercises & Tests"
+      }
+    },
+    "4": {
+      "title": "Chords",
+      "chapters": {
+        "4001": "Overview",
+        "4002": "Targeting Tones",
+        "4003": "Chord Quality Recognition",
+        "4004": "Diatonic Chords Internalisation",
+        "4005": "Diatonic Chords Recognition"
+      }
+    },
+    "5": {
+      "title": "Minor Keys",
+      "chapters": {
+        "5001": "Overview",
+        "5002": "Solfège",
+        "5003": "Exercises & Tests"
+      }
+    },
+    "6": {
+      "title": "What's next?",
+      "chapters": {
+        "6001": "Further Practice",
+        "6002": "Get Playing"
+      }
+    }
   },
   "introduction": {
     "100h1": {

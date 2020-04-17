@@ -1,5 +1,16 @@
 {
   "course-name": "DODECA",
+  "modules": {
+    "1": {
+      "title": "Tonika",
+      "chapters": {
+        "1001": "Überblick",
+        "1002": "Die Tonika",
+        "1003": "Übung",
+        "1004": "Test"
+      }
+    }
+  },
   "introduction": {
     "100h1": {
       "101b": "@:course-name",
