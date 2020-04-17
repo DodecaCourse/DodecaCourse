@@ -1,15 +1,12 @@
 <template>
   <v-layout align-center justify-center row>
+    <v-flex class="article" xs10>
     <template v-if="user != null">
-      <div class="mdi mdi-ear-hearing" id="ear" :style="{ 'background-image': this.createEarBackgroundString() }" />
-      <v-flex class="article" xs20>
-    
-        
         <h1>Hi!</h1>
         <p>You are logged in as <b>{{user.user_keyword}}</b>!</p>
+        <div class="mdi mdi-ear-hearing" id="ear" :style="{ 'background-image': this.createEarBackgroundString() }" />
         <h2>{{progress.completed}} \ {{progress.all}}</h2>
         <p>You are <b>{{percent.toFixed(1)}}%</b> through! Keep on training!</p>
-        <p><i>TODO: Styling </i></p>
         
         <v-btn v-if="this.user.logoff_chapter == null" to="/introduction">
           start learning
@@ -17,11 +14,11 @@
         <v-btn v-else to="/introduction">
           continue chapter {{this.user.logoff_chapter}}
         </v-btn>
-      </v-flex>
     </template>
     <template v-else>
       <h1>You shouldn't be here!</h1>
     </template>
+    </v-flex>
   </v-layout>
 </template>
 
@@ -57,11 +54,11 @@ export default {
       const offset_bottom_percent = 24;
       const offset_top_percent = 80.3;
       const to_set = offset_top_percent - offset_bottom_percent;
-      var upper = (this.percent * to_set / 100 + offset_bottom_percent).toFixed(1);
-      var lower = (this.percent * to_set / 100 + offset_bottom_percent+ 0.2).toFixed(1);
-      var str = `linear-gradient(0deg, ${this.filled_color} ${lower}%, ${this.empty_color} ${upper}%)`;
-      // console.log(str);
-      return str;
+      const lower = (this.percent * to_set / 100 + offset_bottom_percent).toFixed(1);
+      let upper;
+      if (this.percent < 0.1) upper = lower;
+      else upper = (this.percent * to_set / 100 + offset_bottom_percent+3).toFixed(1);
+      return `linear-gradient(0deg, ${this.filled_color} ${lower}%, ${this.empty_color} ${upper}%)`;
     },
     getProgress: function() {
       var count = 0;
@@ -106,6 +103,8 @@ export default {
 
 <style scoped>
   #ear {
+    margin-top: -0.2em;
+    margin-bottom: -0.2em;
     font-size: 15em;
     /*background-image: linear-gradient(180deg, #E5E5E5 41.3%, #2B81D6 41.4%);*/
     /* */
