@@ -1,7 +1,7 @@
 <template>
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
-            <h1>2. Recognising Individual Notes</h1>
+            <h1 class="hidden-xs-only">2. Recognising Individual Notes</h1>
             <h2>Individual Note Recognition Exercises</h2>
             <h3></h3>
             <p>

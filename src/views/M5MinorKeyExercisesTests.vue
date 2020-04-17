@@ -1,7 +1,7 @@
 <template>
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
-            <h1>5. Minor Keys</h1>
+            <h1 class="hidden-xs-only">5. Minor Keys</h1>
             <h2>Scale Degrees</h2>
             <h3>Internalisation</h3>
             <p>

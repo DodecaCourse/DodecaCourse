@@ -1,7 +1,7 @@
 <template>
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
-            <h1>1. Recognising the Tonic</h1>
+            <h1 class="hidden-xs-only">1. Recognising the Tonic</h1>
             <h2>Tonic Internalisation Exercise</h2>
             <p>
                 The tonic internalisation exercise makes it as easy as possible for

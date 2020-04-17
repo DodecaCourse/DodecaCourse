@@ -1,7 +1,7 @@
 <template>
     <v-layout align-center justify-center row>
         <v-flex class="article" xs10>
-            <h1>5. Minor Keys</h1>
+            <h1 class="hidden-xs-only">5. Minor Keys</h1>
             <h2>Solfège in Minor Keys</h2>
             <p>In minor keys, you can choose from two sets of
                 <a href="https://en.wikipedia.org/wiki/Solf%C3%A8ge#Minor">solfège syllables</a>.</p>
