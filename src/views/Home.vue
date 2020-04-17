@@ -1,28 +1,29 @@
 <template>
   <v-layout align-center justify-center row>
     <v-flex class="article" xs10>
+      <v-col align="center">
       <template v-if="user != null">
-        <div id="ear" class="mdi mdi-ear-hearing" :style="{ 'background-image': this.createEarBackgroundString() }">
-           <!-- TODO: Icon finden 👂 -->
-        </div>
-        <h1>{{this.progress.completed === 0 ? "Welcome!" : "Welcome back!"}}</h1>
-        <p>You are logged in as <b>{{user.user_keyword}}</b>!</p>
-        <template v-if="this.progress.completed !== 0">
-          <h2>{{progress.completed}} \ {{progress.all}}</h2>
-          <p>You are <b>{{percent.toFixed(1)}}%</b> through! Keep on training!</p>
-        </template>
-        
-        <v-btn v-if="this.user.logoff_chapter == null || this.chap == null" to="/">
-          start learning
-        </v-btn>
-        <v-btn v-else :to="this.chap.path">
-          continue chapter <b>{{this.chap.num}}</b>: {{this.chap.title}}
-        </v-btn>
-        
+          <h1>{{this.progress.completed === 0 ? "Welcome!" : "Welcome back!"}}</h1>
+          <p>You are logged in as <b>{{user.user_keyword}}</b>!</p>
+          <div id="ear" class="mdi mdi-ear-hearing" :style="{ 'background-image': this.createEarBackgroundString() }">
+            <!-- TODO: Icon finden 👂 -->
+          </div>
+          <template v-if="this.progress.completed !== 0">
+            <h2>{{progress.completed}} \ {{progress.all}}</h2>
+            <p>You are <b>{{percent.toFixed(1)}}%</b> through! Keep on training!</p>
+          </template>
+
+          <v-btn v-if="this.user.logoff_chapter == null || this.chap == null" to="/">
+            start learning
+          </v-btn>
+          <v-btn v-else :to="this.chap.path">
+            continue chapter <b>{{this.chap.num}}</b>: {{this.chap.title}}
+          </v-btn>
       </template>
       <template v-else>
         <h1>You shouldn't be here!</h1>
       </template>
+      </v-col>
     </v-flex>
   </v-layout>
 </template>
@@ -130,7 +131,8 @@ export default {
           if (self.user.logoff_chapter != null) {
             self.updateChapterInfo(self.user.logoff_chapter)
           }
-        }
+        } else
+          self.$router.push("/");
       });
     
   },
@@ -139,8 +141,12 @@ export default {
       if(this.user != null){
         this.progress = this.getProgress();
       }
+    },
+    user: function () {
+      if (this.user == null) {
+        this.$router.push("/");
+      }
     }
-    
   }
 }
 
