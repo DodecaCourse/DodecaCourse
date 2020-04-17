@@ -1,4 +1,5 @@
-import axios from 'axios'
+import axios from 'axios';
+import structure from '../public/structure.json';
 
 export default {
   data() {
@@ -24,7 +25,14 @@ export default {
       set: function (usr) {
         this.$root.$children[0].takesProp = usr;
       }
+    },
+    modules: function() {
+      return structure['modules'];
+    },
+    targets: function() {
+      return structure['targets']
     }
+    
   },
   methods: {
     fetch(url, cookies=false) {

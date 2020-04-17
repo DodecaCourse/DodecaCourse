@@ -37,7 +37,6 @@
 </template>
 
 <script>
-    import structure from "../../public/structure.json"
     import DegreeCirclePictogram from "./DegreeCirclePictogram";
     import api from "../api";
 
@@ -82,8 +81,8 @@
         },
         computed: {
             target: function () {
-                for (let i=0;i<structure.targets.length;i++)
-                    if (structure.targets[i].id === this.progId) return structure.targets[i];
+                for (let i=0;i<this.targets.length;i++)
+                    if (this.targets[i].id === this.progId) return this.targets[i];
                 return undefined;
             },
             type: function () {

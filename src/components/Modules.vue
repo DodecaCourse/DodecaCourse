@@ -17,8 +17,7 @@
 
 <script>
   import ModuleItem from "./ModuleItem";
-  import structure from "../../public/structure.json";
-  import api from "../api.js"
+  import api from "../api.js";
   
   export default {
       name: `Modules`,
@@ -29,25 +28,12 @@
       props: ['curCourse'],
       data: function () {
           return {
-              structure: {
-                  "modules": [],
-                  "chapters": [],
-                  "targets": []
-              },
               display_check: false,
               completed_chapters: [],
               empty_chapters: [],
               completed_modules: [],
               empty_modules: []
               
-          }
-      },
-      computed: {
-          modules: function () {
-              return structure["modules"];
-          },
-          targets: function() {
-            return structure["targets"];
           }
       },
       methods: {
