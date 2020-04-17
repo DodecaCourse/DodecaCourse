@@ -1,5 +1,5 @@
-# FETT
-Functional Ear Training Tool
+# Dodeca
+Functional Ear Training Course
 
 ## Project setup
 ```
@@ -20,17 +20,14 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
+## Backend server setup
+### Create virtual environment and install packages
 ```
-npm run lint
+python3 -m venv env
+source env/bin/activate
+pip install -r reqs.txt
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-### Knowledge base
-Use
+### Run the development server
 ```
-/* global var_name */
+python app.py
 ```
-to avoid `no-undef` errors in `eslint` (https://stackoverflow.com/questions/58579425/vue-npm-run-serve-eslint-global-variable-is-not-defined-within-a-component)
