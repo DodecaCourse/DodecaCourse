@@ -5,7 +5,7 @@ export default {
   data() {
     return {
       debug: false,
-      flask_server: process.env.BACKEND_SERVER,
+      flask_server: process.env.VUE_APP_BACKEND_SERVER,
       connection: true,
     }
   },
