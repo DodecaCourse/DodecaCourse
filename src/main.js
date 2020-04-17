@@ -27,8 +27,6 @@ import M5MinorKeyExercisesTests from "./views/M5MinorKeyExercisesTests";
 import FurtherPractice from "./views/FurtherPractice";
 import GetPlaying from "./views/GetPlaying";
 
-import ServerTest from "./views/backend/ServerTest";
-
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
@@ -60,7 +58,6 @@ const router = new VueRouter({
     { path: '/minor/ex-tests', component: M5MinorKeyExercisesTests },
     { path: '/next/practice', component: FurtherPractice },
     { path: '/next/play', component: GetPlaying },
-    { path: '/dev/servertest', component: ServerTest},
     { path: '/*', component: NotFound}
   ],
   scrollBehavior (to, from, savedPosition) {
@@ -75,20 +72,21 @@ const router = new VueRouter({
 });
 
 
-function hasUserQuery(route) {
-  return route.query.usr != null;
-}
+// uncomment if you want to keep query params after leaving the site
+// function hasUserQuery(route) {
+//   return route.query.usr != null;
+// }
 
 // Code to keep User Query Parameter
-router.beforeEach((to, from, next) => {
-  // console.log(from)
-  if(!hasUserQuery(to) && hasUserQuery(from)){
-    var toWithQuery = Object.assign({}, to, {query: from.query});
-    next(toWithQuery);
-  } else {
-    next();
-  }
-});
+// router.beforeEach((to, from, next) => {
+//   // console.log(from)
+//   if(!hasUserQuery(to) && hasUserQuery(from)){
+//     var toWithQuery = Object.assign({}, to, {query: from.query});
+//     next(toWithQuery);
+//   } else {
+//     next();
+//   }
+// });
 
 
 

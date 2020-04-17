@@ -21,14 +21,6 @@
             </v-list-item-content>
           </v-list-item>
           <Modules :cur-Module="curModule" />
-          <v-list-item to="/dev/servertest" link>
-            <v-list-item-action>
-              <v-icon>mdi-bash</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Backend</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
         </v-list>
         <div class="justify-end v-footer" style="text-align: center" :class="$vuetify.theme.dark ? 'theme--dark' : 'theme--light'">
           <span>Structure & Content based on <a href="https://eartraininghq.com/">Ear Training HQ</a></span>

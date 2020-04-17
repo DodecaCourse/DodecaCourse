@@ -1,6 +1,6 @@
 import json
 
-# TODO: Überlegen ob man names brauch
+# TODO: Do we need names?
 
 
 def insert_structure(structure_file, modules_db, chapters_db, targets_db):

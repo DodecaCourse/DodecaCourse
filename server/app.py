@@ -7,7 +7,6 @@ from tinydb.storages import JSONStorage
 from tinydb.middlewares import CachingMiddleware
 from tinyrecord import transaction
 # standard modules
-from random import randint
 import string
 import random
 # decorators
@@ -203,31 +202,6 @@ def generate_user():
                     " You should increase USER_KEYWORD_LENGTH in settings.")
 
 
-@app.route('/getallusers', methods=['GET'])
-def get_all_users():
-    return jsonify(users.all())
-
-
-@app.route('/getallmodules')
-def get_all_modules():
-    return jsonify(modules.all())
-
-
-@app.route('/getallchapters')
-def get_all_chapters():
-    return jsonify(chapters.all())
-
-
-@app.route('/getalltargets')
-def get_all_targets():
-    return jsonify(targets.all())
-
-
-@app.route('/getalltakes')
-def get_all_takes():
-    return jsonify(takes.all())
-
-
 # @app.route('/getchapters_bymodule_id/<module_id>')
 # def get_chapters_bymoduleid(module_id):
 #     if not bool(re.match("-?\\d+", module_id)):
@@ -251,25 +225,6 @@ def get_all_takes():
 #             'chapter_name': sect['chapter_name']
 #         }
 #     return jsonify(found_chapters)
-
-
-@app.route('/get_targets_bychapter_id/<int:chapter_id>')
-def get_targets_by_chapter_id(chapter_id):
-    found = targets.search(q['chapter_id'] == chapter_id)
-    N = len(found)
-    if N == 0:
-        app.logger.warning('QUERY: No targets with chapter_id=='
-                           + str(chapter_id) + ' had been found.')
-        return jsonify('no targets in chapter \'' + str(chapter_id)
-                       + '\' were found')
-    found_targets = [None] * N
-    for i in range(len(found)):
-        tar = found[i]
-        found_targets[i] = {
-            'target_id': tar.eid,
-            'chapter_id': tar['chapter_id']
-        }
-    return jsonify(found_targets)
 
 
 @app.route('/getuser_bykey/<user_key>')
@@ -372,20 +327,20 @@ def unset_complete_target(user_id, target_id, level):
                    + str(target_id) + "\' on level \'" + str(level) + "\'")
 
 
-@app.route('/getsettings/<int:user_id>')
-@check_user_id
-def get_user_settings(user_id):
-    usr = users.get(eid=user_id)
-    setting_names = [*config.Config.DEFAULT_SETTINGS.keys()]
-    N = len(setting_names)
-    returned_settings = {}
-    for i in range(N):
-        if setting_names[i] in usr.keys():
-            returned_settings[setting_names[i]] = usr[setting_names[i]]
-        else:
-            returned_settings[setting_names[i]] = \
-                config.Config.DEFAULT_SETTINGS[setting_names[i]]
-    return jsonify(returned_settings)
+# @app.route('/getsettings/<int:user_id>')
+# @check_user_id
+# def get_user_settings(user_id):
+#     usr = users.get(eid=user_id)
+#     setting_names = [*config.Config.DEFAULT_SETTINGS.keys()]
+#     N = len(setting_names)
+#     returned_settings = {}
+#     for i in range(N):
+#         if setting_names[i] in usr.keys():
+#             returned_settings[setting_names[i]] = usr[setting_names[i]]
+#         else:
+#             returned_settings[setting_names[i]] = \
+#                 config.Config.DEFAULT_SETTINGS[setting_names[i]]
+#     return jsonify(returned_settings)
 
 
 @app.route('/get_takes_by_user_id/<int:user_id>')
@@ -473,18 +428,18 @@ def logout():
 
 
 #   * Extra Testing Stuff
-@app.route('/random')
-def rand():
-    """
-    Returns a random integer between 1 and 100.
-
-    Returns:
-        int: random int
-    """
-    response = {
-        'rand': randint(1, 100)
-    }
-    return jsonify(response)
+# @app.route('/random')
+# def rand():
+#     """
+#     Returns a random integer between 1 and 100.
+#
+#     Returns:
+#         int: random int
+#     """
+#     response = {
+#         'rand': randint(1, 100)
+#     }
+#     return jsonify(response)
 
 
 # handle withCredentials

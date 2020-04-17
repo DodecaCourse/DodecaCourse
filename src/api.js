@@ -67,24 +67,6 @@ export default {
     getUserID(user_keyword) {
       return this.fetch('getuser_bykey/' + user_keyword);
     },
-    getAllUsers() {
-      return this.fetch('getallusers');
-    },
-    getAllmodules() {
-      return this.fetch('getallmodules');
-    },
-    getAllChapters() {
-      return this.fetch('getallchapters');
-    },
-    getAllTakes() {
-      return this.fetch('getalltakes');
-    },
-    getRandom() {
-      return this.fetch('random');
-    },
-    // getChaptersOfmodule(module_id) {
-    //   return this.fetch('getchapters_bymodule_id/' + module_id, true);
-    // },
     getTakes(){
       return this.fetch('get_takes_by_user_id/' + this.user['user_id']);
     },
@@ -126,9 +108,9 @@ export default {
     setLogoffChapter(chapter_id){
       return this.fetch('set_logoff_chapter/' + this.user['user_id'] + "/" + chapter_id);
     },
-    getSettings(){
-      return this.fetch('getsettings/' + this.user['user_id']);
-    },
+    // getSettings(){
+    //   return this.fetch('getsettings/' + this.user['user_id']);
+    // },
     generateUser() {
       return this.fetch('generateuser');
     },
