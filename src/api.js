@@ -60,7 +60,9 @@ export default {
           return res.data;
         })
         .catch(err => {
-          console.log(err)
+          if(this.debug){
+            console.log(err)
+          }
           this.connection = false;
         });
     },

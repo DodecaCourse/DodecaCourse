@@ -182,16 +182,10 @@
                 const self = this;
                 if (this.takes[this.progId][level].completed) {
                     this.completeTarget(this.progId, level)
-                        .then(function (ret) {
-                            console.log(ret);
-                            self.updateTakes()
-                        });
+                        .then(self.updateTakes);
                 } else {
                     this.unsetCompleteTarget(this.progId, level)
-                        .then(function (ret) {
-                            console.log(ret);
-                            self.updateTakes()
-                        });
+                        .then(self.updateTakes);
                 }
             },
             setLevelByTakes: function () {

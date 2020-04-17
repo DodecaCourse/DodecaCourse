@@ -60,7 +60,8 @@ export default {
       
       // offset_top: 15,
       // offset_bot: 15,
-      chap: null
+      chap: null,
+      loaded: false
     };
   },
   computed: {
@@ -129,24 +130,24 @@ export default {
     },
     copy: function(src) {
       return Object.assign({}, src);
+    },
+    update: function() {
+      this.progress = this.getProgress();
+      if (this.user != null) {
+        if (this.user.logoff_chapter != null) {
+          this.updateChapterInfo(this.user.logoff_chapter)
+        }
+      } else {
+        if(this.$route.query.usr == null){
+          this.$router.push("/");
+        }
+      }
     }
   },
   created: function() {
-    this.progress = this.getProgress();
-    var self = this;
-    this.updateCurrentUser()
-      .then( function() {
-        if (self.user != null) {
-          if (self.user.logoff_chapter != null) {
-            self.updateChapterInfo(self.user.logoff_chapter)
-          }
-        } else {
-          if(self.$route.query.usr == null){
-            self.$router.push("/");
-          }
-        }
-      });
-    
+    if(this.user != null){
+      this.update();
+    }
   },
   watch: {
     takes: function() {
@@ -155,9 +156,8 @@ export default {
       }
     },
     user: function () {
-      if (this.user == null) {
-        this.$router.push("/");
-      }
+      this.update();
+      this.loaded = true;
     }
   }
 }

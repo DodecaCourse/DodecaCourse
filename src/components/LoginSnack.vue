@@ -108,17 +108,14 @@
         methods: {
             loginUser: function () {
                 this.setCurrentUser(this.txtfld)
-                    .then(res => {
-                        console.log("Result", res);
-                    });
             },
             updateEnableLogin: function () {
-                console.log(this.txtfld.length);
+                // console.log(this.txtfld.length);
                 if (this.txtfld.length === 4) {
                     this.getUserID(this.txtfld.trim())
                         .then(data => {
                             this.founduser = data;
-                            console.log(data);
+                            // console.log(data);
                             this.login_enabled = !(this.founduser == null);
                         });
                 } else {
