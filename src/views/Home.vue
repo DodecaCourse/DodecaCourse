@@ -5,7 +5,8 @@
       <template v-if="user != null">
           <h1>{{this.progress.completed === 0 ? "Welcome!" : "Welcome back!"}}</h1>
           <p>You are logged in as <b>{{user.user_keyword}}</b>!</p>
-          <div id="ear" class="mdi mdi-ear-hearing" :style="{ 'background-image': this.createEarBackgroundString() }">
+          <v-img src="/img/ear.svg"></v-img>
+          <div id="ear" :style="{ 'background-image': this.createEarBackgroundString() }">
             <!-- TODO: Icon finden 👂 -->
           </div>
           <template v-if="this.progress.completed !== 0">
@@ -155,9 +156,6 @@ export default {
 
 <style scoped>
   #ear {
-    margin-top: -0.2em;
-    margin-bottom: -0.2em;
-    font-size: 15em;
     /*background-image: linear-gradient(180deg, #E5E5E5 41.3%, #2B81D6 41.4%);*/
     /* */
     -webkit-background-clip: text;
