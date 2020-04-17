@@ -1,17 +1,16 @@
 <template>
   <v-layout align-center justify-center row>
-    <template v-if="user != null">
-      <div id="ear" :style="{ 'background-image': this.createEarBackgroundString() }">
-        👂 <!-- TODO: Icon finden -->
-      </div>
-      <v-flex class="article" xs20>
+    <v-flex class="article" xs10>
+      <template v-if="user != null">
+        <div id="ear" class="mdi mdi-ear-hearing" :style="{ 'background-image': this.createEarBackgroundString() }">
+           <!-- TODO: Icon finden 👂 -->
+        </div>
         <h1>{{this.progress.completed === 0 ? "Welcome!" : "Welcome back!"}}</h1>
         <p>You are logged in as <b>{{user.user_keyword}}</b>!</p>
         <template v-if="this.progress.completed !== 0">
           <h2>{{progress.completed}} \ {{progress.all}}</h2>
           <p>You are <b>{{percent.toFixed(1)}}%</b> through! Keep on training!</p>
         </template>
-        <p><i>TODO: Styling </i></p>
         
         <v-btn v-if="this.user.logoff_chapter == null || this.chap == null" to="/">
           start learning
@@ -19,11 +18,12 @@
         <v-btn v-else :to="this.chap.path">
           continue chapter <b>{{this.chap.num}}</b>: {{this.chap.title}}
         </v-btn>
-      </v-flex>
-    </template>
-    <template v-else>
-      <h1>You shouldn't be here!</h1>
-    </template>
+        
+      </template>
+      <template v-else>
+        <h1>You shouldn't be here!</h1>
+      </template>
+    </v-flex>
   </v-layout>
 </template>
 
@@ -42,9 +42,9 @@ export default {
       },
       empty_color: "#E5E5E5",
       filled_color: "#2B81D6",
-      // TODO: Modify, if character changes
-      offset_top: 15,
-      offset_bot: 15,
+      
+      // offset_top: 15,
+      // offset_bot: 15,
       chap: null
     };
   },
@@ -61,12 +61,15 @@ export default {
   },
   methods: {
     createEarBackgroundString() {
-      var left = 100-this.offset_top-this.offset_bot;
-      var upper = this.percent.toFixed(1)*left/100 + this.offset_bot;
-      var lower = (this.percent + 0.2).toFixed(1)*left/100 + this.offset_bot;
-      var str = `linear-gradient(0deg, ${this.filled_color} ${lower}%, ${this.empty_color} ${upper}%)`;
-      // console.log(str);
-      return str;
+      // TODO: Modify, if character changes
+      const offset_bottom_percent = 24;
+      const offset_top_percent = 80.3;
+      const to_set = offset_top_percent - offset_bottom_percent;
+      const lower = (this.percent * to_set / 100 + offset_bottom_percent).toFixed(1);
+      let upper;
+      if (this.percent < 0.1) upper = lower;
+      else upper = (this.percent * to_set / 100 + offset_bottom_percent+0.1).toFixed(1);
+      return `linear-gradient(0deg, ${this.filled_color} ${lower}%, ${this.empty_color} ${upper}%)`;
     },
     getProgress: function() {
       var count = 0;
@@ -146,6 +149,8 @@ export default {
 
 <style scoped>
   #ear {
+    margin-top: -0.2em;
+    margin-bottom: -0.2em;
     font-size: 15em;
     /*background-image: linear-gradient(180deg, #E5E5E5 41.3%, #2B81D6 41.4%);*/
     /* */

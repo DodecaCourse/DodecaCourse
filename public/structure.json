@@ -541,6 +541,18 @@
       "title": "VII7 Internalisation",
       "levels": 1,
       "chapter_id": 5003
+    },
+    {
+      "id": 13001,
+      "title": "Diatonic Triads",
+      "levels": 3,
+      "chapter_id": 5003
+    },
+    {
+      "id": 13002,
+      "title": "Diatonic 7th Chords",
+      "levels": 3,
+      "chapter_id": 5003
     }
   ]
 }
