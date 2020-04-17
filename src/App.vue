@@ -7,7 +7,8 @@
           <v-list-item v-if="this.userProp != null" to="/home" link>
             <v-list-item-action>
               <!-- TODO: an 👂 anpassen -->
-              <v-icon>mdi-ear-hearing</v-icon>
+              <!-- <v-icon>mdi-ear-hearing</v-icon> -->
+              <v-img src="/img/ear.svg" height="35px" width="10px"></v-img>
             </v-list-item-action>
             <v-list-item-content>
               <v-list-item-title>Your Ear</v-list-item-title>
