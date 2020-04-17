@@ -41,8 +41,8 @@
                                     hide-details
                                     :value="'https://dodeca.wavel.de/home?usr=' + user.user_keyword"
                             ></v-text-field>
-                            To log in for your next session, use your custom URL or use the login button above
-                            and enter your username.
+                            To log in for your next session, use your custom URL or the login button above
+                            to enter your username.
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer />
@@ -106,25 +106,6 @@
                                 console.log("Result:", res);
                             });
                     });
-            },
-            loginUser: function () {
-                this.setCurrentUser(this.txtfld)
-                    .then(res => {
-                        console.log("Result", res);
-                    });
-            },
-            updateEnableLogin: function () {
-                console.log(this.txtfld.length);
-                if (this.txtfld.length === 4) {
-                    this.getUserID(this.txtfld.trim())
-                        .then(data => {
-                            this.founduser = data;
-                            console.log(data);
-                            this.login_enabled = !(this.founduser == null);
-                        });
-                } else {
-                    this.login_enabled = false;
-                }
             },
         },
     }
