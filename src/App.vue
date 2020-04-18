@@ -92,6 +92,7 @@
                     <router-view></router-view>
 
                 </v-container>
+                <!--
                 <v-container fluid>
                     <h2 v-if="!connection" class="ma-2">
                         <v-icon>mdi-alert</v-icon>
@@ -100,6 +101,7 @@
                         contact an admin.
                     </h2>
                 </v-container>
+                -->
                 <LoginSnack :show="showLoginSnack"
                             :on-close="function () {showLoginSnack = false}"/>
                 <RegisterSnack :show="showRegisterSnack"
