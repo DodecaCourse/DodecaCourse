@@ -67,7 +67,7 @@
                     </template>
                     <template v-else>
                         <span>Logged in as <b>{{userProp.user_keyword}}</b></span>
-                        <v-btn icon>
+                        <v-btn icon title="Logout">
                             <v-icon v-on:click="onLogout">mdi-logout</v-icon>
                         </v-btn>
                     </template>
