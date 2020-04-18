@@ -139,7 +139,7 @@ export default {
         }
       } else {
         if(this.$route.query.usr == null){
-          this.$router.push("/");
+          this.$router.push("/intro");
         }
       }
     }

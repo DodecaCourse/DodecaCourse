@@ -1,16 +1,7 @@
 <template>
-    <div>
-
-        <v-content>
-            <v-container fluid>
-                <router-view></router-view>
-            </v-container>
-        </v-content>
-
-        <v-footer app>
-      <span>&copy;2020 <router-link to="/impressum.html" class="pr-1">Impressum & Datenschutz</router-link>
-                  </span>
-        </v-footer>
+    <div class="bg">
+        <router-view>
+        </router-view>
     </div>
 </template>
 
@@ -21,5 +12,17 @@
 </script>
 
 <style scoped>
+    .bg {
+        /* The image used */
+        background-image: url("/img/notes.jpeg");
 
+        /* Full height */
+        height: 100vh;
+        width: 100vw;
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 </style>
