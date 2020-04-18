@@ -39,8 +39,7 @@
         </v-layout>
         <v-spacer></v-spacer>
         <div class="sp-footer">
-                <span>&copy;2020 <router-link to="/impressum.html"
-                                              class="pr-1">Impressum & Datenschutz</router-link></span>
+                <span>&copy;2020 <router-link to="/impressum.html">Impressum & Datenschutz</router-link></span>
         </div>
     </v-layout>
 </template>
@@ -55,12 +54,11 @@
 
 <style scoped lang="sass">
     .main
-        border-radius: 1ch
-        padding: 3ch
         max-width: 90vw
 
     .sp-footer
         background-color: rgba(255,255,255, 0.25)
-        width: 100vw
+        width: 100%
+        padding: 0.4ch
         text-align: center
 </style>
