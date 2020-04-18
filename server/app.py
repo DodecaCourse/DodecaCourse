@@ -9,25 +9,25 @@ from tinyrecord import transaction
 # standard modules
 import string
 import random
+import importlib
 # decorators
 from functools import wraps
 # files
 import config
 from read_structure import insert_structure
-# ø Datenbank laden
-# TODO
+importlib.reload(config)
 
-# ø Konfiguration
+# ø Config
 
-# → Datenbank
+# → Database
 db = TinyDB("db.json", storage=CachingMiddleware(JSONStorage))
-# db.purge()  # Datenbank clearen
+# db.purge()  # removed comments if you want to reset the database
 
 db.purge_table('modules')
 db.purge_table('chapters')
 db.purge_table('targets')
 
-# DATENBANKSTRUKTUR
+# DATABASE
 # User(user_id, user_keyword, settings...) (for settings see config)
 users = db.table('users')
 # Take(take_id, ↑user_id, ↑target_id, time_spend, finished)
@@ -39,21 +39,20 @@ chapters = db.table('chapters')
 # Target(target_id, ↑chapter_id)
 targets = db.table('targets')
 
-# Modules Chapters und targets aus structure.json lesen
-insert_structure("../public/structure.json", modules, chapters, targets)
+# Read Modules Chapters and Targets from static public/structure.json
+insert_structure("../public/structure.json", modules, chapters, targets,
+                 output=config.Config.DEBUG)
 db.storage.flush()  # close after inserting data
 
-# → Query starten
-# TODO: Sollte man hier jedes mal die Query neu initialisieren oder oben
-# einmal starten?
+# → Start Query
 q = Query()
 
-# → Allgemeine App-Konfiguration
-# wird aus config.py(und .env) geladen!
+# → General App-Conifg
+# ..read out of config.py(.env)!
 app = Flask(__name__)
+importlib.reload(config)
 app.config.from_object(config.Config)
-# CORS ermöglicht es, Regeln für den Zugriff festzulegen.
-# Wir wollen hier alle Zugriffe erlauben.
+# CORS allows us to restrict the access to the FRONTEND_SERVER
 CORS(app, origins=[config.Config.FRONTEND_SERVER], headers=['Content-Type'],
      expose_headers=['Access-Control-Allow-Origin'], supports_credentials=True)
 
@@ -427,23 +426,8 @@ def logout():
     return jsonify('success')
 
 
-#   * Extra Testing Stuff
-# @app.route('/random')
-# def rand():
-#     """
-#     Returns a random integer between 1 and 100.
-#
-#     Returns:
-#         int: random int
-#     """
-#     response = {
-#         'rand': randint(1, 100)
-#     }
-#     return jsonify(response)
-
-
 # handle withCredentials
-# TODO: Nochmal genau lesen, wie hier die credentials funktionieren
+# TODO: Read about credentials for further info
 
 # @app.after_request
 # def handle_credentials(response):

@@ -14,16 +14,15 @@ class Config:
     # FLASK_ENV = environ.get('FLASK_ENV')
 
     # Debug flags
-    TESTING = True
-    DEBUG = True
+    TESTING = (int(os.getenv('TESTING', 0)) == 1)
+    DEBUG = (int(os.getenv('DEBUG', 0)) == 1)
 
     # Flask-Session
     SESSION_TYPE = os.getenv('SESSION_TYPE')
     SESSION_REDIS = redis.from_url(os.getenv('SESSION_REDIS'))
-    if(os.getenv('SESSION_COOKIE_SECURE') == 1):
-        SESSION_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = (int(os.getenv('SESSION_COOKIE_SECURE', 1)) == 1)
     # User
-    USER_KEYWORD_LENGTH = 4
+    USER_KEYWORD_LENGTH = int(os.getenv('USER_KEYWORD_LENGTH', 4))
     FRONTEND_SERVER = os.getenv('FRONTEND_SERVER', 'http://localhost:8080')
 
     # ø User Settings
@@ -43,7 +42,6 @@ class Config:
     # THEME_DARK = 1
     #
     # # ø Default User Settings
-    # # TODO: Auslagern
     # DEFAULT_SETTINGS = {
     #     'input_type': INPUT_SOLFEGE,
     #     'language': LANG_ENGLISH,
