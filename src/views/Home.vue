@@ -1,39 +1,57 @@
 <template>
-  <v-layout align-center justify-center row>
-    <v-flex class="article" xs10>
+  <v-layout
+    align-center
+    justify-center
+    row
+  >
+    <v-flex
+      class="article"
+      xs10
+    >
       <v-col align="center">
-      <template v-if="user != null">
-          <h1>{{this.progress.completed === 0 ? "Welcome!" : "Welcome back!"}}</h1>
-          <p>You are logged in as <b>{{user.user_keyword}}</b>!</p>
+        <template v-if="user != null">
+          <h1>{{ progress.completed === 0 ? "Welcome!" : "Welcome back!" }}</h1>
+          <p>You are logged in as <b>{{ user.user_keyword }}</b>!</p>
           <object
-            type="image/svg+xml"
             id="ear"
+            type="image/svg+xml"
             :height="$vuetify.breakpoint.xsOnly ? 200 : 300"
             data="/img/ear.svg"
-            :style="{ 'background-image': this.createEarBackgroundString() }"
+            :style="{ 'background-image': createEarBackgroundString() }"
           >
             Ear
           </object>
           <br>
           <br>
-          <template v-if="this.progress.completed !== 0">
-            <h2>{{progress.completed}} \ {{progress.all}}</h2>
-            <p>You are <b>{{percent.toFixed(1)}}%</b> through!</p>
-            <p v-if="this.progress.ratio !== 1">Keep on training!</p>
-            <p v-else>Well done!</p>
-            <!-- TODO: funktioniert noch nicht -->
+          <template v-if="progress.completed !== 0">
+            <h2>{{ progress.completed }} \ {{ progress.all }}</h2>
+            <p>You are <b>{{ percent.toFixed(1) }}%</b> through!</p>
+            <p v-if="progress.ratio !== 1">
+              Keep on training!
+            </p>
+            <p v-else>
+              Well done!
+            </p>
           </template>
 
-          <v-btn v-if="this.user.logoff_chapter == null || this.chap == null" to="/intro">
+          <v-btn
+            v-if="user.logoff_chapter == null || chap == null"
+            to="/intro"
+          >
             start learning
           </v-btn>
-          <v-btn v-else id="continue" :to="this.chap.path" style="max-width: 90vw; height:auto;min-height: 36px">
-            continue chapter <b>{{this.chap.num}}:</b> {{this.chap.title}}
+          <v-btn
+            v-else
+            id="continue"
+            :to="chap.path"
+            style="max-width: 90vw; height:auto;min-height: 36px"
+          >
+            continue chapter <b>{{ chap.num }}:</b> {{ chap.title }}
           </v-btn>
-      </template>
-      <template v-else>
-        <h1>You shouldn't be here!</h1>
-      </template>
+        </template>
+        <template v-else>
+          <h1>You shouldn't be here!</h1>
+        </template>
       </v-col>
     </v-flex>
   </v-layout>
@@ -43,7 +61,7 @@
 import api from "../api.js";
 
 export default {
-  name: 'Home',
+  name: "Home",
   mixins: [api],
   data: function() {
     return {
@@ -62,9 +80,23 @@ export default {
     };
   },
   computed: {
-      percent: function() {
-        return this.progress.ratio*100;
+    percent: function() {
+      return this.progress.ratio*100;
+    }
+  },
+  watch: {
+    takes: function() {
+      if(this.user != null){
+        this.progress = this.getProgress();
       }
+    },
+    user: function () {
+      this.update();
+      this.loaded = true;
+    }
+  },
+  created: function() {
+    this.update();
   },
   methods: {
     createEarBackgroundString() {
@@ -132,7 +164,7 @@ export default {
       this.progress = this.getProgress();
       if (this.user != null) {
         if (this.user.logoff_chapter != null) {
-          this.updateChapterInfo(this.user.logoff_chapter)
+          this.updateChapterInfo(this.user.logoff_chapter);
         }
       } else {
         if(this.$route.query.usr == null){
@@ -141,26 +173,12 @@ export default {
             if (self.user == null) {
               this.$router.push("/intro");
             }
-          })
+          });
         }
       }
     }
-  },
-  created: function() {
-    this.update();
-  },
-  watch: {
-    takes: function() {
-      if(this.user != null){
-        this.progress = this.getProgress();
-      }
-    },
-    user: function () {
-      this.update();
-      this.loaded = true;
-    }
   }
-}
+};
 
 
 </script>

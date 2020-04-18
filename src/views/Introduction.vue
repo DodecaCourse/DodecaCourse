@@ -1,11 +1,20 @@
 <template>
-  <v-layout align-center justify-center row>
-    <v-flex class="article" xs10>
+  <v-layout
+    align-center
+    justify-center
+    row
+  >
+    <v-flex
+      class="article"
+      xs10
+    >
       <h1><b>Dodeca - </b> Functional Ear Training Course</h1>
       <h2>The Skill You’ll Learn And The Approach You’ll Use</h2>
-      <p>When you first picked up your instrument I’m sure you wanted to jump right in and start playing
+      <p>
+        When you first picked up your instrument I’m sure you wanted to jump right in and start playing
         your favourite tunes. Then you discovered that it’s impossible to play those tunes until you’ve
-        learned the notes and developed a little bit of technique.</p>
+        learned the notes and developed a little bit of technique.
+      </p>
       <p>
         Ear training is just the same. You might want to jump straight into it so you can begin the
         wonderful transformation that awaits you (and I want you to as well!) but there are a couple of
@@ -97,17 +106,24 @@
         where you’ll learn to recognise the tonic (so you have your reference point for all future ear
         training).
       </p>
-      <v-btn style="float: right" color="secondary" class="ma-2" to="/tonic-internalization/overview">Start module 1</v-btn>
+      <v-btn
+        style="float: right"
+        color="secondary"
+        class="ma-2"
+        to="/tonic-internalization/overview"
+      >
+        Start module 1
+      </v-btn>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-  // Imports
+// Imports
 
-  export default {
-    name: 'Introduction',
-    components: {
-    },
-  }
+export default {
+  name: "Introduction",
+  components: {
+  },
+};
 </script>

@@ -21,8 +21,8 @@
     "@vue/cli-plugin-eslint": "~4.2.0",
     "@vue/cli-service": "~4.2.0",
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.1.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^7.0.0-alpha.0",
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "typeface-roboto": "0.0.75",
@@ -39,13 +39,29 @@
       "vue"
     ],
     "extends": [
-      "plugin:vue/essential",
+      "plugin:vue/recommended",
       "eslint:recommended"
     ],
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "semi": [
+        "error",
+        "always"
+      ],
+      "quotes": [
+        "error",
+        "double"
+      ],
+      "indent": [
+        "error",
+        2
+      ],
+      "vue/component-tags-order": ["error", {
+        "order": ["template", "script", "style"]
+      }]
+    }
   },
   "browserslist": [
     "> 1%",

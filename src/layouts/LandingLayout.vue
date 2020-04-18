@@ -1,14 +1,13 @@
 <template>
-    <div class="bg">
-        <router-view>
-        </router-view>
-    </div>
+  <div class="bg">
+    <router-view />
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "LandingLayout"
-    }
+export default {
+  name: "LandingLayout"
+};
 </script>
 
 <style scoped>

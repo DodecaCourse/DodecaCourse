@@ -1,5 +1,5 @@
-import axios from 'axios';
-import structure from '../public/structure.json';
+import axios from "axios";
+import structure from "../public/structure.json";
 
 export default {
   data() {
@@ -7,7 +7,7 @@ export default {
       debug: false,
       flask_server: process.env.VUE_APP_BACKEND_SERVER,
       connection: true,
-    }
+    };
   },
   computed: {
     user: {
@@ -27,27 +27,27 @@ export default {
       }
     },
     modules: function() {
-      return structure['modules'];
+      return structure["modules"];
     },
     targets: function() {
-      return structure['targets']
+      return structure["targets"];
     }
     
   },
   methods: {
     fetch(url, cookies=false) {
-      const path = this.flask_server + url
+      const path = this.flask_server + url;
       if (this.debug) {
-        console.log('FETCH: ' + path)
+        console.log("FETCH: " + path);
       }
       
       var axios_instance = null;
       if (cookies){
         axios_instance = axios.create({
           withCredentials: true
-        })
+        });
       } else {
-        axios_instance = axios.create()
+        axios_instance = axios.create();
       }
       // Promisse return
       // var instance = axios.create({
@@ -61,22 +61,22 @@ export default {
         })
         .catch(err => {
           if(this.debug){
-            console.log(err)
+            console.log(err);
           }
           this.connection = false;
         });
     },
     getUserID(user_keyword) {
-      return this.fetch('getuser_bykey/' + user_keyword);
+      return this.fetch("getuser_bykey/" + user_keyword);
     },
     getTakes(){
-      return this.fetch('get_takes_by_user_id/' + this.user['user_id']);
+      return this.fetch("get_takes_by_user_id/" + this.user["user_id"]);
     },
     updateCurrentUser(){
       // try gettin from session
-      return this.fetch('getcurrentuser', true)
+      return this.fetch("getcurrentuser", true)
         .then(usr => {
-          this.user = usr
+          this.user = usr;
           // try getting from query params
           if(this.user == null) {
             // Check if user with query params exists
@@ -89,42 +89,41 @@ export default {
                 }
               });
           }
-      });
-      
+        });
     },
     // unused // Test
     // getCompletedLists(){
     //   return this.fetch('get_completed_by_user_id/' + this.user['user_id'])
     // },
     getCurrentUser(){
-      return this.fetch('getcurrentuser', true);
+      return this.fetch("getcurrentuser", true);
     },
     setCurrentUser(user){
-      return this.fetch('setcurrentuser/' + user, true)
-          .then(usr => this.user = usr).then(this.updateTakes);
+      return this.fetch("setcurrentuser/" + user, true)
+        .then(usr => this.user = usr).then(this.updateTakes);
     },
     updateTakes(){
-      return this.fetch('get_takes_by_user_id/' + this.user['user_id'])
-          .then(takes => this.takes = takes);
+      return this.fetch("get_takes_by_user_id/" + this.user["user_id"])
+        .then(takes => this.takes = takes);
     },
     setLogoffChapter(chapter_id){
-      return this.fetch('set_logoff_chapter/' + this.user['user_id'] + "/" + chapter_id);
+      return this.fetch("set_logoff_chapter/" + this.user["user_id"] + "/" + chapter_id);
     },
     // getSettings(){
     //   return this.fetch('getsettings/' + this.user['user_id']);
     // },
     generateUser() {
-      return this.fetch('generateuser');
+      return this.fetch("generateuser");
     },
     logout(){
       this.user = null;
-      return this.fetch('logout', true);
+      return this.fetch("logout", true);
     },
     completeTarget(target_id, level) {
-      return this.fetch('complete_target/' + this.user['user_id'] + '/' + target_id + '/' + level)
+      return this.fetch("complete_target/" + this.user["user_id"] + "/" + target_id + "/" + level);
     },
     unsetCompleteTarget(target_id, level) {
-      return this.fetch('unset_complete_target/' + this.user['user_id'] + '/' + target_id + '/' + level)
+      return this.fetch("unset_complete_target/" + this.user["user_id"] + "/" + target_id + "/" + level);
     }
   },
-}
+};

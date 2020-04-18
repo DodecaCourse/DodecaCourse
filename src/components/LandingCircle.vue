@@ -1,16 +1,20 @@
 <template>
   <div class="div-circle">
     <v-btn
-      v-for="btn in this.buttons"
-      v-bind:key="btn.index"
-      v-on:click="onClick(btn)"
+      v-for="btn in buttons"
+      :key="btn.index"
       :class="'normal-btn normal-btn--' + (btn.index + 1) + ' ' + btn.addClass"
       :disabled="!btn.enabled || !loaded"
-      medium fab :elevation="btn.index === 0 ? 5 : 2"
+      medium
+      fab
+      :elevation="btn.index === 0 ? 5 : 2"
       :color="btn.enabled ? 'primary' : 'secondary'"
-      >{{ labels[btn.index] }}</v-btn>
+      @click="onClick(btn)"
+    >
+      {{ labels[btn.index] }}
+    </v-btn>
     <div id="inner-content">
-      <slot name="content"></slot>
+      <slot name="content" />
     </div>
   </div>
 </template>
@@ -54,7 +58,7 @@ export default {
   watch: {
     enabledButtons: function (newVal) {
       for (let l=0; l<this.buttons.length; l++) {
-        this.buttons[l].enabled = newVal.indexOf(this.buttons[l].index) > -1
+        this.buttons[l].enabled = newVal.indexOf(this.buttons[l].index) > -1;
       }
     }
   },
@@ -62,6 +66,14 @@ export default {
   mounted: function () {
     for (let l=0; l<this.buttons.length; l++) {
       this.buttons[l].enabled = this.enabledButtons.indexOf(this.buttons[l].index) > -1;
+    }
+  },
+  created: function initAudio() {
+    // Initialize MIDI
+    if (typeof MIDI !== "undefined") {
+      this.loadMIDI();
+    } else {
+      window.onload = this.loadMIDI;
     }
   },
 
@@ -86,14 +98,6 @@ export default {
           self.loaded = true;
         }
       });
-    }
-  },
-  created: function initAudio() {
-    // Initialize MIDI
-    if (typeof MIDI !== 'undefined') {
-      this.loadMIDI();
-    } else {
-      window.onload = this.loadMIDI;
     }
   },
 };
