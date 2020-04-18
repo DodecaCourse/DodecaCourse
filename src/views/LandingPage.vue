@@ -5,12 +5,6 @@
             justify-center
             fill-height
     >
-        <v-layout
-                column
-                align-center
-                justify-center
-                fill-height
-                class="main flex-grow-0">
             <v-layout
                     column
                     align-center
@@ -25,9 +19,9 @@
                 </template>
             </LandingCircle>
 
-                <h3 class="text-center mt-4">Functional Ear Training Course - Free & Online</h3>
+                <h3 class="text-center mt-4" v-if="$vuetify.breakpoint.height > 415">Functional Ear Training Course - Free & Online</h3>
             <v-btn
-                    class="mt-12"
+                    :class="{'mt-12': $vuetify.breakpoint.height > 500}"
                     color="primary"
                     dark
                     large
@@ -36,9 +30,7 @@
                 Get Started
             </v-btn>
             </v-layout>
-        </v-layout>
-        <v-spacer></v-spacer>
-        <div class="sp-footer">
+        <div class="sp-footer white--text">
                 <span>&copy;2020 <router-link to="/impressum.html">Impressum & Datenschutz</router-link></span>
         </div>
     </v-layout>
@@ -55,10 +47,13 @@
 <style scoped lang="sass">
     .main
         max-width: 90vw
+        margin-bottom: 4ch
 
     .sp-footer
-        background-color: rgba(255,255,255, 0.25)
+        background-color: rgba(0,0,0, 0.25)
         width: 100%
         padding: 0.4ch
         text-align: center
+        position: absolute
+        bottom: 0
 </style>
