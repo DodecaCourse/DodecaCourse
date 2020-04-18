@@ -27,8 +27,8 @@
           <v-btn v-if="this.user.logoff_chapter == null || this.chap == null" to="/intro">
             start learning
           </v-btn>
-          <v-btn v-else :to="this.chap.path">
-            continue chapter <b>{{this.chap.num}}</b>: {{this.chap.title}}
+          <v-btn v-else id="continue" :to="this.chap.path" style="max-width: 90vw; height:auto;min-height: 36px">
+            continue chapter <b>{{this.chap.num}}:</b> {{this.chap.title}}
           </v-btn>
       </template>
       <template v-else>
@@ -112,7 +112,7 @@ export default {
             this.chap = this.copy(chapter);
             // modify path and title to also include module
             this.chap["path"] = module.path + chapter.path;
-            this.chap["title"] = this.$vuetify.breakpoint.xsOnly ? chapter.title : module.title + " / " + chapter.title;
+            this.chap["title"] = module.title + " / " + chapter.title;
           }
         });
       });
@@ -136,15 +136,18 @@ export default {
         }
       } else {
         if(this.$route.query.usr == null){
-          this.$router.push("/intro");
+          const self = this;
+          setTimeout(function () {
+            if (self.user == null) {
+              this.$router.push("/intro");
+            }
+          })
         }
       }
     }
   },
   created: function() {
-    if(this.user != null){
-      this.update();
-    }
+    this.update();
   },
   watch: {
     takes: function() {
@@ -162,10 +165,14 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
   #ear {
     mask: url(/img/ear_mask.svg);
     background: black;
     mask-size: 100% 100%;
+  }
+  #continue .v-btn__content {
+    max-width: 100%;
+    flex-wrap: wrap;
   }
 </style>

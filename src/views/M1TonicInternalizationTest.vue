@@ -85,10 +85,8 @@
                 tonic correctly in 10, 11 or all 12 keys, congratulations, you've
                 passed the first module! You've taken an
                 incredibly important step on the road to relative pitch and more
-                creativity and confidence with music. Continue to the next module:</p>
-            <v-btn style="float: right" color="secondary" class="mx-3"
-                   to="/individual-notes/overview">Next module</v-btn>
-            <p><br/>
+                creativity and confidence with music.
+            </p>
             <p>If you didn't,
                 there's no need to worry. It takes most students at least a
                 few attempts to pass this test. Simply go back to the
@@ -96,6 +94,15 @@
                 to solidify your ability to recognise the sound of the tonic
                 and retry after a few more practice sessions. Make sure you check the
                 troubleshooting section if you have any specific problems.</p>
+            <p>
+                <b>Want to save your progress as you make your way through the Dodeca Course?</b>
+            </p>
+            <p>
+                Generate a username by hitting <v-icon>mdi-account-plus</v-icon> in the top right corner.
+                It's free and no personal information is required.
+            </p>
+            <v-btn style="float: right" color="secondary" class="mx-3"
+                   to="/individual-notes/overview">Next module</v-btn>
         </v-flex>
     </v-layout>
 </template>
