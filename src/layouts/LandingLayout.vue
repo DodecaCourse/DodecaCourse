@@ -14,7 +14,7 @@
 <style scoped>
     .bg {
         /* The image used */
-        background-image: url("/img/notes.jpeg");
+        background-image: url("/img/sky_notes_warm.jpeg");
 
         /* Full height */
         height: 100vh;
