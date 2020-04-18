@@ -239,7 +239,7 @@
     .ear-action
         filter: invert(30%)
 
-    .v-list-item--active
+    .v-list-item--active .theme--light
         .ear-action
             filter: invert(0%) !important
 
