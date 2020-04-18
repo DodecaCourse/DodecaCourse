@@ -6,6 +6,8 @@ node_modules
 public/impressum.html
 lilypond/*.svg
 server/.env
+deploy.sh
+dist.bak
 # local env files
 .env.local
 .env.*.local
