@@ -138,7 +138,7 @@
       </p>
       <div style="display: flex; justify-content: left; align-items: center; margin-left: 3ch">
         <DegreeCirclePictogram :enabled-degrees="[0]" />
-        <span style="margin-left: 1ch">Only »Do« ist selected</span>
+        <span style="margin-left: 1ch">Only »Do« is selected</span>
       </div>
       <div style="display: flex; justify-content: left; align-items: center; margin-left: 3ch">
         <DegreeCirclePictogram :enabled-degrees="[0,2,4,7,9]" />

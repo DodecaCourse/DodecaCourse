@@ -149,6 +149,7 @@
                     </h2>
                 </v-container>
                 -->
+
         <LoginSnack
           :show="showLoginSnack"
           :on-close="function () {showLoginSnack = false}"
@@ -158,12 +159,12 @@
           :on-close="function () {showRegisterSnack = false}"
         />
       </v-content>
-
       <v-footer app>
-        <span>&copy;2020 <router-link
-          to="/impressum.html"
-          class="pr-1"
-        >Impressum & Datenschutz</router-link>
+        <span>
+          &copy;2020 <a
+            href="/impressum.html"
+            class="pr-1"
+          >Impressum & Datenschutz</a>
         </span>
       </v-footer>
     </template>

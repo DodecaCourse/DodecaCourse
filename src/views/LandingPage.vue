@@ -42,7 +42,9 @@
       </v-btn>
     </v-layout>
     <div class="sp-footer white--text">
-      <span>&copy;2020 <router-link to="/impressum.html">Impressum & Datenschutz</router-link></span>
+      <span>
+        &copy;2020 <a href="/impressum.html">Impressum & Datenschutz</a>
+      </span>
     </div>
   </v-layout>
 </template>
