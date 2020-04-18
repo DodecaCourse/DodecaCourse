@@ -44,7 +44,6 @@ gunicorn --bind 0.0.0.0:5000 wsgi
 ```
 
 ## Linting
-Lint your code by running
 ```
 eslint --ext .js,.vue src
 ```
