@@ -14,9 +14,6 @@
           >
             Ear
           </object>
-          <!-- <div id="ear" :style="{ 'background-image': this.createEarBackgroundString() }"> -->
-            <!-- TODO: Icon finden 👂 -->
-          <!-- </div> -->
           <br>
           <br>
           <template v-if="this.progress.completed !== 0">
@@ -27,7 +24,7 @@
             <!-- TODO: funktioniert noch nicht -->
           </template>
 
-          <v-btn v-if="this.user.logoff_chapter == null || this.chap == null" to="/">
+          <v-btn v-if="this.user.logoff_chapter == null || this.chap == null" to="/intro">
             start learning
           </v-btn>
           <v-btn v-else :to="this.chap.path">
@@ -167,23 +164,8 @@ export default {
 
 <style scoped>
   #ear {
-    /* fill: linear-gradient(180deg, #E5E5E5 41.3%, #2B81D6 41.4%);
-    height: 50%;
-    
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
-    /* height: 100px; */
     mask: url(/img/ear_mask.svg);
     background: black;
     mask-size: 100% 100%;
   }
-  
-  /* .icon {
-    fill: url("data:image/svg+xml,<svg xmlns='img/ear.svg'><linearGradient id='grad'><stop offset='0%' stop-color='%23ff00cc'/><stop offset='100%' stop-color='%23333399'/></linearGradient></svg>#grad") purple;
-
-  } */
-  /* TODO: Support dark-theme */
-  /* #ear .theme--dark {
-    background-image:linear-gradient(180deg, #363636 49.9%, rgba(43,129,214) 50.1%);
-  }*/
 </style>

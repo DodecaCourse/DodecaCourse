@@ -28,11 +28,6 @@ import M5MinorKeyExercisesTests from "./views/M5MinorKeyExercisesTests";
 import FurtherPractice from "./views/FurtherPractice";
 import GetPlaying from "./views/GetPlaying";
 
-import Default from "./layouts/Default";
-import LandingLayout from "./layouts/LandingLayout";
-
-Vue.component('default-layout', Default);
-Vue.component('landing-layout', LandingLayout);
 
 Vue.config.productionTip = false;
 
