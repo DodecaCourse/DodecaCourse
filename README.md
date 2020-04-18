@@ -42,3 +42,11 @@ python app.py
 cd server
 gunicorn --bind 0.0.0.0:5000 wsgi
 ```
+
+## Linting
+Lint your code by running
+```
+eslint --ext .js,.vue src
+```
+This will lint all .js and .vue files in the src folder. Run with `--fix` if you
+want to automatically fix fixable warnings and erros.
