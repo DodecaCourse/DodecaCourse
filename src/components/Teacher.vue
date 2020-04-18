@@ -268,13 +268,13 @@
             description: function () {
                 if (this.type === INTERNALIZATION || this.type === INTERNALIZATION_TEST ||
                     this.type === CHORD_INTERNALIZATION)
-                    return "Internalisation";
+                    return this.$i18n.t("teacher.internalization");
                 else if (this.type === RECOGNITION_SINGLE || this.type === RECOGNITION_SINGLE_TEST ||
                          this.type === RECOGNITION_INTERVAL || this.type === RECOGNITION_INTERVAL_TEST ||
                          this.type === CHORD_RECOGNITION || this.type === CHORD_RECOGNITION_TEST)
-                    return "Recognition";
-                else if (this.type === TARGET_TONE || this.type === TARGET_TONE_TEST) return "Targeting Tones";
-                else if (this.type === CHORD_QUALITY || this.type === CHORD_QUALITY_TEST) return "Chord Quality";
+                    return this.$i18n.t("teacher.recognition");
+                else if (this.type === TARGET_TONE || this.type === TARGET_TONE_TEST) return this.$i18n.t("teacher.targeting-tones");
+                else if (this.type === CHORD_QUALITY || this.type === CHORD_QUALITY_TEST) return this.$i18n.t("teacher.chord-quality");
                 else {
                     console.warn("No description for type", this.type);
                     return ""

@@ -1,5 +1,11 @@
 {
   "course-name": "DODECA",
+  "teacher": {
+    "internalization": "Internalization",
+    "recognition": "Recognition",
+    "targeting-tones": "Targeting Tones",
+    "chord-quality": "Chord Quality"
+  },
   "modules": {
     "1": {
       "title": "Tonic",
