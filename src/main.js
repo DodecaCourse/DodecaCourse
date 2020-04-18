@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import LandingPage from "./views/LandingPage";
 import Introduction from './views/Introduction.vue';
 import Home from './views/Home.vue';
 import App from './App.vue';
@@ -27,6 +28,12 @@ import M5MinorKeyExercisesTests from "./views/M5MinorKeyExercisesTests";
 import FurtherPractice from "./views/FurtherPractice";
 import GetPlaying from "./views/GetPlaying";
 
+import Default from "./layouts/Default";
+import LandingLayout from "./layouts/LandingLayout";
+
+Vue.component('default-layout', Default);
+Vue.component('landing-layout', LandingLayout);
+
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
@@ -35,7 +42,8 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/', component: Introduction },
+    { path: '/', component: LandingPage, meta: { layout: "landing" }},
+    { path: '/intro', component: Introduction },
     { path: '/home', component: Home},
     { path: '/about', component: About },
     { path: '/tonic-internalization/overview', component: M1TonicInternalizationOverview},
@@ -87,7 +95,6 @@ const router = new VueRouter({
 //     next();
 //   }
 // });
-
 
 
 new Vue({
