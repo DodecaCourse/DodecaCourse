@@ -34,6 +34,10 @@
                         :submit-solution="solutionInput" :enabled-qualities="chordTypes">
                 </ChordQualityInput>
             </div>
+            <div v-if="iOS">
+                <v-icon>mdi-alert</v-icon>
+                <b>Unfortunately iOS is not supported yet.</b>
+            </div>
         </div>
     </v-card>
 </template>
@@ -84,6 +88,7 @@
         components: {ChordQualityInput, DegreeCirclePictogram, DegreeCircle},
         data: function() {
             return {
+                iOS: !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
                 hidden: false,
                 loaded: false,
                 playing: false,
