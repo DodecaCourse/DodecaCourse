@@ -1,3 +1,20 @@
+<!--
+Copyright 2020 Maximilian Herzog, Hans Olischläger, Valentin Pratz, Philipp Tepel
+This file is part of Dodeca Course.
+
+Dodeca Course is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Dodeca Course is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
+-->
 <template>
   <v-app id="inspire">
     <template v-if="layout === 'landing-layout'">
@@ -50,13 +67,30 @@
             <Modules :cur-module="curModule" />
           </v-list>
           <div
-            class="justify-end v-footer"
-            style="text-align: center"
+            class="v-footer justify-center"
+            style="text-align: center; font-size: smaller"
             :class="$vuetify.theme.dark ? 'theme--dark' : 'theme--light'"
           >
-            <span>Structure & Content based on <a
-              href="https://eartraininghq.com/"
-            >Ear Training HQ</a></span>
+            <a
+              rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/"
+            ><img
+              alt="Creative Commons License"
+              style="border-width:0"
+              src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+            ></a>
+            <span>
+              Structure & content are based on <a
+                href="https://eartraininghq.com/"
+              >Ear Training HQ</a>, used under <a
+                href="http://creativecommons.org/licenses/by-sa/4.0/"
+              >CC BY-SA</a>. Except where otherwise noted, </span><span><span
+              xmlns:dct="http://purl.org/dc/terms/"
+              property="dct:title"
+            >Dodeca Course</span> content is licensed under a <a
+              rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/"
+            >CC BY-SA 4.0 license.</a></span>
           </div>
         </v-layout>
       </v-navigation-drawer>
