@@ -1,42 +1,57 @@
 <template>
-  <v-layout align-center justify-center row>
-    <v-flex class="article" xs10>
+  <v-layout
+    align-center
+    justify-center
+    row
+  >
+    <v-flex
+      class="article"
+      xs10
+    >
       <v-col align="center">
-      <template v-if="user != null">
-          <h1>{{this.progress.completed === 0 ? "Welcome!" : "Welcome back!"}}</h1>
-          <p>You are logged in as <b>{{user.user_keyword}}</b>!</p>
+        <template v-if="user != null">
+          <h1>{{ progress.completed === 0 ? "Welcome!" : "Welcome back!" }}</h1>
+          <p>You are logged in as <b>{{ user.user_keyword }}</b>!</p>
           <object
-            type="image/svg+xml"
             id="ear"
+            type="image/svg+xml"
             :height="$vuetify.breakpoint.xsOnly ? 200 : 300"
             data="/img/ear.svg"
-            :style="{ 'background-image': this.createEarBackgroundString() }"
+            :style="{ 'background-image': createEarBackgroundString() }"
           >
             Ear
           </object>
-          <!-- <div id="ear" :style="{ 'background-image': this.createEarBackgroundString() }"> -->
-            <!-- TODO: Icon finden 👂 -->
-          <!-- </div> -->
           <br>
           <br>
-          <template v-if="this.progress.completed !== 0">
-            <h2>{{progress.completed}} \ {{progress.all}}</h2>
-            <p>You are <b>{{percent.toFixed(1)}}%</b> through!</p>
-            <p v-if="this.progress.ratio !== 1">Keep on training!</p>
-            <p v-else>Well done!</p>
-            <!-- TODO: funktioniert noch nicht -->
+          <template v-if="progress.completed !== 0">
+            <h2>{{ progress.completed }} \ {{ progress.all }}</h2>
+            <p>You are <b>{{ percent.toFixed(1) }}%</b> through!</p>
+            <p v-if="progress.ratio !== 1">
+              Keep on training!
+            </p>
+            <p v-else>
+              Well done!
+            </p>
           </template>
 
-          <v-btn v-if="this.user.logoff_chapter == null || this.chap == null" to="/">
+          <v-btn
+            v-if="user.logoff_chapter == null || chap == null"
+            to="/intro"
+          >
             start learning
           </v-btn>
-          <v-btn v-else :to="this.chap.path">
-            continue chapter <b>{{this.chap.num}}</b>: {{this.chap.title}}
+          <v-btn
+            v-else
+            id="continue"
+            :to="chap.path"
+            style="max-width: 90vw; height:auto;min-height: 36px"
+          >
+            continue chapter <b>{{ chap.num }}:</b> {{ chap.title }}
           </v-btn>
-      </template>
-      <template v-else>
-        <h1>You shouldn't be here!</h1>
-      </template>
+        </template>
+        <template v-else>
+          <h1>You shouldn't be here!</h1>
+        </template>
       </v-col>
     </v-flex>
   </v-layout>
@@ -46,7 +61,7 @@
 import api from "../api.js";
 
 export default {
-  name: 'Home',
+  name: "Home",
   mixins: [api],
   data: function() {
     return {
@@ -65,9 +80,23 @@ export default {
     };
   },
   computed: {
-      percent: function() {
-        return this.progress.ratio*100;
+    percent: function() {
+      return this.progress.ratio*100;
+    }
+  },
+  watch: {
+    takes: function() {
+      if(this.user != null){
+        this.progress = this.getProgress();
       }
+    },
+    user: function () {
+      this.update();
+      this.loaded = true;
+    }
+  },
+  created: function() {
+    this.update();
   },
   methods: {
     createEarBackgroundString() {
@@ -115,7 +144,7 @@ export default {
             this.chap = this.copy(chapter);
             // modify path and title to also include module
             this.chap["path"] = module.path + chapter.path;
-            this.chap["title"] = this.$vuetify.breakpoint.xsOnly ? chapter.title : module.title + " / " + chapter.title;
+            this.chap["title"] = module.title + " / " + chapter.title;
           }
         });
       });
@@ -135,55 +164,33 @@ export default {
       this.progress = this.getProgress();
       if (this.user != null) {
         if (this.user.logoff_chapter != null) {
-          this.updateChapterInfo(this.user.logoff_chapter)
+          this.updateChapterInfo(this.user.logoff_chapter);
         }
       } else {
         if(this.$route.query.usr == null){
-          this.$router.push("/");
+          const self = this;
+          setTimeout(function () {
+            if (self.user == null) {
+              this.$router.push("/intro");
+            }
+          });
         }
       }
     }
-  },
-  created: function() {
-    if(this.user != null){
-      this.update();
-    }
-  },
-  watch: {
-    takes: function() {
-      if(this.user != null){
-        this.progress = this.getProgress();
-      }
-    },
-    user: function () {
-      this.update();
-      this.loaded = true;
-    }
   }
-}
+};
 
 
 </script>
 
-<style scoped>
+<style>
   #ear {
-    /* fill: linear-gradient(180deg, #E5E5E5 41.3%, #2B81D6 41.4%);
-    height: 50%;
-    
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
-    /* height: 100px; */
     mask: url(/img/ear_mask.svg);
     background: black;
     mask-size: 100% 100%;
   }
-  
-  /* .icon {
-    fill: url("data:image/svg+xml,<svg xmlns='img/ear.svg'><linearGradient id='grad'><stop offset='0%' stop-color='%23ff00cc'/><stop offset='100%' stop-color='%23333399'/></linearGradient></svg>#grad") purple;
-
-  } */
-  /* TODO: Support dark-theme */
-  /* #ear .theme--dark {
-    background-image:linear-gradient(180deg, #363636 49.9%, rgba(43,129,214) 50.1%);
-  }*/
+  #continue .v-btn__content {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
 </style>

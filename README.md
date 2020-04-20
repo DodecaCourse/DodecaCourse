@@ -42,3 +42,15 @@ python app.py
 cd server
 gunicorn --bind 0.0.0.0:5000 wsgi
 ```
+
+## Linting & Code Style
+```
+eslint --ext .js,.vue src
+```
+This will lint all .js and .vue files in the src folder. Run with `--fix` if you
+want to automatically fix fixable warnings and errors.
+
+Run pycodestyle (pep8) in `server` to apply Python style checking:
+```
+pycodestyle --show-pep8 --show-source *.py
+```

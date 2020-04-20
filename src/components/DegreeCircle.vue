@@ -1,23 +1,34 @@
 <template>
   <div class="div-circle">
-    <div id="background-circle" :class="backgroundClass" :style="'backgroundColor: ' + backgroundColor"/>
+    <div
+      id="background-circle"
+      :class="backgroundClass"
+      :style="'backgroundColor: ' + backgroundColor"
+    />
     <v-btn
-      v-for="btn in this.buttons"
-      v-bind:key="btn.index"
-      v-on:click="onClick(btn)"
+      v-for="btn in buttons"
+      :key="btn.index"
       :class="'normal-btn normal-btn--' + (btn.index + 1) + ' ' + btn.addClass"
       :disabled="!btn.enabled"
-      x-small fab :elevation="btn.index === 0 ? 5 : 2"
+      x-small
+      fab
+      :elevation="btn.index === 0 ? 5 : 2"
       :color="btn.enabled ? 'primary' : 'secondary'"
-      >{{ labels[btn.index] }}</v-btn>
+      @click="onClick(btn)"
+    >
+      {{ labels[btn.index] }}
+    </v-btn>
     <div id="progress-content">
-      <slot name="progress"></slot>
+      <slot name="progress" />
     </div>
     <div id="inner-content">
-      <slot name="playbtn"></slot>
+      <slot name="playbtn" />
     </div>
-    <div id="inner-text" :style="'color: ' + $vuetify.theme.currentTheme.primary">
-      <slot name="text"></slot>
+    <div
+      id="inner-text"
+      :style="'color: ' + $vuetify.theme.currentTheme.primary"
+    >
+      <slot name="text" />
     </div>
   </div>
 </template>
@@ -39,10 +50,6 @@ export default {
     labels: {
       type: Array,
       required: true,
-    },
-    tType: {
-      type: String,
-      required: false,
     }
   },
 
@@ -116,13 +123,13 @@ export default {
     modeEnabled: function (newVal) {
       if (this.useMode) {
         for (let l=0; l<this.buttons.length; l++) {
-          this.buttons[l].enabled = newVal.indexOf(this.buttons[l].index) > -1
+          this.buttons[l].enabled = newVal.indexOf(this.buttons[l].index) > -1;
         }
       }
     },
     enabledButtons: function (newVal) {
       for (let l=0; l<this.buttons.length; l++) {
-        this.buttons[l].enabled = newVal.indexOf(this.buttons[l].index) > -1
+        this.buttons[l].enabled = newVal.indexOf(this.buttons[l].index) > -1;
       }
     }
   },
@@ -167,20 +174,20 @@ export default {
       const self = this;
       const correctionTime = 500;
       if (correct) {
-        this.backgroundColor = 'lightgreen';
+        this.backgroundColor = "lightgreen";
       } else {
-        this.backgroundColor = 'lightcoral';
+        this.backgroundColor = "lightcoral";
         for (let i=0; i<solution.length; i++) {
           const c = i;
           if (i === 0) {
-            this.buttons[solution[c]].addClass = 'correct-background';
+            this.buttons[solution[c]].addClass = "correct-background";
           } else {
             setTimeout(function() {
-              self.buttons[solution[c]].addClass = 'correct-background';
-            }, correctionTime * i + 10 * (i-1))
+              self.buttons[solution[c]].addClass = "correct-background";
+            }, correctionTime * i + 10 * (i-1));
           }
           setTimeout(function () {
-            self.buttons[solution[c]].addClass = '';
+            self.buttons[solution[c]].addClass = "";
           }, correctionTime * (i + 1) + 10 + i);
         }
       }
@@ -189,8 +196,8 @@ export default {
       }
       // fade-in-out could still be set on fast clicks -> reset and timeout
       this.backgroundClass = "";
-      setTimeout(function () {self.backgroundClass = "fade-in-out"}, 50);
-      this.backgroundTimeout = setTimeout(function () {self.backgroundClass = ""}, 700);
+      setTimeout(function () {self.backgroundClass = "fade-in-out";}, 50);
+      this.backgroundTimeout = setTimeout(function () {self.backgroundClass = "";}, 700);
     }
   }
 };

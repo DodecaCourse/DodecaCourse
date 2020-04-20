@@ -3,7 +3,8 @@ import json
 # TODO: Do we need names?
 
 
-def insert_structure(structure_file, modules_db, chapters_db, targets_db):
+def insert_structure(structure_file, modules_db, chapters_db, targets_db,
+                     output=False):
     """
     Reads the structure of modules, chapters and levels contained in
     a structure file(e. g. public/structure.json)
@@ -16,23 +17,28 @@ def insert_structure(structure_file, modules_db, chapters_db, targets_db):
     """
     with open(structure_file) as json_file:
         data = json.load(json_file)
-        print("modules - chapter")
+        if(output):
+            print("modules - chapter")
         for module in data["modules"]:
-            print(module['id'], module['title'])
+            if(output):
+                print(module['id'], module['title'])
             module_id = module['id']
             modules_db.insert({
                 'module_id': module_id,
                 # 'module_name': module['title']
             })
             for chapter in module["chapters"]:
-                print("\t", chapter['id'], chapter['title'])
+                if(output):
+                    print("\t", chapter['id'], chapter['title'])
                 chapters_db.insert({
                     'chapter_id': chapter['id'],
                     'module_id': module_id
                 })
-        print("targets")
+        if(output):
+            print("targets")
         for target in data["targets"]:
-            print(target['id'], target['chapter_id'], target['title'])
+            if(output):
+                print(target['id'], target['chapter_id'], target['title'])
             targets_db.insert({
                 'target_id': target['id'],
                 'chapter_id': target['chapter_id']
