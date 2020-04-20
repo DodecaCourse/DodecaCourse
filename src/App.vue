@@ -147,11 +147,13 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
                 mdi-logout
               </v-icon>
             </v-btn>
+            <v-btn icon>
+              <v-icon @click="onLike">
+                {{ userProp.like ? "mdi-heart" : "mdi-heart-outline" }}
+              </v-icon>
+            </v-btn>
           </template>
         </template>
-        <!-- <v-btn icon>
-                  <v-icon>mdi-heart</v-icon>
-                </v-btn> -->
         <v-btn
           icon
           title="Toggle Light/Dark"
@@ -192,6 +194,20 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
           :show="showRegisterSnack"
           :on-close="function () {showRegisterSnack = false}"
         />
+        <v-snackbar
+          v-model="showLikeSnack"
+          top
+        >
+          <!-- likes+1 -->
+          Thanks for ❤ing us! ({{ likes }} total ❤)
+          <v-btn
+            color="pink"
+            text
+            @click="showLikeSnack = false"
+          >
+            Close
+          </v-btn>
+        </v-snackbar>
       </v-content>
       <v-footer app>
         <span>
@@ -227,9 +243,11 @@ export default {
   mixins: [api],
   data: () => ({
     drawer: null,
+    likes: 0,
     curModule: 0,
     showLoginSnack: false,
     showRegisterSnack: false,
+    showLikeSnack: false,
     loginBtnDisabled: false, // workaround against login popping up on logout
     userProp: null,
     takesProp: {}
@@ -244,6 +262,8 @@ export default {
       if (val != null) {
         this.loginBtnDisabled = true;
         this.updateTakes();
+        // TODO: only run when user likes
+        this.updateLikes();
       } else {
         this.takes = {};
       }
@@ -292,7 +312,17 @@ export default {
         self.loginBtnDisabled = false;
       });
       this.logout();
+    },
+    onLike: function() {
+      this.showLikeSnack = !this.userProp.like;
+      this.setLike(!this.userProp.like)
+        .then(this.updateCurrentUser);
+    },
+    updateLikes: function() {
+      this.getLikes()
+        .then(l => this.likes = l);
     }
+    
   },
 };
 

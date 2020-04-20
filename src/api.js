@@ -89,6 +89,7 @@ export default {
     getTakes(){
       return this.fetch("get_takes_by_user_id/" + this.user["user_id"]);
     },
+    
     updateCurrentUser(){
       // try gettin from session
       return this.fetch("getcurrentuser", true)
@@ -131,6 +132,13 @@ export default {
     // },
     generateUser() {
       return this.fetch("generateuser");
+    },
+    setLike(like) {
+      var like_int = (like ? "1" : "0");
+      return this.fetch("set_like/" + this.user["user_id"] + "/" + like_int);
+    },
+    getLikes() {
+      return this.fetch("get_likes/");
     },
     logout(){
       this.user = null;

@@ -1,5 +1,6 @@
 """
-Copyright 2020 Maximilian Herzog, Hans Olischläger, Valentin Pratz, Philipp Tepel
+Copyright 2020 Maximilian Herzog, Hans Olischläger, Valentin Pratz,
+Philipp Tepel
 This file is part of Dodeca Course.
 
 Dodeca Course is free software: you can redistribute it and/or modify
@@ -257,11 +258,16 @@ def get_user_by_key(user_key):
     lchap = None
     if 'logoff_chapter' in found[0].keys():
         lchap = found[0]['logoff_chapter']
-        print("no logoff chapter found")
+
+    like = False
+    if 'like' in found[0].keys():
+        like = found[0]["like"]
+
     return jsonify({
         'user_id': found[0].eid,
         'user_keyword': found[0]['user_keyword'],
-        'logoff_chapter': lchap
+        'logoff_chapter': lchap,
+        'like': like
     })
 
 
@@ -413,8 +419,31 @@ def get_user_takes(user_id):
 #                     "no_test_modules": no_test_modules
 #                    })
 
-#   * Cookie Stuff
 
+@app.route('/set_like/<int:user_id>/<int:like_int>')
+@check_user_id
+def set_like(user_id, like_int):
+    like = (like_int == 1)
+    # found = users.update({'like': like}, eids=[user_id])
+    users.update({'like': like}, eids=[user_id])
+    # print(len(found))
+    # if len(found) > 1:
+    #     app.logger.warnign("QUERY: Multiple users with user_id "
+    # + str(user_id)
+    #                        + "found!")
+    db.storage.flush()
+    return jsonify("success on setting like=" + str(like) + " on user "
+                   + str(user_id))
+
+
+@app.route('/get_likes/')
+def get_likes():
+    found = users.search(q["like"])
+    # print(found)
+    return jsonify(len(found))
+
+
+#   * Cookie Stuff
 
 @app.route('/setcurrentuser/<user_keyword>')
 def set_current_user(user_keyword):
@@ -441,7 +470,6 @@ def get_current_user():
 def logout():
     session.clear()
     return jsonify('success')
-
 
 # handle withCredentials
 # TODO: Read about credentials for further info
