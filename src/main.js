@@ -26,6 +26,8 @@ import M5SolfegeMinor from "./views/M5SolfegeMinor";
 import M5MinorKeyExercisesTests from "./views/M5MinorKeyExercisesTests";
 import FurtherPractice from "./views/FurtherPractice";
 import GetPlaying from "./views/GetPlaying";
+import i18n from './i18n'
+
 
 
 Vue.config.productionTip = false;
@@ -93,5 +95,6 @@ const router = new VueRouter({
 new Vue({
   router,
   vuetify,
+  i18n,
   render: h => h(App)
 }).$mount("#app");

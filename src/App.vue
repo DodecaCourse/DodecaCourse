@@ -125,6 +125,7 @@
         >
           <v-icon>mdi-invert-colors</v-icon>
         </v-btn>
+        <LocaleChooser></LocaleChooser>
       </v-app-bar>
 
       <v-content>
@@ -180,6 +181,7 @@ import Teacher from "./components/Teacher";
 import LoginSnack from "./components/LoginSnack";
 import api from "./api.js";
 import RegisterSnack from "./components/RegisterSnack";
+import LocaleChooser from "./components/LocaleChooser";
 
 export default {
   name: "Dodeca",
@@ -189,6 +191,7 @@ export default {
     Teacher,
     Modules,
     LoginSnack,
+    LocaleChooser,
   },
   mixins: [api],
   data: () => ({

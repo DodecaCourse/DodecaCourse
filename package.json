@@ -5,17 +5,20 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
   },
   "dependencies": {
     "@tonaljs/tonal": "^3.6.0",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
+    "vue-i18n": "^8.0.0",
     "vue-router": "^3.1.6",
     "vuetify": "^2.2.19"
   },
   "devDependencies": {
+    "@kazupon/vue-i18n-loader": "^0.3.0",
     "@mdi/font": "^5.0.45",
     "@vue/cli-plugin-babel": "~4.2.0",
     "@vue/cli-plugin-eslint": "~4.2.0",
@@ -25,6 +28,7 @@
     "eslint-plugin-vue": "^7.0.0-alpha.0",
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
+    "vue-cli-plugin-i18n": "~0.6.1",
     "typeface-roboto": "0.0.75",
     "vue-cli-plugin-vuetify": "~2.0.5",
     "vue-template-compiler": "^2.6.11",
@@ -58,9 +62,16 @@
         "error",
         2
       ],
-      "vue/component-tags-order": ["error", {
-        "order": ["template", "script", "style"]
-      }]
+      "vue/component-tags-order": [
+        "error",
+        {
+          "order": [
+            "template",
+            "script",
+            "style"
+          ]
+        }
+      ]
     }
   },
   "browserslist": [

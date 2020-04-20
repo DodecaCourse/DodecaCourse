@@ -1,77 +1,33 @@
 <template>
-  <v-layout
-    align-center
-    justify-center
-    row
-  >
-    <v-flex
-      class="article"
-      xs10
-    >
-      <h1>1. Recognising the Tonic</h1>
-      <h2>Overview</h2>
-      <p>
-        In this module
-        we’ll lay the foundation for fast, effective ear training. You’ll:
-      </p>
-      <ul>
-        <li>
-          discover the
-          note that acts as the focal point of this entire
-          approach to ear training (and the focal point of all effective ear
-          training approaches) - called the tonic.
-        </li>
-        <li>
-          begin training your ears by memorising the sound of the tonic so you
-          are able to identify it in music.
-        </li>
-      </ul>
-      <h2>Method</h2>
-      <ol>
-        <li>
-          <p>
-            Read through the lesson on the tonic to find out what the tonic is
-            and why it’s at the centre of an effective ear training approach.
-          </p>
-        </li>
-        <li>
-          <p>Read the exercise explanations for internalisation exercises</p>
-        </li>
-        <li>
-          <p>
-            Start with
-            the tonic internalisation exercise.
-          </p>
-        </li>
-        <li>
-          <p>
-            Repeat until
-            you feel ready to attempt the tonic internalisation test.
-          </p>
-        </li>
-        <li>
-          <p>
-            Attempt the
-            tonic internalisation test.
-          </p>
-        </li>
-        <li>
-          <p>
-            If you pass the test, continue on to module 2. If you do not, refer to the
-            troubleshooting section
-          </p>
-        </li>
-      </ol>
-      <v-btn
-        style="float: right"
-        color="secondary"
-        class="ma-2"
-        to="/tonic-internalization/tonic"
-      >
-        Next Chapter
-      </v-btn>
-    </v-flex>
-  </v-layout>
+    <v-layout align-center justify-center row>
+        <v-flex class="article" xs10>
+            <h1> {{$t('m1.overview.100h1')}} </h1>
+            <h2> {{$t('m1.overview.200h2')}} </h2>
+            <p> {{$t('m1.overview.300p')}} </p>
+            <ul>
+                <li> {{$t('m1.overview.400ul.500li')}} </li>
+                <li> {{$t('m1.overview.400ul.600li')}} </li>
+            </ul>
+            <h2> {{$t('m1.overview.700h2')}} </h2>
+            <ol>
+                <li>
+                    <p> {{$t('m1.overview.800ol.900li.1000p')}} </p>
+                </li>
+                <li><p> {{$t('m1.overview.800ol.1100li.1200p')}} </p>
+                </li>
+                <li><p> {{$t('m1.overview.800ol.1300li.1400p')}} </p>
+                </li>
+                <li><p> {{$t('m1.overview.800ol.1500li.1600p')}} </p>
+                </li>
+                <li><p> {{$t('m1.overview.800ol.1700li.1800p')}} </p>
+                </li>
+                <li><p> {{$t('m1.overview.800ol.1900li.2000p')}} </p>
+                </li>
+            </ol>
+            <v-btn style="float: right" color="secondary" class="ma-2"
+                   to="/tonic-internalization/tonic"> {{$t('m1.overview.2100v-btn')}} </v-btn>
+        </v-flex>
+    </v-layout>
 </template>
 
 <script>
