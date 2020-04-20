@@ -125,7 +125,7 @@
         >
           <v-icon>mdi-invert-colors</v-icon>
         </v-btn>
-        <LocaleChooser></LocaleChooser>
+        <LocaleChooser />
       </v-app-bar>
 
       <v-content>
