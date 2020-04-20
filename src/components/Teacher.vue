@@ -67,6 +67,10 @@
           :enabled-qualities="chordTypes"
         />
       </div>
+      <div v-if="iOS">
+        <v-icon>mdi-alert</v-icon>
+        <b>Unfortunately iOS is not supported yet.</b>
+      </div>
     </div>
   </v-card>
 </template>
@@ -120,6 +124,7 @@ export default {
       hidden: false,
       loaded: false,
       playing: false,
+      iOS: !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform),
                 
       // references to cancel setTimeout
       timeoutRef: null,
