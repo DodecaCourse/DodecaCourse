@@ -85,14 +85,10 @@ export default {
       filled_color_dark: "#2B81D6"
     };
   },
-  created: function() {
-    console.log(this.createBackgroundString());
-  },
   methods: {
     createBackgroundString: function() {
       if(!this.empty) {
         const ratio = this.progress.completed/this.progress.total;
-        console.log(ratio);
         const lower = (ratio*100).toFixed(1);
         const upper = (ratio*100 +0.1).toFixed(1);
         var filled_color = null;
