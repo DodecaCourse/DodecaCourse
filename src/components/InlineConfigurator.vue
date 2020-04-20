@@ -101,7 +101,7 @@ export default {
     },
     scale: {
       type: String,
-      default: "aeolian"
+      default: "ionian"
     },
   },
   data: function () {
