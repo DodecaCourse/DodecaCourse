@@ -91,6 +91,77 @@
       "600p": "Zuerst müssen wir in der Lage sein, sicher zu erkennen, welcher Ton die Tonika ist. Und genau das ist das Ziel dieses ersten Moduls",
       "700p": "Wir machen das mit einer Übung, die Internalisierungsübung genannt wird. ",
       "800v-btn": "Nächstes Kapitel"
+    },
+    "intern-ex": {
+      "100h1": "1. Erkennen der Tonika",
+      "200h2": "Tonic Internalization Exercise",
+      "300p": "Die Übung zur Tonisierungsinternalisierung macht es Ihnen so einfach wie möglich, den Klang des Tonikums zu 'verinnerlichen' (auswendig zu lernen).",
+      "400p": "Dies geschieht durch klares wiederholtes Spielen des Tonikums. Mit dieser wiederholten Belichtung werden Sie sich schnell an den Klang des Tonikums erinnern.",
+      "500p": {
+        "501": "Die Übung besteht aus einer 10-Takt-Sequenz, die während der gesamten Übung wiederholt wird. Klicken Sie unten auf 'Üben', um diese 10-Takt-Sequenz anzuhören. (Wenn Sie sich über das Symbol wundern, können Sie bereits eine kurze Pause einlegen schaue auf die",
+        "600router-link": "Skalengrade",
+        "700": "Kapitel in Modul 2)"
+      },
+      "800p": {
+        "900ic": "Tonic Internalisation"
+      },
+      "1000p": "Das folgende Diagramm zeigt diese 10-Takt-Sequenz aus der tonischen Internalisierungsübung.",
+      "1100v-img": "10-Takt-Sequenz aus der Tonic Internalization Exercise",
+      "1200p": "Die Sequenz ist wie folgt in zwei Abschnitte unterteilt:",
+      "1300h4": {
+        "1400b": "Takte 1-2: Legen Sie eine Note als Tonikum fest"
+      },
+      "1500p": "In den ersten beiden Takten wird eine kurze Akkordfolge gespielt (als I - IV - V - Folge bezeichnet). Diese Akkordfolge legt eindeutig eine einzelne Note als Tonikum fest. Es ist unmöglich, den Klang des Tonikums zu verinnerlichen, wenn es ist nicht klar vorhanden, so dass Sie es im Verlauf der Module, wie es zu Beginn vieler Übungen verwendet wird, sehr gut kennenlernen werden! ",
+      "1600h4": {
+        "1700b": "Takt 3-10: Das Tonikum wird wiederholt gespielt"
+      },
+      "1800p": "In den folgenden 8 Takten wird das Tonikum in jedem Takt und der Tonika-Akkord in jedem zweiten Takt gespielt.",
+      "1900h4": {
+        "2000b": "Die Sequenz wiederholt sich"
+      },
+      "2100p": "Nach der 10-Takt-Sequenz wird die gesamte Sequenz in einer neuen zufällig ausgewählten Taste wiederholt. Das folgende Diagramm zeigt die ersten 30 Takte der tonischen Internalisierungsübung, und darin sehen Sie in Takt 11 eine neue Schlüssel ist umrissen, diesmal A-Dur. ",
+      "2200v-img": "Die ersten 30 Takte der tonischen Internalisierungsübung",
+      "2300p": "Es kann hilfreich sein, den Player bereits zu starten und die Übung anzuhören, während Sie die Anweisungen lesen. Die Übung wiederholt sich (von Natur aus!). Nehmen Sie sich also Zeit, sie anzuhören und die Anweisungen zu lesen, um sicherzugehen, dass Sie ein klares Verständnis für die Verwendung der Übung haben. ",
+      "5000ol": {
+        "5100li": {
+          "5200p": {
+            "5300b": "Verfolgen Sie NICHT die Noten / Tasten:",
+            "5400": "Das Ziel dieser Übung ist es, ein Musikstück zu hören und zu identifizieren (und zu singen), welche Note das Tonikum ist. Wir versuchen jedoch nicht zu sagen, ob diese Note ein C oder ein F # ist ( das wäre das Reich der perfekten Tonhöhe). Hören Sie einfach zu und singen Sie, ohne Rücksicht auf die tatsächlichen Noten / Tasten. "
+          }
+        },
+        "5500li": {
+          "5600p": {
+            "5700b": {
+              "5701": "Versuchen Sie NICHT, das Tonikum während der",
+              "5800i": "I - IV - V",
+              "5900": "Progression"
+            },
+            "6000": "Es dauert einige Momente, bis unsere Ohren ein neues Tonikum eindeutig identifizieren. Wir verwenden die I-IV-V-Progression, um dies zu verdeutlichen. Warten Sie also bis nach der Progression, um aktiv auf das Tonikum zu hören. Versuchen Sie es Wenn Sie es früher tun, werden die Dinge verwirrender und herausfordernder, ohne zusätzlichen Nutzen. "
+          }
+        }
+      },
+      "6100p": {
+        "6200b": "Fertig?"
+      },
+      "6300v-btn": "Probieren Sie den Test aus",
+      "6400p": {
+        "6600h4": {
+          "6700b": "FEHLERSUCHE"
+        },
+        "6800b": "Ich habe Mühe, in der richtigen Stimmung zu singen",
+        "6900p": "Wenn Sie Schwierigkeiten haben, in der richtigen Stimmung zu singen, können Sie befürchten, dass die beschriebene Methode für Sie nicht funktioniert.",
+        "7000p": "Zum Glück haben wir Sie abgedeckt!",
+        "7100p": "Während viele Leute glauben, dass Sie keine schlechte Tonhöhe beheben können, wissen wir, dass Sie dies können, und wir werden es Ihnen beweisen:",
+        "7200p": {
+          "7201": "Einfach raus und auschecken",
+          "7300a": "diese Einführung in das Singen im Einklang."
+        },
+        "7500p": {
+          "7600b": "Manchmal ist das Tonikum zu hoch / niedrig für meine Stimme"
+        },
+        "7700p": "Wenn das Tonikum außerhalb Ihres Bereichs gespielt wird, können Sie es eine Oktave höher oder niedriger singen, als es ertönt.",
+        "7800p": "Wenn Sie es um eine Oktave transponieren, haben Sie alle Vorteile, wenn Sie es in der Oktave singen, in der Sie es hören, und zusätzlich die Fähigkeit verbessern, hohe / niedrige Passagen in der Musik zu identifizieren."
+      }
     }
   },
   "m2": {
