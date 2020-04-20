@@ -51,11 +51,6 @@ export default {
       type: Array,
       required: true,
     }
-    // tType: {
-    //   type: String,
-    //   required: false,
-    //   default:
-    // }
   },
 
   data: function() {

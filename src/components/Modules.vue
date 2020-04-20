@@ -40,14 +40,6 @@ export default {
     };
   },
   watch: {
-    // user: function () {
-    //   if(this.user != null){
-    //     this.displayCheck = true;
-    //     this.updateCompleted();
-    //   } else {
-    //     this.displayCheck = false;
-    //   }
-    // },
     takes: function() {
       if(this.user != null){
         this.displayCheck = true;
@@ -56,7 +48,7 @@ export default {
         this.displayCheck = false;
       }
     }
-        
+
   },
   methods: {
     updateCompleted: function() {

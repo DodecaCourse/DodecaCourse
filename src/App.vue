@@ -191,12 +191,6 @@ export default {
     LoginSnack,
   },
   mixins: [api],
-  // props: {
-  //   source: {
-  //     type: String,
-  //     default: ""
-  //   }
-  // },
   data: () => ({
     drawer: null,
     curModule: 0,
