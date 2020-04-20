@@ -20,7 +20,7 @@
       </v-list-item-action>
       <v-list-item-content>
         <v-list-item-title>
-          <b>{{ num + 1 }}.</b> {{$t("modules."+module.id.toString()+".title")}}
+          <b>{{ num + 1 }}.</b> {{$t("m"+module.id.toString()+".title")}}
         </v-list-item-title>
       </v-list-item-content>
     </template>
@@ -29,7 +29,7 @@
       v-for="chapter in module.chapters"
       :to="module.path + chapter.path"
     >
-      <v-list-item-title> {{$t("modules."+module.id.toString()+".chapters."+chapter.id.toString())}} </v-list-item-title>
+      <v-list-item-title> {{$t("m"+module.id.toString()+".chapters."+chapter.id.toString())}} </v-list-item-title>
       
       <v-list-item-action
         v-if="display_check && !empty_chapters.some(c => c === chapter.id)"

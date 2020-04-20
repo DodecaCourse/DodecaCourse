@@ -6,17 +6,6 @@
     "targeting-tones": "Töne treffen",
     "chord-quality": "Akkordqualität"
   },
-  "modules": {
-    "1": {
-      "title": "Tonika",
-      "chapters": {
-        "1001": "Überblick",
-        "1002": "Die Tonika",
-        "1003": "Übung",
-        "1004": "Test"
-      }
-    }
-  },
   "introduction": {
     "100h1": {
       "101b": "@:course-name",
@@ -55,9 +44,16 @@
     "3000v-btn": "Starte Modul 1"
   },
   "m1": {
+    "title": "Tonika",
+    "chapters": {
+      "1001": "Überblick",
+      "1002": "Die Tonika",
+      "1003": "Übung",
+      "1004": "Test"
+    },
     "overview": {
       "100h1": "1. die Tonika erkennen",
-      "200h2": "Überblick",
+      "200h2": "@:m1.chapters.1001",
       "300p": "In diesem Modul legen wir den Grundstein für ein schnelles, effektives Gehörtraining. Sie werden:",
       "400ul": {
         "500li": "Entdecken Sie die Note, die den Mittelpunkt dieses gesamten Ansatzes für das Gehörtraining (und den Mittelpunkt aller effektiven Ansätze für das Gehörtraining) bildet - das so genannte Tonikum. ",
@@ -95,6 +91,47 @@
       "600p": "Zuerst müssen wir in der Lage sein, sicher zu erkennen, welcher Ton die Tonika ist. Und genau das ist das Ziel dieses ersten Moduls",
       "700p": "Wir machen das mit einer Übung, die Internalisierungsübung genannt wird. ",
       "800v-btn": "Nächstes Kapitel"
+    }
+  },
+  "m2": {
+    "title": "Einzelne Töne",
+    "chapters": {
+      "2001": "Überblick",
+      "2002": "Stufen",
+      "2003": "Internalisierung",
+      "2004": "Erkennung"
+    }
+  },
+  "m3": {
+    "title": "Melodien",
+    "chapters": {
+      "3001": "Überblick",
+      "3002": "Übungen & Tests"
+    }
+  },
+  "m4": {
+    "title": "Akkorde",
+    "chapters": {
+      "4001": "Überblick",
+      "4002": "Töne treffen",
+      "4003": "Akkordqualität Erkennung",
+      "4004": "Diatonische Akkorde Internalisierung",
+      "4005": "Diatonische Akkorde Erkennung"
+    }
+  },
+  "m5": {
+    "title": "Moll-Tonarten",
+    "chapters": {
+      "5001": "Überblick",
+      "5002": "Solfège",
+      "5003": "Übungen & Tests"
+    }
+  },
+  "m6": {
+    "title": "Was jetzt?",
+    "chapters": {
+      "6001": "Weitere Übungen",
+      "6002": "Fang an zu spielen"
     }
   }
 }
