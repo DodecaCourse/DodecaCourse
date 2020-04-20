@@ -73,7 +73,7 @@ export default {
           
       // reset
       this.completedChapters = [];
-      this.emptyChapters = [];
+      this.emptyChapters = [{}];
       this.completedModules = [];
       this.emptyModules = [];
       // TODO: Replace with for loops, i like .some() tho
@@ -82,8 +82,11 @@ export default {
         var m_empty = true;
           
         module.chapters.forEach(chapter => {
+          // TODO: Remove
           var c_compd = true;
           var c_empty = true;
+          // var total = 0;
+          // var completed = 0;
           // var t_level_compd = [];
           this.targets.forEach(target => {
                 
@@ -92,6 +95,7 @@ export default {
               var take = this.takes[target.id];
                   
               if(target.levels !== 0){
+                // completed += target.levels;
                 c_empty = false;
                 m_empty = false;
                   
@@ -102,7 +106,9 @@ export default {
                     if (take[1].completed === false) {
                       // console.log(target.id, " not completed")
                       c_compd = false;
-                    }
+                    } // else {
+                    //   completed += 1;
+                    // }
                   } else {
                     // At the moment a target is counted as completed, if at
                     // least one level is completed
@@ -111,6 +117,7 @@ export default {
                     for (var i=1; i<=target.levels;i++){
                       if (take[i] != null){
                         if (take[i].completed === true){
+                          // completed += 1;
                           t_compd = true;
                           break;
                         }
@@ -133,6 +140,11 @@ export default {
             // console.log("empty chapter", chapter.id)
             this.emptyChapters.push(chapter.id);
           } else if(c_compd) {
+            // this.completedChapters.push({
+            //   "id": chapter.id,
+            //   "total": total,
+            //   "completed": completed
+            // });
             this.completedChapters.push(chapter.id);
           } else {
             m_compd = false;

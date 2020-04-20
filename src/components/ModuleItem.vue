@@ -39,30 +39,30 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
         </v-list-item-title>
       </v-list-item-content>
     </template>
-    <v-list-item
+
+    <ChapterItem
       v-for="chapter in module.chapters"
       :key="chapter.id"
-      :to="module.path + chapter.path"
-    >
-      <v-list-item-title>{{ chapter.title }}</v-list-item-title>
-      
-      <v-list-item-action
-        v-if="displayCheck && !emptyChapters.some(c => c === chapter.id)"
-      >
-        <v-icon>
-          {{ completedChapters.some(c => c === chapter.id) ? "mdi-checkbox-marked-circle-outline" : "mdi-checkbox-blank-circle-outline" }}
-        </v-icon>
-      </v-list-item-action>
-    </v-list-item>
+      :to-string="module.path + chapter.path"
+      :chapter="chapter"
+      :progress="getChapterProgress(chapter)"
+      :display-check="displayCheck"
+      :completed="completedChapters.some(c => c === chapter.id)"
+      :empty="emptyChapters.some(c => c === chapter.id)"
+    />
   </v-list-group>
 </template>
 
 <script>
 
 import api from "../api.js";
+import ChapterItem from "./ChapterItem.vue";
 
 export default {
   name: "ModuleItem",
+  components: {
+    ChapterItem
+  },
   mixins: [api],
   props: {
     "module": {
@@ -96,6 +96,32 @@ export default {
     "displayCheck": {
       type: Boolean,
       default: false
+    }
+  },
+  methods: {
+    getChapterProgress: function(chapter){
+      var total = 0;
+      var compd = 0;
+      this.targets.forEach(target => {
+        if(target.chapter_id === chapter.id){
+          total += target.levels;
+          var take = this.takes[target.id];
+          if(take != null) {
+            for(var i=1; i<=target.levels; i++){
+              if(take[i] != null){
+                if(take[i].completed === true) {
+                  compd++;
+                }
+              }
+            }
+          }
+        }
+      });
+
+      return {
+        total: total,
+        completed: compd
+      };
     }
   }
 };
