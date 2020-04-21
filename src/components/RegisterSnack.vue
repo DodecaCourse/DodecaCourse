@@ -28,7 +28,7 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
         color="info"
       >
         <v-card>
-          <template v-if="user == null">
+          <template v-if="tempKeyword == null">
             <v-card-text>
               <h3 class="mb-1">
                 Generate your personal username
@@ -44,7 +44,7 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
                 <v-spacer />
                 <v-btn
                   primary
-                  class="mx-5"
+                  class="mx-3"
                   @click="onClose"
                 >
                   Close
@@ -57,21 +57,41 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
               <h3 class="mb-1">
                 Success!
               </h3>
-              You are now logged in as <b>{{ user.user_keyword }}</b>. Write down your username or bookmark your custom URL:<br>
-              <a :href="'https://dodeca.wavel.de/home?usr=' + user.user_keyword">
-                https://dodeca.wavel.de/home?usr={{ user.user_keyword }}
+              Your username is <b>{{ tempKeyword }}</b>. Write down your username or bookmark your custom URL:<br>
+              <a :href="'https://dodeca.wavel.de/home?usr=' + tempKeyword">
+                https://dodeca.wavel.de/home?usr={{ tempKeyword }}
               </a><br>
               To log in for your next session, use your custom URL or the login button above
-              to enter your username.
+              to enter your username. Enter your username below to finish your registration:
+              <v-text-field
+                v-model="txtfld"
+                label="Username"
+                name="txtfld"
+                autofocus
+                append-icon="mdi-account"
+                outlined
+                dense
+                hide-details
+                @input="updateEnableRegister"
+              />
             </v-card-text>
             <v-card-actions>
+              <v-btn
+                :disabled="!registerEnabled"
+                class="mx-3"
+                primary
+                @click="registerUser"
+              >
+                <v-icon>mdi-account-plus</v-icon>
+                Register
+              </v-btn>
               <v-spacer />
               <v-btn
                 primary
-                class="mx-5"
-                @click="onClose"
+                class="mx-3"
+                @click="onCancel"
               >
-                I Understood
+                Cancel
               </v-btn>
             </v-card-actions>
           </template>
@@ -104,7 +124,8 @@ export default {
   },
   data: () => ({
     txtfld: "",
-    login_enabled: false,
+    registerEnabled: false,
+    tempKeyword: null,
   }),
   computed: {
     showSelf: {
@@ -118,15 +139,26 @@ export default {
   },
   methods: {
     generate: function () {
-      this.generateUser()
+      this.generateUserKeyword()
         .then(u => {
           //console.log(u);
-          this.setCurrentUser(u)
-            .then(res => {
-              console.log("Result:", res);
-            });
+          this.tempKeyword = u;
         });
     },
+    updateEnableRegister: function () {
+      this.registerEnabled = this.txtfld === this.tempKeyword;
+    },
+    registerUser: function () {
+      this.confirmUserKeyword(this.tempKeyword);
+      this.tempKeyword = null;
+      this.txtfld = "";
+      this.onClose();
+    },
+    onCancel: function () {
+      this.tempKeyword = null;
+      this.txtfld = "";
+      this.onClose();
+    }
   },
 };
 

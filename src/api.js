@@ -96,7 +96,7 @@ export default {
         .then(usr => {
           this.user = usr;
           // try getting from query params
-          if(this.user == null) {
+          if(this.user == null && this.$route.query.usr !== undefined) {
             // Check if user with query params exists
             // and update
             this.getUserID(this.$route.query.usr)
@@ -130,8 +130,12 @@ export default {
     // getSettings(){
     //   return this.fetch('getsettings/' + this.user['user_id']);
     // },
-    generateUser() {
-      return this.fetch("generateuser");
+    generateUserKeyword() {
+      return this.fetch("generate_user_keyword");
+    },
+    confirmUserKeyword(keyword) {
+      return this.fetch("confirm_user_keyword/" + keyword)
+        .then(usr => this.user = usr).then(this.updateTakes);
     },
     setLike(like) {
       var like_int = (like ? "1" : "0");

@@ -64,6 +64,8 @@ db.storage.flush()  # close after inserting data
 
 # → Start Query
 q = Query()
+# Users waiting for confirmation
+temp_keywords = set()
 
 # → General App-Conifg
 # ..read out of config.py(.env)!
@@ -186,12 +188,9 @@ def is_user(user_key):
 #         return jsonify('user with keyword ' + user + ' already exists.')
 
 
-@app.route('/generateuser')
-def generate_user():
+@app.route('/generate_user_keyword')
+def generate_user_keyword():
     """
-    Generates random user keyword, that is compatible with the current
-    users database.
-
     Generates random user keyword, that is compatible with the current
     users database.
 
@@ -205,18 +204,35 @@ def generate_user():
     """
     # get user keyword length from config.py
     lenkey = config.Config.USER_KEYWORD_LENGTH
-    set = string.ascii_letters + string.digits
+    set = string.ascii_letters.replace('l', '').replace('I', '')\
+        .replace('O', '') + string.digits.replace('0', '')
+    set
     max_amount_of_user_keys = len(set)**lenkey
     for i in range(max_amount_of_user_keys):
         user = ''.join(random.choice(set) for j in range(lenkey))
         if not is_user(user):
-            with transaction(users) as tr:
-                tr.insert({'user_keyword': user})
-            # db.close()
-            db.storage.flush()
+            temp_keywords.add(user)
             return jsonify(user)
     raise Exception("Could not allocate another user. All keywords are taken."
                     " You should increase USER_KEYWORD_LENGTH in settings.")
+
+
+@app.route('/confirm_user_keyword/<user>')
+def confirm_user_keyword(user):
+    """
+    Creates user for generated keyword awaiting confirmation
+
+    Returns:
+        url: result of set_current_user
+    """
+    if user in temp_keywords and not is_user(user):
+        with transaction(users) as tr:
+            tr.insert({'user_keyword': user})
+        db.storage.flush()
+        temp_keywords.remove(user)
+        print(temp_keywords)
+        return set_current_user(user)
+    raise Exception("Could not confirm user.")
 
 
 # @app.route('/getchapters_bymodule_id/<module_id>')

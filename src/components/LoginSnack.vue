@@ -59,7 +59,7 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
               <v-spacer />
               <v-btn
                 primary
-                class="mx-5"
+                class="mx-3"
                 @click="onClose"
               >
                 Close
@@ -82,7 +82,7 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
               <v-spacer />
               <v-btn
                 primary
-                class="mx-5"
+                class="mx-3"
                 @click="onClose"
               >
                 Close
@@ -133,6 +133,7 @@ export default {
   methods: {
     loginUser: function () {
       this.setCurrentUser(this.txtfld);
+      this.txtfld = "";
     },
     updateEnableLogin: function () {
       // console.log(this.txtfld.length);
@@ -151,3 +152,11 @@ export default {
 };
 
 </script>
+<style>
+  .v-card__actions {
+    padding-top: 0 !important;
+  }
+  .v-card__actions .v-btn {
+    margin-top: 0 !important;
+  }
+</style>
