@@ -1,6 +1,11 @@
 """
+<<<<<<< HEAD
 Copyright 2020 Maximilian Herzog, Hans Olischläger, Valentin Pratz,
 Philipp Tepel
+=======
+Copyright 2020 Maximilian Herzog, Hans Olischläger, Valentin Pratz, Philipp
+Tepel
+>>>>>>> v-list-progress
 This file is part of Dodeca Course.
 
 Dodeca Course is free software: you can redistribute it and/or modify
