@@ -23,7 +23,7 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
     <v-list-item-title>
       {{ chapter.title }}
       <v-list-item-subtitle
-        v-if="!empty"
+        v-if="displayCheck && !empty"
       >
         {{ progress.completed }} / {{ progress.total }}
       </v-list-item-subtitle>
