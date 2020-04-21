@@ -107,10 +107,11 @@ export default {
           total += target.levels;
           var take = this.takes[target.id];
           if(take != null) {
-            for(var i=1; i<=target.levels; i++){
+            for(var i=target.levels; i>=0; i--){
               if(take[i] != null){
                 if(take[i].completed === true) {
-                  compd++;
+                  compd+=i;
+                  break;
                 }
               }
             }
