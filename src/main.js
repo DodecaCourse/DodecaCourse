@@ -19,6 +19,7 @@ import Vue from "vue";
 import LandingPage from "./views/LandingPage";
 import Introduction from "./views/Introduction.vue";
 import Home from "./views/Home.vue";
+import About from "./views/About";
 import App from "./App.vue";
 import VueRouter from "vue-router";
 import vuetify from "./plugins/vuetify";
@@ -56,6 +57,7 @@ const router = new VueRouter({
     { path: "/", component: LandingPage, meta: { layout: "landing" }},
     { path: "/intro", component: Introduction },
     { path: "/home", component: Home},
+    { path: "/about", component: About},
     { path: "/tonic-internalization/overview", component: M1TonicInternalizationOverview},
     { path: "/tonic-internalization/tonic", component: M1TheTonic},
     { path: "/tonic-internalization/exercise", component: M1TonicInternalizationExercise},

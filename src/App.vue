@@ -66,32 +66,23 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
             </v-list-item>
             <Modules :cur-module="curModule" />
           </v-list>
-          <div
-            class="v-footer justify-center"
-            style="text-align: center; font-size: smaller"
-            :class="$vuetify.theme.dark ? 'theme--dark' : 'theme--light'"
+          <v-list
+            style="font-size: smaller; margin-top: auto"
+            dense
+            width="100%"
           >
-            <a
-              rel="license"
-              href="http://creativecommons.org/licenses/by-sa/4.0/"
-            ><img
-              alt="Creative Commons License"
-              style="border-width:0"
-              src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
-            ></a>
-            <span>
-              Structure & content are based on <a
-                href="https://eartraininghq.com/"
-              >Ear Training HQ</a>, used under <a
-                href="http://creativecommons.org/licenses/by-sa/4.0/"
-              >CC BY-SA</a>. Except where otherwise noted, </span><span><span
-              xmlns:dct="http://purl.org/dc/terms/"
-              property="dct:title"
-            >Dodeca Course</span> content is licensed under a <a
-              rel="license"
-              href="http://creativecommons.org/licenses/by-sa/4.0/"
-            >CC BY-SA 4.0 license.</a></span>
-          </div>
+            <v-list-item
+              to="/about"
+              link
+            >
+              <v-list-item-action>
+                <v-icon>mdi-information-outline</v-icon>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title>About This Course</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
         </v-layout>
       </v-navigation-drawer>
 
@@ -175,16 +166,6 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
           </v-banner>
           <router-view />
         </v-container>
-        <!--
-                <v-container fluid>
-                    <h2 v-if="!connection" class="ma-2">
-                        <v-icon>mdi-alert</v-icon>
-                        Warning:<br> You are not connected to the server.<br> Your progress will not be saved!<br>
-                        Please
-                        contact an admin.
-                    </h2>
-                </v-container>
-                -->
 
         <LoginSnack
           :show="showLoginSnack"
