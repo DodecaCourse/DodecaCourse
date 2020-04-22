@@ -1,0 +1,3 @@
+[submodule "public/WebAudioMIDI.js"]
+	path = public/WebAudioMIDI.js
+	url = https://github.com/valentin12/WebAudioMIDI.js.git
