@@ -172,7 +172,6 @@ export default {
       progress: 0, // progress in percent
       roundDuration: 0,
       startTime: 0,
-      played: [],
       inputPos: 0,
       solution: [0],
 
@@ -414,7 +413,7 @@ export default {
   },
   destroyed: function stopAudio() {
     this.clearTimeouts();
-    this.stopAllNotes();
+    MIDI.stopAllNotes();
   },
   methods: {
     playCadence: function (key, cadenceType, posOff) {
@@ -427,8 +426,8 @@ export default {
         // play the notes
         MIDI.setVolume(0, 127);
         if(this.playing){
-          this.chordOn(0, notes, VELOCITY, posOff);
-          this.chordOff(0, notes, posOff + this.quarter * cadence.chordLength[chordNum]);
+          MIDI.chordOn(0, notes, VELOCITY, posOff);
+          MIDI.chordOff(0, notes, posOff + this.quarter * cadence.chordLength[chordNum]);
         }
         posOff = posOff + this.quarter * cadence.chordLength[chordNum];
       }
@@ -443,8 +442,8 @@ export default {
       const notes = this.transposeToKey(cadence.resting, key, 4);
       MIDI.setVolume(0, 127);
       if(this.playing){
-        this.chordOn(0, notes, velocity, delay);
-        this.chordOff(0, notes, delay + duration * this.quarter);
+        MIDI.chordOn(0, notes, velocity, delay);
+        MIDI.chordOff(0, notes, delay + duration * this.quarter);
       }
       return delay + duration * this.quarter;
     },
@@ -454,8 +453,8 @@ export default {
       const notes = this.transposeToKey([0, 7], key, 3);
       MIDI.setVolume(0, 127);
       if (this.playing) {
-        this.chordOn(0, notes, velocity, posOff);
-        this.chordOff(0, notes, posOff + duration * this.quarter);
+        MIDI.chordOn(0, notes, velocity, posOff);
+        MIDI.chordOff(0, notes, posOff + duration * this.quarter);
       }
       return posOff + duration * this.quarter;
     },
@@ -470,12 +469,12 @@ export default {
       if (this.playing) {
         if (playOctaves) {
           for (let i = 0; i < 3; i++) {
-            this.noteOn(0, note + i * 12, VELOCITY, posOff);
-            this.noteOff(0, note + i * 12, posOff + this.quarter * duration);
+            MIDI.noteOn(0, note + i * 12, VELOCITY, posOff);
+            MIDI.noteOff(0, note + i * 12, posOff + this.quarter * duration);
           }
         } else {
-          this.noteOn(0, note + 12, VELOCITY, posOff);
-          this.noteOff(0, note + 12, posOff + this.quarter * duration);
+          MIDI.noteOn(0, note + 12, VELOCITY, posOff);
+          MIDI.noteOff(0, note + 12, posOff + this.quarter * duration);
         }
       }
       return posOff + this.quarter * duration;
@@ -506,9 +505,9 @@ export default {
                                 this.degrees[curPos] === 10) {
               move = 1;
             }
-            this.noteOn(0,
+            MIDI.noteOn(0,
               note + this.degrees[curPos] + 12 * (oct + j) + move, VELOCITY, posOff);
-            this.noteOff(0,
+            MIDI.noteOff(0,
               note + this.degrees[curPos] + 12 * (oct + j) + move, posOff + this.quarter * duration);
           }
         }
@@ -520,8 +519,8 @@ export default {
       MIDI.setVolume(0, 127);
       const notes = this.transposeBy(this.chordTones[chordType], root);
       if (this.playing) {
-        this.chordOn(0, notes, VELOCITY, posOff);
-        this.chordOff(0, notes, posOff + duration * this.quarter);
+        MIDI.chordOn(0, notes, VELOCITY, posOff);
+        MIDI.chordOff(0, notes, posOff + duration * this.quarter);
       }
       return posOff + duration * this.quarter;
     },
@@ -529,8 +528,8 @@ export default {
       /* Play a MIDI note with a duration */
       MIDI.setVolume(0, 127);
       if (this.playing) {
-        this.noteOn(0, note, VELOCITY, posOff);
-        this.noteOff(0, note, posOff + duration * this.quarter);
+        MIDI.noteOn(0, note, VELOCITY, posOff);
+        MIDI.noteOff(0, note, posOff + duration * this.quarter);
       }
       return posOff + duration * this.quarter;
     },
@@ -754,7 +753,7 @@ export default {
     doRepeat: function() {
       /* Automatically play a new round */
       // clear up previous round
-      this.stopAllNotes();
+      MIDI.stopAllNotes();
       this.clearTimeouts();
       if ( 0 < this.stopAfterRounds && this.stopAfterRounds <= this.roundSincePlay) {
         // autostop for tests -> test finished
@@ -923,33 +922,7 @@ export default {
     doStop: function () {
       this.clearTimeouts();
       this.progress = 0;
-      this.stopAllNotes();
-    },
-    stopAllNotes: function () {
-      for (let i=0; i<this.played.length;i++) {
-        let source = this.played[i];
-        if (source !== undefined && source) {
-          source.stop();
-        }
-      }
-      this.played = [];
-      try {
-        MIDI.stopAllNotes();
-      } catch (e) {
-        if(this.debug) console.log("MIDI.stopAllNotes failed:");
-      }
-    },
-    noteOn: function(channel, note, velocity, delay) {
-      MIDI.noteOn(channel, note, velocity, delay);
-    },
-    noteOff: function (channel, note, delay) {
-      this.played.push(MIDI.noteOff(channel, note, delay));
-    },
-    chordOn: function (channel, chord, velocity, delay) {
-      MIDI.chordOn(channel, chord, velocity, delay);
-    },
-    chordOff: function (channel, chord, delay) {
-      this.played.push(...Object.values(MIDI.chordOff(channel, chord, delay)));
+      MIDI.stopAllNotes();
     },
     rest: function (posOff, duration) {
       return posOff + duration * this.quarter;
