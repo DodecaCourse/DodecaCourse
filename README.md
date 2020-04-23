@@ -12,7 +12,7 @@ just open an issue to get in touch or file a pull request.
 This project uses:
 - [Vue.js](https://vuejs.org/) - Frontend JavaScript Framework
 - [Vuetify](https://vuetifyjs.com/) - Material Design Component Framework for Vue.js
-- [MIDI.js](https://github.com/mudcube/MIDI.js) - Play MIDI notes in the browser
+- [WebAudioMIDI.js](https://github.com/valentin12/WebAudioMIDI.js) - Play MIDI notes in the browser
 - [MIDI.js Soundfonts](https://github.com/mudcube/MIDI.js) - Soundfonts for MIDI.js
 
 ## Project setup
@@ -69,5 +69,10 @@ pycodestyle --show-pep8 --show-source *.py
 ```
 
 ## Licensing
-The content of this course is licensed under [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/),
-the frontend and backend code are licensed under [GNU GPL](https://www.gnu.org/licenses/licenses.html#GPL).
+The Dodeca Course structure & content is based on the Ear Training HQ product suite -
+80/20 Ear Training, Hear. Sing. Win. and Play & Train, created by Scott Edwards.
+It was originally published at <a href="https://EarTrainingHQ.com">https://EarTrainingHQ.com</a>.
+The material is used under [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/).
+
+The content of the Dodeca Course is licensed under [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/),
+the frontend and backend code is licensed under [GNU GPL](https://www.gnu.org/licenses/licenses.html#GPL).
