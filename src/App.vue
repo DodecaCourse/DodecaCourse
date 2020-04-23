@@ -143,6 +143,11 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
                 {{ userProp.like ? "mdi-heart" : "mdi-heart-outline" }}
               </v-icon>
             </v-btn>
+            <v-btn icon>
+              <v-icon>
+                mdi-cog
+              </v-icon>
+            </v-btn>
           </template>
         </template>
         <v-btn
