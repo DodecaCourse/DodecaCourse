@@ -58,9 +58,16 @@
         "error",
         2
       ],
-      "vue/component-tags-order": ["error", {
-        "order": ["template", "script", "style"]
-      }]
+      "vue/component-tags-order": [
+        "error",
+        {
+          "order": [
+            "template",
+            "script",
+            "style"
+          ]
+        }
+      ]
     }
   },
   "browserslist": [

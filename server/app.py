@@ -1,11 +1,6 @@
 """
-<<<<<<< HEAD
 Copyright 2020 Maximilian Herzog, Hans Olischläger, Valentin Pratz,
 Philipp Tepel
-=======
-Copyright 2020 Maximilian Herzog, Hans Olischläger, Valentin Pratz, Philipp
-Tepel
->>>>>>> v-list-progress
 This file is part of Dodeca Course.
 
 Dodeca Course is free software: you can redistribute it and/or modify
@@ -120,6 +115,21 @@ def check_chapter_id(func):
             return jsonify("Found invalid chapter_id "
                            + str(kwargs['chapter_id'])
                            + ". Chapter does not exist.")
+        return func(*args, **kwargs)
+    return decorated
+
+
+def check_setting_name(func):
+    @wraps(func)
+    def decorated(*args, **kwargs):
+        setting_names = [*config.Config.DEFAULT_SETTINGS.keys()]
+        if not kwargs["setting_name"] in setting_names:
+            app.logger.warning("QUERY: Found invalid setting_name "
+                               + str(kwargs['setting_name'])
+                               + ".")
+            return jsonify("Found invalid setting_name "
+                           + str(kwargs['setting_name'])
+                           + ".")
         return func(*args, **kwargs)
     return decorated
 
@@ -240,31 +250,6 @@ def confirm_user_keyword(user):
     raise Exception("Could not confirm user.")
 
 
-# @app.route('/getchapters_bymodule_id/<module_id>')
-# def get_chapters_bymoduleid(module_id):
-#     if not bool(re.match("-?\\d+", module_id)):
-#         app.logger.warning('QUERY: Found invalid module_id \''
-#                            + str(module_id) + '\'. Input integers! ')
-#         return jsonify('Found invalid module_id')
-#     module_id = int(module_id)
-#     found = chapters.search(q['module_id'] == module_id)
-#     N = len(found)
-#     if N == 0:
-#         app.logger.warning('QUERY: No chapters with module_id=='
-#                            + str(module_id) + ' had been found.')
-#         return jsonify('no chapter in module \'' + str(module_id)
-#                        + '\' were found')
-#     found_chapters = [None] * N
-#     for i in range(len(found)):
-#         sect = found[i]
-#         found_chapters[i] = {
-#             'chapter_id': sect.eid,
-#             'module_id': sect['module_id'],
-#             'chapter_name': sect['chapter_name']
-#         }
-#     return jsonify(found_chapters)
-
-
 @app.route('/getuser_bykey/<user_key>')
 def get_user_by_key(user_key):
     found = users.search(q['user_keyword'] == user_key)
@@ -284,11 +269,22 @@ def get_user_by_key(user_key):
     if 'like' in found[0].keys():
         like = found[0]["like"]
 
+    # get settings
+    setting_names = [*config.Config.DEFAULT_SETTINGS.keys()]
+    settings = {}
+    for setting_name in setting_names:
+        if setting_name in found[0].keys():
+            settings[setting_name] = found[0][setting_name]
+        else:
+            settings[setting_name] = \
+                config.Config.DEFAULT_SETTINGS[setting_name]
+
     return jsonify({
         'user_id': found[0].eid,
         'user_keyword': found[0]['user_keyword'],
         'logoff_chapter': lchap,
-        'like': like
+        'like': like,
+        'settings': settings
     })
 
 
@@ -384,6 +380,14 @@ def unset_complete_target(user_id, target_id, level):
 #             returned_settings[setting_names[i]] = \
 #                 config.Config.DEFAULT_SETTINGS[setting_names[i]]
 #     return jsonify(returned_settings)
+
+@app.route('/setsetting/<int:user_id>/<setting_name>/<int:value>')
+@check_user_id
+@check_setting_name
+def set_setting(user_id, setting_name, value):
+    users.update({"setting_name": value}, eids=[user_id])
+    return jsonify("sucess on setting " + str(setting_name) + " to "
+                   + str(value) + " at user " + str(user_id))
 
 
 @app.route('/get_takes_by_user_id/<int:user_id>')
