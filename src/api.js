@@ -1,3 +1,20 @@
+/*
+Copyright 2020 Maximilian Herzog, Hans Olischläger, Valentin Pratz, Philipp Tepel
+This file is part of Dodeca Course.
+
+Dodeca Course is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Dodeca Course is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
+*/
 import axios from "axios";
 import structure from "../public/structure.json";
 
@@ -72,13 +89,14 @@ export default {
     getTakes(){
       return this.fetch("get_takes_by_user_id/" + this.user["user_id"]);
     },
+    
     updateCurrentUser(){
       // try gettin from session
       return this.fetch("getcurrentuser", true)
         .then(usr => {
           this.user = usr;
           // try getting from query params
-          if(this.user == null) {
+          if(this.user == null && this.$route.query.usr !== undefined) {
             // Check if user with query params exists
             // and update
             this.getUserID(this.$route.query.usr)
@@ -112,8 +130,19 @@ export default {
     // getSettings(){
     //   return this.fetch('getsettings/' + this.user['user_id']);
     // },
-    generateUser() {
-      return this.fetch("generateuser");
+    generateUserKeyword() {
+      return this.fetch("generate_user_keyword");
+    },
+    confirmUserKeyword(keyword) {
+      return this.fetch("confirm_user_keyword/" + keyword)
+        .then(usr => this.user = usr).then(this.updateTakes);
+    },
+    setLike(like) {
+      var like_int = (like ? "1" : "0");
+      return this.fetch("set_like/" + this.user["user_id"] + "/" + like_int);
+    },
+    getLikes() {
+      return this.fetch("get_likes/");
     },
     logout(){
       this.user = null;

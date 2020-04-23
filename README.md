@@ -1,15 +1,28 @@
-# Dodeca
-Functional Ear Training Course
+# Dodeca - Functional Ear Training Course
+[Dodeca](https://dodeca.wavel.de) is a Creative Commons online course to get started with functional ear training.
+Structure & content are based on material of [Ear Training HQ](https://eartraininghq.com/), but
+interactive exercises, tests and translations have been added, to make the course more accessible.
+
+## Contributing
+Being an open source project, everyone can help to make this course better. So if you find
+a typo, have an idea how to rephrase a paragraph or even want to add a translation,
+just open an issue to get in touch or file a pull request.
+
+## Credits
+This project uses:
+- [Vue.js](https://vuejs.org/) - Frontend JavaScript Framework
+- [Vuetify](https://vuetifyjs.com/) - Material Design Component Framework for Vue.js
+- [MIDI.js](https://github.com/mudcube/MIDI.js) - Play MIDI notes in the browser
+- [MIDI.js Soundfonts](https://github.com/mudcube/MIDI.js) - Soundfonts for MIDI.js
 
 ## Project setup
 ```
-git clone https://repo.wavel.de/vp/FETT.git
-cd FETT
+git clone https://link-to-repo.git
+cd DodecaCourse
 git submodule update --init 
 npm install
 ```
 
-Soundfonts: https://github.com/gleitz/midi-js-soundfonts
 ### Compiles and hot-reloads for development
 ```
 npm run serve
@@ -54,3 +67,7 @@ Run pycodestyle (pep8) in `server` to apply Python style checking:
 ```
 pycodestyle --show-pep8 --show-source *.py
 ```
+
+## Licensing
+The content of this course is licensed under [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/),
+the frontend and backend code are licensed under [GNU GPL](https://www.gnu.org/licenses/licenses.html#GPL).

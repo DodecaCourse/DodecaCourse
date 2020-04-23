@@ -1,7 +1,25 @@
+/*
+Copyright 2020 Maximilian Herzog, Hans Olischläger, Valentin Pratz, Philipp Tepel
+This file is part of Dodeca Course.
+
+Dodeca Course is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Dodeca Course is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
+*/
 import Vue from "vue";
 import LandingPage from "./views/LandingPage";
 import Introduction from "./views/Introduction.vue";
 import Home from "./views/Home.vue";
+import About from "./views/About";
 import App from "./App.vue";
 import VueRouter from "vue-router";
 import vuetify from "./plugins/vuetify";
@@ -41,6 +59,7 @@ const router = new VueRouter({
     { path: "/", component: LandingPage, meta: { layout: "landing" }},
     { path: "/intro", component: Introduction },
     { path: "/home", component: Home},
+    { path: "/about", component: About},
     { path: "/tonic-internalization/overview", component: M1TonicInternalizationOverview},
     { path: "/tonic-internalization/tonic", component: M1TheTonic},
     { path: "/tonic-internalization/exercise", component: M1TonicInternalizationExercise},

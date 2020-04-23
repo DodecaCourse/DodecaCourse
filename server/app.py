@@ -1,3 +1,26 @@
+"""
+<<<<<<< HEAD
+Copyright 2020 Maximilian Herzog, Hans Olischläger, Valentin Pratz,
+Philipp Tepel
+=======
+Copyright 2020 Maximilian Herzog, Hans Olischläger, Valentin Pratz, Philipp
+Tepel
+>>>>>>> v-list-progress
+This file is part of Dodeca Course.
+
+Dodeca Course is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Dodeca Course is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
+"""
 # dependencies: tinyDB flask flask-cors tinyrecord
 from flask import Flask, jsonify, session
 from flask_cors import CORS
@@ -46,6 +69,8 @@ db.storage.flush()  # close after inserting data
 
 # → Start Query
 q = Query()
+# Users waiting for confirmation
+temp_keywords = set()
 
 # → General App-Conifg
 # ..read out of config.py(.env)!
@@ -168,12 +193,9 @@ def is_user(user_key):
 #         return jsonify('user with keyword ' + user + ' already exists.')
 
 
-@app.route('/generateuser')
-def generate_user():
+@app.route('/generate_user_keyword')
+def generate_user_keyword():
     """
-    Generates random user keyword, that is compatible with the current
-    users database.
-
     Generates random user keyword, that is compatible with the current
     users database.
 
@@ -187,18 +209,35 @@ def generate_user():
     """
     # get user keyword length from config.py
     lenkey = config.Config.USER_KEYWORD_LENGTH
-    set = string.ascii_letters + string.digits
+    set = string.ascii_letters.replace('l', '').replace('I', '')\
+        .replace('O', '') + string.digits.replace('0', '')
+    set
     max_amount_of_user_keys = len(set)**lenkey
     for i in range(max_amount_of_user_keys):
         user = ''.join(random.choice(set) for j in range(lenkey))
         if not is_user(user):
-            with transaction(users) as tr:
-                tr.insert({'user_keyword': user})
-            # db.close()
-            db.storage.flush()
+            temp_keywords.add(user)
             return jsonify(user)
     raise Exception("Could not allocate another user. All keywords are taken."
                     " You should increase USER_KEYWORD_LENGTH in settings.")
+
+
+@app.route('/confirm_user_keyword/<user>')
+def confirm_user_keyword(user):
+    """
+    Creates user for generated keyword awaiting confirmation
+
+    Returns:
+        url: result of set_current_user
+    """
+    if user in temp_keywords and not is_user(user):
+        with transaction(users) as tr:
+            tr.insert({'user_keyword': user})
+        db.storage.flush()
+        temp_keywords.remove(user)
+        print(temp_keywords)
+        return set_current_user(user)
+    raise Exception("Could not confirm user.")
 
 
 # @app.route('/getchapters_bymodule_id/<module_id>')
@@ -240,11 +279,16 @@ def get_user_by_key(user_key):
     lchap = None
     if 'logoff_chapter' in found[0].keys():
         lchap = found[0]['logoff_chapter']
-        print("no logoff chapter found")
+
+    like = False
+    if 'like' in found[0].keys():
+        like = found[0]["like"]
+
     return jsonify({
         'user_id': found[0].eid,
         'user_keyword': found[0]['user_keyword'],
-        'logoff_chapter': lchap
+        'logoff_chapter': lchap,
+        'like': like
     })
 
 
@@ -396,8 +440,31 @@ def get_user_takes(user_id):
 #                     "no_test_modules": no_test_modules
 #                    })
 
-#   * Cookie Stuff
 
+@app.route('/set_like/<int:user_id>/<int:like_int>')
+@check_user_id
+def set_like(user_id, like_int):
+    like = (like_int == 1)
+    # found = users.update({'like': like}, eids=[user_id])
+    users.update({'like': like}, eids=[user_id])
+    # print(len(found))
+    # if len(found) > 1:
+    #     app.logger.warnign("QUERY: Multiple users with user_id "
+    # + str(user_id)
+    #                        + "found!")
+    db.storage.flush()
+    return jsonify("success on setting like=" + str(like) + " on user "
+                   + str(user_id))
+
+
+@app.route('/get_likes/')
+def get_likes():
+    found = users.search(q["like"])
+    # print(found)
+    return jsonify(len(found))
+
+
+#   * Cookie Stuff
 
 @app.route('/setcurrentuser/<user_keyword>')
 def set_current_user(user_keyword):
@@ -424,7 +491,6 @@ def get_current_user():
 def logout():
     session.clear()
     return jsonify('success')
-
 
 # handle withCredentials
 # TODO: Read about credentials for further info

@@ -1,3 +1,20 @@
+<!--
+Copyright 2020 Maximilian Herzog, Hans Olischläger, Valentin Pratz, Philipp Tepel
+This file is part of Dodeca Course.
+
+Dodeca Course is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Dodeca Course is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
+-->
 <template>
   <div>
     <v-container
@@ -42,7 +59,7 @@
               <v-spacer />
               <v-btn
                 primary
-                class="mx-5"
+                class="mx-3"
                 @click="onClose"
               >
                 Close
@@ -65,7 +82,7 @@
               <v-spacer />
               <v-btn
                 primary
-                class="mx-5"
+                class="mx-3"
                 @click="onClose"
               >
                 Close
@@ -116,6 +133,7 @@ export default {
   methods: {
     loginUser: function () {
       this.setCurrentUser(this.txtfld);
+      this.txtfld = "";
     },
     updateEnableLogin: function () {
       // console.log(this.txtfld.length);
@@ -134,3 +152,11 @@ export default {
 };
 
 </script>
+<style>
+  .v-card__actions {
+    padding-top: 0 !important;
+  }
+  .v-card__actions .v-btn {
+    margin-top: 0 !important;
+  }
+</style>

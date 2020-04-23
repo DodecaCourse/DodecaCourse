@@ -1,3 +1,20 @@
+<!--
+Copyright 2020 Maximilian Herzog, Hans Olischläger, Valentin Pratz, Philipp Tepel
+This file is part of Dodeca Course.
+
+Dodeca Course is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Dodeca Course is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
+-->
 <template>
   <v-app id="inspire">
     <template v-if="layout === 'landing-layout'">
@@ -49,15 +66,23 @@
             </v-list-item>
             <Modules :cur-module="curModule" />
           </v-list>
-          <div
-            class="justify-end v-footer"
-            style="text-align: center"
-            :class="$vuetify.theme.dark ? 'theme--dark' : 'theme--light'"
+          <v-list
+            style="font-size: smaller; margin-top: auto"
+            dense
+            width="100%"
           >
-            <span>Structure & Content based on <a
-              href="https://eartraininghq.com/"
-            >Ear Training HQ</a></span>
-          </div>
+            <v-list-item
+              to="/about"
+              link
+            >
+              <v-list-item-action>
+                <v-icon>mdi-information-outline</v-icon>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title>About This Course</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
         </v-layout>
       </v-navigation-drawer>
 
@@ -113,11 +138,13 @@
                 mdi-logout
               </v-icon>
             </v-btn>
+            <v-btn icon>
+              <v-icon @click="onLike">
+                {{ userProp.like ? "mdi-heart" : "mdi-heart-outline" }}
+              </v-icon>
+            </v-btn>
           </template>
         </template>
-        <!-- <v-btn icon>
-                  <v-icon>mdi-heart</v-icon>
-                </v-btn> -->
         <v-btn
           icon
           title="Toggle Light/Dark"
@@ -140,16 +167,6 @@
           </v-banner>
           <router-view />
         </v-container>
-        <!--
-                <v-container fluid>
-                    <h2 v-if="!connection" class="ma-2">
-                        <v-icon>mdi-alert</v-icon>
-                        Warning:<br> You are not connected to the server.<br> Your progress will not be saved!<br>
-                        Please
-                        contact an admin.
-                    </h2>
-                </v-container>
-                -->
 
         <LoginSnack
           :show="showLoginSnack"
@@ -159,6 +176,20 @@
           :show="showRegisterSnack"
           :on-close="function () {showRegisterSnack = false}"
         />
+        <v-snackbar
+          v-model="showLikeSnack"
+          top
+        >
+          <!-- likes+1 -->
+          Thanks for ❤ing us! ({{ likes }} total ❤)
+          <v-btn
+            color="pink"
+            text
+            @click="showLikeSnack = false"
+          >
+            Close
+          </v-btn>
+        </v-snackbar>
       </v-content>
       <v-footer app>
         <span>
@@ -196,9 +227,11 @@ export default {
   mixins: [api],
   data: () => ({
     drawer: null,
+    likes: 0,
     curModule: 0,
     showLoginSnack: false,
     showRegisterSnack: false,
+    showLikeSnack: false,
     loginBtnDisabled: false, // workaround against login popping up on logout
     userProp: null,
     takesProp: {}
@@ -213,6 +246,8 @@ export default {
       if (val != null) {
         this.loginBtnDisabled = true;
         this.updateTakes();
+        // TODO: only run when user likes
+        this.updateLikes();
       } else {
         this.takes = {};
       }
@@ -261,7 +296,17 @@ export default {
         self.loginBtnDisabled = false;
       });
       this.logout();
+    },
+    onLike: function() {
+      this.showLikeSnack = !this.userProp.like;
+      this.setLike(!this.userProp.like)
+        .then(this.updateCurrentUser);
+    },
+    updateLikes: function() {
+      this.getLikes()
+        .then(l => this.likes = l);
     }
+    
   },
 };
 
