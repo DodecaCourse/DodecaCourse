@@ -128,6 +128,7 @@ const MODE_IONIAN = "ionian";
 const MODE_AEOLIAN = "aeolian";
 
 const VELOCITY = 127;
+const ANA_HIST_LENGTH = 50;
 
 export default {
   name: "Teacher",
@@ -141,6 +142,23 @@ export default {
       // references to cancel setTimeout
       timeoutRef: null,
       progressRef: null,
+      
+      audioContext: null,
+
+      // pitch detection
+      isDetecting: false,
+      sourceNode: null,
+      analyser: null,
+      anaSourceBuffer: null,
+      MIN_SAMPLES: 0, // will be initialized when AudioContext is created.
+      GOOD_ENOUGH_CORRELATION: 0.9, // this is the "bar" for how close a correlation needs to be
+      mediaStreamSource: null,
+      anaResultHist: [],
+      anaResultsPos: 0,
+      animationFrameId: 0,
+      anaTracks: null,
+      anaBufLen: 1024,
+      anaBuf: new Float32Array(this.anaBufLen),
 
       // settings
       changeKeyEvery: 1, // set to -1 to never change key
@@ -917,6 +935,7 @@ export default {
     },
     doStart: function () {
       this.roundSincePlay = 0;
+      this.startAnalysis();
       this.playRound();
     },
     doStop: function () {
@@ -943,9 +962,174 @@ export default {
         onsuccess: function () {
           self.progress = 0;
           self.loaded = true;
+          self.audioContext = MIDI.getContext();
           self.setupInternalization(0, false);
         }
       });
+    },
+    _getUserMedia: function(dictionary, callback) {
+      try {
+        navigator.getUserMedia =
+          navigator.mediaDevices.getUserMedia ||
+          navigator.getUserMedia ||
+          navigator.webkitGetUserMedia ||
+          navigator.mozGetUserMedia;
+        navigator.getUserMedia(dictionary, callback, e => console.error(e));
+      } catch (e) {
+        alert("getUserMedia threw exception :" + e);
+      }
+    },
+    gotStream: function (stream) {
+      // Create an AudioNode from the stream.
+      this.mediaStreamSource = this.audioContext.createMediaStreamSource(stream);
+    
+      // Connect it to the destination.
+      this.analyser = this.audioContext.createAnalyser();
+      this.analyser.fftSize = 2048;
+      this.mediaStreamSource.connect(this.analyser);
+      this.updatePitch();
+    },
+    stopAnalysis: function () {
+      if (this.isDetecting) {
+        this.isDetecting = false;
+        this.sourceNode.stop( 0 );
+        this.sourceNode = null;
+        this.analyser = null;
+        if (!window.cancelAnimationFrame)
+          window.cancelAnimationFrame = window.webkitCancelAnimationFrame;
+        window.cancelAnimationFrame( this.animationFrameId );
+      }
+    },
+    startAnalysis: function () {
+      this._getUserMedia(
+        {
+          "audio": {
+            "mandatory": {
+              "googEchoCancellation": "false",
+              "googAutoGainControl": "false",
+              "googNoiseSuppression": "false",
+              "googHighpassFilter": "false"
+            },
+            "optional": []
+          },
+        }, this.gotStream);
+      this.sourceNode = this.audioContext.createBufferSource();
+      this.sourceNode.buffer = this.anaSourceBuffer;
+      this.sourceNode.loop = true;
+
+      this.analyser = this.audioContext.createAnalyser();
+      this.analyser.fftSize = 2048;
+      this.sourceNode.connect( this.analyser );
+      this.analyser.connect( this.audioContext.destination );
+      this.sourceNode.start( 0 );
+      this.isDetecting = true;
+      this.updatePitch();
+    },
+    noteFromPitch: function (frequency) {
+      const noteNum = 12 * (Math.log( frequency / 440 )/Math.log(2) );
+      return Math.round( noteNum ) + 69;
+    },
+    frequencyFromNoteNumber: function( note ) {
+      return 440 * Math.pow(2,(note-69)/12);
+    },
+    centsOffFromPitch: function( frequency, note ) {
+      return Math.floor( 1200 * Math.log( frequency / this.frequencyFromNoteNumber( note ))/Math.log(2) );
+    },
+    autoCorrelate: function( buf, sampleRate ) {
+      const SIZE = buf.length;
+      const MAX_SAMPLES = Math.floor(SIZE/2);
+      let best_offset = -1;
+      let best_correlation = 0;
+      let rms = 0;
+      let foundGoodCorrelation = false;
+      let correlations = new Array(MAX_SAMPLES);
+    
+      for (let i=0;i<SIZE;i++) {
+        const val = buf[i];
+        rms += val*val;
+      }
+      rms = Math.sqrt(rms/SIZE);
+      if (rms<0.01) // not enough signal
+        return -1;
+    
+      let lastCorrelation=1;
+      for (let offset = this.MIN_SAMPLES; offset < MAX_SAMPLES; offset++) {
+        let correlation = 0;
+    
+        for (let i=0; i<MAX_SAMPLES; i++) {
+          correlation += Math.abs((buf[i])-(buf[i+offset]));
+        }
+        correlation = 1 - (correlation/MAX_SAMPLES);
+        correlations[offset] = correlation; // store it, for the tweaking we need to do below.
+        if ((correlation>this.GOOD_ENOUGH_CORRELATION) && (correlation > lastCorrelation)) {
+          foundGoodCorrelation = true;
+          if (correlation > best_correlation) {
+            best_correlation = correlation;
+            best_offset = offset;
+          }
+        } else if (foundGoodCorrelation) {
+          // short-circuit - we found a good correlation, then a bad one, so we'd just be seeing copies from here.
+          // Now we need to tweak the offset - by interpolating between the values to the left and right of the
+          // best offset, and shifting it a bit.  This is complex, and HACKY in this code (happy to take PRs!) -
+          // we need to do a curve fit on correlations[] around best_offset in order to better determine precise
+          // (anti-aliased) offset.
+    
+          // we know best_offset >=1, 
+          // since foundGoodCorrelation cannot go to true until the second pass (offset=1), and 
+          // we can't drop into this clause until the following pass (else if).
+          const shift = (correlations[best_offset+1] - correlations[best_offset-1])/correlations[best_offset];
+          return sampleRate/(best_offset+(8*shift));
+        }
+        lastCorrelation = correlation;
+      }
+      if (best_correlation > 0.01) {
+        // console.log("f = " + sampleRate/best_offset + "Hz (rms: " + rms + " confidence: " + best_correlation + ")")
+        return sampleRate/best_offset;
+      }
+      return -1;
+    //	var best_frequency = sampleRate/best_offset;
+    },
+    updatePitch: function() {
+      this.analyser.getFloatTimeDomainData(this.anaBuf);
+      const ac = this.autoCorrelate(this.anaBuf, this.audioContext.sampleRate );
+      if (ac < 0) {
+        console.log("not certain)");
+      }
+      else {
+        const note =  this.noteFromPitch(ac);
+        if (this.anaResultHist.length < ANA_HIST_LENGTH) {
+          this.anaResultHist.push(note % 12);
+        } else {
+          this.anaResultHist[this.anaResultHistPos] = note % 12;
+          this.anaResultHistPos = (this.anaResultHistPos + 1) % this.anaResultHist.length;
+        }
+        let mf = 1; //default maximum frequency
+        let m = 0;  //counter
+        let item;  //to store item with maximum frequency
+        for (let k=0; k<this.anaResultHist.length; k++)    //select element (current element)
+        {
+          if (this.anaResultHist[k] == null) {
+            continue;
+          }
+          for (let j=k; j<this.anaResultHist.length; j++)   //loop through next elements in array to compare calculate frequency of current element
+          {
+            if (this.anaResultHist[k] === this.anaResultHist[j])    //see if element occurs again in the array
+              m++;   //increment counter if it does
+            if (mf<m)   //compare current items frequency with maximum frequency
+            {
+              mf=m;      //if m>mf store m in mf for upcoming elements
+              item = this.anaResultHist[k];   // store the current element.
+            }
+          }
+          m=0;   // make counter 0 for next element.
+        }
+        const detune = this.centsOffFromPitch( ac, note );
+        console.log(note%12 + " " + item, detune);
+      }
+    
+      if (!window.requestAnimationFrame)
+        window.requestAnimationFrame = window.webkitRequestAnimationFrame;
+      this.animationFrameId = window.requestAnimationFrame( this.updatePitch );
     }
   }
 };
