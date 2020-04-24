@@ -89,7 +89,7 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
         :class="'record-btn ' + recordBtnClass"
         @click="toggleMicrophone"
       >
-        <v-icon>{{ microphoneEnabled ? 'mdi-microphone' : 'mdi-microphone-outline'}}</v-icon>
+        <v-icon>{{ microphoneEnabled ? 'mdi-microphone' : 'mdi-microphone-outline' }}</v-icon>
       </v-btn>
       <div v-if="useInput === INPUT_CHORD_QUALITY && playing">
         <ChordQualityInput
@@ -410,6 +410,9 @@ export default {
       else if (this.type === RECOGNITION_INTERVAL_TEST) return 27;
       else if (this.type === CHORD_QUALITY_TEST) return 13;
       else if (this.type === CHORD_RECOGNITION_TEST) return 27;
+      if (this.type === INTERNALIZATION_TEST && this.microphoneEnabled) {
+        return 10;
+      }
       return -1;
     },
     circleLabels: function () {
@@ -808,11 +811,13 @@ export default {
         return;
       }
       console.log(this.solution, this.anaNote);
+      clearTimeout(this.progressRef);
+      this.progress = 0;
       const correctionTime = 500;
       const self = this;
       if (this.anaNote === this.solution) {
-        let posOff = this.rest(0, 2);
         this.correctSincePlay++;
+        let posOff = this.rest(0, 2);
         this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
         this.recordBtnClass = "correct-background";
         setTimeout(function () {
@@ -825,8 +830,9 @@ export default {
         setTimeout(function () {
           self.recordBtnClass = "";
         }, correctionTime);
-        let posOff = this.rest(0, 2 * this.solution.length - this.inputPos);
+        let posOff = this.rest(0, 2);
         this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
+
         // return the correct solution not yet answered
         return [false, this.solution];
       }
@@ -983,10 +989,18 @@ export default {
     updateProgress: function () {
       /* Update the progress property */
       if (this.playing) {
-        const passed = new Date().getTime() - this.startTime;
-        this.progress = passed / this.roundDuration / 10;
-        if (this.progress < 100) {
-          this.progressRef = setTimeout(this.updateProgress, 100);
+        if (this.isDetecting) {
+          const passed = new Date().getTime() - this.startTime;
+          this.progress = 100 - passed / this.roundDuration / 10;
+          if (this.progress > 0) {
+            this.progressRef = setTimeout(this.updateProgress, 100);
+          }
+        } else {
+          const passed = new Date().getTime() - this.startTime;
+          this.progress = passed / this.roundDuration / 10;
+          if (this.progress < 100) {
+            this.progressRef = setTimeout(this.updateProgress, 100);
+          }
         }
       } else {
         this.progress = 0;
@@ -1049,7 +1063,9 @@ export default {
       this.mediaStreamSource.connect(this.analyser);
       this.isDetecting = true;
       this.updatePitch();
-      setTimeout(this.submitSolutionSing, 3 * 1000);
+      this.startTime = new Date().getTime();
+      this.roundDuration = 4;
+      setTimeout(this.submitSolutionSing, this.roundDuration * 1000);
     },
     toggleMicrophone: function() {
       if (this.microphoneEnabled) {
@@ -1057,6 +1073,7 @@ export default {
         this.stopAnalysis();
       } else {
         this.microphoneEnabled = true;
+        if (this.playing) this.restart();
       }
     },
     stopAnalysis: function () {

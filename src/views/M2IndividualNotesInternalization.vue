@@ -207,23 +207,24 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
             <b>Sing the
               target scale degree:</b> if you can hear the target scale degree
             internally, sing it. Then hold it or repeat it for the next few
-            second.
+            seconds.
           </p>
         </li>
         <li>
           <p>
             <b>Check that
-              you have sung the target scale degree correctly:</b> Listen to the
-            target scale degree when it is played to see if it's the same note
+              you have sung the target scale degree correctly:</b> If the microphone is activated (toggle it using the
+            <v-icon>mdi-microphone</v-icon> button), you can record your singing and it will tell you if you've sung correctly
+            (keep in mind that the software might not be 100% accurate. It's important you hold the target scale degree until the end).
+            If not, listen to the target scale degree when it is played to see if it's the same note
             as the one you're singing.
           </p>
         </li>
         <li>
           <p>
             <b>Repeat:</b> The
-            internalisation tests move through all 12 keys, so repeat this
-            process in each of them to see how well you've internalised the
-            sound of each scale degree.
+            internalisation tests move through 12 random keys, so repeat this
+            process to see how well you've internalised the sound of each scale degree.
           </p>
         </li>
       </ol>
@@ -271,16 +272,18 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
         <li>
           <p>
             <b>Check that
-              you have sung the target scale degree correctly:</b> Listen to the
-            target scale degree when it is played to see if it's the same note
+              you have sung the target scale degree correctly:</b> If the microphone is activated (toggle it using the
+            <v-icon>mdi-microphone</v-icon> button), you can record your singing and it will tell you if you've sung correctly
+            (keep in mind that the software might not be 100% accurate. It's important you hold the target scale degree until the end).
+            If not, listen to the target scale degree when it is played to see if it's the same note
             as the one you're singing.
           </p>
         </li>
         <li>
           <p>
             <b>Repeat:</b> The
-            internalisation exercises move through all 12 keys, so repeat this
-            process in each of them to see how well you've internalised the
+            internalisation exercises move through 12 random keys, so repeat this
+            process to see how well you've internalised the
             sound of each scale degree.
           </p>
         </li>

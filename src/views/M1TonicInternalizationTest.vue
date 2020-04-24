@@ -86,18 +86,6 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
         />
       </p>
       <h3>How to use the tonic internalisation test</h3>
-      <p>
-        Start the player by hitting »Test« below to listen to the internalisation test while you read the instructions.
-      </p>
-      <p>
-        <InlineConfigurator
-          :prog-id="1001"
-          t-type="internalization"
-          :config="{degree: 0}"
-        >
-          Tonic Internalisation
-        </InlineConfigurator>
-      </p>
       <ol>
         <li>
           <p>
@@ -127,8 +115,10 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
         <li>
           <p>
             <b>Check that
-              you have sung the target scale degree correctly:</b> Listen to the tonic
-            when it is played to see if it's the same note as the one you're
+              you have sung the target scale degree correctly:</b> If the microphone is activated (toggle it using the
+            <v-icon>mdi-microphone</v-icon> button), you can capture your singing and it will tell you if you've sung correctly
+            (keep in mind that the software might not be 100% accurate. It's important you hold the note until the end).
+            If not, listen to the tonic when it is played to see if it's the same note as the one you're
             singing.
           </p>
         </li>
@@ -139,7 +129,15 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
           </p>
         </li>
       </ol>
-      <p>Restart the test, do 12 keys and see how you go.</p>
+      <p>
+        <InlineConfigurator
+          :prog-id="1001"
+          t-type="internalization"
+          :config="{degree: 0}"
+        >
+          Tonic Internalisation
+        </InlineConfigurator>
+      </p>
       <p>
         If you sang the
         tonic correctly in 10, 11 or all 12 keys, congratulations, you've
