@@ -97,6 +97,7 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
           :enabled-qualities="chordTypes"
         />
       </div>
+      <span style="color: red; text-align: center">{{ errorText }}</span>
     </div>
   </v-card>
 </template>
@@ -152,6 +153,8 @@ export default {
       hidden: false,
       loaded: false,
       playing: false,
+
+      errorText: "",
                 
       // references to cancel setTimeout
       timeoutRef: null,
@@ -607,7 +610,6 @@ export default {
       posOff = this.playResting(this.key, cadence, posOff, 4);
       if (this.microphoneEnabled) {
         this.roundDuration = posOff;
-        console.log(this.key);
         this.solution = (Midi.toMidi(this.key + "0") + this.degrees[0]) % 12;
         this.timeoutRef = setTimeout(this.solutionSing, this.roundDuration * 1000);
       } else {
@@ -631,7 +633,9 @@ export default {
 
       this.solution = [degree];
       if (this.useInput !== this.NO_INPUT) {
-        console.log("USE_INPUT");
+        if(this.debug) {
+          console.log("USE_INPUT");
+        }
         this.roundDuration = posOff;
       } else {
         posOff = this.rest(posOff, 2 * 4);
@@ -772,7 +776,7 @@ export default {
     },
     solutionNoInput: function() {
       /* TODO: Output solution via audio for the user to compare */
-      if(this.debug) console.log("SOLUTION_this.NO_INPUT: ",this.solution);
+      if(this.debug) console.log("SOLUTION_NO_INPUT: ",this.solution);
       let posOff = this.rest(0,  4);
       this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
     },
@@ -810,7 +814,7 @@ export default {
         // no solution to compare with
         return;
       }
-      console.log(this.solution, this.anaNote);
+      if (this.debug) console.log(this.solution, this.anaNote);
       clearTimeout(this.progressRef);
       this.progress = 0;
       const correctionTime = 500;
@@ -997,9 +1001,14 @@ export default {
           }
         } else {
           const passed = new Date().getTime() - this.startTime;
-          this.progress = passed / this.roundDuration / 10;
-          if (this.progress < 100) {
-            this.progressRef = setTimeout(this.updateProgress, 100);
+          if (this.progress < 3 && passed / this.roundDuration / 10 > 100) {
+            // went backward during isDetecting, avoid jump to 100%
+            this.progress = 0;
+          } else {
+            this.progress = passed / this.roundDuration / 10;
+            if (this.progress < 100) {
+              this.progressRef = setTimeout(this.updateProgress, 100);
+            }
           }
         }
       } else {
@@ -1017,7 +1026,7 @@ export default {
     doStop: function () {
       this.clearTimeouts();
       this.progress = 0;
-      this.stopAnalysis();
+      if (this.isDetecting) this.stopAnalysis();
       MIDI.stopAllNotes();
     },
     rest: function (posOff, duration) {
@@ -1045,42 +1054,51 @@ export default {
       });
     },
     _getUserMedia: function(dictionary, callback) {
-      try {
-        navigator.mediaDevices.getUserMedia(dictionary).then(callback).catch(e => console.error(e));
-      } catch (e) {
-        alert("getUserMedia threw exception :" + e);
-      }
+      const self = this;
+      navigator.mediaDevices.getUserMedia(dictionary).then(callback).catch(function (e) {
+        console.warn(e);
+        self.errorText = "Couldn't access microphone. Have you given permission?";
+        self.microphoneEnabled = false;
+        if (self.playing) self.restart();
+        setTimeout(() => self.errorText = "", 5000);
+      });
     },
     gotStream: function (stream) {
       // Create an AudioNode from the stream.
       this.mediaStreamSource = this.audioContext.createMediaStreamSource(stream);
       this.userStream = stream;
-    
-      // Connect it to the destination.
-      this.microphoneEnabled = true;
-      this.analyser = this.audioContext.createAnalyser();
-      this.analyser.fftSize = 2048;
-      this.mediaStreamSource.connect(this.analyser);
-      this.isDetecting = true;
-      this.updatePitch();
-      this.startTime = new Date().getTime();
-      this.roundDuration = 4;
-      setTimeout(this.submitSolutionSing, this.roundDuration * 1000);
+      this.prepareAnalysis();
     },
     toggleMicrophone: function() {
       if (this.microphoneEnabled) {
         this.microphoneEnabled = false;
         this.stopAnalysis();
-      } else {
-        this.microphoneEnabled = true;
-        if (this.playing) this.restart();
-      }
-    },
-    stopAnalysis: function () {
-      console.log("stop analysis");
-      if (this.userStream != null)
         this.userStream.getTracks().forEach(function(track) {
           track.stop();
+        });
+        this.userStream = null;
+      } else {
+        this.microphoneEnabled = true;
+      }
+      if (this.playing) this.restart();
+    },
+    prepareAnalysis: function () {
+      this.microphoneEnabled = true;
+      this.analyser = this.audioContext.createAnalyser();
+      this.analyser.fftSize = 2048;
+      this.mediaStreamSource.connect(this.analyser);
+      this.isDetecting = true;
+      this.startTime = new Date().getTime();
+      this.roundDuration = 4;
+      this.updatePitch();
+      this.updateProgress();
+      setTimeout(this.submitSolutionSing, this.roundDuration * 1000);
+    },
+    stopAnalysis: function () {
+      if (this.debug) console.log("stop analysis");
+      if (this.userStream != null)
+        this.userStream.getTracks().forEach(function(track) {
+          track.enabled = false;
         });
       this.isDetecting = false;
       if (!window.cancelAnimationFrame)
@@ -1089,19 +1107,26 @@ export default {
       this.analyser = null;
     },
     startAnalysis: function () {
-      console.log("start analysis");
-      this._getUserMedia(
-        {
-          "audio": {
-            "mandatory": {
-              "googEchoCancellation": "false",
-              "googAutoGainControl": "false",
-              "googNoiseSuppression": "false",
-              "googHighpassFilter": "false"
+      if (this.debug) console.log("start analysis");
+      if (this.userStream == null) {
+        this._getUserMedia(
+          {
+            "audio": {
+              "mandatory": {
+                "googEchoCancellation": "false",
+                "googAutoGainControl": "false",
+                "googNoiseSuppression": "false",
+                "googHighpassFilter": "false"
+              },
+              "optional": []
             },
-            "optional": []
-          },
-        }, this.gotStream);
+          }, this.gotStream);
+      } else {
+        this.userStream.getTracks().forEach(function(track) {
+          track.enabled = true;
+        });
+        this.prepareAnalysis();
+      }
     },
     noteFromPitch: function (frequency) {
       const noteNum = 12 * (Math.log( frequency / 440 )/Math.log(2) );
