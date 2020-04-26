@@ -306,11 +306,11 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
         This creates two
         'difficulty levels' with the internalisation tests.
       </p>
-      <h4>1. Sing the tonic</h4>
       <p>
         In this first
         'difficulty level', you'll sing the tonic before you attempt to sing
-        the target scale degree. So you will:
+        the target scale degree. In the second, you'll just hear it in your head, without singing
+        it:
       </p>
       <v-tabs
       grow
@@ -758,7 +758,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
       <p>
         Repeat
         this until you've passed the first 4 internalisation tests. Then
-        you're read to add the recognition exercises to your practice
+        you're ready to add the recognition exercises to your practice
         routine.
       </p>
       <p>
