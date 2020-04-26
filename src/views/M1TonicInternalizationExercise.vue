@@ -133,18 +133,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
           </div>
         </div>
       </div>
-      <h4>
-        <b />
-      </h4>
-      <p />
-      <h4>
-        <b />
-      </h4>
-      <p />
-      <h4>
-        <b />
-      </h4>
-      <p />
+      <br>
       <v-img
         contain
         :class="{'invert-img': $vuetify.theme.dark}"
