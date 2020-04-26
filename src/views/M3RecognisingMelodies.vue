@@ -50,48 +50,171 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
         approach for the individual note recognition exercises from the
         previous module:
       </p>
-      <ol>
-        <li>
-          <p>
-            <b>Listen to the
-              <i>I - IV - V - I</i> progression:</b> Simply listening to the <i>I - IV - V - I</i>
-            progression will make it clear to your ear which note is the tonic
-            (even if you can't identify which note it is yet). So just sit back
-            and listen.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Listen to the
-              2 note melody played after the <i>I - IV - V - I</i> progression:</b> Listen to the
-            2 notes and listen for the way that they each sound and resonate in
-            relation to the tonic chord/pedal.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>[OPTIONAL] Sing
-              the notes:</b> singing the notes helps to hear the way that they relate
-            to the tonic and often helps to make them easier to identify. Sing
-            and hold each note for a little longer than you hear them if
-            necessary.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Try to
-              recognise the notes' scale degrees:</b> if you think you've identified
-            the notes' scale degrees, sing them with their corresponding solfège syllables.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Check that
-              you've identified it correctly:</b> Enter them by clicking the corresponding buttons on
-            the circle to check if you identified them correctly.
-          </p>
-        </li>
-      </ol>
+      <p>
+        <v-stepper
+          v-model="curStep"
+          vertical
+          class="explanation-stepper"
+        >
+          <v-stepper-step
+            :complete="curStep > 1"
+            step="1"
+          >
+            <span>Listen to the <i>I - IV - V - I</i> progression</span>
+          </v-stepper-step>
+          <v-stepper-content step="1">
+            <v-card>
+              <v-card-text>
+                Simply listening to the <i>I - IV - V - I</i>
+                progression will make it clear to your ear which note is the tonic
+                (even if you can't identify which note it is yet). So just sit back
+                and listen.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="primary"
+                  @click.native="curStep = 2"
+                >
+                  Next
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <v-stepper-step
+            :complete="curStep > 2"
+            step="2"
+          >
+            <span>Listen to the 2 note melody played after the <i>I - IV - V - I</i> progression</span>
+          </v-stepper-step>
+          <v-stepper-content step="2">
+            <v-card>
+              <v-card-text>
+                Listen to the 2 notes and
+                listen for the way that they each sound and resonate in
+                relation to the tonic chord/pedal.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="secondary"
+                  @click.native="curStep=1"
+                >
+                  Previous
+                </v-btn>
+                <v-btn
+                  color="primary"
+                  @click.native="curStep = 3"
+                >
+                  Next
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <v-stepper-step
+            :complete="curStep > 3"
+            step="3"
+          >
+            [OPTIONAL] Sing the melody
+          </v-stepper-step>
+          <v-stepper-content step="3">
+            <v-card>
+              <v-card-text>
+                Singing the notes helps to hear the way that they relate
+                to the tonic and often helps to make them easier to identify. Sing
+                and hold each note for a little longer than you hear them if
+                necessary.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="secondary"
+                  @click.native="curStep=2"
+                >
+                  Previous
+                </v-btn>
+                <v-btn
+                  color="primary"
+                  @click.native="curStep = 4"
+                >
+                  Next
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <v-stepper-step
+            :complete="curStep>4"
+            step="4"
+          >
+            Try to recognise the notes' scale degrees
+          </v-stepper-step>
+          <v-stepper-content step="4">
+            <v-card>
+              <v-card-text>
+                if you think you've identified the notes' scale degrees,
+                sing the melody with the corresponding solfège syllables.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="secondary"
+                  @click.native="curStep=3"
+                >
+                  Previous
+                </v-btn>
+                <v-btn
+                  color="primary"
+                  @click.native="curStep = 5"
+                >
+                  Next
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <v-stepper-step
+            :complete="curStep>4"
+            step="5"
+          >
+            Check that you've identified it correctly
+          </v-stepper-step>
+          <v-stepper-content step="5">
+            <v-card>
+              <v-card-text>
+                Enter them by clicking the corresponding buttons on
+                the circle to check if you identified them correctly.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="secondary"
+                  @click.native="curStep=4"
+                >
+                  Previous
+                </v-btn>
+                <v-btn
+                  color="primary"
+                  @click.native="curStep = 6"
+                >
+                  Finish
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <div v-if="curStep>5">
+            <v-btn
+              fab
+              color="secondary"
+              elevation="1"
+              small
+              style="float: right; margin-top: -3ch; margin-bottom: -3ch"
+              class="mr-7"
+              @click.native="curStep=1"
+            >
+              <v-icon>mdi-restart</v-icon>
+            </v-btn>
+          </div>
+        </v-stepper>
+      </p>
       <p>
         Repeat
         steps 2-5 throughout the exercise.
@@ -167,7 +290,12 @@ import InlineConfigurator from "../components/InlineConfigurator";
 
 export default {
   name: "RecognisingMelodiesMethod",
-  components: {InlineConfigurator}
+  components: {InlineConfigurator},
+  data: function () {
+    return {
+      curStep: 1,
+    };
+  },
 };
 </script>
 
