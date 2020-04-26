@@ -66,57 +66,202 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
         So the complete
         process is:
       </p>
-      <ol>
-        <li>
-          <p>
-            <b>Listen to the
-              <i>I - IV - V</i> Progression:</b> Simply listening to the <i>I - IV - V</i>
-            progression will make it clear to your ear which note is the tonic
-            (even if you can't identify which note it is yet). So just sit back
-            and listen.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Focus your
-              attention on the target scale degree:</b> for the following 8 bars,
-            listen closely to the target scale degree. Listen to the way that it
-            sounds in relation to the tonic chord.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Sing the
-              target scale degree:</b> alongside listening to the sound of the target
-            scale degree, singing it will help you to really hear and
-            internalise it's stable sound.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Sing the
-              tonic:</b> after you sing the target scale degree for a couple of
-            seconds, sing the tonic to ensure you can recognise it accurately.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Sing the
-              target scale degree again:</b> return to the target scale degree and
-            continue listening to the way that it sounds next to the tonic
-            chord.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Repeat:</b> when
-            the <i>I - IV - V</i> progression is played in a new key, listen to the
-            progression as you did the first time. This will establish a new
-            note as the tonic and then you can repeat listening to/singing the
-            target scale degree in the new key.
-          </p>
-        </li>
-      </ol>
+      <p>
+        <v-stepper
+          v-model="exStep"
+          vertical
+          class="explanation-stepper"
+        >
+          <v-stepper-step
+            :complete="exStep > 1"
+            step="1"
+          >
+            <span>Listen to the <i>I - IV - V</i> progression</span>
+          </v-stepper-step>
+          <v-stepper-content step="1">
+            <v-card>
+              <v-card-text>
+                Simply listening to the <i>I - IV - V</i>
+                progression will make it clear to your ear which note is the tonic
+                (even if you can't identify which note it is yet). So just sit back
+                and listen.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="primary"
+                  @click.native="exStep = 2"
+                >
+                  Next
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <v-stepper-step
+            :complete="exStep > 2"
+            step="2"
+          >
+            Focus your attention on the target scale degree
+          </v-stepper-step>
+          <v-stepper-content step="2">
+            <v-card>
+              <v-card-text>
+                For the following 8 bars,
+                listen closely to the target scale degree. Listen to the way that it
+                sounds in relation to the tonic chord.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="secondary"
+                  @click.native="exStep=1"
+                >
+                  Previous
+                </v-btn>
+                <v-btn
+                  color="primary"
+                  @click.native="exStep = 3"
+                >
+                  Next
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <v-stepper-step
+            :complete="exStep > 3"
+            step="3"
+          >
+            Sing the target scale degree
+          </v-stepper-step>
+          <v-stepper-content step="3">
+            <v-card>
+              <v-card-text>
+                Alongside listening to the sound of the target
+                scale degree, singing it will help you to really hear and
+                internalise it's unique sound.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="secondary"
+                  @click.native="exStep=2"
+                >
+                  Previous
+                </v-btn>
+                <v-btn
+                  color="primary"
+                  @click.native="exStep = 4"
+                >
+                  Next
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <v-stepper-step
+            :complete="exStep>4"
+            step="4"
+          >
+            Sing the tonic
+          </v-stepper-step>
+          <v-stepper-content step="4">
+            <v-card>
+              <v-card-text>
+                After you've sung the target scale degree for a couple of
+                seconds, sing the tonic to ensure you can recognise it accurately.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="secondary"
+                  @click.native="exStep=3"
+                >
+                  Previous
+                </v-btn>
+                <v-btn
+                  color="primary"
+                  @click.native="exStep = 5"
+                >
+                  Next
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <v-stepper-step
+            :complete="exStep>5"
+            step="5"
+          >
+            Sing the target scale degree again
+          </v-stepper-step>
+          <v-stepper-content step="5">
+            <v-card>
+              <v-card-text>
+                Return to the target scale degree and
+                continue listening to the way that it sounds next to the tonic
+                chord.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="secondary"
+                  @click.native="exStep=4"
+                >
+                  Previous
+                </v-btn>
+                <v-btn
+                  color="primary"
+                  @click.native="exStep = 6"
+                >
+                  Next
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <v-stepper-step
+            :complete="exStep>6"
+            step="6"
+          >
+            Repeat
+          </v-stepper-step>
+          <v-stepper-content step="6">
+            <v-card>
+              <v-card-text>
+                When the <i>I - IV - V</i> progression is played in a new key, listen to the
+                progression as you did the first time. This will establish a new
+                note as the tonic and then you can repeat listening to/singing the
+                target scale degree in the new key.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="secondary"
+                  @click.native="exStep=5"
+                >
+                  Previous
+                </v-btn>
+                <v-btn
+                  color="primary"
+                  @click.native="exStep = 7"
+                >
+                  Finish
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <div v-if="exStep>6">
+            <v-btn
+              fab
+              color="secondary"
+              elevation="1"
+              small
+              style="float: right; margin-top: -3ch; margin-bottom: -3ch"
+              class="mr-7"
+              @click.native="exStep=1"
+            >
+              <v-icon>mdi-restart</v-icon>
+            </v-btn>
+          </div>
+        </v-stepper>
+      </p>
       <p>
         Practice
         with this exercise until you start to feel confident that you are
@@ -167,127 +312,444 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
         'difficulty level', you'll sing the tonic before you attempt to sing
         the target scale degree. So you will:
       </p>
-      <ol>
-        <li>
-          <p>
-            <b>Listen to the
-              <i>I - IV - V</i> Progression:</b> Like with the internalisation exercises (and
-            all other exercises in the Dodeca course) just listen to the <i>I - IV - V</i>
-            progression while it outlines the key.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Listen for
-              the sound of the target scale degree and hear it clearly in your
-              head:</b> wait until the <i>I - IV - V</i> progression has been played and you
-            hear the tonic chord played again, then identify which note is the
-            tonic and hear it internally.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Sing the
-              tonic:</b> sing the note you hear as the tonic in your head just as you
-            did in the tonic internalisation exercise.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Try to hear
-              the sound of the target scale degree clearly in your head:</b> after
-            you've sung the tonic, try to hear the sound of the target scale
-            degree as clearly in your head as you can. You are repeating the
-            movement from the tonic to the target scale degree you've been
-            singing in the internalisation exercise so listen for that sound.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Sing the
-              target scale degree:</b> if you can hear the target scale degree
-            internally, sing it. Then hold it or repeat it for the next few
-            seconds.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Check that
-              you have sung the target scale degree correctly:</b> If the microphone is activated (toggle it using the
-            <v-icon>mdi-microphone</v-icon> button), you can record your singing and it will tell you if you've sung correctly
-            (keep in mind that the software might not be 100% accurate. It's important you hold the target scale degree until the end).
-            If not, listen to the target scale degree when it is played to see if it's the same note
-            as the one you're singing.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Repeat:</b> The
-            internalisation tests move through 12 random keys, so repeat this
-            process to see how well you've internalised the sound of each scale degree.
-          </p>
-        </li>
-      </ol>
+      <v-tabs
+      grow
+      >
+        <v-tab>
+          Level 1
+        </v-tab>
+        <v-tab-item>
+          <v-stepper
+            v-model="curStep1"
+            vertical
+            class="explanation-stepper"
+          >
+            <v-stepper-step
+              :complete="curStep1 > 1"
+              step="1"
+            >
+              <span>Listen to the <i>I - IV - V - I</i> progression</span>
+            </v-stepper-step>
+            <v-stepper-content step="1">
+              <v-card>
+                <v-card-text>
+                  Like with the internalisation exercises (and
+                  all other exercises in the Dodeca course) just listen to the <i>I - IV - V - I</i>
+                  progression while it outlines the key.
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn
+                    color="primary"
+                    @click.native="curStep1 = 2"
+                  >
+                    Next
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-stepper-content>
+            <v-stepper-step
+              :complete="curStep1 > 2"
+              step="2"
+            >
+              Listen for the sound of the tonic and hear it clearly in your head
+            </v-stepper-step>
+            <v-stepper-content step="2">
+              <v-card>
+                <v-card-text>
+                  Wait until the <i>I - IV - V - I</i> progression has been played and you
+                  hear the tonic chord played again, then identify which note is the
+                  tonic and hear it internally.
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn
+                    color="secondary"
+                    @click.native="curStep1=1"
+                  >
+                    Previous
+                  </v-btn>
+                  <v-btn
+                    color="primary"
+                    @click.native="curStep1 = 3"
+                  >
+                    Next
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-stepper-content>
+            <v-stepper-step
+              :complete="curStep1 > 3"
+              step="3"
+            >
+              Sing the tonic
+            </v-stepper-step>
+            <v-stepper-content step="3">
+              <v-card>
+                <v-card-text>
+                  Sing the note you hear as the tonic in your head just as you
+                  did in the tonic internalisation exercise.
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn
+                    color="secondary"
+                    @click.native="curStep1=2"
+                  >
+                    Previous
+                  </v-btn>
+                  <v-btn
+                    color="primary"
+                    @click.native="curStep1 = 4"
+                  >
+                    Next
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-stepper-content>
+            <v-stepper-step
+              :complete="curStep1>4"
+              step="4"
+            >
+              Try to hear the sound of the target scale degree clearly in your head
+            </v-stepper-step>
+            <v-stepper-content step="4">
+              <v-card>
+                <v-card-text>
+                  after you've sung the tonic, try to hear the sound of the target scale
+                  degree as clearly in your head as you can. You are repeating the
+                  movement from the tonic to the target scale degree you've been
+                  singing in the internalisation exercise so listen for that sound.
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn
+                    color="secondary"
+                    @click.native="curStep1=3"
+                  >
+                    Previous
+                  </v-btn>
+                  <v-btn
+                    color="primary"
+                    @click.native="curStep1 = 5"
+                  >
+                    Next
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-stepper-content>
+            <v-stepper-step
+              :complete="curStep1>5"
+              step="5"
+            >
+              Sing the target scale degree
+            </v-stepper-step>
+            <v-stepper-content step="5">
+              <v-card>
+                <v-card-text>
+                  If you can hear the target scale degree
+                  internally, sing it. Then hold it or repeat it for the next few
+                  seconds.
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn
+                    color="secondary"
+                    @click.native="curStep1=4"
+                  >
+                    Previous
+                  </v-btn>
+                  <v-btn
+                    color="primary"
+                    @click.native="curStep1 = 6"
+                  >
+                    Next
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-stepper-content>
+            <v-stepper-step
+              :complete="curStep1>6"
+              step="6"
+            >
+              Check that you have sung the target scale degree correctly
+            </v-stepper-step>
+            <v-stepper-content step="6">
+              <v-card>
+                <v-card-text>
+                  If the microphone is activated (toggle it using the
+                  <v-icon>mdi-microphone</v-icon> button), you can record your singing and it will tell you if you've sung correctly
+                  (keep in mind that the software might not be 100% accurate. It's important you hold the target scale degree until the end).
+                  If not, listen to the target scale degree when it is played to see if it's the same note
+                  as the one you're singing.
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn
+                    color="secondary"
+                    @click.native="curStep1=5"
+                  >
+                    Previous
+                  </v-btn>
+                  <v-btn
+                    color="primary"
+                    @click.native="curStep1 = 7"
+                  >
+                    Next
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-stepper-content>
+            <v-stepper-step
+              :complete="curStep1>7"
+              step="7"
+            >
+              Repeat
+            </v-stepper-step>
+            <v-stepper-content step="7">
+              <v-card>
+                <v-card-text>
+                  The internalisation tests move through 12 random keys, so repeat this
+                  process to see how well you've internalised the sound of each scale degree.
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn
+                    color="secondary"
+                    @click.native="curStep1=6"
+                  >
+                    Previous
+                  </v-btn>
+                  <v-btn
+                    color="primary"
+                    @click.native="curStep1 = 8"
+                  >
+                    Finish
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-stepper-content>
+            <div v-if="curStep1>7">
+              <v-btn
+                fab
+                color="secondary"
+                elevation="1"
+                small
+                style="float: right; margin-top: -3ch; margin-bottom: -3ch"
+                class="mr-7"
+                @click.native="curStep1=1"
+              >
+                <v-icon>mdi-restart</v-icon>
+              </v-btn>
+            </div>
+          </v-stepper>
+        </v-tab-item>
+        <v-tab>
+          Level 2
+        </v-tab>
+        <v-tab-item>
+          <v-stepper
+            v-model="curStep2"
+            vertical
+            class="explanation-stepper"
+          >
+            <v-stepper-step
+              :complete="curStep2 > 1"
+              step="1"
+            >
+              <span>Listen to the <i>I - IV - V - I</i> progression</span>
+            </v-stepper-step>
+            <v-stepper-content step="1">
+              <v-card>
+                <v-card-text>
+                  Like with the internalisation exercises (and
+                  all other exercises in the Dodeca course) just listen to the <i>I - IV - V - I</i>
+                  progression while it outlines the key.
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn
+                    color="primary"
+                    @click.native="curStep2 = 2"
+                  >
+                    Next
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-stepper-content>
+            <v-stepper-step
+              :complete="curStep2 > 2"
+              step="2"
+            >
+              Listen for the sound of the tonic and hear it clearly in your head
+            </v-stepper-step>
+            <v-stepper-content step="2">
+              <v-card>
+                <v-card-text>
+                  Wait until the <i>I - IV - V - I</i> progression has been played and you hear the tonic
+                  chord played again, then identify which note is the tonic and hear it internally.
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn
+                    color="secondary"
+                    @click.native="curStep2=1"
+                  >
+                    Previous
+                  </v-btn>
+                  <v-btn
+                    color="primary"
+                    @click.native="curStep2 = 3"
+                  >
+                    Next
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-stepper-content>
+            <v-stepper-step
+              :complete="curStep2 > 3"
+              step="3"
+            >
+              Try to hear the sound of the target scale degree clearly in your head
+            </v-stepper-step>
+            <v-stepper-content step="3">
+              <v-card>
+                <v-card-text>
+                  Once you can hear the tonic clearly in your head, listen for the sound of the
+                  target scale degree. You are listening for the same relationship,
+                  but you simply haven't sung the tonic.
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn
+                    color="secondary"
+                    @click.native="curStep2=2"
+                  >
+                    Previous
+                  </v-btn>
+                  <v-btn
+                    color="primary"
+                    @click.native="curStep2 = 4"
+                  >
+                    Next
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-stepper-content>
+            <v-stepper-step
+              :complete="curStep2>4"
+              step="4"
+            >
+              Sing the target scale degree
+            </v-stepper-step>
+            <v-stepper-content step="4">
+              <v-card>
+                <v-card-text>
+                  If you can hear the target scale degree
+                  internally, sing it. Then hold it or repeat it for the next few second.
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn
+                    color="secondary"
+                    @click.native="curStep2=3"
+                  >
+                    Previous
+                  </v-btn>
+                  <v-btn
+                    color="primary"
+                    @click.native="curStep2 = 5"
+                  >
+                    Next
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-stepper-content>
+            <v-stepper-step
+              :complete="curStep2>5"
+              step="5"
+            >
+              Check that you have sung the target scale degree correctly
+            </v-stepper-step>
+            <v-stepper-content step="5">
+              <v-card>
+                <v-card-text>
+                  If the microphone is activated (toggle it using the
+                  <v-icon>mdi-microphone</v-icon> button), you can record your singing and it will tell you if you've sung correctly
+                  (keep in mind that the software might not be 100% accurate. It's important you hold the target scale degree until the end).
+                  If not, listen to the target scale degree when it is played to see if it's the same note
+                  as the one you're singing.
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn
+                    color="secondary"
+                    @click.native="curStep2=4"
+                  >
+                    Previous
+                  </v-btn>
+                  <v-btn
+                    color="primary"
+                    @click.native="curStep2 = 6"
+                  >
+                    Next
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-stepper-content>
+            <v-stepper-step
+              :complete="curStep2>6"
+              step="6"
+            >
+              Repeat
+            </v-stepper-step>
+            <v-stepper-content step="6">
+              <v-card>
+                <v-card-text>
+                  The internalisation tests move through 12 random keys, so repeat this
+                  process to see how well you've internalised the
+                  sound of each scale degree.
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn
+                    color="secondary"
+                    @click.native="curStep2=5"
+                  >
+                    Previous
+                  </v-btn>
+                  <v-btn
+                    color="primary"
+                    @click.native="curStep2 = 7"
+                  >
+                    Finish
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-stepper-content>
+            <div v-if="curStep2>6">
+              <v-btn
+                fab
+                color="secondary"
+                elevation="1"
+                small
+                style="float: right; margin-top: -3ch; margin-bottom: -3ch"
+                class="mr-7"
+                @click.native="curStep2=1"
+              >
+                <v-icon>mdi-restart</v-icon>
+              </v-btn>
+            </div>
+          </v-stepper>
+        </v-tab-item>
+      </v-tabs>
+      <br />
       <p>
         Once you can get
         10 out of 12 keys right at the first difficult level, you're ready to
         move onto the second one.
       </p>
-      <h4>2. Don't sing the tonic</h4>
-      <ol>
-        <li>
-          <p>
-            <b>Listen to the
-              <i>I - IV - V</i> Progression:</b> Like with the internalisation exercises (and
-            all other exercises in the Dodeca course) just listen to the <i>I - IV - V</i>
-            progression while it outlines the key.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Listen for
-              the sound of the tonic and hear it clearly in your head:</b> wait until
-            the <i>I - IV - V</i> progression has been played and you hear the tonic
-            chord played again, then identify which note is the tonic and hear
-            it internally.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Try to hear
-              the sound of the target scale degree clearly in your head:</b> once you
-            can hear the tonic clearly in your head, listen for the sound of the
-            target scale degree. You are listening for the same relationship,
-            but you simply haven't sung the tonic.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Sing the
-              target scale degree:</b> if you can hear the target scale degree
-            internally, sing it. Then hold it or repeat it for the next few
-            second.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Check that
-              you have sung the target scale degree correctly:</b> If the microphone is activated (toggle it using the
-            <v-icon>mdi-microphone</v-icon> button), you can record your singing and it will tell you if you've sung correctly
-            (keep in mind that the software might not be 100% accurate. It's important you hold the target scale degree until the end).
-            If not, listen to the target scale degree when it is played to see if it's the same note
-            as the one you're singing.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Repeat:</b> The
-            internalisation exercises move through 12 random keys, so repeat this
-            process to see how well you've internalised the
-            sound of each scale degree.
-          </p>
-        </li>
-      </ol>
+
       <p>
         Once you can pass
         an internalisation test (sing the target scale degree correctly 10
@@ -387,6 +849,13 @@ export default {
   name: "IndividualNotesMethod",
   components: {
     InlineConfigurator,
+  },
+  data: function () {
+    return {
+      exStep: 1,
+      curStep1: 1,
+      curStep2: 1,
+    };
   },
 };
 </script>
