@@ -313,7 +313,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
         it:
       </p>
       <v-tabs
-      grow
+        grow
       >
         <v-tab>
           Level 1
@@ -743,7 +743,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
           </v-stepper>
         </v-tab-item>
       </v-tabs>
-      <br />
+      <br>
       <p>
         Once you can get
         10 out of 12 keys right at the first difficult level, you're ready to
