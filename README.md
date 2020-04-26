@@ -14,10 +14,11 @@ This project uses:
 - [Vuetify](https://vuetifyjs.com/) - Material Design Component Framework for Vue.js
 - [WebAudioMIDI.js](https://github.com/valentin12/WebAudioMIDI.js) - Play MIDI notes in the browser
 - [MIDI.js Soundfonts](https://github.com/mudcube/MIDI.js) - Soundfonts for MIDI.js
+- [PitchDetect](https://github.com/cwilso/PitchDetect) - Simple pitch detection
 
 ## Project setup
 ```
-git clone https://link-to-repo.git
+git clone https://github.com/DodecaCourse/DodecaCourse.git
 cd DodecaCourse
 git submodule update --init 
 npm install

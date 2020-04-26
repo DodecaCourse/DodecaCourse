@@ -23,7 +23,7 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
   >
     <b class="mr-3 hidden-sm-and-down">{{ description }}</b>
     <DegreeCircle
-      v-if="(useInput === 1 || useInput === 2) && playing"
+      v-if="(useInput === INPUT_CIRCLE || useInput === INPUT_CIRCLE_CHORD) && playing"
       class="ma-1"
       :submit-solution="solutionInput"
       :enabled-buttons="chosenDegrees"
@@ -53,7 +53,7 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
         {{ roundSincePlay }}
       </template>
     </DegreeCircle>
-    <div v-if="(useInput === 0 || useInput === 3) || !playing">
+    <div v-if="(useInput === NO_INPUT || useInput === INPUT_CHORD_QUALITY || useInput === INPUT_SING) || !playing">
       <v-btn
         color="primary"
         small
@@ -78,12 +78,26 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
           <span>{{ roundSincePlay }}</span>
         </DegreeCirclePictogram>
       </v-progress-circular>
-      <div v-if="useInput === 3 && playing">
+      <v-btn
+        v-if="useInput === INPUT_SING"
+        title="Detect pitch"
+        :color="microphoneEnabled ? 'primary' : 'secondary'"
+        small
+        fab
+        :elevation="isDetecting ? 8 : 1"
+        :disabled="!loaded"
+        :class="'record-btn ' + recordBtnClass"
+        @click="toggleMicrophone"
+      >
+        <v-icon>{{ microphoneEnabled ? 'mdi-microphone' : 'mdi-microphone-outline' }}</v-icon>
+      </v-btn>
+      <div v-if="useInput === INPUT_CHORD_QUALITY && playing">
         <ChordQualityInput
           :submit-solution="solutionInput"
           :enabled-qualities="chordTypes"
         />
       </div>
+      <span style="color: red; text-align: center">{{ errorText }}</span>
     </div>
   </v-card>
 </template>
@@ -117,30 +131,55 @@ const SPEED_MEDIUM = 140;
 const SPEED_MEDIUM_FAST = 160;
 const SPEED_FAST = 180;
 
-const NO_INPUT = 0;
-const INPUT_CIRCLE = 1;
-const INPUT_CIRCLE_CHORD = 2;
-const INPUT_CHORD_QUALITY = 3;
-
 const CADENCE_I_IV_V = "i_iv_v";
 const CADENCE_I_IV_V_I = "i_iv_v_i";
 const MODE_IONIAN = "ionian";
 const MODE_AEOLIAN = "aeolian";
 
 const VELOCITY = 127;
+const ANA_HIST_LENGTH = 100;
 
 export default {
   name: "Teacher",
   components: {ChordQualityInput, DegreeCirclePictogram, DegreeCircle},
   data: function() {
     return {
+      NO_INPUT: 0,
+      INPUT_CIRCLE: 1,
+      INPUT_CIRCLE_CHORD: 2,
+      INPUT_CHORD_QUALITY: 3,
+      INPUT_SING: 4,
+
       hidden: false,
       loaded: false,
       playing: false,
+
+      errorText: "",
                 
       // references to cancel setTimeout
       timeoutRef: null,
       progressRef: null,
+      
+      audioContext: null,
+
+      // pitch detection
+      isDetecting: false,
+      sourceNode: null,
+      analyser: null,
+      anaSourceBuffer: null,
+      MIN_SAMPLES: 0,
+      GOOD_ENOUGH_CORRELATION: 0.9, // this is the "bar" for how close a correlation needs to be
+      mediaStreamSource: null,
+      anaResultHist: [],
+      anaResultHistPos: 0,
+      animationFrameId: 0,
+      anaTracks: null,
+      anaBufLen: 1024,
+      anaBuf: new Float32Array(1024),
+      anaNote: 0,
+      microphoneEnabled: true,
+      userStream: null,
+      recordBtnClass: "",
 
       // settings
       changeKeyEvery: 1, // set to -1 to never change key
@@ -288,12 +327,16 @@ export default {
       return this.chosenDegrees;
     },
     useInput: function() {
-      if (this.inputDisabled) return NO_INPUT;
+      if (this.inputDisabled) return this.NO_INPUT;
 
       const no_input = [
-        INTERNALIZATION, INTERNALIZATION_TEST,
-        TARGET_TONE, TARGET_TONE_TEST,
+        INTERNALIZATION,
+        TARGET_TONE,
         CHORD_INTERNALIZATION
+      ];
+      const input_sing = [
+        INTERNALIZATION_TEST,
+        TARGET_TONE_TEST
       ];
       const input_circle = [
         RECOGNITION_SINGLE, RECOGNITION_SINGLE_TEST,
@@ -305,13 +348,14 @@ export default {
       const input_chord_quality = [
         CHORD_QUALITY, CHORD_QUALITY_TEST
       ];
-      if (no_input.indexOf(this.type) > -1) return NO_INPUT;
-      else if (input_circle.indexOf(this.type) > -1) return INPUT_CIRCLE;
-      else if (input_circle_chord.indexOf(this.type) > -1) return INPUT_CIRCLE_CHORD;
-      else if (input_chord_quality.indexOf(this.type) > -1) return INPUT_CHORD_QUALITY;
+      if (no_input.indexOf(this.type) > -1) return this.NO_INPUT;
+      if (input_sing.indexOf(this.type) > -1) return this.INPUT_SING;
+      else if (input_circle.indexOf(this.type) > -1) return this.INPUT_CIRCLE;
+      else if (input_circle_chord.indexOf(this.type) > -1) return this.INPUT_CIRCLE_CHORD;
+      else if (input_chord_quality.indexOf(this.type) > -1) return this.INPUT_CHORD_QUALITY;
       else {
         console.error("useInput not set for type", this.type);
-        return NO_INPUT;
+        return this.NO_INPUT;
       }
     },
     description: function () {
@@ -369,20 +413,23 @@ export default {
       else if (this.type === RECOGNITION_INTERVAL_TEST) return 27;
       else if (this.type === CHORD_QUALITY_TEST) return 13;
       else if (this.type === CHORD_RECOGNITION_TEST) return 27;
+      if (this.type === INTERNALIZATION_TEST && this.microphoneEnabled) {
+        return 10;
+      }
       return -1;
     },
     circleLabels: function () {
-      if (this.useInput === INPUT_CIRCLE_CHORD && this.diatonicCount <= 3 &&
+      if (this.useInput === this.INPUT_CIRCLE_CHORD && this.diatonicCount <= 3 &&
                     this.scale === MODE_IONIAN) {
         return ["I", "", "ii", "", "iii", "IV", "", "V", "", "vi", "", "vii°"];
-      } else if (this.useInput === INPUT_CIRCLE_CHORD && this.diatonicCount > 3 &&
+      } else if (this.useInput === this.INPUT_CIRCLE_CHORD && this.diatonicCount > 3 &&
                            this.scale === MODE_IONIAN ) {
         return ["IM7", "", "ii7", "", "iii7", "IVM7",
           "", "V7", "", "vi7", "", "vii7b5"];
-      } else if (this.useInput === INPUT_CIRCLE_CHORD && this.diatonicCount <= 3 &&
+      } else if (this.useInput === this.INPUT_CIRCLE_CHORD && this.diatonicCount <= 3 &&
                     this.scale === MODE_AEOLIAN) {
         return ["i", "", "ii°", "III", "", "iv", "", "V", "VI", "", "VII", ""];
-      } else if (this.useInput === INPUT_CIRCLE_CHORD && this.diatonicCount > 3 &&
+      } else if (this.useInput === this.INPUT_CIRCLE_CHORD && this.diatonicCount > 3 &&
                     this.scale === MODE_AEOLIAN) {
         return ["i7", "", "ii7b5", "IIIM7", "", "iv7",
           "", "V7", "VIM7", "", "VII7", ""];
@@ -561,11 +608,17 @@ export default {
     roundInternalizationTest: function () {
       let [posOff, cadence] = this.playCadence(this.key, CADENCE_I_IV_V, 0);
       posOff = this.playResting(this.key, cadence, posOff, 4);
-      posOff = this.rest(posOff, 3 * 4);
-      posOff = this.playDegree(this.key, this.degrees[0], false, posOff, 8, cadence, true);
-      posOff = this.rest(posOff, 4);
-      this.roundDuration = posOff;
-      this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
+      if (this.microphoneEnabled) {
+        this.roundDuration = posOff;
+        this.solution = (Midi.toMidi(this.key + "0") + this.degrees[0]) % 12;
+        this.timeoutRef = setTimeout(this.solutionSing, this.roundDuration * 1000);
+      } else {
+        posOff = this.rest(posOff, 3 * 4);
+        posOff = this.playDegree(this.key, this.degrees[0], false, posOff, 8, cadence, true);
+        posOff = this.rest(posOff, 4);
+        this.roundDuration = posOff;
+        this.timeoutRef = setTimeout(this.doRepeat, this.roundDuration * 1000);
+      }
     },
     roundRecognitionSingle: function () {
       const degree = this.degrees[Math.floor(Math.random()*this.degrees.length)];     // choose randomly
@@ -579,8 +632,10 @@ export default {
       posOff = this.playDegree(this.key, degree, false, posOff, 4, cadence, false);
 
       this.solution = [degree];
-      if (this.useInput !== NO_INPUT) {
-        console.log("USE_INPUT");
+      if (this.useInput !== this.NO_INPUT) {
+        if(this.debug) {
+          console.log("USE_INPUT");
+        }
         this.roundDuration = posOff;
       } else {
         posOff = this.rest(posOff, 2 * 4);
@@ -605,7 +660,7 @@ export default {
 
       this.solution = [this.normalizeDegree(degree), this.normalizeDegree(secondDegree)];
 
-      if (this.useInput !== NO_INPUT) {
+      if (this.useInput !== this.NO_INPUT) {
         if(this.debug) {
           console.log("USE_INPUT");
         }
@@ -646,7 +701,7 @@ export default {
       let posOff = this.playChord(root, chordType, 0, 4);
       this.solution = [chordType];
 
-      if (this.useInput !== NO_INPUT) {
+      if (this.useInput !== this.NO_INPUT) {
         if(this.debug){
           console.log("USE_INPUT");
         }
@@ -678,7 +733,7 @@ export default {
       posOff = this.playDiatonic(this.key, diatonic, this.diatonicCount, posOff, 4, cadence, false);
 
       this.solution = [diatonic];
-      if (this.useInput !== NO_INPUT) {
+      if (this.useInput !== this.NO_INPUT) {
         if(this.debug){
           console.log("USE_INPUT");
         }
@@ -748,6 +803,42 @@ export default {
         this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
         // return the correct solution not yet answered
         return [false, this.solution.slice(this.inputPos)];
+      }
+    },
+    solutionSing: function() {
+      this.startAnalysis();
+    },
+    submitSolutionSing: function() {
+      this.stopAnalysis();
+      if (this.solution === null) {
+        // no solution to compare with
+        return;
+      }
+      if (this.debug) console.log(this.solution, this.anaNote);
+      clearTimeout(this.progressRef);
+      this.progress = 0;
+      const correctionTime = 500;
+      const self = this;
+      if (this.anaNote === this.solution) {
+        this.correctSincePlay++;
+        let posOff = this.rest(0, 2);
+        this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
+        this.recordBtnClass = "correct-background";
+        setTimeout(function () {
+          self.recordBtnClass = "";
+        }, correctionTime);
+        return true;
+      } else {
+        // wrong -> round ends
+        this.recordBtnClass = "incorrect-background";
+        setTimeout(function () {
+          self.recordBtnClass = "";
+        }, correctionTime);
+        let posOff = this.rest(0, 2);
+        this.timeoutRef = setTimeout(this.doRepeat, posOff * 1000);
+
+        // return the correct solution not yet answered
+        return [false, this.solution];
       }
     },
     doRepeat: function() {
@@ -902,10 +993,23 @@ export default {
     updateProgress: function () {
       /* Update the progress property */
       if (this.playing) {
-        const passed = new Date().getTime() - this.startTime;
-        this.progress = passed / this.roundDuration / 10;
-        if (this.progress < 100) {
-          this.progressRef = setTimeout(this.updateProgress, 100);
+        if (this.isDetecting) {
+          const passed = new Date().getTime() - this.startTime;
+          this.progress = 100 - passed / this.roundDuration / 10;
+          if (this.progress > 0) {
+            this.progressRef = setTimeout(this.updateProgress, 100);
+          }
+        } else {
+          const passed = new Date().getTime() - this.startTime;
+          if (this.progress < 3 && passed / this.roundDuration / 10 > 100) {
+            // went backward during isDetecting, avoid jump to 100%
+            this.progress = 0;
+          } else {
+            this.progress = passed / this.roundDuration / 10;
+            if (this.progress < 100) {
+              this.progressRef = setTimeout(this.updateProgress, 100);
+            }
+          }
         }
       } else {
         this.progress = 0;
@@ -922,6 +1026,7 @@ export default {
     doStop: function () {
       this.clearTimeouts();
       this.progress = 0;
+      if (this.isDetecting) this.stopAnalysis();
       MIDI.stopAllNotes();
     },
     rest: function (posOff, duration) {
@@ -943,9 +1048,197 @@ export default {
         onsuccess: function () {
           self.progress = 0;
           self.loaded = true;
+          self.audioContext = MIDI.getContext();
           self.setupInternalization(0, false);
         }
       });
+    },
+    _getUserMedia: function(dictionary, callback) {
+      const self = this;
+      navigator.mediaDevices.getUserMedia(dictionary).then(callback).catch(function (e) {
+        console.warn(e);
+        self.errorText = "Couldn't access microphone. Have you given permission?";
+        self.microphoneEnabled = false;
+        if (self.playing) self.restart();
+        setTimeout(() => self.errorText = "", 5000);
+      });
+    },
+    gotStream: function (stream) {
+      // Create an AudioNode from the stream.
+      this.mediaStreamSource = this.audioContext.createMediaStreamSource(stream);
+      this.userStream = stream;
+      this.prepareAnalysis();
+    },
+    toggleMicrophone: function() {
+      if (this.microphoneEnabled) {
+        this.microphoneEnabled = false;
+        this.stopAnalysis();
+        this.userStream.getTracks().forEach(function(track) {
+          track.stop();
+        });
+        this.userStream = null;
+      } else {
+        this.microphoneEnabled = true;
+      }
+      if (this.playing) this.restart();
+    },
+    prepareAnalysis: function () {
+      this.microphoneEnabled = true;
+      this.analyser = this.audioContext.createAnalyser();
+      this.analyser.fftSize = 2048;
+      this.mediaStreamSource.connect(this.analyser);
+      this.isDetecting = true;
+      this.startTime = new Date().getTime();
+      this.roundDuration = 4;
+      this.updatePitch();
+      this.updateProgress();
+      setTimeout(this.submitSolutionSing, this.roundDuration * 1000);
+    },
+    stopAnalysis: function () {
+      if (this.debug) console.log("stop analysis");
+      if (this.userStream != null)
+        this.userStream.getTracks().forEach(function(track) {
+          track.enabled = false;
+        });
+      this.isDetecting = false;
+      if (!window.cancelAnimationFrame)
+        window.cancelAnimationFrame = window.webkitCancelAnimationFrame;
+      window.cancelAnimationFrame( this.animationFrameId );
+      this.analyser = null;
+    },
+    startAnalysis: function () {
+      if (this.debug) console.log("start analysis");
+      if (this.userStream == null) {
+        this._getUserMedia(
+          {
+            "audio": {
+              "mandatory": {
+                "googEchoCancellation": "false",
+                "googAutoGainControl": "false",
+                "googNoiseSuppression": "false",
+                "googHighpassFilter": "false"
+              },
+              "optional": []
+            },
+          }, this.gotStream);
+      } else {
+        this.userStream.getTracks().forEach(function(track) {
+          track.enabled = true;
+        });
+        this.prepareAnalysis();
+      }
+    },
+    noteFromPitch: function (frequency) {
+      const noteNum = 12 * (Math.log( frequency / 440 )/Math.log(2) );
+      return Math.round( noteNum ) + 69;
+    },
+    frequencyFromNoteNumber: function( note ) {
+      return 440 * Math.pow(2,(note-69)/12);
+    },
+    centsOffFromPitch: function( frequency, note ) {
+      return Math.floor( 1200 * Math.log( frequency / this.frequencyFromNoteNumber( note ))/Math.log(2) );
+    },
+    autoCorrelate: function( buf, sampleRate ) {
+      const SIZE = buf.length;
+      const MAX_SAMPLES = Math.floor(SIZE/2);
+      let best_offset = -1;
+      let best_correlation = 0;
+      let rms = 0;
+      let foundGoodCorrelation = false;
+      let correlations = new Array(MAX_SAMPLES);
+    
+      for (let i=0;i<SIZE;i++) {
+        const val = buf[i];
+        rms += val*val;
+      }
+      rms = Math.sqrt(rms/SIZE);
+      if (rms<0.01) { // not enough signal
+        return -1;
+      }
+    
+      let lastCorrelation=1;
+      for (let offset = this.MIN_SAMPLES; offset < MAX_SAMPLES; offset++) {
+        let correlation = 0;
+    
+        for (let i=0; i<MAX_SAMPLES; i++) {
+          correlation += Math.abs((buf[i])-(buf[i+offset]));
+        }
+        correlation = 1 - (correlation/MAX_SAMPLES);
+        correlations[offset] = correlation; // store it, for the tweaking we need to do below.
+        if ((correlation>this.GOOD_ENOUGH_CORRELATION) && (correlation > lastCorrelation)) {
+          foundGoodCorrelation = true;
+          if (correlation > best_correlation) {
+            best_correlation = correlation;
+            best_offset = offset;
+          }
+        } else if (foundGoodCorrelation) {
+          // short-circuit - we found a good correlation, then a bad one, so we'd just be seeing copies from here.
+          // Now we need to tweak the offset - by interpolating between the values to the left and right of the
+          // best offset, and shifting it a bit.  This is complex, and HACKY in this code (happy to take PRs!) -
+          // we need to do a curve fit on correlations[] around best_offset in order to better determine precise
+          // (anti-aliased) offset.
+    
+          // we know best_offset >=1, 
+          // since foundGoodCorrelation cannot go to true until the second pass (offset=1), and 
+          // we can't drop into this clause until the following pass (else if).
+          const shift = (correlations[best_offset+1] - correlations[best_offset-1])/correlations[best_offset];
+          return sampleRate/(best_offset+(8*shift));
+        }
+        lastCorrelation = correlation;
+      }
+      if (best_correlation > 0.01) {
+        // console.log("f = " + sampleRate/best_offset + "Hz (rms: " + rms + " confidence: " + best_correlation + ")")
+        return sampleRate/best_offset;
+      }
+      return -1;
+    //	var best_frequency = sampleRate/best_offset;
+    },
+    updatePitch: function() {
+      this.analyser.getFloatTimeDomainData(this.anaBuf);
+      const ac = this.autoCorrelate(this.anaBuf, this.audioContext.sampleRate );
+      if (ac < 0) {
+        if (this.anaResultHist.length < ANA_HIST_LENGTH) {
+          this.anaResultHist.push(null);
+        } else {
+          this.anaResultHist[this.anaResultHistPos] = null;
+          this.anaResultHistPos = (this.anaResultHistPos + 1) % this.anaResultHist.length;
+        }
+      }
+      else {
+        const note =  this.noteFromPitch(ac);
+        if (this.anaResultHist.length < ANA_HIST_LENGTH) {
+          this.anaResultHist.push(note % 12);
+        } else {
+          this.anaResultHist[this.anaResultHistPos] = note % 12;
+          this.anaResultHistPos = (this.anaResultHistPos + 1) % this.anaResultHist.length;
+        }
+        let mf = 1; //default maximum frequency
+        let m = 0;  //counter
+        let item;  //to store item with maximum frequency
+        for (let k=0; k<this.anaResultHist.length; k++)    //select element (current element)
+        {
+          if (this.anaResultHist[k] == null) {
+            continue;
+          }
+          for (let j=k; j<this.anaResultHist.length; j++)   //loop through next elements in array to compare calculate frequency of current element
+          {
+            if (this.anaResultHist[k] === this.anaResultHist[j])    //see if element occurs again in the array
+              m++;   //increment counter if it does
+            if (mf<m)   //compare current items frequency with maximum frequency
+            {
+              mf=m;      //if m>mf store m in mf for upcoming elements
+              item = this.anaResultHist[k];   // store the current element.
+            }
+          }
+          m=0;   // make counter 0 for next element.
+        }
+        this.anaNote = item;
+        // const detune = this.centsOffFromPitch( ac, note );
+      }
+    
+      if (!window.requestAnimationFrame)
+        window.requestAnimationFrame = window.webkitRequestAnimationFrame;
+      this.animationFrameId = window.requestAnimationFrame( this.updatePitch );
     }
   }
 };
@@ -953,6 +1246,33 @@ export default {
 </script>
 
 <style lang="sass">
-    .my-progress-circular .v-progress-circular__overlay
-        transition: all 0.1s ease-in-out
+  .my-progress-circular .v-progress-circular__overlay
+      transition: all 0.1s ease-in-out
+
+  //standard template for the btns
+  .record-btn
+      transition: background-color 0.35s linear
+  .record-btn:not(.v-btn--text):not(.v-btn--outlined):focus::before
+      opacity: 0
+
+  .fade-in-out
+      opacity: 1
+      animation-name: fadeInOutOpacity
+      animation-iteration-count: 1
+      animation-timing-function: ease-in-out
+      animation-duration: 0.7s
+
+  @keyframes fadeInOutOpacity
+      0%
+          opacity: 0
+      50%
+          opacity: 0.2
+      100%
+          opacity: 0
+
+  button.v-btn.correct-background
+      background-color: #7cd2b6 !important
+
+  button.v-btn.incorrect-background
+      background-color: #d28681 !important
 </style>

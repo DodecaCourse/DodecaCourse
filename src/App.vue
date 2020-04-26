@@ -350,4 +350,8 @@ export default {
 
     .v-list
         padding: 0px
+
+    .v-application--is-ltr .explanation-stepper.v-stepper--vertical .v-stepper__content
+        padding-top: 0
+        padding-bottom: 0
 </style>

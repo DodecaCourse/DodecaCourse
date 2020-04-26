@@ -18,8 +18,6 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
       <h1 class="hidden-xs-only">
         2. Recognising Individual Notes
       </h1>
-      <h2>Individual Note Recognition Exercises</h2>
-      <h3 />
       <p>
         You'll find recognition exercises in every module of the Dodeca course
         from here on. The idea behind recognition exercises is
@@ -46,8 +44,8 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
       </p>
       <p>
         Additionally there
-        is a pedal played throughout the exercise. The pedal is the »Do« and
-        »Re« played before every note. This makes it easy to keep
+        is a pedal played throughout the exercise. The pedal is »Do« and
+        »So« played before every note. This makes it easy to keep
         the sound of the tonic firmly in your head so you'll always hear each
         note in relation to it.
       </p>
@@ -71,48 +69,167 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
 
       <h3>How to use the individual note recognition exercises</h3>
       <p>
-        Follow the steps below for the recognition exercises:
+        <v-stepper
+          v-model="curStep"
+          vertical
+          class="explanation-stepper"
+        >
+          <v-stepper-step
+            :complete="curStep > 1"
+            step="1"
+          >
+            <span>Listen to the <i>I - IV - V - I</i> progression</span>
+          </v-stepper-step>
+          <v-stepper-content step="1">
+            <v-card>
+              <v-card-text>
+                Simply listening to the <i>I - IV - V - I</i>
+                progression will make it clear to your ear which note is the tonic
+                (even if you can't identify which note it is yet). So just sit back
+                and listen.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="primary"
+                  @click.native="curStep = 2"
+                >
+                  Next
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <v-stepper-step
+            :complete="curStep > 2"
+            step="2"
+          >
+            <span>Listen to the note played after the <i>I - IV - V - I</i> progression</span>
+          </v-stepper-step>
+          <v-stepper-content step="2">
+            <v-card>
+              <v-card-text>
+                Listen to the note and
+                listen for the way that is sounds and resonates in relation to the
+                tonic chord/pedal.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="secondary"
+                  @click.native="curStep=1"
+                >
+                  Previous
+                </v-btn>
+                <v-btn
+                  color="primary"
+                  @click.native="curStep = 3"
+                >
+                  Next
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <v-stepper-step
+            :complete="curStep > 3"
+            step="3"
+          >
+            [OPTIONAL] Sing the note
+          </v-stepper-step>
+          <v-stepper-content step="3">
+            <v-card>
+              <v-card-text>
+                Singing the note helps to hear the way that it relates to
+                the tonic and often helps to make it easier to identify.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="secondary"
+                  @click.native="curStep=2"
+                >
+                  Previous
+                </v-btn>
+                <v-btn
+                  color="primary"
+                  @click.native="curStep = 4"
+                >
+                  Next
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <v-stepper-step
+            :complete="curStep>4"
+            step="4"
+          >
+            Try to recognise the note's scale degree
+          </v-stepper-step>
+          <v-stepper-content step="4">
+            <v-card>
+              <v-card-text>
+                If you think you've identified
+                the note's scale degree, sing the syllable on the note.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="secondary"
+                  @click.native="curStep=3"
+                >
+                  Previous
+                </v-btn>
+                <v-btn
+                  color="primary"
+                  @click.native="curStep = 5"
+                >
+                  Next
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <v-stepper-step
+            :complete="curStep>4"
+            step="5"
+          >
+            Check that you've identified it correctly
+          </v-stepper-step>
+          <v-stepper-content step="5">
+            <v-card>
+              <v-card-text>
+                Enter your answer to check that you identified the scale degree correctly.
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="secondary"
+                  @click.native="curStep=4"
+                >
+                  Previous
+                </v-btn>
+                <v-btn
+                  color="primary"
+                  @click.native="curStep = 6"
+                >
+                  Finish
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-stepper-content>
+          <div v-if="curStep>5">
+            <v-btn
+              fab
+              color="secondary"
+              elevation="1"
+              small
+              style="float: right; margin-top: -3ch; margin-bottom: -3ch"
+              class="mr-7"
+              @click.native="curStep=1"
+            >
+              <v-icon>mdi-restart</v-icon>
+            </v-btn>
+          </div>
+        </v-stepper>
       </p>
-      <ol>
-        <li>
-          <p>
-            <b>Listen to the
-              <i>I - IV - V - I</i> progression:</b> Simply listening to the <i>I - IV - V - I</i>
-            progression will make it clear to your ear which note is the tonic
-            (even if you can't identify which note it is yet). So just sit back
-            and listen.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Listen to the
-              note played after the <i>I - IV - V - I</i> progression:</b> Listen to the note and
-            listen for the way that is sounds and resonates in relation to the
-            tonic chord/pedal.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>[OPTIONAL] Sing
-              the note:</b> singing the note helps to hear the way that it relates to
-            the tonic and often helps to make it easier to identify.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Try to
-              recognise the note's scale degree:</b> if you think you've identified
-            the note's scale degree, sing the syllable on the note.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Check that
-              you've identified it correctly:</b> enter your answer
-            to check that you identified the scale degree correctly.
-          </p>
-        </li>
-      </ol>
       <p>
         Repeat this
         throughout the exercise.
@@ -133,10 +250,11 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
         you pass the final internalisation test. Once you've done this
         you're ready to move onto the major scale recognition tests
       </p>
-      <h2>Recognition Tests</h2>
+      <h3>Exercises & Tests</h3>
       <p>
         The exercises and tests come in three levels at varying speeds.
-        Progress to the next level when you passed the test with less then
+        The tests work exactly like the exercises, but they stop after 32 notes.
+        Progress to the next level when you passed the test with less than
         five errors.
       </p>
       <p>
@@ -174,5 +292,10 @@ import InlineConfigurator from "../components/InlineConfigurator";
 export default {
   name: "IndividualNotesMethod",
   components: {InlineConfigurator},
+  data: function () {
+    return {
+      curStep: 1,
+    };
+  },
 };
 </script>

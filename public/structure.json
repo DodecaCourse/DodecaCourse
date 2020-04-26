@@ -154,37 +154,37 @@
     {
       "id": 2001,
       "title": "Re Internalisation",
-      "levels": 1,
+      "levels": 2,
       "chapter_id": 2003
     },
     {
       "id": 2002,
       "title": "Mi Internalisation",
-      "levels": 1,
+      "levels": 2,
       "chapter_id": 2003
     },
     {
       "id": 2003,
       "title": "Fa Internalisation",
-      "levels": 1,
+      "levels": 2,
       "chapter_id": 2003
     },
     {
       "id": 2004,
       "title": "So Internalisation",
-      "levels": 1,
+      "levels": 2,
       "chapter_id": 2003
     },
     {
       "id": 2005,
       "title": "La Internalisation",
-      "levels": 1,
+      "levels": 2,
       "chapter_id": 2003
     },
     {
       "id": 2006,
       "title": "Ti Internalisation",
-      "levels": 1,
+      "levels": 2,
       "chapter_id": 2003
     },
 
