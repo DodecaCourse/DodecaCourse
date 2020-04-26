@@ -267,7 +267,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
           </v-stepper-content>
           <v-stepper-step
             :complete="curStep>4"
-            step="4"
+            step="5"
           >
             Repeat
           </v-stepper-step>
