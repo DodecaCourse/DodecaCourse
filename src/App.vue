@@ -143,11 +143,8 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
                 {{ userProp.like ? "mdi-heart" : "mdi-heart-outline" }}
               </v-icon>
             </v-btn>
-            <v-btn icon>
-              <v-icon>
-                mdi-cog
-              </v-icon>
-            </v-btn>
+            <!-- Is this the right way to implement a dialog? -->
+            <SettingsDialog />
           </template>
         </template>
         <v-btn
@@ -216,6 +213,7 @@ import Teacher from "./components/Teacher";
 import LoginSnack from "./components/LoginSnack";
 import api from "./api.js";
 import RegisterSnack from "./components/RegisterSnack";
+import SettingsDialog from "./components/SettingsDialog";
 
 export default {
   name: "Dodeca",
@@ -225,6 +223,7 @@ export default {
     Teacher,
     Modules,
     LoginSnack,
+    SettingsDialog
   },
   mixins: [api],
   data: () => ({
