@@ -24,7 +24,7 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
       <v-snackbar
         v-model="showSelf"
         multi-line
-        :timeout="0"
+        :timeout="-1"
         color="info"
       >
         <v-card flat>

@@ -156,7 +156,7 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
         </v-btn>
       </v-app-bar>
 
-      <v-content>
+      <v-main>
         <v-container fluid>
           <v-banner
             v-show="!(this.$refs.teacher !== undefined && this.$refs.teacher.hidden)"
@@ -191,7 +191,7 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
             Close
           </v-btn>
         </v-snackbar>
-      </v-content>
+      </v-main>
       <v-footer app>
         <span>
           &copy;2020 <a

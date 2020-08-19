@@ -1040,6 +1040,7 @@ export default {
       const self = this;
       MIDI.loadPlugin({
         soundfontUrl: "/soundfont/",
+        // HIER
         instrument: "acoustic_grand_piano",
         onprogress: function (state, progress) {
           if(self.debug) console.log(state, progress);

@@ -47,9 +47,18 @@ class Config:
     # ø User Settings
     # TODO: Expand
     # → Input
-    INPUT_NONE = 0
-    INPUT_PIANO = 1
-    INPUT_SOLFEGE = 2
+    # INPUT_NONE = 0
+    # INPUT_PIANO = 1
+    # INPUT_SOLFEGE = 2
+
+    #  → Note display type
+    NOT_SOLFEGE = 0
+    NOT_ENGLISH = 1
+    NOT_GERMAN = 2
+    NOT_NUMBERS = 3
+
+    # → Instrument
+    # String..
 
     #  → Language
     LANG_ENGLISH = 0
@@ -62,7 +71,9 @@ class Config:
 
     # ø Default User Settings
     DEFAULT_SETTINGS = {
-        'input_type': INPUT_SOLFEGE,
+        # 'input_type': INPUT_SOLFEGE,
+        'notation': NOT_SOLFEGE,
+        'instrument': "acoustic_grand_piano",
         'language': LANG_ENGLISH,
         'theme': THEME_LIGHT
     }

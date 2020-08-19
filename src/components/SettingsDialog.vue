@@ -1,6 +1,5 @@
 <template>
   <v-dialog
-    v-model="dialog"
     width="500"
   >
     <template #activator="{ on }">
@@ -54,7 +53,6 @@
         <v-btn
           color="primary"
           text
-          @click="dialog = false"
         >
           Return to course
         </v-btn>
