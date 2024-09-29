@@ -99,18 +99,6 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
         </v-toolbar-title>
         <i class="mx-2 hidden-xs-only">Hearing is Relative!</i>
         <v-spacer />
-        <template v-if="!connection">
-          <v-chip
-            class="ma-2"
-            text-color="white"
-            color="red"
-          >
-            Disconnected
-            <v-icon right>
-              mdi-server-network-off
-            </v-icon>
-          </v-chip>
-        </template>
         <template v-if="connection">
           <template v-if="userProp == null">
             <v-btn

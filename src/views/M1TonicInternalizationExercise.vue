@@ -339,7 +339,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
       </p><h4>
         <b>TROUBLESHOOTING</b>
       </h4>
-      <b>“I’m struggling to sing in tune”</b>
+      <!--<b>“I’m struggling to sing in tune”</b>
       <p>
         If you’re
         finding it difficult to sing in tune you may be worried that the described
@@ -358,25 +358,24 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
         Just go and check out <a href="https://www.successfulsinging.com/singing-guides/singing-in-tune/">
           this introduction to singing in tune</a>.
       </p>
-      <!--
-            <p>So navigate to the
-                bonus module “How to Sing in Tune” where you’ll find a simple
-                exercise that you can use to improve your pitching within 1-2 weeks.
-                Once you’ve spent a week or so on that exercise your singing will
-                be at a level where you’re ready to start on the internalisation
-                exercises.</p>
-            <p><b>“I’m not sure
-                whether I’m singing the tonic or a different note”</b></p>
-            <p>In the
-                internalisation exercise the tonic is always the top note.</p>
-            <p>So if you’re
-                unsure whether you’re singing the correct note you can use the
-                exercises in the bonus module “How to Sing the Top Note of a Chord”
-                to improve your ability to hear and sing the top note of a chord.
-                That exercise will make it easy for you to know when you’re singing
-                the correct note in the internalisation exercise and when you’re
-                singing a different note from the chord.</p>
-                -->
+      <p>So navigate to the
+          bonus module “How to Sing in Tune” where you’ll find a simple
+          exercise that you can use to improve your pitching within 1-2 weeks.
+          Once you’ve spent a week or so on that exercise your singing will
+          be at a level where you’re ready to start on the internalisation
+          exercises.</p>
+      <p><b>“I’m not sure
+          whether I’m singing the tonic or a different note”</b></p>
+      <p>In the
+          internalisation exercise the tonic is always the top note.</p>
+      <p>So if you’re
+          unsure whether you’re singing the correct note you can use the
+          exercises in the bonus module “How to Sing the Top Note of a Chord”
+          to improve your ability to hear and sing the top note of a chord.
+          That exercise will make it easy for you to know when you’re singing
+          the correct note in the internalisation exercise and when you’re
+          singing a different note from the chord.</p>
+          -->
       <p>
         <b>“Sometimes the
           tonic is too high/low for my voice”</b>

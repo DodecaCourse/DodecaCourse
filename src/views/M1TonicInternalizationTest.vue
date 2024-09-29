@@ -335,6 +335,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
         and retry after a few more practice sessions. Make sure you check the
         troubleshooting section if you have any specific problems.
       </p>
+      <div v-if="connected">
       <p>
         <b>Want to save your progress as you make your way through the Dodeca Course?</b>
       </p>
@@ -350,6 +351,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
       >
         Next module
       </v-btn>
+      </div>
     </v-flex>
   </v-layout>
 </template>
