@@ -99,7 +99,7 @@ along with Dodeca Course.  If not, see <https://www.gnu.org/licenses/>.
         </v-toolbar-title>
         <i class="mx-2 hidden-xs-only">Hearing is Relative!</i>
         <v-spacer />
-        <template v-if="connection">
+        <template v-if="!backendDisabled && connection">
           <template v-if="userProp == null">
             <v-btn
               icon

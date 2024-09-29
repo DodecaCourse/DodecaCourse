@@ -21,6 +21,7 @@ import structure from "../public/structure.json";
 export default {
   data() {
     return {
+      backendDisabled: true, // do not send requests to the backend
       debug: false,
       flask_server: process.env.VUE_APP_BACKEND_SERVER,
       connection: true,
@@ -29,6 +30,7 @@ export default {
   computed: {
     user: {
       get: function () {
+        if (this.backendDisabled) return null;
         return this.$root.$children[0].userProp;
       },
       set: function (usr) {
@@ -53,6 +55,7 @@ export default {
   },
   methods: {
     fetch(url, cookies=false) {
+      if (this.backendDisabled) return;
       const path = this.flask_server + url;
       if (this.debug) {
         console.log("FETCH: " + path);

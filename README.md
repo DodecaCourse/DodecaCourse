@@ -35,6 +35,10 @@ npm run build
 ```
 
 ## Backend server setup
+
+The backend server is optional. If you decide to use it, set the variable
+`backendDisabled` in `src/api.js` to `false`.
+
 ### Create virtual environment and install packages
 ```
 python3 -m venv env

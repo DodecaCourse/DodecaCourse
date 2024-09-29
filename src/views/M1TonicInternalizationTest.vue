@@ -335,7 +335,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
         and retry after a few more practice sessions. Make sure you check the
         troubleshooting section if you have any specific problems.
       </p>
-      <div v-if="connected">
+      <div v-if="!backendDisabled">
       <p>
         <b>Want to save your progress as you make your way through the Dodeca Course?</b>
       </p>
@@ -358,9 +358,11 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
 
 <script>
 import InlineConfigurator from "../components/InlineConfigurator";
+import api from "../api.js";
 export default {
   name: "TonicInternalizationTest",
   components: {InlineConfigurator},
+  mixins: [api],
   data: function () {
     return {
       curStep: 1,
