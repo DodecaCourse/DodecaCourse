@@ -40,6 +40,11 @@
         just open an issue to get in touch or file a pull request on
         <a href="https://github.com/DodecaCourse/DodecaCourse"><v-icon>mdi-github</v-icon>GitHub</a>
       </p>
+      <h2>Credits</h2>
+      <ul>
+        <li>Audio playback is based on <a href="https://github.com/mudcube/MIDI.js"><v-icon>mdi-github</v-icon>MIDI.js</a></li>
+        <li>Pitch detection is done using code from <a href="https://github.com/cwilso/PitchDetect"><v-icon>mdi-github</v-icon>PitchDetect</a></li>
+      </ul>
     </v-flex>
   </v-layout>
 </template>
