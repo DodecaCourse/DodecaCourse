@@ -336,21 +336,21 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/
         troubleshooting section if you have any specific problems.
       </p>
       <div v-if="!backendDisabled">
-      <p>
-        <b>Want to save your progress as you make your way through the Dodeca Course?</b>
-      </p>
-      <p>
-        Generate a username by hitting <v-icon>mdi-account-plus</v-icon> in the top right corner.
-        It's free and no personal information is required.
-      </p>
-      <v-btn
-        style="float: right"
-        color="secondary"
-        class="mx-3"
-        to="/individual-notes/overview"
-      >
-        Next module
-      </v-btn>
+        <p>
+          <b>Want to save your progress as you make your way through the Dodeca Course?</b>
+        </p>
+        <p>
+          Generate a username by hitting <v-icon>mdi-account-plus</v-icon> in the top right corner.
+          It's free and no personal information is required.
+        </p>
+        <v-btn
+          style="float: right"
+          color="secondary"
+          class="mx-3"
+          to="/individual-notes/overview"
+        >
+          Next module
+        </v-btn>
       </div>
     </v-flex>
   </v-layout>
